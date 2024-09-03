@@ -730,61 +730,78 @@ section,
 /*--------------------------------------------------------------
 # Tool Section
 --------------------------------------------------------------*/
-.skills-content.skills-animation {
-  padding-left: 30px;
-  padding-right: 30px;
-}
-
-.tools-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+/* .resume .resume-title {
+  color: var(--heading-color);
+  font-family: "Raleway", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
   margin-top: 20px;
+  margin-bottom: 20px;
+} */
+.resume .resume-title {
+  font-size: 26px;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: #222222;
 }
 
-.tools-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+.resume .resume-item {
+  padding: 0 0 20px 20px;
+  margin-top: -2px;
+  border-left: 2px solid var(--accent-color);
+  position: relative;
 }
 
-.tool-item {
-  flex: 1;
-  text-align: center;
-  background-color: #F7F9FC;
-  padding: 20px;
-  border-radius: 8px;
-  transition: box-shadow 0.3s ease;
-}
-
-.tool-item:hover {
-  box-shadow: 0 0 15px #34b7a7;
-}
-
-.tool-item img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
+.resume .resume-item h4 {
+  line-height: 18px;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  /* text-transform: uppercase; */
+  color: #1d685f; /* color-mix(in srgb, var(--default-color), transparent 20%); */
   margin-bottom: 10px;
 }
+.resume .resume-item h5 {
+  font-size: 16px;
+  background: #effbf9;
+  padding: 5px 15px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #34b7a7;
+} 
 
-.tool-item h6 {
-  margin: 0;
-  font-size: 14px;
-  font-weight: bold;
+/* .resume .resume-item h5 {
+  font-size: 16px;
+  padding: 5px 15px;
+  display: inline-block;
+  font-weight: 600;
+  margin-bottom: 10px;
+} */
+
+.resume .resume-item ul {
+  padding-left: 20px;
 }
 
-.tool-item p {
-  margin: 5px 0 0;
-  font-size: 12px;
-  color: #777;
+.resume .resume-item ul li {
+  padding-bottom: 10px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .tools-row {
-    flex-direction: column;
-  }
+.resume .resume-item:last-child {
+  padding-bottom: 0;
+}
+
+.resume .resume-item::before {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50px;
+  left: -9px;
+  top: 0;
+  background: var(--background-color);
+  border: 2px solid var(--accent-color);
 }
 
 /*--------------------------------------------------------------
