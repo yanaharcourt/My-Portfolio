@@ -758,7 +758,7 @@ section,
 }
 
 .tool-item:hover {
-  box-shadow: 0 0 15px rgba(34, 195, 241, 0.5);
+  box-shadow: 0 0 15px #34b7a7;
 }
 
 .tool-item img {
