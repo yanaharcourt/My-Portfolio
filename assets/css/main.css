@@ -730,9 +730,10 @@ section,
 /*--------------------------------------------------------------
 # Tool Section
 --------------------------------------------------------------*/
-.resume .resume-title {
-  font-size: 26px;
-  font-weight: 400;
+.tools .tools-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
   margin-top: 20px;
   margin-bottom: 20px;
   color: #222222;
@@ -777,7 +778,7 @@ section,
   margin: 0;
   font-size: 16px;
   font-weight: 600;
-  color: #34b7a7;
+  color: #000000;
 }
 
 .tool-item p {
