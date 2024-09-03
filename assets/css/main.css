@@ -756,7 +756,7 @@ section,
 .tool-item {
   flex: 1;
   text-align: center;
-  background-color: #effbf9;
+  background-color: #f7f9fc;
   padding: 20px;
   border-radius: 8px;
   transition: box-shadow 0.3s ease;
