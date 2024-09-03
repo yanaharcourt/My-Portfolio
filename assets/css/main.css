@@ -730,6 +730,11 @@ section,
 /*--------------------------------------------------------------
 # Tool Section
 --------------------------------------------------------------*/
+.skills-content.skills-animation {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 .tools-grid {
   display: flex;
   flex-direction: column;
