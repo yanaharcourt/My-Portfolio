@@ -1,0 +1,2292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASCENDtials</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,300;0,400;0,700;0,900&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Amoret+Sans&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <style>
+    @font-face {
+      font-family: 'Amoret Sans';
+      src: url('assets/font/amoret-sans.ttf') format('truetype');
+      font-weight: 300;
+      font-style: normal;
+    }
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+  
+    /* Hero Section */
+    .hero-section {
+      width: 100%; 
+      position: relative; 
+    }
+
+    .hero-image {
+      width: 100%; 
+      height: auto; 
+    }
+
+    .line {
+      width: 1330px;
+      height: 1px;
+      background-color: #666666;
+      margin: 120px auto; 
+      margin-top: 120px;
+      margin-bottom: 120px;
+    }
+
+    /* Project Overview Section */
+    .project-overview {
+      padding: 80px 55px; 
+      background-color: #FFFFFF;
+    }
+
+    .project-overview .container {
+      display: flex;
+      gap: 30px; 
+      flex-wrap: wrap;
+    }
+
+    /* Left Column Styles */
+    .project-description {
+      flex: 1 1 60%;
+      color: #274353;
+    }
+
+    .project-description .project-title {
+      font-family: 'Amoret Sans', sans-serif;
+      font-weight: 300;
+      font-size: 32px;
+      color: #274353;
+      margin-bottom: 16px;
+    }
+
+    .project-description .project-text {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 20px;
+      color: #666666;
+      line-height: 1.8;
+    }
+
+    /* Right Column Styles */
+    .project-info {
+      flex: 1 1 30%;
+      padding: 0;
+      border-radius: 10px;
+      box-sizing: border-box;
+      margin-left: 60px;
+    }
+
+    .project-info .info-title {
+      font-family: 'Amoret Sans', sans-serif;
+      font-size: 24px;
+      font-weight: 300;
+      color: #274353;
+      margin-bottom: 16px;
+    }
+
+    .project-info .info-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .project-info .info-list li {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 18px;
+      color: #666666;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .project-info .info-list li strong {
+      color: #222222;
+    }
+
+    .button-container {
+      margin-top: 30px; 
+      font-family: 'Noto Sans', sans-serif;
+    }
+
+    .btn-visit {
+      padding: 8px 40px;
+      background-color: #34b7a7; 
+      color: #FFFFFF; 
+      border-radius: 50px;
+      transition: background-color 0.3s;
+      text-decoration: none;
+    }
+
+    .btn-visit:hover {
+      background-color: rgba(52, 183, 167, 0.8); 
+    }
+
+
+    /* First section */
+    .project-section {
+      background-color: #FFFFFF;
+      display: flex;
+      justify-content: center;
+    }
+
+    .project-section .container {
+      display: flex;
+      gap: 30px; 
+    }
+
+    .project-section .box {
+      background-color: #F5F5F5;
+      border-radius: 30px;
+      padding: 40px;
+      box-sizing: border-box;
+      color: #222222;
+      width: 650px;
+      margin-bottom: 30px; 
+    }
+
+    /* The Challenge Box */
+    .project-section .challenge-box {
+      height: 480px;
+    }
+
+    .project-section .challenge-title {
+      font-family: 'Amoret Sans', sans-serif;
+      font-weight: 300;
+      font-size: 28px;
+      color: #274353;
+      margin-bottom: 24px;
+      margin-top: 0px;
+    }
+
+    .project-section .challenge-description {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 20px;
+      color: #666666;
+      line-height: 38px;
+      max-width: 590px;
+    }
+
+    /* Initial State Box */
+    .project-section .initial-state-box {
+      height: 610px;
+      margin-top: 62px; 
+    }
+
+    .project-section .initial-state-title {
+      font-family: 'Amoret Sans', sans-serif;
+      font-weight: 300;
+      font-size: 28px;
+      color: #274353;
+      margin-bottom: 24px;
+      margin-top: 0px;
+    }
+
+    .project-section .initial-state-description {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 20px;
+      color: #666666;
+      line-height: 38px;
+      max-width: 590px;
+    }
+
+    .li {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 20px;
+      color: #666666;
+      line-height: 38px;
+      max-width: 590px;
+    }
+
+    /* Stages of Work Box */
+    .project-section .stages-of-work-box {
+      height: 1150px;
+    }
+
+    .project-section .stages-of-work-title {
+      font-family: 'Amoret Sans', sans-serif;
+      font-weight: 300;
+      font-size: 28px;
+      color: #274353;
+      margin-bottom: 24px;
+      margin-top: 0px;
+    }
+
+    .project-section .stages-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0px; 
+    }
+
+    .project-section .stage {
+      display: flex; 
+      align-items: flex-start; 
+      max-width: 590px; 
+    }
+
+    .project-section .stage-title {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 20px;
+      font-weight: bold;
+      color: #666666;
+      max-width: 184px;
+    }
+
+    .project-section .stage-description {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 18px;
+      color: #666666;
+      line-height: 1.4; 
+      max-width: 337px;
+      margin-left: 16px;
+    }
+    /* Carousel */
+    .carousel-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 55px;
+    }
+
+    .carousel-header {
+      text-align: left;
+      margin-bottom: 40px;
+    }
+
+    .carousel-title {
+      font-size: 28px;
+      font-family: 'Amoret Sans', sans-serif;
+      font-weight: 300;
+      color: #274353;
+      text-align: left; 
+    }
+
+    .carousel {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .carousel-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .slide {
+      position: absolute;
+      width: 520px;
+      height: 350px;
+      transition: all 0.5s ease;
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: solid 1px;
+      border-radius: 30px;
+    }
+
+    .slide.active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 2;
+    }
+
+    .slide.prev {
+      transform: translateX(-100%) scale(0.8);
+      opacity: 0.5;
+      z-index: 1;
+    }
+
+    .slide.next {
+      transform: translateX(100%) scale(0.8);
+      opacity: 0.5;
+      z-index: 1;
+    }
+
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(52, 183, 167, 0.8);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .carousel-button:hover {
+      background-color: rgba(52, 183, 167, 1);
+    }
+
+    .carousel-button.prev {
+      left: 20px;
+    }
+
+    .carousel-button.next {
+      right: 20px;
+    }
+
+    /* visual style */
+    .visual-development-section {
+      margin-left: 55px;
+      margin-right: 55px;
+    }
+
+    .visual-development-title {
+      font-family: 'Amoret Sans', sans-serif;
+      font-size: 28px;
+      color: #274353;
+      font-weight: 300;
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    .visual-development-container {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 160px;
+    }
+
+    .visual-development-card {
+      width: 650px;
+      height: 208px;
+      background-color: #F5F5F5;
+      border-radius: 30px;
+      padding: 0px 30px;
+      box-sizing: border-box;
+    }
+
+    .visual-development-card-title {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 26px;
+      color: #666666;
+      margin-bottom: 0px;
+    }
+
+    .visual-development-card-text {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #666666;
+      line-height: 38px;
+      width: 590px;
+      margin-top: 8px;
+    }
+
+    .wireframes-container {
+      position: relative;
+      width: 1330px;
+      height: 583px;
+      margin-top: 30px;
+    }
+
+    .wireframe-image {
+      position: absolute;
+      flex-shrink: 0;
+    }
+
+    .wireframe-1 {
+      width: 612px;
+      height: 448px;
+      z-index: 3;
+      left: 0;
+      top: 83px;
+    }
+
+    .wireframe-2 {
+      width: 536px;
+      height: 448px;
+      z-index: 2;
+      left: 397px;
+      top: 35px;
+    }
+
+    .wireframe-3 {
+      width: 497px;
+      height: 500px;
+      z-index: 1;
+      left: 833px;
+      top: -40px;
+    }
+    .wireframes-container-second {
+      position: relative;
+      width: 1330px;
+      height: 500px; 
+      margin-top: 70px;
+    }
+
+    .wireframe-4 {
+      width: 732px;
+      height: 448px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 2;
+    }
+
+    .wireframe-5 {
+      width: 724px;
+      height: 448px;
+      position: absolute;
+      right: 0;
+      top: -50px; 
+      z-index: 1;
+    }
+
+    /* Font Selection */ 
+    .font-selection-section {
+    margin-left: 55px;
+    margin-right: 55px;
+  }
+
+    .font-selection-title {
+      font-family: 'Amoret Sans', sans-serif;
+      font-size: 28px;
+      color: #274353;
+      font-weight: 300;
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    .font-selection-card {
+      width: 1330px;
+      height: 355px;
+      background-color: #F5F5F5;
+      border-radius: 30px;
+      padding: 0 30px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .font-selection-card-title {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 26px;
+      color: #666666;
+      margin-bottom: 0px;
+    }
+
+    .font-selection-card-text {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #666666;
+      line-height: 38px;
+      width: 1270px;
+    }
+    .font-carousel-section {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 55px;
+    }
+
+    .font-carousel-header {
+      text-align: left;
+      margin-bottom: 40px;
+    }
+
+    .font-carousel-title {
+      font-size: 28px;
+      font-family: 'Amoret Sans', sans-serif;
+      font-weight: 300;
+      color: #274353;
+      text-align: left;
+    }
+
+    .font-carousel {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: visible; 
+    }
+
+    .font-carousel-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin-top: 120px;
+      margin-bottom: 120px;
+    }
+
+    .font-slide {
+      position: absolute;
+      width: 520px;
+      height: 350px;
+      transition: all 0.5s ease;
+      opacity: 0;
+      transform: scale(0.8);
+    }
+
+    .font-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-fit: contain;
+    }
+
+    .font-slide.active {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 2;
+    }
+
+    .font-slide.prev {
+      transform: translateX(-100%) scale(0.8);
+      opacity: 0.5;
+      z-index: 1;
+    }
+
+    .font-slide.next {
+      transform: translateX(100%) scale(0.8);
+      opacity: 0.5;
+      z-index: 1;
+    }
+
+    .font-carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(52, 183, 167, 0.8);
+      color: white;
+      border: none;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .font-carousel-button:hover {
+      background-color: rgba(52, 183, 167, 1);
+    }
+
+    .font-carousel-button.font-prev {
+      left: 20px;
+    }
+
+    .font-carousel-button.font-next {
+      right: 20px;
+    }
+
+    /* Font result */ 
+    .result-section {
+      margin-left: 55px;
+      margin-right: 55px;
+      margin-bottom: 120px;
+    }
+
+    .result-title {
+      font-family: 'Amoret Sans', sans-serif;
+      font-size: 28px;
+      color: #274353;
+      font-weight: 300;
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    .result-container {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    }
+
+    .result-card {
+      width: 647px;
+      height: 361px;
+      background-color: #F5F5F5;
+      border-radius: 30px;
+      padding: 40px 30px;
+      box-sizing: border-box;
+    }
+
+    .result-text {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: #666666;
+      line-height: 38px;
+      width: 587px;
+      margin-bottom: 14px;
+      margin-top: 0px;
+    }
+
+    .result-text .bold {
+      font-weight: 700;
+    }
+
+    .second-paragraph {
+      margin-top: 8px;
+    }
+
+    .result-image {
+      width: 650px;
+      height: 360px;
+      overflow: hidden;
+    }
+
+    .result-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Home Page Demo */ 
+    .section-wrapper {
+      display: flex;
+      position: relative;
+      padding: 40px;
+      gap: 60px;
+    }
+
+    .portfolio-parallax-demo {
+      display: flex;
+      position: relative;
+      gap: 60px;
+      margin: 0 55px 120px 55px !important;
+    }
+
+    .portfolio-parallax-demo .homepage-image {
+      width: 500px;
+      height: 832px;
+      object-fit: cover;
+    }
+
+    .portfolio-parallax-demo .parallax-section {
+      position: relative;
+      margin-left: -100px;
+    }
+
+    .portfolio-parallax-demo .parallax-box {
+      width: 814px;
+      height: 417px;
+      border: 8px solid #F5F5F5;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+      top: 76px;
+    }
+
+    .portfolio-parallax-demo .arrow {
+      position: absolute;
+      left: -60px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .portfolio-parallax-demo .description {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 20px;
+      line-height: 38px;
+      color: #666666;
+      width: 402px;
+      margin-top: 100px;
+      margin-left: 230px;
+    }
+
+    .portfolio-parallax-demo .parallax-box {
+      width: 814px;
+      height: 417px;
+      border: 8px solid #F5F5F5;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+      background: white;
+    }
+
+    .portfolio-parallax-demo .arrow {
+      position: absolute;
+      left: -60px;
+      top: 67%;
+      transform: translateY(-50%);
+    }
+
+    .portfolio-parallax-demo .parallax-container {
+      position: relative !important;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      margin: 0;
+    }
+
+    .portfolio-parallax-demo .parallax {
+      position: absolute !important;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+    }
+
+    .portfolio-parallax-demo .layer {
+      position: absolute;
+      background-repeat: no-repeat;
+      background-size: contain;
+      transition: transform 0.1s ease-out;
+    }
+
+    .portfolio-parallax-demo .content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 32px 20px 40px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .portfolio-parallax-demo .content h2 {
+      font-family: 'Amoret Sans', sans-serif;
+      font-weight: 300;
+      font-size: 28px;
+      color: #274353;
+      margin-bottom: 20px;
+    }
+
+    .portfolio-parallax-demo .content p {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 300;
+      color: #666666;
+      max-width: 454px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .portfolio-parallax-demo .layer-1 { background-image: url('assets/img/portfolio/ascendtials/environment.png'); width: 120px; height: 120px; top: 10%; left: 80%; }
+    .portfolio-parallax-demo .layer-2 { background-image: url('assets/img/portfolio/ascendtials/child.png'); width: 50px; height: 50px; top: 8%; left: 40%; }
+    .portfolio-parallax-demo .layer-3 { background-image: url('assets/img/portfolio/ascendtials/farmers.png'); width: 80px; height: 80px; top: 70%; left: 10%; }
+    .portfolio-parallax-demo .layer-4 { background-image: url('assets/img/portfolio/ascendtials/child2.png'); width: 40px; height: 40px; top: 65%; left: 85%; }
+    .portfolio-parallax-demo .layer-5 { background-image: url('assets/img/portfolio/ascendtials/Legal Aid.png'); width: 70px; height: 70px; top: 15%; left: 20%; }
+    .portfolio-parallax-demo .layer-6 { background-image: url('assets/img/portfolio/ascendtials/road.png'); width: 50px; height: 50px; top: 5%; left: 65%; }
+    .portfolio-parallax-demo .layer-7 { background-image: url('assets/img/portfolio/ascendtials/hiking.png'); width: 55px; height: 55px; top: 39%; left: 11%; }
+    .portfolio-parallax-demo .button {
+      width: 138px;
+      height: 30px;
+      background-color: #274353;
+      color: white;
+      border: none;
+      border-radius: 14px;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 8px;
+      font-weight: 500;
+      line-height: 30px;
+      text-align: center;
+      cursor: pointer;
+      margin-top: 20px;
+      display: inline-block;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+
+    .portfolio-parallax-demo .button:hover {
+      opacity: 0.9;
+    }
+
+    /* Yoga Page Demo */
+    .portfolio-yoga-demo {
+      display: flex;
+      flex-direction: row-reverse;
+      position: relative;
+      gap: 60px;
+      margin: 0 55px 200px 55px;
+    }
+
+    .portfolio-yoga-demo .homepage-image {
+      width: 556px;
+      height: 832px;
+      object-fit: cover;
+      margin-right: 55px;
+    }
+
+    .portfolio-yoga-demo .demo-section {
+      position: relative;
+      margin-right: -100px;
+    }
+
+    .portfolio-yoga-demo .parallax-box {
+      width: 632px;
+      height: 460px;
+      border: 8px solid #F5F5F5;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+      background: white;
+      padding: 20px;
+      padding: 20px;
+      margin-top: 100px;
+    }
+
+    .portfolio-yoga-demo .yoga-page-content {
+      display: grid;
+      grid-template-columns: repeat(3, 164px); 
+      gap: 20px;
+      padding: 10px;
+      max-height: 100%;
+      overflow-y: auto;
+      justify-content: center;
+    }
+
+    .portfolio-yoga-demo .yoga-card {
+      width: 164px; 
+      height: 180px; 
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .portfolio-yoga-demo .yoga-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .portfolio-yoga-demo .yoga-card:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
+      transition: opacity 1400ms cubic-bezier(0.19, 1, 0.22, 1);
+      opacity: 0;
+      backdrop-filter: blur(5px);
+      z-index: 1;
+    }
+
+    .portfolio-yoga-demo .yoga-card-content {
+      position: absolute;
+      bottom: 12px;
+      left: 8px;
+      right: 0;
+      padding: 0.75rem;
+      transform: translateY(calc(100% - 3rem));
+      z-index: 2;
+      transition: transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+
+    .portfolio-yoga-demo .yoga-card:hover:after {
+      opacity: 1;
+    }
+
+    .portfolio-yoga-demo .yoga-card:hover .yoga-card-content {
+      transform: translateY(0);
+    }
+
+    .portfolio-yoga-demo .yoga-card:hover img {
+      transform: translateY(-0.5%);
+    }
+
+    .portfolio-yoga-demo .yoga-card-title-container {
+      background-color: #F5F5F5;
+      border-radius: 25px;
+      padding: 5px 10px;
+      display: inline-block;
+      margin-bottom: 5px;
+      z-index: 3;
+    }
+
+    .portfolio-yoga-demo .yoga-card-title {
+      color: #222222 !important;
+      font-family: 'Amoret Sans', sans-serif;
+      font-size: 8px !important; 
+      font-weight: 400 !important;
+      margin: 0 !important;
+    }
+
+    .portfolio-yoga-demo .yoga-card-copy {
+      color: #E5E4E4;
+      font-size: 7px; 
+      line-height: 1.4;
+      opacity: 0;
+      transform: translateY(1rem);
+      transition: opacity 700ms cubic-bezier(0.19, 1, 0.22, 1),
+                transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
+      z-index: 3;
+      margin: 5px 0;
+    }
+
+    .portfolio-yoga-demo .yoga-card-btn {
+      font-family: 'Amoret Sans', sans-serif !important;
+      font-size: 6px;
+      background-color: #2A495A !important;
+      color: white;
+      border: none !important;
+      padding: 6px 10px;
+      border-radius: 15px !important;
+      cursor: pointer;
+      margin-top: 10px !important;
+      opacity: 0;
+      transform: translateY(1rem);
+      transition: opacity 700ms cubic-bezier(0.19, 1, 0.22, 1),
+                transform 700ms cubic-bezier(0.19, 1, 0.22, 1);
+      z-index: 3;
+    }
+
+    .portfolio-yoga-demo .yoga-card-btn:hover {
+      background-color: #3CA8E6 !important;
+      color: #fff !important;
+    }
+
+    .portfolio-yoga-demo .yoga-card:hover .yoga-card-copy,
+    .portfolio-yoga-demo .yoga-card:hover .yoga-card-btn {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .portfolio-yoga-demo .arrow {
+      position: absolute;
+      left: 390px;
+      top: 600px;
+      transform: translateY(-50%);
+    }
+
+    .portfolio-yoga-demo .description-box {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 20px;
+      line-height: 38px;
+      color: #666666;
+      width: 460px;
+      margin-top: 100px;
+      margin-left: -80px;
+    }
+
+    /* Donation Page Demo */ 
+    .portfolio-donation-demo {
+      display: flex;
+      position: relative;
+      padding: 40px;
+      gap: 60px;
+      margin-bottom: 120px;
+    }
+
+    .portfolio-donation-demo .homepage-image {
+      width: 500px;
+      height: 541px;
+      object-fit: cover;
+    }
+
+    .portfolio-donation-demo .demo-section {
+      position: relative;
+      margin-left: -100px;
+      margin-top: -60px;
+    }
+
+    .portfolio-donation-demo .donation-box {
+      width: 710px;
+      height: 417px;
+      border: 8px solid #F5F5F5;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      box-sizing: border-box;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .portfolio-donation-demo .arrow {
+      position: absolute;
+      left: 20px;
+      top: 80%;
+      transform: translateY(-50%);
+    }
+
+    .portfolio-donation-demo .description {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 20px;
+      line-height: 38px;
+      color: #666666;
+      width: 402px;
+      margin-top: 20px;
+      margin-left: 280px;
+    }
+
+    /* Стили для контейнера фигур */
+    .portfolio-donation-demo .figures-container {
+      position: relative;
+      width: 1326px;
+      height: 550px;
+      transform: scale(0.5);
+      transform-origin: bottom bottom;
+      margin-bottom: 0px;
+      margin-right: 420px;
+      margin-top: 40px;
+    }
+
+    .portfolio-donation-demo .figure {
+      position: absolute;
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    /* Позиционирование фигур с учетом масштаба */
+    .portfolio-donation-demo .first-figure-container {
+      top: -38px;
+      left: -100px;
+    }
+
+    .portfolio-donation-demo .second-figure-container {
+      top: 108px;
+      left: 164px;
+    }
+
+    .portfolio-donation-demo .third-figure-container {
+      top: 217px;
+      left: 428px;
+    }
+
+    .portfolio-donation-demo .fourth-figure-container {
+      top: 108px;
+      left: 692px;
+    }
+
+    .portfolio-donation-demo .fifth-figure-container {
+      top: -40px;
+      left: 956px;
+    }
+
+    /* Эффекты наведения */
+    .portfolio-donation-demo .main-figure,
+    .portfolio-donation-demo .bottom-rect,
+    .portfolio-donation-demo .rect-figure,
+    .portfolio-donation-demo .second-figure,
+    .portfolio-donation-demo .figure {
+      transition: transform 0.3s ease;
+      transform-origin: center;
+    }
+
+    .portfolio-donation-demo .main-figure:hover,
+    .portfolio-donation-demo .bottom-rect:hover,
+    .portfolio-donation-demo .rect-figure:hover,
+    .portfolio-donation-demo .figure:hover {
+      transform: scale(1.03);
+    }
+
+    .portfolio-donation-demo .circle-button {
+      cursor: pointer;
+      transition: fill 0.3s ease;
+    }
+
+    .portfolio-donation-demo .circle-button:hover {
+      fill: #3CA8E6;
+    }
+
+    /* Дополнительные стили для SVG */
+    .portfolio-donation-demo svg {
+      overflow: visible;
+    }
+
+    .portfolio-donation-demo foreignObject {
+      overflow: visible;
+    }
+
+    /* Стили для обработки изображений в pattern */
+    .portfolio-donation-demo pattern image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Service Learning Page Demo */
+  .portfolio-service-demo {
+    display: flex;
+    position: relative;
+    padding: 40px;
+    gap: 60px;
+    justify-content: flex-end;
+  }
+
+  .portfolio-service-demo .homepage-image {
+    width: 500px;
+    height: 1400px;
+    object-fit: cover;
+    margin-right: 55px;
+  }
+
+  .portfolio-service-demo .demo-section {
+    position: relative;
+    margin-right: -100px;
+    z-index: 2;
+  }
+
+  /* Стили для рамок */
+  .portfolio-service-demo .environmental-box {
+    width: 720px;
+    height: 415px;
+    border: 8px solid #F5F5F5;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    background: white;
+    margin-right: 19px;
+  margin-top: 42px;
+  }
+
+  .portfolio-service-demo .description-box {
+    width: 437px;
+    padding: 0;
+    margin: 20px 0;
+  }
+
+  .portfolio-service-demo .description-box p {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 20px;
+    line-height: 38px;
+    color: #666666;
+    margin: 0;
+    margin-top: -120px;
+  }
+  .portfolio-service-demo .arrow {
+    display: block;
+    margin: 10px auto;
+    margin-right: 20px;
+    margin-left: 460px;
+  }
+
+  /* Environmental Programs стили */
+  .portfolio-environmental.environmental-programs-section {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .portfolio-environmental .section-container {
+    width: 720px;
+    height: 610px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .portfolio-environmental h1 {
+    font-family: 'Amoret Sans', sans-serif;
+    font-size: 24px;
+    color: #274353 !important;
+    margin: 0;
+    padding-top: 40px;
+    margin-left: 30px;
+  }
+
+  .portfolio-environmental .text-box {
+    width: 362px;
+    background-color: #F5F5F5 !important;
+    border-radius: 30px;
+    padding: 24px 30px;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+  }
+
+  .portfolio-environmental .text-box h2 {
+    font-family: 'Amoret Sans', sans-serif;
+    font-size: 14px;
+    color: #274353 !important;
+    margin: 0 0 8px 0;
+  }
+
+  .portfolio-environmental .text-box ol {
+    margin: 0;
+    padding-left: 18px !important;
+    color: #222 !important;
+  }
+
+  .portfolio-environmental .text-box li {
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+
+  .portfolio-environmental #goals-box {
+    top: 112px;
+    height: 190px;
+    margin-left: 30px;
+  }
+
+  .portfolio-environmental #benefits-box {
+    top: 320px;
+    height: 260px !important;
+    opacity: 0.4;
+    margin-left: 30px;
+  }
+
+  .portfolio-environmental .image-container {
+    position: absolute;
+    right: 44px;
+    top: 112px;
+    width: 260px;
+    height: 250px;
+    overflow: visible;
+  }
+
+  .portfolio-environmental #top-image,
+  .portfolio-environmental #bottom-image {
+    width: 260px;
+    height: 220px;
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    border-radius: 30px;
+    will-change: transform, opacity; 
+  }
+
+  .portfolio-environmental #top-image {
+    top: 0;
+  }
+
+  .portfolio-environmental #bottom-image {
+    pointer-events: none;
+    transform: translate(0px, 230px);
+    opacity: 1;
+  }
+
+  .portfolio-service-demo .pillars-box {
+    width: 720px;
+    height: 305px;
+    border: 8px solid #F5F5F5;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+    background: white;
+    margin-top: 120px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .portfolio-service-demo .pillars-box .pillars-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  /* Other Pages */ 
+  .portfolio-other-pages {
+    margin: 120px 55px 120px 55px;
+  }
+
+  .portfolio-other-pages .other-pages-title {
+    font-family: 'Amoret Sans', sans-serif;
+    font-weight: 300;
+    font-size: 28px;
+    color: #274353;
+    margin-bottom: 40px;
+  }
+
+  .portfolio-other-pages .other-pages-container {
+    display: flex;
+    gap: 120px;
+  }
+
+  .portfolio-other-pages .about-page {
+    width: 520px;
+    height: 880px;
+    object-fit: cover;
+  }
+
+  .portfolio-other-pages .right-pages {
+    display: flex;
+    flex-direction: column;
+    gap: 58px;
+  }
+
+  .portfolio-other-pages .literacy-page {
+    width: 458px;
+    height: 499px;
+    object-fit: cover;
+  }
+
+  .portfolio-other-pages .membership-page {
+    width: 458px;
+    height: 323px;
+    object-fit: cover;
+  }
+
+  /* Design to code */ 
+  .portfolio-design-code {
+    margin: 120px 55px 120px 55px;
+  }
+
+  .portfolio-design-code .design-code-title {
+      font-family: 'Amoret Sans', sans-serif;
+      font-size: 28px;
+      color: #274353;
+      margin-bottom: 24px;
+  }
+
+  .portfolio-design-code .implementation-box {
+      width: 650px;
+      height: 290px;
+      background-color: #F5F5F5;
+      border-radius: 30px;
+      padding: 40px 30px;
+      box-sizing: border-box;
+  }
+
+  .portfolio-design-code .implementation-title {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 26px;
+      color: #666666;
+      margin-top: 0;
+      margin-bottom: 0;
+      font-weight: 700;
+  }
+
+  .portfolio-design-code .implementation-text {
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: #666666;
+      line-height: 38px;
+      width: 590px;
+      margin-top: 14px;
+  }
+
+  .portfolio-design-code .design-code-image {
+      width: 1330px;
+      height: 338px;
+      margin-top: 120px;
+      object-fit: cover;
+  }
+  /* UI Kit */ 
+  .portfolio-ui-kit {
+    margin: 120px 55px 120px 55px;
+  }
+
+  .portfolio-ui-kit .ui-kit-title {
+      font-family: 'Amoret Sans', sans-serif;
+      font-size: 28px;
+      color: #274353;
+      margin-bottom: 24px;
+  }
+
+  .portfolio-ui-kit .ui-kit-image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+  }
+
+  /* Thank you for looking */
+  .portfolio-thank-you {
+    margin: 120px 55px 120px 55px;
+  }
+
+  .portfolio-thank-you .thank-you-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  </style>
+
+</head>
+
+<body class="portfolio-details-page">
+  <main class="main">
+
+    <div class="hero-section">
+      <img src="assets/img/portfolio/ascendtials/Hero photo.png" alt="Hero Image" class="hero-image">
+    </div>
+
+   <!-- Overview -->
+    <section class="project-overview">
+      <div class="container">
+        <!-- Left Column: Project Description -->
+        <div class="project-description" data-aos="fade-up">
+          <h2 class="project-title">Complete Redesign for ASCENDtials</h2>
+          <p class="project-text">
+            This project details the comprehensive redesign of ASCENDtials’ online platform, aimed at transforming a previously cluttered and outdated user experience into a visually engaging, accessible, and mobile-responsive interface. After conducting a UX audit to address design and usability flaws, I developed a modern, clean design approach, balancing the brand’s unique identity with streamlined user interaction. By coding and implementing new layouts, animations, and interactive elements, the redesign led to enhanced user engagement, increased subscriptions, and established ASCENDtials as a distinctive presence within its niche.
+          </p>
+        </div>
+        
+        <!-- Right Column: Project Information -->
+        <div class="project-info" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="info-title">Project Information</h3>
+          <ul class="info-list">
+            <li><strong>Category:</strong> UX / UI design</li>
+            <li><strong>Project Date:</strong> June 2024</li>
+            <div class="button-container">
+              <a href="http://ascendtials.org" class="btn-visit">Visit Website</a>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+   <!-- Line -->
+    <div class="line" id="animated-line"></div>
+      
+    
+    <!-- First Section -->
+    <section class="project-section">
+      <div class="container">
+        
+        <!-- Left Column: The Challenge and Initial State -->
+        <div class="left-column">
+          
+          <!-- The Challenge Section -->
+          <div class="box challenge-box">
+            <h2 class="challenge-title">The Challenge</h2>
+            <p class="challenge-description">
+              My task was to continue working on the design of ASCENDtials' website, maintaining its original style, but with a focus on improving the user experience. The company insisted on keeping the heavy and cumbersome design style, despite its overwhelming feeling for users. At the same time, I had to conduct testing to identify and address key issues. The goal was to make the website more user-friendly, without losing the core elements of the brand identity.
+            </p>
+          </div>
+          
+          <!-- Initial State Section -->
+          <div class="box initial-state-box">
+            <h2 class="initial-state-title">Initial State</h2>
+            <p class="initial-state-description">
+              When I joined, the design of the website was bulky and overcomplicated. Here were the main issues I identified:
+            </p>
+            <ul class="li">
+              <li>Lack of proper design principles, especially in typography.</li>
+              <li>Problems with navigation and content accessibility.</li>
+              <li>The design faced issues: cluttered visuals distracted from key information, excessive on-page content slowed decision-making, and interactive elements were inconsistently placed, making navigation difficult. This created a confusing user experience.</li>
+              <li>Excessive text overload, which complicated user experience.</li>
+            </ul>
+          </div>
+          
+        </div>
+        
+        <!-- Right Column: Stages of Work -->
+        <div class="box stages-of-work-box">
+          <h2 class="stages-of-work-title">Stages of Work</h2>
+          <div class="stages-list">
+            <div class="stage">
+              <h3 class="stage-title">Project Goal and Task Analysis</h3>
+              <p class="stage-description">Defining the company’s objectives and desires for improved UX and style consistency to strengthen ASCENDtials' unique image.</p>
+            </div>
+            <div class="stage">
+              <h3 class="stage-title">Market and Competitor Analysis</h3>
+              <p class="stage-description">Researching market trends and competitor designs for accurate positioning.</p>
+            </div>
+            <div class="stage">
+              <h3 class="stage-title">Current State Assessment</h3>
+              <p class="stage-description">Reviewing the existing website design and identifying issues with navigation, text, and outdated elements.</p>
+            </div>
+            <div class="stage">
+              <h3 class="stage-title">Color Palette and Visual Style</h3>
+              <p class="stage-description">Developing a light color palette that reflects the company’s positive and community-oriented focus.</p>
+            </div>
+            <div class="stage">
+              <h3 class="stage-title">Creating Unique Shapes</h3>
+              <p class="stage-description">Developing unique shapes for hero sections that reflect the company's identity and bring a modern touch.</p>
+            </div>
+            <div class="stage">
+              <h3 class="stage-title">Wireframe Development</h3>
+              <p class="stage-description">Creating a low-fidelity wireframe for client approval and structural clarity.</p>
+            </div>
+            <div class="stage">
+              <h3 class="stage-title">Font Selection and Style Development</h3>
+              <p class="stage-description">Testing fonts to visualize the brand.</p>
+            </div>
+            <div class="stage">
+              <h3 class="stage-title">Designing and Creating Site Animations</h3>
+              <p class="stage-description">Establishing a unique visual style and animations to highlight company initiatives.</p>
+            </div>
+            <div class="stage">
+              <h3 class="stage-title">Coding and Optimization</h3>
+              <p class="stage-description">Writing code for pages and optimizing for mobile devices.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Carousel -->
+    <div class="carousel-section">
+        <div class="carousel-header">
+            <h2 class="carousel-title">Initial State</h2>
+        </div>
+        
+        <div class="carousel">
+            <div class="carousel-container">
+                <div class="slide">
+                    <img src="assets/img/portfolio/ASCENDtials/1.png" alt="Image 1">
+                </div>
+                <div class="slide">
+                    <img src="assets/img/portfolio/ASCENDtials/2.png" alt="Image 2">
+                </div>
+                <div class="slide">
+                    <img src="assets/img/portfolio/ASCENDtials/3.png" alt="Image 3">
+                </div>
+                <div class="slide">
+                    <img src="assets/img/portfolio/ASCENDtials/4.png" alt="Image 4">
+                </div>
+                <div class="slide">
+                    <img src="assets/img/portfolio/ASCENDtials/5.png" alt="Image 5">
+                </div>
+                <div class="slide">
+                    <img src="assets/img/portfolio/ASCENDtials/6.png" alt="Image 5">
+                </div>
+                <div class="slide">
+                    <img src="assets/img/portfolio/ASCENDtials/7.png" alt="Image 5">
+                </div>
+                <div class="slide">
+                    <img src="assets/img/portfolio/ASCENDtials/8.png" alt="Image 5">
+                </div>
+                <div class="slide">
+                    <img src="assets/img/portfolio/ASCENDtials/9.png" alt="Image 5">
+                </div>
+                <div class="slide">
+                    <img src="assets/img/portfolio/ASCENDtials/10.png" alt="Image 5">
+                </div>
+            </div>
+            
+            <button class="carousel-button prev">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 6 9 12 15 18"></polyline>
+                </svg>
+            </button>
+            <button class="carousel-button next">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 6 15 12 9 18"></polyline>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Line -->
+    <div class="line" id="animated-line"></div>
+
+    <!-- visual development section -->
+    <div class="visual-development-section">
+      <h2 class="visual-development-title">Visual Style and Structure Development</h2>
+      <div class="visual-development-container">
+          <div class="visual-development-card">
+              <h3 class="visual-development-card-title">Creating Unique Shapes</h3>
+              <p class="visual-development-card-text">For the hero sections, I developed unique shapes that embody the company's identity. These elements add lightness and a modern touch, visually connecting with ASCENDtials' values.</p>
+          </div>
+          <div class="visual-development-card">
+              <h3 class="visual-development-card-title">Wireframe Development</h3>
+              <p class="visual-development-card-text">To align the site structure with the client, I created a low-fidelity wireframe. This layout clarified content placement and refined the project vision before implementation.</p>
+          </div>
+      </div>
+      <div class="wireframes-container">
+        <img src="assets/img/portfolio/ASCENDtials/Wireframe1.png" alt="Wireframe 1" class="wireframe-image wireframe-1">
+        <img src="assets/img/portfolio/ASCENDtials/Wireframe2.png" alt="Wireframe 2" class="wireframe-image wireframe-2">
+        <img src="assets/img/portfolio/ASCENDtials/Wireframe3.png" alt="Wireframe 3" class="wireframe-image wireframe-3">
+      </div>
+      <div class="wireframes-container-second">
+        <img src="assets/img/portfolio/ASCENDtials/Wireframe4.png" alt="Wireframe 4" class="wireframe-image wireframe-4">
+        <img src="assets/img/portfolio/ASCENDtials/Wireframe5.png" alt="Wireframe 5" class="wireframe-image wireframe-5">
+      </div>
+    </div>
+
+    <!-- Line -->
+    <div class="line" id="animated-line"></div>
+
+    <!-- Font Selection -->
+    <div class="font-selection-section">
+      <h2 class="font-selection-title">Font Selection</h2>
+      <div class="font-selection-card">
+          <h3 class="font-selection-card-title">Font Selection</h3>
+          <p class="font-selection-card-text">To create a visual style that reflects the unique and positive nature of ASCENDtials, I began by selecting fonts. My options included Aesthetic Romance, Grotesk, Amoret Sans, Harmony Embrace, Quantify, and Satoshi. After analysis and testing, I chose Amoret Sans. This font perfectly conveys the lightness and friendliness the company aims for, avoiding excessive formality and giving the site a modern, elegant look. <br> For the main body text, I considered Noto Sans, Roboto, Lato, and Inter before selecting Noto Sans for readability and harmony with Amoret Sans.</p>
+      </div>
+    </div>
+    
+    <div class="font-carousel-section">
+      <div class="font-carousel-header">
+          <h2 class="font-carousel-title"></h2>
+      </div>
+      <div class="font-carousel">
+          <div class="font-carousel-container">
+              <div class="font-slide">
+                  <img src="assets/img/portfolio/ASCENDtials/font1.png" alt="Font 1">
+              </div>
+              <div class="font-slide">
+                  <img src="assets/img/portfolio/ASCENDtials/font2.png" alt="Font 2">
+              </div>
+              <div class="font-slide">
+                  <img src="assets/img/portfolio/ASCENDtials/font3.png" alt="Font 3">
+              </div>
+              <div class="font-slide">
+                  <img src="assets/img/portfolio/ASCENDtials/font4.png" alt="Font 4">
+              </div>
+              <div class="font-slide">
+                  <img src="assets/img/portfolio/ASCENDtials/font5.png" alt="Font 5">
+              </div>
+              <div class="font-slide">
+                  <img src="assets/img/portfolio/ASCENDtials/font5.png" alt="Font 5">
+              </div>
+              <div class="font-slide">
+                  <img src="assets/img/portfolio/ASCENDtials/font6.png" alt="Font 5">
+              </div>
+          </div>
+          <button class="font-carousel-button font-prev">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="15 6 9 12 15 18"></polyline>
+              </svg>
+          </button>
+          <button class="font-carousel-button font-next">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 6 15 12 9 18"></polyline>
+              </svg>
+          </button>
+      </div>
+    </div>
+    <div class="result-section">
+      <h2 class="result-title">The Result</h2>
+      <div class="result-container">
+          <div class="result-card">
+              <p class="result-text">
+                  <span class="bold">Amoret Sans</span> for headings. This font captures the company's light, friendly identity, avoiding formality and adding modern elegance.
+              </p>
+              <p class="result-text second-paragraph">
+                  For the main text, I selected <span class="bold">Noto Sans</span>. It pairs well with Amoret Sans, creating a clean, readable style that balances hierarchy and reinforces an approachable feel across the site.
+              </p>
+          </div>
+          <div class="result-image">
+              <img src="assets/img/portfolio/ASCENDtials/result.png" alt="Result">
+          </div>
+      </div>
+    </div>
+
+    <!-- Line -->
+    <div class="line" id="animated-line"></div>
+
+    <!-- Home Page introduction -->
+    <div class="portfolio-parallax-demo">
+      <img src="assets/img/portfolio/ascendtials/Home Page.png" alt="Home Page" class="homepage-image">
+      
+      <div class="parallax-section">
+        <img src="assets/img/portfolio/ASCENDtials/Arrow 1.svg" alt="Arrow" class="arrow">
+        <div class="parallax-box">
+          <div class="parallax-container">
+            <div class="parallax">
+              <div class="layer layer-1"></div>
+              <div class="layer layer-2"></div>
+              <div class="layer layer-3"></div>
+              <div class="layer layer-4"></div>
+              <div class="layer layer-5"></div>
+              <div class="layer layer-6"></div>
+              <div class="layer layer-7"></div>
+            </div>
+            <div class="content">
+              <h2>Programs & Events</h2>
+              <p>We host programs and events that teach, engage, and create change. Learn something new at one of our literacy workshops, buy locally grown produce and handmade crafts at our Farmers' Markets, or help us reduce environmental pollution at one of our highway clean-ups. There are so many ways to get involved!</p>
+              <a href="#" class="button">View Programs & Events</a>
+            </div>
+          </div>
+        </div>
+        <p class="description">I incorporated a parallax effect to add depth and visual interest to the page, making it more engaging for users.</p>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const parallaxContainer = document.querySelector('.portfolio-parallax-demo');
+          const layers = parallaxContainer.querySelectorAll('.layer');
+          let mouseX = 0, mouseY = 0;
+          let windowWidth = window.innerWidth;
+          let windowHeight = window.innerHeight;
+    
+          function lerp(start, end, factor) {
+            return (1 - factor) * start + factor * end;
+          }
+    
+          function updateParallax(e) {
+            const rect = parallaxContainer.getBoundingClientRect();
+            mouseX = e.clientX - rect.left;
+            mouseY = e.clientY - rect.top;
+          }
+    
+          function animate() {
+            layers.forEach((layer, index) => {
+              const speed = (index + 1) * 0.007;
+              const rect = layer.getBoundingClientRect();
+              const centerX = rect.left + rect.width / 2;
+              const centerY = rect.top + rect.height / 2;
+              const targetX = (windowWidth / 2 - mouseX) * speed;
+              const targetY = (windowHeight / 2 - mouseY) * speed;
+              const currentX = parseFloat(layer.dataset.x || 0);
+              const currentY = parseFloat(layer.dataset.y || 0);
+              const newX = lerp(currentX, targetX, 0.1);
+              const newY = lerp(currentY, targetY, 0.1);
+    
+              layer.dataset.x = newX;
+              layer.dataset.y = newY;
+              layer.style.transform = `translate3d(${newX}px, ${newY}px, 0)`;
+            });
+            requestAnimationFrame(animate);
+          }
+    
+          parallaxContainer.addEventListener('mousemove', updateParallax);
+          window.addEventListener('resize', function() {
+            windowWidth = window.innerWidth;
+            windowHeight = window.innerHeight;
+          });
+    
+          animate();
+        });
+      </script>
+    </div>
+
+    <!-- Yoga Page Description -->
+    <div class="portfolio-yoga-demo">
+      <img src="assets/img/portfolio/ascendtials/Kemetic Yoga Page.png" alt="Kemetic Yoga Page" class="homepage-image">
+      
+      <div class="demo-section">
+        <div class="parallax-box">
+          <main class="yoga-page-content">
+            <!-- Cards will be added here by JavaScript -->
+          </main>
+        </div>
+        <img src="assets/img/portfolio/ASCENDtials/Arrow 2.svg" alt="Arrow" class="arrow">
+        <div class="description-box">
+          Previously, the text under the cards took up a lot of space, so I streamlined it and added interactivity—information now appears on hover.
+        </div>
+      </div>
+      <script>
+        (function() {
+          const cards = [
+            {
+              title: 'Group Yoga',
+              copy: 'We offer community sessions a few times a week. These sessions are open to all members of our community, held at local parks and events. Check out our event calendar to find the next available session! Bring a mat, water, and a willingness to learn something new.',
+              button: '<a href="https://ascendtials.org/contact-us/" target="_blank" style="color:inherit; text-decoration:none;">Contact Us</a>',
+              image: 'assets/img/portfolio/ascendtials/Group Yoga.jpg'
+            },
+            {
+              title: 'Youth Yoga',
+              copy: 'We host Kemetic yoga sessions for youngsters through our Build My Spirit after-school program. Kids ages 5-17 will be aided on a journey of self discovery, health, and well-being by our experienced teachers.',
+              button: '<a href="https://ascendtials.org/contact-us/" target="_blank" style="color:inherit; text-decoration:none;">Contact Us</a>',
+              image: 'assets/img/portfolio/ascendtials/Youth Yoga.jpg'
+            },
+            {
+              title: 'Private Yoga',
+              copy: 'Private sessions are designed for special private events or parties, at your preferred location. We especially love being outdoors. Bring us to your next party or gathering with friends.',
+              button: '<a href="https://ascendtials.org/contact-us/" target="_blank" style="color:inherit; text-decoration:none;">Contact Us</a>',
+              image: 'assets/img/portfolio/ascendtials/Private Yoga.jpg'
+            },
+            {
+              title: 'Corporate Yoga',
+              copy: 'These sessions are made for work. They are a great team-building exercise, or a fabulous way to start your company retreat! Feel re-energized and better connected with your coworkers.',
+              button: '<a href="https://ascendtials.org/contact-us/" target="_blank" style="color:inherit; text-decoration:none;">Contact Us</a>',
+              image: 'assets/img/portfolio/ascendtials/Corporate Yoga.jpg'
+            },
+            {
+              title: 'Full Moon Yoga',
+              copy: 'We celebrate the full moon each month with a Kemetic yoga session. During these sessions, we honor our ancestors and share cosmic consciousness. Stick around for a bonfire, too!',
+              button: '<a href="https://ascendtials.org/contact-us/" target="_blank" style="color:inherit; text-decoration:none;">Contact Us</a>',
+              image: 'assets/img/portfolio/ascendtials/Full Moon Yoga.jpg'
+            }
+          ];
+    
+          const pageContent = document.querySelector('.yoga-page-content');
+          cards.forEach(card => {
+            const cardElement = document.createElement('div');
+            cardElement.className = 'yoga-card';
+            cardElement.innerHTML = `
+              <img src="${card.image}" alt="${card.title}">
+              <div class="yoga-card-content">
+                <div class="yoga-card-title-container">
+                  <h2 class="yoga-card-title">${card.title}</h2>
+                </div>
+                <p class="yoga-card-copy">${card.copy}</p>
+                <button class="yoga-card-btn">${card.button}</button>
+              </div>
+            `;
+            pageContent.appendChild(cardElement);
+          });
+        })();
+      </script>
+    </div>
+  
+    <!-- Donation Page Demo -->
+    <div class="portfolio-donation-demo">
+      <img src="assets/img/portfolio/ascendtials/Donation Page.png" alt="Donation Page" class="homepage-image">
+      
+      <div class="demo-section">
+        <img src="assets/img/portfolio/ASCENDtials/Arrow 3.svg" alt="Arrow" class="arrow">
+        <div class="donation-box">
+          <div class="figures-container">
+            <!-- Первая фигура -->
+            <div class="figure first-figure-container">
+              <svg width="250" height="530" viewBox="0 0 250 530" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g class="main-figure">
+                  <path d="M0 344V40C0 17.9086 17.9086 0 40 0H116.775C124.288 0 131.341 3.61569 135.727 9.71505C140.113 15.8144 147.167 19.4301 154.679 19.4301H209C231.091 19.4301 249 37.3387 249 59.43V344C249 366.091 231.091 384 209 384H40C17.9086 384 0 366.091 0 344Z" fill="#193E2F"/>
+                  
+                  <foreignObject x="12" y="160" width="250" height="100">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 24px; font-family: 'Noto Sans', sans-serif; font-weight: 600; color: white; text-align: left;">
+                      Different Ways You<br> Can Save<br> Our Planet
+                    </div>
+                  </foreignObject>
+                  
+                  <foreignObject x="10" y="-10" width="100" height="140">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 140px; font-family: 'Noto Sans', sans-serif; font-weight: 700; color: white; text-align: center;">
+                      7
+                    </div>
+                  </foreignObject>
+                  
+                  <rect class="rect-figure" x="9" y="299" width="230" height="75" rx="30" fill="#2B5043"/>
+                  
+                  <foreignObject x="24" y="324" width="230" height="75">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 18px; font-family: 'Noto Sans', sans-serif; font-weight: 600; color: white; text-align: left;">
+                      Donate Once
+                    </div>
+                  </foreignObject>
+                  
+                  <a href="https://donate.stripe.com/5kAg0K1MBghGcSYcN1" target="_blank">
+                    <circle class="circle-button" cx="203" cy="336" r="20" fill="#D1EE7B"/>
+                    <path class="arrow-path" d="M196.6 342.401L209.4 329.601M209.4 329.601H199.8M209.4 329.601V339.201" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </a>
+                </g>
+                
+                <g class="bottom-rect">
+                  <rect y="394" width="250" height="136" rx="40" fill="#E6E6E6"/>
+                  <path d="M47.9733 433.947L34.6666 438.96C31.5999 440.107 29.0933 443.734 29.0933 446.987V466.8C29.0933 469.947 31.1733 474.08 33.7066 475.974L45.1733 484.534C48.9333 487.36 55.1199 487.36 58.8799 484.534L70.3466 475.974C72.8799 474.08 74.9599 469.947 74.9599 466.8V446.987C74.9599 443.707 72.4533 440.08 69.3866 438.934L56.0799 433.947C53.8133 433.12 50.1866 433.12 47.9733 433.947Z" stroke="#274353" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M44.1333 459.654L48.4266 463.947L59.8933 452.48" stroke="#274353" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <foreignObject x="85" y="416" width="250" height="100">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 20px; font-family: 'Noto Sans', sans-serif; font-weight: 600; color: #222222; text-align: left;">
+                      Support Our<br> Environmental<br> Programs
+                    </div>
+                  </foreignObject>
+                </g>
+              </svg>
+            </div>
+
+            <!-- Вторая фигура -->
+            <div class="figure second-figure-container">
+              <svg width="263" height="530" viewBox="0 0 263 530" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="imageFill" patternUnits="userSpaceOnUse" width="249" height="384">
+                    <image href="assets/img/portfolio/ASCENDtials/a boy.jpg" x="0" y="0" width="249" height="384" preserveAspectRatio="xMidYMid slice"/>
+                  </pattern>
+                </defs>
+                
+                <path class="second-figure" d="M0 344V40C0 17.9086 17.9086 0 40 0H116.775C124.288 0 131.341 3.61569 135.727 9.71505C140.113 15.8144 147.167 19.4301 154.679 19.4301H209C231.091 19.4301 249 37.3387 249 59.43V344C249 366.091 231.091 384 209 384H40C17.9086 384 0 366.091 0 344Z" fill="url(#imageFill)" fill-opacity="1"/>
+            
+                <foreignObject x="0" y="100" width="263" height="100" transform="translate(4, 180)">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 24px; font-family: 'Noto Sans', sans-serif; font-weight: 600; color: white; text-align: left;">
+                    Strengthen Our<br> Children's Programs
+                  </div>
+                </foreignObject>
+              </svg>
+            </div>
+
+            <!-- Третья фигура -->
+            <div class="figure third-figure-container">
+              <svg width="250" height="275" viewBox="0 0 250 275" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="250" height="275" rx="40" fill="#D3DCDA"/>
+                <rect x="10" y="190" width="230" height="75" rx="30" fill="#BBC1C0"/>
+                
+                <foreignObject x="0" y="100" width="250" height="100" transform="translate(0, -35)">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 24px; font-family: 'Noto Sans', sans-serif; font-weight: 700; color: #222222; text-align: center;">
+                    Support Small Businesses
+                  </div>
+                </foreignObject>
+                
+                <foreignObject x="10" y="190" width="230" height="75" transform="translate(20, 24)">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 20px; font-family: 'Noto Sans', sans-serif; font-weight: 600; color: #222222; text-align: left;">
+                    Our Vendors
+                  </div>
+                </foreignObject>
+            
+                <a href="https://ascendtials.org/contact-us/" target="_blank">
+                  <circle class="circle-button" cx="204" cy="227" r="20" fill="#274353"/>
+                  <path class="arrow-path" d="M197.6 233.401L210.4 220.601M210.4 220.601H200.8M210.4 220.601V230.201" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                </a>
+              </svg>
+            </div>
+            <!-- Четвертая фигура -->
+            <div class="figure fourth-figure-container">
+              <svg width="249" height="384" viewBox="0 0 249 384" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="imageFill2" patternUnits="userSpaceOnUse" width="249" height="384">
+                    <image href="assets/img/portfolio/ASCENDtials/education-kids.png" x="0" y="0" width="249" height="384" preserveAspectRatio="xMidYMid slice"/>
+                  </pattern>
+                </defs>
+                <path d="M249 344V40C249 17.9086 231.091 0 209 0H132.225C124.712 0 117.659 3.61569 113.273 9.71505C108.887 15.8144 101.833 19.4301 94.3205 19.4301H40C17.9086 19.4301 0 37.3387 0 59.43V344C0 366.091 17.9086 384 40 384H209C231.091 384 249 366.091 249 344Z" fill="url(#imageFill2)"/>
+            
+                <foreignObject x="0" y="60" width="249" height="100" transform="translate(0, 260)">
+                  <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 24px; font-family: 'Noto Sans', sans-serif; font-weight: 700; color: white; text-align: center;">
+                    BIPOC Communities
+                  </div>
+                </foreignObject>
+              </svg>
+            </div>
+            
+            <!-- Пятая фигура -->
+            <div class="figure fifth-figure-container">
+              <svg width="250" height="530" viewBox="0 0 250 530" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_887_1871)" class="main-figure">
+                  <path d="M250 344V40C250 17.9086 232.091 0 210 0H133.225C125.712 0 118.659 3.61569 114.273 9.71505C109.887 15.8144 102.833 19.4301 95.3205 19.4301H41C18.9086 19.4301 1 37.3387 1 59.43V344C1 366.091 18.9086 384 41 384H210C232.091 384 250 366.091 250 344Z" fill="#D1EE7B"/>
+                  <path d="M116.288 51.6592L293.504 62.8703L132.352 134.292L-44.8631 123.081L116.288 51.6592Z" fill="#AACA6B"/>
+                  <path d="M133.278 123.365L373.774 107.25L143.305 174.942L-97.1908 191.056L133.278 123.365Z" fill="#AACA6B"/>
+                  <path d="M137.301 172.184L377.818 156.177L147.37 223.977L-93.1469 239.984L137.301 172.184Z" fill="#AACA6B"/>
+                  <path d="M141.325 221.003L380.836 199.823L149.382 262.449L-90.1292 283.629L141.325 221.003Z" fill="#AACA6B"/>
+                  <rect x="10" y="299" width="230" height="75" rx="30" fill="#AFC969" class="rect-figure"/>
+            
+                  <foreignObject x="10" y="299" width="230" height="75" transform="translate(-10, 25)">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 18px; font-family: 'Noto Sans', sans-serif; font-weight: 600;  color: #222222; text-align: center; width: 190px;">
+                      Invest Monthly
+                    </div>
+                  </foreignObject>
+            
+                  <a href="https://buy.stripe.com/7sI29U62R5D23iocNd" target="_blank">
+                    <circle class="circle-button" cx="204" cy="336" r="20" fill="#274353"/>
+                    <path class="arrow-path" d="M197.6 342.401L210.4 329.601M210.4 329.601H200.8M210.4 329.601V339.201" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                  </a>
+            
+                  <foreignObject x="0" y="0" width="250" height="530" transform="translate(0, -110)" style="pointer-events: none;">
+                    <img src="https://ascendtials.org/wp-content/uploads/2024/10/hands.png" width="250" height="530" />
+                  </foreignObject>
+                </g>
+                <g class="bottom-rect">
+                  <rect y="394" width="250" height="136" rx="40" fill="#D9D9D9"/>
+                  <path d="M47.6535 488.493C46.7468 488.813 45.2535 488.813 44.3468 488.493C36.6135 485.853 19.3335 474.84 19.3335 456.173C19.3335 447.933 25.9735 441.267 34.1602 441.267C39.0135 441.267 43.3068 443.613 46.0002 447.24C48.6935 443.613 53.0135 441.267 57.8402 441.267C66.0268 441.267 72.6668 447.933 72.6668 456.173C72.6668 474.84 55.3868 485.853 47.6535 488.493Z" stroke="#274353" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      
+                  <foreignObject x="20" y="400" width="210" height="80" transform="translate(70, 34)">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="font-size: 20px; font-family: 'Noto Sans', sans-serif; font-weight: 600; color: #222222; text-align: left;">
+                      Join the<br> Movement
+                    </div>
+                  </foreignObject>
+                </g>
+                <defs>
+                  <clipPath id="clip0_887_1871">
+                    <rect width="249" height="384" fill="white" transform="translate(1)"/>
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
+          </div>
+        </div>
+        <p class="description">
+          The Donation page stands out with its unique shapes, adding a fresh and memorable touch to the design.
+        </p>
+      </div>
+    </div>
+
+    <!-- Service Learning Page Demo -->
+    <div class="portfolio-service-demo">
+      <div class="demo-section">
+        <div class="environmental-box">
+          <!-- Environmental programs starts -->
+          <section class="environmental-programs-section portfolio-environmental">
+            <div class="section-container">
+              <h1>Environmental Programs</h1>
+              <div id="goals-box" class="text-box">
+                <h2>Program Goals</h2>
+                <ol>
+                  <li>Revitalize communities with BIPOC-focused workshops.</li>
+                  <li>Emphasize balance, harmony, justice, order, and reciprocity.</li>
+                  <li>Raise awareness about farming's impact on soil and water.</li>
+                  <li>Promote holistic environmental practices.</li>
+                </ol>
+              </div>
+              <div id="benefits-box" class="text-box">
+                <h2>Program Benefits</h2>
+                <ol>
+                  <li>Engages students in nature-centered service learning.</li>
+                  <li>Develops critical thinking, leadership, and environmental stewardship values.</li>
+                  <li>Exposes students to diverse environmental career paths.</li>
+                  <li>Raises awareness of community needs and enhances interpersonal skills.</li>
+                  <li>Enhances resumes, scholarship applications, and networking opportunities.</li>
+                </ol>
+              </div>
+              <div class="image-container">
+                <img id="top-image" src="assets/img/portfolio/ASCENDtials/Environmental program.jpg" alt="Environmental Program Image 1">
+                <img id="bottom-image" src="assets/img/portfolio/ASCENDtials/Environmental programs.jpg" alt="Environmental Program Image 2">
+              </div>
+            </div>
+          </section>
+          <!-- Environmental programs ends -->
+        </div>
+    
+        <!-- Добавляем новые элементы здесь -->
+        <img src="assets/img/portfolio/ASCENDtials/Arrow 4.svg" alt="Arrow" class="arrow">
+        <div class="description-box">
+          <p>On the Environmental Program page, text flows smoothly between cards, and images change dynamically—adding interactivity and drawing attention to the program.</p>
+        </div>
+    
+        <div class="pillars-box">
+          <img src="assets/img/portfolio/ASCENDtials/program pillars.png" alt="Program Pillars" class="pillars-image">
+        </div>
+        
+        <img src="assets/img/portfolio/ASCENDtials/Arrow 5.svg" alt="Arrow" class="arrow">
+        <div class="description-box">
+          <p>In the Program Pillars section, I used unique shapes with icons to represent different service learning programs.</p>
+        </div>
+      </div>
+      <img src="assets/img/portfolio/ascendtials/Service Learning Programs Page.png" alt="Service Learning Page" class="homepage-image">
+    </div>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          if (typeof gsap !== 'undefined') {
+              gsap.registerPlugin(ScrollTrigger);
+              
+              gsap.set("#benefits-box", {
+                  opacity: 0.4,
+                  y: 0
+              });
+              
+              gsap.set("#goals-box", {
+                  opacity: 1,
+                  y: 0
+              });
+              
+              gsap.set("#top-image", {
+                  opacity: 1
+              });
+              
+              gsap.set("#bottom-image", {
+                  transform: 'translate(0px, 230px)',
+                  opacity: 1
+              });
+              
+              let tl = gsap.timeline({
+                  scrollTrigger: {
+                      trigger: '.portfolio-service-demo .environmental-box',
+                      start: "top+=650 bottom",
+                      end: "center center",
+                      scrub: 3,
+                      toggleActions: "play none none reverse",
+                  }
+              });
+      
+              tl
+              .to("#benefits-box", {
+                  y: -208,
+                  opacity: 1,
+                  duration: 2,
+                  ease: "power1.inOut"
+              })
+              .to("#goals-box", {
+                  opacity: 0,
+                  duration: 2,
+                  ease: "power1.inOut"
+              }, "<")
+              .to("#bottom-image", {
+                  y: 0,
+                  duration: 2,
+                  ease: "power1.inOut"
+              }, "<")
+              .to("#top-image", {
+                  opacity: 0,
+                  duration: 2,
+                  ease: "power1.inOut"
+              }, "<");
+      
+              window.addEventListener('resize', () => {
+                  if (typeof ScrollTrigger !== 'undefined') {
+                      ScrollTrigger.refresh();
+                  }
+              });
+          }
+      });
+      </script>
+
+      <!-- Other Pages Section -->
+      <section class="portfolio-other-pages">
+        <h2 class="other-pages-title">Other pages</h2>
+        <div class="other-pages-container">
+          <img src="assets/img/portfolio/ascendtials/About Us Page.png" alt="About Us Page" class="about-page">
+          <div class="right-pages">
+            <img src="assets/img/portfolio/ascendtials/Literacy Workshops Page.png" alt="Literacy Workshops Page" class="literacy-page">
+            <img src="assets/img/portfolio/ascendtials/Membership Page.png" alt="Membership Page" class="membership-page">
+          </div>
+        </div>
+      </section>
+
+    <!-- Line -->
+    <div class="line" id="animated-line"></div>
+
+    <!-- Design to code -->
+
+    <section class="portfolio-design-code">
+      <h2 class="design-code-title">From Design to Code</h2>
+      
+      <div class="implementation-box">
+          <h3 class="implementation-title">Implementation and Optimization</h3>
+          <p class="implementation-text">After completing the design, I moved on to development—coding each page to bring the design to life as a functional website. This included creating responsive and optimized versions, ensuring smooth performance on mobile devices.</p>
+      </div>
+      
+      <img src="assets/img/portfolio/ASCENDtials/From Design to Code.png" alt="From Design to Code" class="design-code-image">
+    </section>
+
+    <!-- Line -->
+    <div class="line" id="animated-line"></div>
+
+    <!-- UI Kit -->
+    <section class="portfolio-ui-kit">
+      <h2 class="ui-kit-title">UI Kit</h2>
+      <img src="assets/img/portfolio/ASCENDtials/Ui Kit.png" alt="UI Kit" class="ui-kit-image">
+    </section>
+  
+
+    <section class="portfolio-thank-you">
+      <img src="assets/img/portfolio/ASCENDtials/Thank You.png" alt="Thank You" class="thank-you-image">
+    </section>
+  
+    
+  
+      
+  
+    
+
+   
+    
+
+
+
+
+
+
+    <!--First carousel -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const slides = document.querySelectorAll('.slide');
+          const prevButton = document.querySelector('.carousel-button.prev');
+          const nextButton = document.querySelector('.carousel-button.next');
+          let currentIndex = 0;
+      
+          function updateSlides() {
+              slides.forEach((slide, index) => {
+                  slide.classList.remove('active', 'prev', 'next');
+                  
+                  if (index === currentIndex) {
+                      slide.classList.add('active');
+                  } else if (index === getNextIndex()) {
+                      slide.classList.add('next');
+                  } else if (index === getPrevIndex()) {
+                      slide.classList.add('prev');
+                  }
+              });
+          }
+      
+          function getNextIndex() {
+              return (currentIndex + 1) % slides.length;
+          }
+      
+          function getPrevIndex() {
+              return (currentIndex - 1 + slides.length) % slides.length;
+          }
+      
+          function nextSlide() {
+              currentIndex = getNextIndex();
+              updateSlides();
+          }
+      
+          function prevSlide() {
+              currentIndex = getPrevIndex();
+              updateSlides();
+          }
+      
+          prevButton.addEventListener('click', prevSlide);
+          nextButton.addEventListener('click', nextSlide);
+      
+          document.addEventListener('keydown', (e) => {
+              if (e.key === 'ArrowLeft') prevSlide();
+              if (e.key === 'ArrowRight') nextSlide();
+          });
+      
+          updateSlides();
+      });
+    </script>
+    
+
+    <!-- Font Carousel -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const fontSlides = document.querySelectorAll('.font-slide');
+          const fontPrevButton = document.querySelector('.font-carousel-button.font-prev');
+          const fontNextButton = document.querySelector('.font-carousel-button.font-next');
+          let fontCurrentIndex = 0;
+      
+          function updateFontSlides() {
+              fontSlides.forEach((slide, index) => {
+                  slide.classList.remove('active', 'prev', 'next');
+                  
+                  if (index === fontCurrentIndex) {
+                      slide.classList.add('active');
+                  } else if (index === getNextFontIndex()) {
+                      slide.classList.add('next');
+                  } else if (index === getPrevFontIndex()) {
+                      slide.classList.add('prev');
+                  }
+              });
+          }
+      
+          function getNextFontIndex() {
+              return (fontCurrentIndex + 1) % fontSlides.length;
+          }
+      
+          function getPrevFontIndex() {
+              return (fontCurrentIndex - 1 + fontSlides.length) % fontSlides.length;
+          }
+      
+          function nextFontSlide() {
+              fontCurrentIndex = getNextFontIndex();
+              updateFontSlides();
+          }
+      
+          function prevFontSlide() {
+              fontCurrentIndex = getPrevFontIndex();
+              updateFontSlides();
+          }
+      
+          fontPrevButton.addEventListener('click', prevFontSlide);
+          fontNextButton.addEventListener('click', nextFontSlide);
+      
+          document.addEventListener('keydown', (e) => {
+              if (e.key === 'ArrowLeft') prevFontSlide();
+              if (e.key === 'ArrowRight') nextFontSlide();
+          });
+      
+          updateFontSlides();
+      });
+      </script>
+
+    
+    
+    
+    
+    
+    
+    
+  </main>
+</body>
+</html>
