@@ -1,0 +1,1519 @@
+<!-- hero.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regalia Dining</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rhodium+Libre&display=swap" rel="stylesheet">
+  <style> 
+    @import url('https://fonts.googleapis.com/css2?family=Rhodium+Libre&display=swap');
+
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Lato', sans-serif;
+        background-color: #0E0E10;
+        color: #f5f5f5;
+      }
+
+      header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        z-index: 3;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        width: 114px;
+        height: 114px;
+        margin-right: 15px;
+      }
+
+      .logo span {
+        font-family: 'Rhodium Libre', sans-serif;
+        font-size: 32px;
+        color: #f5f5f5;
+      }
+
+      nav ul {
+        display: flex;
+        list-style-type: none;
+      }
+
+      nav ul li {
+        margin: 0 15px;
+      }
+
+      nav ul li a {
+        color: #f5f5f5;
+        text-decoration: none;
+        font-family: 'Rhodium Libre', sans-serif;
+        text-transform: uppercase;
+        font-size: 16px;
+        position: relative;
+      }
+
+      nav ul li a::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 100%;
+        height: 2px;
+        background-color: #FB5681;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.3s ease-out;
+      }
+
+      nav ul li a:hover::before,
+      nav ul li a.active::before {
+        transform: scaleX(1);
+      }
+
+      .icons {
+        display: flex;
+      }
+
+      .icons a {
+        margin-left: 20px;
+        transition: filter 0.3s ease;
+        position: relative;
+      }
+
+      .icons img {
+        width: 32px;
+        height: 32px;
+        transition: filter 0.3s ease;
+      }
+
+      .icons a:hover img {
+        filter: invert(42%) sepia(72%) saturate(2538%) hue-rotate(333deg) brightnes(97%) contrast(88%);
+      }
+
+      .favorite-count,
+      .cart-count {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background-color: #E63946;
+        color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        font-weight: bold;
+      }
+    /* END OF HEADER STYLES */
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      margin-bottom: 200px;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      padding-left: 45px !important;
+    }
+
+    .hero-content h1.japanese {
+      font-family: 'Rhodium Libre', sans-serif !important;
+      font-size: 34px !important;
+      margin: 0 !important;
+      letter-spacing: 0.25em !important;
+      text-transform: uppercase !important;
+      font-weight: normal !important;
+      line-height: 1.2 !important;
+    }
+
+    .hero-content h1.cuisine {
+      font-family: 'Rhodium Libre', sans-serif !important;
+      font-size: 97px !important;
+      margin: 0 !important;
+      margin-top: 10px !important;
+      letter-spacing: 0.05em !important;
+      font-weight: normal !important;
+      line-height: 1 !important;
+    }
+
+    .hero-content p {
+      margin-top: 20px !important;
+      font-family: 'Lato', sans-serif !important;
+      font-size: 22px !important;
+      line-height: 1.5 !important;
+      max-width: 500px !important;
+    }
+
+    .hero-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 60%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    /* END OF HERO SECTION STYLES */
+
+    .main-content {
+      padding: 0 30px;
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    .subheading {
+      color: #f5f5f5;
+      font-family: "Rhodium Libre", Helvetica;
+      font-size: 34px;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: normal;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .product-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 30px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 20px;
+    }
+
+    .product-card {
+      flex: 0 0 auto;
+      width: 258px;
+      height: 374px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(7.89px);
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .product-image {
+      height: 187px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-bottom-left-radius: 20px;
+      border-bottom-right-radius: 20px;
+    }
+
+    .favorite-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 68px;
+      height: 59px;
+      background-color: #e63946;
+      border: none;
+      border-radius: 0px 0px 0px 28.92px;
+      cursor: pointer;
+      transition: background-color 0.2s; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      overflow: hidden;
+    }
+
+    .favorite-btn svg {
+      width: 30px;
+      height: 30px;
+      stroke: white;
+      fill: none;
+      transition: stroke 0.2s, fill 0.2s;
+    }
+
+    .favorite-btn:hover {
+      background-color: #f5f5f5;
+    }
+
+
+    .favorite-btn:hover svg {
+        stroke: #E63946;
+    }
+
+    .favorite-btn.active {
+      background-color: white;
+    }
+
+    .favorite-btn.active svg {
+      stroke: #e63946;
+      fill: #e63946;
+    }
+
+    .favorite-btn .favorite-count {
+      display: none;
+    }
+
+    .product-card h3 {
+      font-family: 'Rhodium Libre' !important;
+      font-weight: 300;
+      font-size: 20px;
+      margin: 14px 0;
+      padding: 0 10px;
+    }
+
+    .product-card p {
+      height: 41px;
+      width: 230px;
+      -webkit-box-orient: vertical;
+      color: #f5f5f5;
+      display: -webkit-box;
+      font-family: var(--lato-body-3-font-family, 'Lato', regular);
+      font-size: var(--lato-body-3-font-size, 16px);
+      font-style: var(--lato-body-3-font-style, normal);
+      font-weight: var(--lato-body-3-font-weight, 400);
+      letter-spacing: var(--lato-body-3-letter-spacing, normal);
+      line-height: var(--lato-body-3-line-height, 1.4);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0 10px;
+      margin-bottom: 20px;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+    }
+
+    .price {
+      font-family: 'Lato', regular;
+      font-size: 18px;
+      margin: 10px;
+    }
+
+    .add-to-cart {
+      border-radius: 20px;
+      height: 35px;
+      position: relative;
+      width: 127px;
+      font-family: "Rhodium Libre", Helvetica;
+      font-size: 14px;
+      font-weight: 400;
+      background-color: #e63946;
+      color: white;
+      margin: 10px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.1s ease;
+    }
+
+    .add-to-cart .text-wrapper {
+      position: absolute;
+      left: 31px;
+      top: 16px;
+      height: 12px;
+      letter-spacing: 0;
+      line-height: 29.1px;
+      text-align: center;
+      color: #f5f5f5;
+      width: 100px;
+    }
+
+    .add-to-cart:hover {
+      background-color: #f5f5f5;
+      color: #e63946;
+    }
+
+    .see-more-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+      margin-bottom: 160px;
+    }
+
+    .see-more {
+      -webkit-backdrop-filter: blur(4px) brightness(100%);
+      backdrop-filter: blur(4px) brightness(100%);
+      background-color: #e63946;
+      border-radius: 20px;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 53px;
+      width: 136px;
+      padding: 20px 40px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .see-more .text-wrapper {
+      color: #f5f5f5;
+      font-family: "Rhodium Libre", Helvetica;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 29.1px;
+      text-align: center;
+      white-space: nowrap;
+      text-decoration: none; 
+    }
+
+    .see-more:hover {
+      background-color: #f5f5f5;
+      text-decoration: none; 
+    }
+
+    .see-more:hover .text-wrapper {
+      color: #e63946;
+      text-decoration: none; 
+    }
+
+
+    /* HOME PAGE ANIMATION SECTION */
+    .menu-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 20px;
+      padding: 50px;
+      margin-bottom: 160px;
+    }
+
+    *,
+    *:before,
+    *:after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Quicksand", sans-serif;
+    }
+
+    body {
+      background-color: #0E0E10;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      place-items: center;
+      min-height: 100vh;
+    }
+
+    /* Content */
+    .content {
+      padding-left: 30px;
+      color: #c7c7c7c9;
+      user-select: none;
+    }
+
+    .content h1,
+    .content p,
+    .see-more-menu {
+      transition: opacity 0.3s ease;
+    }
+
+    .content h1 {
+      font-family: 'Rhodium Libre', sans-serif !important;
+      font-size: clamp(2.5rem, 4vw, 6rem);
+      font-weight: 700;
+      background: #f5f5f5;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.1;
+      margin-bottom: 36px;
+      padding-left: 10px;
+    }
+
+    .content p {
+      font-family: 'Lato', sans-serif !important;
+      font-size: 20px;
+      line-height: 1.6;
+      padding-right: 100px;
+      margin-bottom: 40px;
+    }
+
+    .see-more-menu {
+      -webkit-backdrop-filter: blur(4px) brightness(100%);
+      backdrop-filter: blur(4px) brightness(100%);
+      background-color: #e63946;
+      border-radius: 20px;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 53px;
+      width: 136px;
+      padding: 20px 40px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .see-more-menu .text-wrapper {
+      color: #f5f5f5;
+      font-family: "Rhodium Libre", Helvetica;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0;
+      line-height: 29.1px;
+      text-align: center;
+      white-space: nowrap;
+      transition: color 0.3s ease;
+    }
+
+    .see-more-menu:hover {
+      background-color: #f5f5f5;
+    }
+
+    .see-more-menu:hover .text-wrapper {
+      color: #e63946;
+    }
+
+    /* Stacked Cards */
+    .stack {
+      position: relative;
+      width: 350px;
+      height: 500px;
+      margin: 0 auto;
+      perspective: 1000px;
+    }
+
+    .card {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      border-radius: 2rem;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      transform-style: preserve-3d;
+    }
+
+    .card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    .card:nth-last-child(n + 5) {
+      --x: calc(-50% + 90px);
+      transform: translate(var(--x), -50%) scale(0.85);
+    }
+
+    .card:nth-last-child(4) {
+      --x: calc(-50% + 60px);
+      transform: translate(var(--x), -50%) scale(0.9);
+    }
+
+    .card:nth-last-child(3) {
+      --x: calc(-50% + 30px);
+      transform: translate(var(--x), -50%) scale(0.95);
+    }
+
+    .card:nth-last-child(2) {
+      --x: calc(-50%);
+      transform: translate(var(--x), -50%) scale(1);
+    }
+
+    .card:nth-last-child(1) {
+      --x: calc(-50% - 30px);
+      transform: translate(var(--x), -50%) scale(1.05);
+    }
+
+    @keyframes swap {
+      0% {
+        transform: translate(var(--x), -50%) scale(1.05) rotate(0deg);
+        opacity: 1;
+      }
+      30% {
+        transform: translate(calc(var(--x) - 250px), -50%) scale(0.85) rotate(-5deg) rotateY(65deg);
+        opacity: 0.9;
+      }
+      100% {
+        transform: translate(calc(var(--x) - 30px), -50%) scale(0.5);
+        opacity: 0;
+        z-index: -1;
+      }
+    }
+
+    .swap {
+      animation: swap 1.3s ease-out forwards;
+    }
+
+    @media (max-width: 1200px) {
+      @keyframes swap {
+        30% {
+          transform: translate(calc(var(--x) - 200px), -50%) scale(0.85) rotate(-5deg) rotateY(65deg);
+        }
+        100% {
+          transform: translate(calc(var(--x) - 30px), -50%) scale(0.5);
+          z-index: -1;
+        }
+      }
+    }
+
+    @media (max-width: 1050px) {
+      @keyframes swap {
+        30% {
+          transform: translate(calc(var(--x) - 150px), -50%) scale(0.85) rotate(-5deg) rotateY(65deg);
+        }
+        100% {
+          transform: translate(calc(var(--x) - 30px), -50%) scale(0.5);
+          z-index: -1;
+        }
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .content {
+        padding-left: 80px;
+      }
+      .content p {
+        padding-right: 40px;
+      }
+      .card {
+        width: 250px;
+        height: 380px;
+      }
+    }
+
+    @media (max-width: 1050px) {
+      .content {
+        padding-left: 60px;
+      }
+      .content p {
+        line-height: 1.5;
+      }
+      .card {
+        width: 220px;
+        height: 350px;
+      }
+    }
+
+    @media (max-width: 990px) {
+      .content p {
+        padding-right: 0;
+      }
+      .card {
+        width: 200px;
+        height: 300px;
+      }
+    }
+
+    @media (max-width: 950px) {
+      main {
+        grid-template-columns: 1fr;
+        grid-template-rows: 4fr 3fr;
+        grid-template-areas:
+          "stacked"
+          "content";
+      }
+      .content {
+        grid-area: content;
+        text-align: center;
+        padding: 0 90px;
+      }
+      .btn {
+        margin-bottom: 30px;
+      }
+      .stack {
+        grid-area: stacked;
+      }
+    }
+
+    @media (max-width: 650px) {
+      main {
+        grid-template-rows: 1fr 1fr;
+      }
+      .content {
+        padding: 0 50px;
+      }
+      .content h1 {
+        padding-left: 0;
+      }
+      .btn {
+        padding: 8px 16px;
+      }
+      .card {
+        width: 180px;
+        height: 260px;
+      }
+    }
+
+  /* Delivery */
+  .delivery-section {
+    background-color: #0E0E10;
+    padding: 0;
+    /* margin-top: 10px; */
+    margin-bottom: 160px;
+  }
+
+  .delivery-container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 135px;
+  }
+
+  .delivery-content {
+    flex-shrink: 0;
+  }
+
+  .delivery-title {
+    font-family: 'Rhodium Libre', sans-serif;
+    font-size: 78px;
+    line-height: 80px;
+    color: #f5f5f5;
+    margin: 0;
+    width: 582px;
+  }
+
+  .delivery-text {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    line-height: 32px;
+    color: #f5f5f5;
+    width: 412px;
+    margin: 60px 0;
+  }
+
+  .delivery-image {
+    flex-shrink: 0;
+  }
+
+  .delivery-image img {
+    width: 573px;
+    height: 754px;
+    object-fit: cover;
+  }
+
+  /* How it works */ 
+  .how-it-works {
+    background-color: #0E0E10;
+    padding: 0;
+    margin: 0;
+  }
+
+  .how-it-works-title {
+    font-family: 'Rhodium Libre', sans-serif;
+    font-size: 34px;
+    color: #f5f5f5;
+    text-align: center;
+    margin: 0;
+  }
+
+  .features-container {
+    max-width: 1320px;
+    margin: 80px auto 0;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 160px;
+  }
+
+  .feature-column {
+    width: 303px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .feature-image {
+    width: 300px;
+    height: 310px;
+    object-fit: contain;
+    margin-bottom: 20px;
+  }
+
+  .feature-title {
+    font-family: 'Rhodium Libre', sans-serif;
+    font-size: 34px;
+    color: #f5f5f5;
+    margin: 0 0 20px 0;
+    width: 100%;
+  }
+
+  .feature-text {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    color: #f5f5f5;
+    line-height: 1.5;
+    margin: 0;
+    width: 303px;
+  }
+
+  /* Contact Us section*/
+  .contact-section {
+    max-width: 1320px;
+    margin: 200px auto;
+    padding: 0 20px;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    gap: 25px;
+  }
+
+  .contact-info {
+    width: 331px;
+  }
+
+  .contact-info h2 {
+    font-family: 'Rhodium Libre', sans-serif;
+    font-size: 36px;
+    margin: 0 0 30px; 
+  }
+
+  .contact-info p {
+    display: flex;
+    align-items: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .contact-info img {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .map {
+    flex-grow: 1; 
+    height: 450px;
+    border-radius: 26px;
+    overflow: hidden;
+  }
+
+  .map iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  } 
+
+    /* FOOTER */
+    .footer-line {
+      width: 1350px; 
+      height: 1px; 
+      background-color: #535355; 
+      margin: 0 auto; 
+      margin-bottom: 20px; 
+    }
+    .site-footer {
+      background-color: #0E0E10;
+      color: #f5f5f5;
+      padding: 40px 0;
+      font-family: "Rhodium Libre";
+    }
+
+    .footer-container {
+      font-family: "Rhodium Libre";
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0px;
+    }
+
+    .footer-menu {
+      font-family: "Rhodium Libre";
+      display: flex;
+      flex: 1;
+      justify-content: space-between; 
+      padding: 0 20px; 
+    }
+
+    .menu-column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .quick-links {
+      text-align: center;
+      flex: 1; 
+    }
+
+    .quick-links ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu-item {
+      color: #f5f5f5;
+      font-family: "Rhodium Libre";
+      text-decoration: none;
+      font-size: 18px;
+      display: block;
+      margin-bottom: 20px;
+      transition: color 0.3s ease;
+    }
+
+    .menu-item:hover {
+      color: #FB5681;
+    }
+
+    .footer-logo {
+      text-align: center;
+      flex: 2; 
+    }
+
+    .footer-logo img {
+      width: 250px;
+      height: 250px;
+    }
+
+    .copyright {
+      font-family: "Rhodium Libre";
+      font-size: 32px;
+      margin-top: 20px;
+    }
+
+    .footer-contact {
+      text-align: right;
+      font-family: "Rhodium Libre";
+      flex: 1; 
+    }
+
+    .footer-contact p {
+      font-size: 18px;
+      margin-bottom: 22px;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .social-icons a {
+      margin-left: 20px;
+    }
+
+    .social-icons img {
+      width: 24px;
+      height: 24px;
+      transition: filter 0.3s ease;
+    }
+
+    .social-icons a:hover img {
+      filter: invert(45%) sepia(61%) saturate(712%) hue-rotate(-4deg) brightness(97%) contrast(93%);
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-menu {
+        font-family: "Rhodium Libre";
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .quick-links {
+        position: static;
+        left: 0;
+        text-align: center;
+      }
+
+      .footer-contact {
+        text-align: center;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="Regalia dining/img/logo.png" alt="Regalia Dining Logo">
+      <span>Regalia Dining</span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="regalia-dining-index.html" class="active">HOME</a></li>
+        <li><a href="Book a table.html">BOOK A TABLE</a></li>
+        <li><a href="Menu_Appetizers.html">MENU</a></li>
+        <!-- <li><a href="About_us.html">ABOUT</a></li> -->
+      </ul>
+    </nav>
+    <div class="icons">
+      <a href="#favorites" class="favorite-icon">
+        <img src="Regalia dining/img/favourite.png" alt="Favorites">
+        <span class="favorite-count"></span>
+      </a>
+      <a href="#cart" class="cart-icon">
+        <img src="Regalia dining/img/cart.png" alt="Cart">
+        <span class="cart-count"></span>
+      </a>
+      <a href="#profile" aria-label="Profile">
+        <img src="Regalia dining/img/profile.png" alt="Profile">
+      </a>
+    </div>
+  </header>
+    
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="japanese">Japanese</h1>
+      <h1 class="cuisine">Cuisine</h1>
+      <p>Welcome to Regalia Dining, where Japanese culinary artistry meets contemporary elegance. Nestled in the heart of Lisbon.</p>
+    </div>
+    <div class="hero-image">
+      <img src="Regalia dining/img/hero photo.png" alt="Japanese Cuisine">
+    </div>
+  </section>
+  
+  <!-- New Section -->  
+    <section class="new-section">
+      <h2 class="subheading">New</h2>
+        <div class="product-container">
+          <div class="product-card">
+          <div class="product-image">
+              <img src="Regalia dining/img/Noodles/Nimono Melody-overlaycard.png" alt="Nimono Melody">
+              <button class="favorite-btn" aria-label="Add to favorites">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                </svg>
+              </button>
+            </div>
+            <h3>Nimono Melody</h3>
+            <p>The Nimono Melody Noodle is a hearty and satisfying dish that...</p>
+            <div class="product-footer">
+              <span class="price">€20.00</span>
+              <button class="add-to-cart">Add to cart</button>
+            </div>
+          </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img src="Regalia dining/img/Noodles/Yasai Yoridashi-overlaycard.png" alt="Yasai Yoridashi"> 
+            <button class="favorite-btn" aria-label="Add to favorites">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </button>
+          </div>
+          <h3>Yasai Yoridashi</h3>
+          <p>Yasai Yoridashi serves chilled, garden-inspired seasonal veget...</p>
+          <div class="product-footer">
+            <span class="price">€20.00</span>
+            <button class="add-to-cart">Add to cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img src="Regalia dining/img/Noodles/Kobachi Kaiseki-overlaycard.png" alt="Kabachi Kaiseki">
+            <button class="favorite-btn" aria-label="Add to favorites">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </button>
+          </div>
+          <h3>Kabachi Kaiseki</h3>
+          <p>Kobachi Kaiseki is a traditional kaiseki meal featuring a variety...</p>
+          <div class="product-footer">
+            <span class="price">€20.00</span>
+            <button class="add-to-cart">Add to cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img src="Regalia dining/img/Noodles/Shrimp Tempest-overlaycard.png" alt="Shrimp Tempest">
+            <button class="favorite-btn" aria-label="Add to favorites">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </button>
+          </div>
+          <h3>Shrimp Tempest</h3>
+          <p>Experience the culinary excellence of Shrimp Tempest...</p>
+          <div class="product-footer">
+            <span class="price">€20.00</span>
+            <button class="add-to-cart">Add to cart</button>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-image">
+            <img src="Regalia dining/img/Sashimi/Octopus Sashimi-overlaycard.png" alt="Octopus Sashimi">
+            <button class="favorite-btn" aria-label="Add to favorites">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </button>
+          </div>
+          <h3>Octopus Sashimi</h3>
+          <p>Experience the unique and tender flavor of octopus sashi...</p>
+          <div class="product-footer">
+            <span class="price">€17.00</span>
+            <button class="add-to-cart">Add to cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="see-more-container">
+        <button class="see-more">
+          <span class="text-wrapper">See more</span>
+        </button>
+      </div>
+    </section>
+  <!-- New section Finish -->
+
+  <!-- HOME ANIMATION SECTION STARTS -->
+  <section class="menu-section">
+    <div class="content">
+      <h1>Appetizers Menu</h1>
+      <p>
+        Start your meal at Regalia Dining with one of our delicious appetizers. Savour the creamy Miso Soup, crispy Tempura Vegetables, and subtle Tuna Tataki with ponzu sauce. Every dish reflects the creativity and tastes of classic Japanese cooking, ensuring a memorable beginning to your dinner.
+      </p>
+      <div class="see-more-menu-container">
+        <a href="Menu_Appetizers.html" class="see-more-menu">
+          <span class="text-wrapper">See more</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="stack">
+      <div class="card">
+        <img src="Regalia dining/img/Appetizers.png" alt="" />
+      </div>
+      <div class="card">
+        <img src="Regalia dining/img/Sushi.png" alt="" />
+      </div>
+      <div class="card">
+        <img src="Regalia dining/img/Sashimi.png" alt="" />
+      </div>
+      <div class="card">
+        <img src="Regalia dining/img/Noodles.png" alt="" />
+      </div>
+      <div class="card">
+        <img src="Regalia dining/img/Desserts.png" alt="" />
+      </div>
+      <div class="card">
+        <img src="Regalia dining/img/Drinks.png" alt="" />
+      </div>
+
+      <script>
+        const stack = document.querySelector(".stack");
+        const contentText = document.querySelector(".content p");
+        const contentTitle = document.querySelector(".content h1");
+        const seeMoreLink = document.querySelector(".see-more-menu");
+        let isAnimating = false;
+
+        const content = [
+          {
+            title: "Appetizers Menu",
+            text: "Start your meal at Regalia Dining with one of our delicious appetizers. Savour the creamy Miso Soup, crispy Tempura Vegetables, and subtle Tuna Tataki with ponzu sauce. Every dish reflects the creativity and tastes of classic Japanese cooking, ensuring a memorable beginning to your dinner.",
+            link: "Menu_Appetizers.html"
+          },
+          {
+            title: "Sushi Menu",
+            text: "Savour the true spirit of Japan with our delectable sushi assortment. Savour freshly made Nigiri, colourful Sashimi, and creative Maki rolls—all painstakingly made with the best ingredients to create the ideal fusion of tradition and innovation.",
+            link: "Menu_Sushi.html"
+          },
+          {
+            title: "Sashimi Menu",
+            text: "Savour the authentic tastes of Japan with our carefully curated assortment of sashimi. Each fresh fish slice is hand-selected and carefully sliced to bring out the flavour and texture of the fish. Savour the elegance and simplicity of our handcrafted sashimi, made with only the best ingredients, for a genuinely authentic dining experience.",
+            link: "Menu_Sashimi.html"
+          },
+          {
+            title: "Noodles Menu",
+            text: "At Regalia Dining, indulge in the comforting tastes of our fine noodle meals. Every bowl, ranging from the rich and flavorful broth of our classic Ramen to the subtle and revitalising undertones of our Soba and Udon, is expertly prepared with genuine ingredients and careful attention to detail. With each bite, savour a warming and aromatic voyage through Japanese cuisine.",
+            link: "Menu_Noodles.html"
+          },
+          {
+            title: "Desserts Menu",
+            text: "Regalia Dining offers a delicious dessert variety to cap off your dinner. Every dessert, from the light Matcha Cheesecake to the revitalising Yuzu Sorbet, is an exquisite blend of classic Japanese flavours and cutting-edge cooking methods. Savour the perfect harmony of sweetness and texture, skillfully designed to leave your meal with a lasting impression.",
+            link: "Menu_Dessert.html"
+          },
+          {
+            title: "Drinks Menu",
+            text: "Enjoy our fine drink selection to enhance your eating experience at Regalia eating. Select from our carefully chosen selection of premium sake, Japanese whiskies, and handcrafted cocktails, all of which are designed to accentuate the flavours of our food. Our extensive drinks menu provides the ideal complement to any meal, whether your preference is for a strong and robust red wine or a soothing matcha tea.",
+            link: "Menu_Drinks.html"
+          }
+        ];
+
+        let currentIndex = 0;
+        let autoplayInterval = null;
+
+        function resetAnimation(element) {
+          element.style.animation = 'none';
+          element.offsetHeight; // Trigger reflow
+          element.style.animation = null;
+        }
+
+        function changeContent(contentItem) {
+          if (!contentTitle || !contentText || !seeMoreLink) return;
+
+          [contentTitle, contentText, seeMoreLink].forEach(element => {
+            element.classList.remove('animate-spring-in');
+            element.classList.add('animate-spring-out');
+            resetAnimation(element);
+          });
+          
+          setTimeout(() => {
+            contentTitle.textContent = contentItem.title;
+            contentText.textContent = contentItem.text;
+            seeMoreLink.href = contentItem.link;
+            
+            [contentTitle, contentText, seeMoreLink].forEach(element => {
+              element.classList.remove('animate-spring-out');
+              element.classList.add('animate-spring-in');
+              resetAnimation(element);
+            });
+            
+            setTimeout(() => {
+              [contentTitle, contentText, seeMoreLink].forEach(element => {
+                element.classList.remove('animate-spring-in');
+              });
+            }, 800);
+          }, 400);
+        }
+
+        function initializeCards() {
+          // Получаем все карточки, переворачиваем массив и фильтруем только карточки
+          const cards = Array.from(stack.children)
+            .reverse()
+            .filter(child => child.classList.contains("card"));
+            
+          // Очищаем стек
+          while (stack.firstChild) {
+            stack.removeChild(stack.firstChild);
+          }
+          
+          // Добавляем карточки обратно в правильном порядке
+          cards.forEach(card => {
+            const newCard = card.cloneNode(true);
+            newCard.addEventListener('click', handleCardClick);
+            stack.appendChild(newCard);
+          });
+        }
+
+        function moveCard() {
+          if (isAnimating) return;
+          
+          const lastCard = stack.lastElementChild;
+          if (!lastCard || !lastCard.classList.contains("card")) return;
+          
+          isAnimating = true;
+          
+          // Сбрасываем анимацию карточки
+          resetAnimation(lastCard);
+          lastCard.classList.add("swap");
+          
+          currentIndex = (currentIndex + 1) % content.length;
+          changeContent(content[currentIndex]);
+          
+          setTimeout(() => {
+            const newCard = lastCard.cloneNode(true);
+            newCard.classList.remove("swap");
+            newCard.addEventListener('click', handleCardClick);
+            
+            // Удаляем старую карточку
+            lastCard.remove();
+            
+            // Добавляем новую карточку в начало стека
+            stack.insertBefore(newCard, stack.firstElementChild);
+            
+            isAnimating = false;
+          }, 1200);
+        }
+
+        function handleCardClick(e) {
+          e.stopPropagation();
+          const card = e.target.closest(".card");
+          if (card && card === stack.lastElementChild && !isAnimating) {
+            stopAutoplay();
+            moveCard();
+            startAutoplay();
+          }
+        }
+
+        function startAutoplay() {
+          stopAutoplay();
+          moveCard(); // Сразу запускаем первую анимацию
+          autoplayInterval = setInterval(moveCard, 4000);
+        }
+
+        function stopAutoplay() {
+          if (autoplayInterval) {
+            clearInterval(autoplayInterval);
+            autoplayInterval = null;
+          }
+        }
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', () => {
+          initializeCards();
+          
+          // Добавляем обработчик клика на стек
+          stack.addEventListener("click", (e) => {
+            const card = e.target.closest(".card");
+            if (card && card === stack.lastElementChild && !isAnimating) {
+              stopAutoplay();
+              moveCard();
+              startAutoplay();
+            }
+          });
+          
+          // Обработчик видимости страницы
+          document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+              stopAutoplay();
+            } else {
+              startAutoplay();
+            }
+          });
+          
+          // Запускаем автопроигрывание
+          startAutoplay();
+        });
+      </script>
+    </div>
+  </section>
+  <!-- HOME ANIMATION SECTION ENDS-->
+
+
+  <!-- Delivery section -->
+
+  <section class="delivery-section">
+    <div class="delivery-container">
+      <div class="delivery-content">
+        <h1 class="delivery-title">Enjoy Your<br>Delicious Food</h1>
+        <p class="delivery-text">We will fill your tummy with delicious food with fast delivery</p>
+        <a href="Menu_Appetizers.html" class="see-more">
+          <span class="text-wrapper">Order now</span>
+        </a>
+      </div>
+      <div class="delivery-image">
+        <img src="Regalia dining/img/Delivery.png" alt="Delivery Service">
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="how-it-works">
+    <h2 class="how-it-works-title">How Does It Work?</h2>
+    <div class="features-container">
+      <div class="feature-column">
+        <img src="Regalia dining/img/Easy to order.png" alt="Easy to order" class="feature-image">
+        <h3 class="feature-title">Easy to order</h3>
+        <p class="feature-text">Simple ordering in just a few clicks—your meal is on the way!</p>
+      </div>
+      <div class="feature-column">
+        <img src="Regalia dining/img/Fastest Delivery.png" alt="Fastest Delivery" class="feature-image">
+        <h3 class="feature-title">Fastest Delivery</h3>
+        <p class="feature-text">Fast delivery to your door—enjoy your meal fresh and quick!</p>
+      </div>
+      <div class="feature-column">
+        <img src="Regalia dining/img/Best Quality.png" alt="Best Quality" class="feature-image">
+        <h3 class="feature-title">Best Quality</h3>
+        <p class="feature-text">We ensure top quality in every dish—only the freshest ingredients used!</p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Popular Section -->  
+  <section class="new-section">
+    <h2 class="subheading">Popular</h2>
+      <div class="product-container">
+        <div class="product-card">
+        <div class="product-image">
+            <img src="Regalia dining/img/Sushi/Spicy Tuna Roll-overlaycard.png" alt="Spicy Tuna Roll">
+            <button class="favorite-btn" aria-label="Add to favorites">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+              </svg>
+            </button>
+          </div>
+          <h3>Spicy Tuna Roll</h3>
+          <p>Enjoy the bold flavors of spicy tuna mixed with sriracha...</p>
+          <div class="product-footer">
+            <span class="price">€16.00</span>
+            <button class="add-to-cart">Add to cart</button>
+          </div>
+        </div>
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Regalia dining/img/Sushi/Dragon Roll-overlaycard.png" alt="Dragon Roll"> 
+          <button class="favorite-btn" aria-label="Add to favorites">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+        </div>
+        <h3>Dragon Roll</h3>
+        <p>A tantalizing roll with tempura shrimp, avocado...</p>
+        <div class="product-footer">
+          <span class="price">€18.00</span>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Regalia dining/img/Sushi/Sushi Platter-overlaycard.png" alt="Sushi Platter">
+          <button class="favorite-btn" aria-label="Add to favorites">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+        </div>
+        <h3>Sushi Platter</h3>
+        <p>Indulge in our luxurious Regalia Sushi Platter...</p>
+        <div class="product-footer">
+          <span class="price">€35.00</span>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Regalia dining/img/Appetizers/Miso Soup-overlaycard.png" alt="Miso Soup">
+          <button class="favorite-btn" aria-label="Add to favorites">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+        </div>
+        <h3>Miso Soup</h3>
+        <p>Begin your meal with a comforting bowl of miso...</p>
+        <div class="product-footer">
+          <span class="price">€7.00</span>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-image">
+          <img src="Regalia dining/img/Sashimi/Salmon Sashimi-overlaycard.png" alt="Salmon Sashimi">
+          <button class="favorite-btn" aria-label="Add to favorites">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+            </svg>
+          </button>
+        </div>
+        <h3>Salmon Sashimi</h3>
+        <p>Enjoy the melt-in-your-mouth texture of fresh salmon...</p>
+        <div class="product-footer">
+          <span class="price">€16.00</span>
+          <button class="add-to-cart">Add to cart</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="see-more-container">
+      <button class="see-more">
+        <span class="text-wrapper">See more</span>
+      </button>
+    </div>
+  </section>
+  <!-- Popular section Finish -->
+
+  <!-- Contact Us section -->
+  <section class="contact-section">
+    <div class="contact-info">
+        <h2>Contact Us</h2>
+        <p><img src="Regalia dining/img/location.svg" alt="Location"> Rua Garrett, Chiado, Lisbon, Portugal</p>
+        <p><img src="Regalia dining/img/email.svg" alt="Email"> regaliadining@gmail.com</p>
+        <p><img src="Regalia dining/img/phone.svg" alt="Phone"> +351 920 333 333</p>
+    </div>
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3113.5557343288746!2d-9.142811684686442!3d38.71063797960076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933879f9a9a8f%3A0x91644bf7c16af654!2sRua%20Garrett%2C%20Lisboa%2C%20Portugal!5e0!3m2!1sen!2sus!4v1635039352961!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer-line"></div>
+
+  <footer class="site-footer">
+      <div class="box box-footer"></div>
+      <div class="footer-container">
+          <div class="footer-menu">
+              <div class="menu-column left-column">
+                  <a href="Book a table.html" class="menu-item">BOOK A TABLE</a> 
+                  <a href="Menu_Appetizers.html" class="menu-item">MENU</a> 
+                  <a href="#" class="menu-item">ABOUT</a>
+              </div>
+              <div class="menu-column right-column">
+                  <a href="" class="menu-item">CONTACT</a>
+                  <a href="#" class="menu-item">FAVOURITE</a>
+                  <a href="#" class="menu-item">CART</a>
+              </div>
+          </div>
+          <div class="footer-logo">
+              <a href="index.html">
+                  <img src="Regalia dining/img/logo.png" alt="Regalia Dining Logo">
+              </a>
+              <p class="copyright">2024 Regalia Dining</p>
+          </div>
+          <div class="footer-contact">
+              <p>Rua Garrett, Chiado, Lisbon, Portugal</p>
+              <p>regaliadining@gmail.com</p>
+              <p>+351 920 333 333</p>
+              <div class="social-icons">
+                  <a href="#" aria-label="Instagram"><img src="Regalia dining/img/Instagram.svg" alt=""></a>
+                  <a href="#" aria-label="Telegram"><img src="Regalia dining/img/Telegram.svg" alt=""></a>
+                  <a href="#" aria-label="Facebook"><img src="Regalia dining/img/Facebook.svg" alt=""></a>
+                  <a href="#" aria-label="LinkedIn"><img src="Regalia dining/img/Linked In.svg" alt=""></a>
+              </div>
+          </div>
+      </div>
+  </footer>
+  <!-- FOOTER -->
+  <script src="regalia-dining-style.js"></script>
+</body>
+</html>
