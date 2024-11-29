@@ -9,6 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Amoret+Sans&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <style>
     @font-face {
       font-family: 'Amoret Sans';
@@ -51,7 +53,7 @@
 
     .project-overview .container {
       display: flex;
-      gap: 30px; 
+      gap: 100px; 
       flex-wrap: wrap;
     }
 
@@ -1369,6 +1371,25 @@
     .portfolio-parallax-demo .button:hover {
       opacity: 0.9;
     }
+    .interactive-hint {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-family: 'Noto Sans', sans-serif;
+      font-size: 14px;
+      color: #666666;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      z-index: 20;
+    }
+
+    .parallax-box:hover .interactive-hint {
+      opacity: 1;
+    }
 
     /* Yoga Page Demo */
     .portfolio-yoga-demo {
@@ -2080,6 +2101,86 @@
       height: auto;
       object-fit: cover;
     }
+     
+    /*--------------------------------------------------------------
+    # Global Footer
+    --------------------------------------------------------------*/
+    .footer {
+      background: #e9e8e6;
+      padding: 30px 0;
+      color: #222222;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .footer .copyright p {
+      margin-bottom: 0;
+    }
+
+    .footer .social-links {
+      margin-top: 20px;
+    }
+
+    .footer .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid rgba(39, 67, 83, 0.7); 
+      font-size: 16px;
+      color: #274353; 
+      margin: 0 5px;
+      transition: all 0.3s ease; 
+      background: transparent;
+    }
+
+    .footer .social-links a:hover {
+      color: #ffffff; 
+      border-color: #274353;
+      background-color: #274353;
+      transform: translateY(-3px); 
+      box-shadow: 0 4px 8px rgba(39, 67, 83, 0.2); 
+    }
+
+    .footer .social-links a:active {
+      transform: translateY(-1px);
+      box-shadow: 0 2px 4px rgba(39, 67, 83, 0.2);
+    }
+
+    /*--------------------------------------------------------------
+    # Scroll Top Button
+    --------------------------------------------------------------*/
+    .scroll-top {
+      position: fixed;
+      visibility: hidden;
+      opacity: 0;
+      right: 15px;
+      bottom: -15px;
+      z-index: 99999;
+      background-color: #34b7a7;  
+      width: 44px;
+      height: 44px;
+      border-radius: 50px;
+      transition: all 0.4s;
+    }
+
+    .scroll-top i {
+      font-size: 24px;
+      color: #FFFFFF;  
+      line-height: 0;
+    }
+
+    .scroll-top:hover {
+      background-color: rgba(52, 183, 167, 0.8);
+    }
+
+    .scroll-top.active {
+      visibility: visible;
+      opacity: 1;
+      bottom: 15px;
+    }
   </style>
 
 </head>
@@ -2284,7 +2385,8 @@
       <h2 class="font-selection-title">Font Selection</h2>
       <div class="font-selection-card">
           <h3 class="font-selection-card-title">Font Selection</h3>
-          <p class="font-selection-card-text">To create a visual style that reflects the unique and positive nature of ASCENDtials, I began by selecting fonts. My options included Aesthetic Romance, Grotesk, Amoret Sans, Harmony Embrace, Quantify, and Satoshi. After analysis and testing, I chose Amoret Sans. This font perfectly conveys the lightness and friendliness the company aims for, avoiding excessive formality and giving the site a modern, elegant look. <br> For the main body text, I considered Noto Sans, Roboto, Lato, and Inter before selecting Noto Sans for readability and harmony with Amoret Sans.</p>
+          <p class="font-selection-card-text">To create a visual style that reflects the unique and positive nature of ASCENDtials, I began by selecting fonts. My options included Aesthetic Romance, Grotesk, Amoret Sans, Harmony Embrace, Quantify, and Satoshi. After analysis and testing, I chose Amoret Sans. This font perfectly conveys the lightness and friendliness the company aims for, avoiding excessive formality and giving the site a modern, elegant look. </p> 
+          <p class="font-selection-card-text">For the main body text, I considered Noto Sans, Roboto, Lato, and Inter before selecting Noto Sans for readability and harmony with Amoret Sans.</p>
       </div>
     </div>
     
@@ -2355,6 +2457,14 @@
       <div class="parallax-section">
         <img src="assets/img/portfolio/ASCENDtials/Arrow 1.svg" alt="Arrow" class="arrow">
         <div class="parallax-box">
+          <div class="interactive-hint">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 13.5C11.0376 13.5 13.5 11.0376 13.5 8C13.5 4.96243 11.0376 2.5 8 2.5C4.96243 2.5 2.5 4.96243 2.5 8C2.5 11.0376 4.96243 13.5 8 13.5Z" stroke="#666666" stroke-width="1.5"/>
+              <path d="M8 5.5V8.5" stroke="#666666" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="8" cy="10.5" r="0.5" fill="#666666"/>
+            </svg>
+            Move your cursor to see interactive effect
+          </div>
           <div class="parallax-container">
             <div class="parallax">
               <div class="layer layer-1"></div>
@@ -2429,6 +2539,14 @@
       
       <div class="demo-section">
         <div class="parallax-box">
+          <div class="interactive-hint">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 13.5C11.0376 13.5 13.5 11.0376 13.5 8C13.5 4.96243 11.0376 2.5 8 2.5C4.96243 2.5 2.5 4.96243 2.5 8C2.5 11.0376 4.96243 13.5 8 13.5Z" stroke="#666666" stroke-width="1.5"/>
+              <path d="M8 5.5V8.5" stroke="#666666" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="8" cy="10.5" r="0.5" fill="#666666"/>
+            </svg>
+            Move your cursor to see interactive effect
+          </div>
           <main class="yoga-page-content">
             <!-- Cards will be added here by JavaScript -->
           </main>
@@ -2500,6 +2618,14 @@
       <div class="demo-section">
         <img src="assets/img/portfolio/ASCENDtials/Arrow 3.svg" alt="Arrow" class="arrow">
         <div class="donation-box">
+          <div class="interactive-hint">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 13.5C11.0376 13.5 13.5 11.0376 13.5 8C13.5 4.96243 11.0376 2.5 8 2.5C4.96243 2.5 2.5 4.96243 2.5 8C2.5 11.0376 4.96243 13.5 8 13.5Z" stroke="#666666" stroke-width="1.5"/>
+              <path d="M8 5.5V8.5" stroke="#666666" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="8" cy="10.5" r="0.5" fill="#666666"/>
+            </svg>
+            Move your cursor to see interactive effect
+          </div>
           <div class="figures-container">
             <!-- Первая фигура -->
             <div class="figure first-figure-container">
@@ -2662,6 +2788,14 @@
     <div class="portfolio-service-demo">
       <div class="demo-section">
         <div class="environmental-box">
+          <div class="interactive-hint">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 13.5C11.0376 13.5 13.5 11.0376 13.5 8C13.5 4.96243 11.0376 2.5 8 2.5C4.96243 2.5 2.5 4.96243 2.5 8C2.5 11.0376 4.96243 13.5 8 13.5Z" stroke="#666666" stroke-width="1.5"/>
+              <path d="M8 5.5V8.5" stroke="#666666" stroke-width="1.5" stroke-linecap="round"/>
+              <circle cx="8" cy="10.5" r="0.5" fill="#666666"/>
+            </svg>
+            The animation works on scrolling
+          </div>
           <!-- Environmental programs starts -->
           <section class="environmental-programs-section portfolio-environmental">
             <div class="section-container">
@@ -2926,5 +3060,38 @@
       </script>
 
   </main>
+  <footer id="footer" class="footer">
+      <div class="container">
+        <div class="copyright text-center ">
+          <p>© <span>Copyright</span> <strong class="px-1 sitename">Yana Harcourt</strong> <span>All Rights Reserved</span></p>
+        </div>
+        <div class="social-links d-flex justify-content-center">
+          <a href="https://www.linkedin.com/in/yana-h-16800a296/" class="linkedin"><i class="bi bi-linkedin"></i></i></a> <a href="https://www.behance.net/yana_harcourt" class="Behance"><i class="bi bi-behance"></i></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+      <i class="bi bi-arrow-up-short"></i>
+    </a>
+    
+    <script>
+        const scrollTop = document.querySelector('.scroll-top');
+        if (scrollTop) {
+            const togglescrollTop = function() {
+                window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+            }
+            window.addEventListener('load', togglescrollTop);
+            document.addEventListener('scroll', togglescrollTop);
+            scrollTop.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+    </script>
 </body>
 </html>
