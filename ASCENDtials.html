@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ASCENDtials</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,300;0,400;0,700;0,900&display=swap" rel="stylesheet"> 
   <link href="https://fonts.googleapis.com/css2?family=Amoret+Sans&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  
   <style>
     @font-face {
       font-family: 'Amoret Sans';
@@ -627,10 +627,10 @@
     }
 
     .visual-development-card-title {
-      font-family: 'Noto Sans', sans-serif;
-      font-size: 26px;
-      color: #666666;
-      margin-bottom: 0px;
+      font-family: 'Noto Sans', sans-serif !important;
+      font-size: 26px !important;
+      color: #666666 !important;
+      margin-bottom: 0px !important;
     }
 
     .visual-development-card-text {
@@ -844,10 +844,10 @@
     }
 
     .font-selection-card-title {
-      font-family: 'Noto Sans', sans-serif;
-      font-size: 26px;
-      color: #666666;
-      margin-bottom: 0px;
+      font-family: 'Noto Sans', sans-serif !important;
+      font-size: 26px !important;
+      color: #666666 !important;
+      margin-bottom: 0px !important;
     }
 
     .font-selection-card-text {
@@ -2119,6 +2119,9 @@
 
     .footer .social-links {
       margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .footer .social-links a {
@@ -2128,12 +2131,21 @@
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      border: 1px solid rgba(39, 67, 83, 0.7); 
+      border: 1px solid rgba(39, 67, 83, 0.7);
       font-size: 16px;
-      color: #274353; 
+      color: #274353;
       margin: 0 5px;
-      transition: all 0.3s ease; 
+      transition: all 0.3s ease;
       background: transparent;
+      text-decoration: none;
+    }
+
+    .footer .social-links a i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
     }
 
     .footer .social-links a:hover {
@@ -2159,17 +2171,25 @@
       right: 15px;
       bottom: -15px;
       z-index: 99999;
-      background-color: #34b7a7;  
+      background-color: #34b7a7;
       width: 44px;
       height: 44px;
       border-radius: 50px;
       transition: all 0.4s;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-decoration: none;
     }
 
     .scroll-top i {
       font-size: 24px;
-      color: #FFFFFF;  
+      color: #FFFFFF;
       line-height: 0;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .scroll-top:hover {
