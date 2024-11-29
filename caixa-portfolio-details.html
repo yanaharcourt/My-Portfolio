@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Caixadirecta App Redesign</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/caixa-styles.css">
 </head>
@@ -391,18 +392,43 @@
         </section>
         
         <!-- Thank you for reading -->
-        <section class="thank-you-section">
-            <div class="thank-you-section__container">
-                <div class="thank-you-section__image">
-                    <img src="assets/img/portfolio/Caixa Directa/img/profile-img.png" alt="Thank you image">
-                </div>
-                <div class="thank-you-section__text-block">
-                    <h2 class="thank-you-section__title">Thank you for reading</h2>
-                    <p class="thank-you-section__email">yana.harcort@gmail.com</p>
-                </div>
-            </div>
+        <section class="portfolio-thank-you">
+            <img src="assets/img/portfolio/Caixa Directa/img/Thanks Caixa.png" alt="Thank You" class="thank-you-image">
         </section>
-              
+
+        <footer id="footer" class="footer">
+            <div class="container">
+              <div class="copyright text-center ">
+                <p>© <span>Copyright</span> <strong class="px-1 sitename">Yana Harcourt</strong> <span>All Rights Reserved</span></p>
+              </div>
+              <div class="social-links d-flex justify-content-center">
+                <a href="https://www.linkedin.com/in/yana-h-16800a296/" class="linkedin"><i class="bi bi-linkedin"></i></i></a> <a href="https://www.behance.net/yana_harcourt" class="Behance"><i class="bi bi-behance"></i></i></a>
+              </div>
+            </div>
+        </footer>
+      
+        <!-- Scroll Top -->
+          <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+            <i class="bi bi-arrow-up-short"></i>
+          </a>
+          
+            <script>
+              const scrollTop = document.querySelector('.scroll-top');
+              if (scrollTop) {
+                  const togglescrollTop = function() {
+                      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+                  }
+                  window.addEventListener('load', togglescrollTop);
+                  document.addEventListener('scroll', togglescrollTop);
+                  scrollTop.addEventListener('click', function(e) {
+                      e.preventDefault();
+                      window.scrollTo({
+                          top: 0,
+                          behavior: 'smooth'
+                      });
+                  });
+              }
+            </script>
     
 </body>
 </html>
