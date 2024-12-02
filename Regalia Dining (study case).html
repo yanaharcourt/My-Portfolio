@@ -1,0 +1,2391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regalia Dining</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rhodium+Libre&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Rhodium+Libre&display=swap');
+        
+      body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Lato', sans-serif;
+        background-color: #0E0E10;
+        color: #C7C7C7;
+        overflow-x: hidden;
+      }
+
+      .case-study-hero {
+        width: 100%;
+        height: 1024px;
+        position: relative;
+        margin-bottom: 50px;
+      }
+
+      .case-study-hero img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .case-study-hero {
+            height: 50vh; 
+        }
+      }
+      
+      /*--------------------------------------------------------------
+      # Project Overview
+      --------------------------------------------------------------*/
+      .project-overview {
+        padding: 80px 55px;
+        background-color: #0E0E10;
+        margin-bottom: 150px;
+      }
+
+      .project-overview .container {
+        display: flex;
+        gap: 100px;
+        flex-wrap: wrap;
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+
+      /* Left Column Styles */
+      .project-description {
+        flex: 1 1 60%;
+        color: #C7C7C7;
+      }
+
+      .project-description .project-title {
+        font-family: 'Rhodium Libre', serif;
+        font-weight: 400;
+        font-size: 64px;
+        color: #C7C7C7;
+        margin-bottom: 18px;
+      }
+
+      .project-description .project-text {
+        font-family: 'Lato', sans-serif;
+        font-size: 24px;
+        color: #C7C7C7;
+        line-height: 1.8;
+        opacity: 0.8;
+      }
+
+      /* Right Column Styles */
+      .project-info {
+        flex: 1 1 30%;
+        padding: 0;
+        box-sizing: border-box;
+        margin-top: 162px;
+      }
+
+      .project-info .info-title {
+        font-family: 'Rhodium Libre', serif;
+        font-size: 24px;
+        font-weight: 400;
+        color: #C7C7C7;
+        margin-bottom: 18px;
+      }
+
+      .project-info .info-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .project-info .info-list li {
+        font-family: 'Lato', sans-serif;
+        font-size: 18px;
+        color: #C7C7C7;
+        line-height: 1.6;
+        margin-bottom: 10px;
+        opacity: 0.8;
+      }
+
+      .project-info .info-list li strong {
+        color: #C7C7C7;
+        opacity: 1;
+      }
+
+      .button-container {
+        margin-top: 30px;
+        font-family: 'Lato', sans-serif;
+      }
+
+      .btn-visit {
+        display: inline-block;
+        padding: 12px 40px;
+        background-color: #E63946;
+        color: #C7C7C7;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 500;
+        position: relative;
+        border: 2px solid transparent;
+        transition: all 0.3s ease;
+        overflow: hidden;
+      }
+
+      /* блестки используя pseudo-elements */
+      .btn-visit::before,
+      .btn-visit::after {
+        content: '';
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: #E63946;
+        border-radius: 50%;
+        transition: all 0.5s ease;
+        opacity: 0;
+      }
+
+      /* блестки */
+      .btn-visit::before {
+        left: 45%;
+        top: 100%;
+      }
+
+      .btn-visit::after {
+        right: 45%;
+        top: 100%;
+      }
+
+      .btn-visit:hover {
+        background-color: transparent;
+        border-color: #E63946;
+        color: #C7C7C7;
+      }
+
+      .btn-visit:hover::before {
+        animation: sparkleLeft 0.5s ease forwards;
+      }
+
+      .btn-visit:hover::after {
+        animation: sparkleRight 0.5s ease forwards;
+      }
+
+      /* Keyframes для левой блестки */
+      @keyframes sparkleLeft {
+        0% {
+          opacity: 0;
+          top: 100%;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          top: -10%;
+          left: 30%;
+          transform: scale(2) rotate(-45deg);
+        }
+      }
+
+      /* Keyframes для правой блестки */
+      @keyframes sparkleRight {
+        0% {
+          opacity: 0;
+          top: 100%;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          top: -10%;
+          right: 30%;
+          transform: scale(2) rotate(45deg);
+        }
+      }
+
+      /* Дополнительные блестки */
+      .btn-visit .sparkles {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+      }
+
+      .btn-visit .sparkles span {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background-color: #E63946;
+        border-radius: 50%;
+        opacity: 0;
+      }
+
+      .btn-visit:hover .sparkles span:nth-child(1) {
+        left: 40%;
+        animation: sparkle1 0.6s ease forwards;
+      }
+
+      .btn-visit:hover .sparkles span:nth-child(2) {
+        left: 50%;
+        animation: sparkle2 0.6s ease forwards 0.1s;
+      }
+
+      .btn-visit:hover .sparkles span:nth-child(3) {
+        left: 60%;
+        animation: sparkle3 0.6s ease forwards 0.2s;
+      }
+
+      @keyframes sparkle1 {
+        0% {
+          opacity: 0;
+          top: 100%;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          top: -20%;
+          transform: scale(1.5) rotate(-15deg);
+        }
+      }
+
+      @keyframes sparkle2 {
+        0% {
+          opacity: 0;
+          top: 100%;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          top: -20%;
+          transform: scale(1.5);
+        }
+      }
+
+      @keyframes sparkle3 {
+        0% {
+          opacity: 0;
+          top: 100%;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          top: -20%;
+          transform: scale(1.5) rotate(15deg);
+        }
+      }
+
+      /* Планшеты */
+      @media (max-width: 1024px) {
+        .project-overview {
+          padding: 60px 30px;
+        }
+
+        .project-overview .container {
+          gap: 60px;
+        }
+
+        .project-description .project-title {
+          font-size: 48px;
+        }
+
+        .project-description .project-text {
+          font-size: 20px;
+        }
+
+        .project-info {
+          margin-top: 80px;
+        }
+      }
+
+      /* Мобильные устройства */
+      @media (max-width: 768px) {
+        .project-overview {
+          padding: 40px 20px;
+          margin-bottom: 80px;
+        }
+
+        .project-overview .container {
+          flex-direction: column;
+          gap: 40px;
+        }
+
+        .project-description {
+          flex: 1 1 100%;
+        }
+
+        .project-description .project-title {
+          font-size: 36px;
+          margin-bottom: 16px;
+        }
+
+        .project-description .project-text {
+          font-size: 18px;
+          line-height: 1.6;
+        }
+
+        .project-info {
+          flex: 1 1 100%;
+          margin-top: 0;
+        }
+
+        .project-info .info-title {
+          font-size: 22px;
+          margin-bottom: 14px;
+        }
+
+        .project-info .info-list li {
+          font-size: 16px;
+        }
+
+        .button-container {
+          margin-top: 24px;
+        }
+
+        .btn-visit {
+          padding: 10px 30px;
+          font-size: 14px;
+        }
+      }
+
+      /* Маленькие мобильные устройства */
+      @media (max-width: 375px) {
+        .project-overview {
+          padding: 30px 15px;
+          margin-bottom: 60px;
+        }
+
+        .project-description .project-title {
+          font-size: 32px;
+        }
+
+        .project-description .project-text {
+          font-size: 16px;
+        }
+
+        .project-info .info-title {
+          font-size: 20px;
+        }
+
+        .project-info .info-list li {
+          font-size: 14px;
+        }
+
+        .btn-visit {
+          padding: 8px 25px;
+          font-size: 13px;
+        }
+      }
+
+      /*--------------------------------------------------------------
+      # Problem -Solution
+      --------------------------------------------------------------*/
+      .problem-solution {
+        padding: 0 55px;
+        margin-bottom: 150px;
+      }
+
+      .problem-solution .container {
+        display: flex;
+        gap: 50px;
+        max-width: 1800px;
+        margin: 0 auto;
+      }
+
+      .problem-solution .column {
+        flex: 1;
+        display: flex;
+      }
+
+      .content-box {
+        background-color: #1C1C1E;
+        border-radius: 86px;
+        padding: 55px;
+        width: 875px;
+        box-sizing: border-box;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease-out, background-color 0.3s ease;
+      }
+      .content-box:hover {
+        background-color: #1F1F21;
+        transform: translateY(-5px);
+      }
+
+      .section-title {
+        font-family: 'Rhodium Libre', serif;
+        font-size: 40px;
+        color: #C7C7C7;
+        font-weight: 400;
+        margin: 0;
+      }
+
+      .section-text {
+        font-family: 'Lato', sans-serif;
+        font-size: 24px;
+        line-height: 1.6;
+        color: #C7C7C7;
+        margin: 0 0 12px 0; 
+      }
+
+      .section-text:last-child {
+        margin-bottom: 0;
+      }
+
+      @media (max-width: 1800px) {
+        .content-box {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        .problem-solution .container {
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        .content-box {
+          border-radius: 40px;
+          padding: 30px;
+          height: auto;
+        }
+
+        .section-title {
+          font-size: 28px;
+        }
+
+        .section-text {
+          font-size: 18px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .problem-solution {
+          padding: 0 20px;
+        }
+
+        .content-box {
+          border-radius: 30px;
+          padding: 25px;
+        }
+
+        .section-title {
+          font-size: 24px;
+        }
+
+        .section-text {
+          font-size: 18px;
+        }
+      }
+
+      .brainstorm {
+        padding: 0 55px;
+        margin-bottom: 150px;
+      }   
+
+      .brainstorm-title {
+        font-family: 'Rhodium Libre', serif;
+        font-size: 40px;
+        font-weight: 400;
+        color: #C7C7C7;
+        margin: 0;
+        max-width: 880px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .brainstorm-text {
+        font-family: 'Lato', sans-serif;
+        font-size: 24px;
+        line-height: 1.6;
+        color: #C7C7C7;
+        margin: 12px 0 0 0;
+        max-width: 880px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* Класс для анимированных элементов */
+      .aos-animate.brainstorm-title,
+      .aos-animate.brainstorm-text {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .brainstorm-text {
+        transition-delay: 0.2s;
+      }
+
+      @media (max-width: 992px) {
+        .brainstorm {
+          padding: 0 20px;
+        }
+          
+        .brainstorm-title {
+          font-size: 28px;
+        }
+          
+        .brainstorm-text {
+          font-size: 18px;
+        }
+      }
+
+      /*--------------------------------------------------------------
+      # Timeline
+      --------------------------------------------------------------*/
+      .timeline-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 150px;
+        margin-bottom: 150px;
+      }
+
+      .timeline-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 60px;
+      }
+      .timeline-container {
+        margin: 0 auto;
+        position: relative;
+        width: 1330px;
+        height: 440px;
+        z-index: 2;
+        overflow: hidden;
+      }
+
+      .timeline-lines {
+        position: absolute;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: 100%;
+      }
+
+      .timeline-line {
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(to bottom, #CBE5FD, #0971CE);
+      }
+
+      .timeline {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+      }
+
+      .timeline-item {
+        position: absolute;
+        padding: 10px 15px;
+        border-radius: 10px;
+        color: white;
+        font-size: 20px;
+        font-family: 'Lato', sans-serif;
+        text-align: center;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        transition: all 0.3s ease-out;
+      }
+      .timeline-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      }
+
+      .timeline-item.purple:hover {
+        box-shadow: 0 0 20px rgba(140, 113, 225, 0.3);
+      }
+
+      .timeline-item.dark:hover {
+          box-shadow: 0 0 20px rgba(63, 66, 71, 0.3);
+      }
+
+      .timeline-item.light-purple:hover {
+          box-shadow: 0 0 20px rgba(186, 107, 224, 0.3);
+      }
+
+      .timeline-item.light-blue:hover {
+          box-shadow: 0 0 20px rgba(121, 185, 242, 0.3);
+      }
+
+      .timeline-item.blue:hover {
+          box-shadow: 0 0 20px rgba(44, 110, 220, 0.3);
+      }
+
+      .timeline-item:nth-child(1) { left: 0%; top: 5%; width: 360px; }
+      .timeline-item:nth-child(2) { left: 17%; top: 21%; width: 320px; }
+      .timeline-item:nth-child(3) { left: 32%; top: 38%; width: 200px; }
+      .timeline-item:nth-child(4) { left: 45%; top: 54%; width: 240px; }
+      .timeline-item:nth-child(5) { left: 60%; top: 70%; width: 300px; }
+      .timeline-item:nth-child(6) { left: 70%; top: 86%; width: 350px; }
+
+      .timeline-item.purple { background-color: #8C71E1; }
+      .timeline-item.blue { background-color: #2C6EDC; }
+      .timeline-item.dark { background-color: #3F4247; }
+      .timeline-item.light-purple { background-color: #BA6BE0; }
+      .timeline-item.light-blue { background-color: #79B9F2; }
+      .timeline-item.blue { background-color: #2C6EDC; }
+
+      @media (max-width: 767px) {
+        .timeline-wrapper {
+          margin-top: 40px;
+        }
+
+        .timeline-container {
+          width: 100%;
+          height: auto;
+        }
+
+        .timeline-lines {
+          display: none;
+        }
+
+        .timeline {
+          position: static;
+        }
+
+        .timeline-item {
+          position: static;
+          width: 100% !important;
+          max-width: none;
+          margin-bottom: 20px;
+          white-space: normal;
+          box-sizing: border-box;
+          padding: 15px;
+          font-size: 18px;
+          line-height: 1.4;
+          text-align: left;
+        }
+
+        .timeline-item:nth-child(1),
+        .timeline-item:nth-child(2),
+        .timeline-item:nth-child(3),
+        .timeline-item:nth-child(4),
+        .timeline-item:nth-child(5),
+        .timeline-item:nth-child(6)
+        {
+          left: 0;
+          top: 0;
+        }
+      }
+
+      @media (min-width: 768px) and (max-width: 1023px) {
+        .timeline-wrapper {
+          padding: 0 30px;
+        }
+
+        .timeline-container {
+          width: 100%;
+        }
+
+        .timeline-item {
+          font-size: 14px;
+        }
+      }
+
+      /*--------------------------------------------------------------
+      # User Research and Personas
+      --------------------------------------------------------------*/
+      .user-research {
+        padding: 0 55px;
+        margin-bottom: 0;
+      }
+
+      .user-research-title {
+        font-family: 'Rhodium Libre', serif;
+        font-size: 40px;
+        font-weight: 400;
+        color: #C7C7C7;
+        margin: 0;
+      }
+
+      .user-research-text {
+        font-family: 'Lato', sans-serif;
+        font-size: 24px;
+        line-height: 1.6;
+        color: #C7C7C7;
+        margin: 12px 0 150px 0;
+        max-width: 924px;
+      }
+
+      .personas-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 24px;
+        width: 100%;
+        margin: 0 auto;
+        max-width: 1740px;
+      }
+
+      .persona-card {
+        position: relative;
+        width: 564px;
+        height: 1159px;
+        flex-shrink: 0;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 0.8s ease-out forwards;
+        animation-play-state: paused;
+        transition: all 0.3s ease;
+      }
+      .persona-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .persona-card.visible {
+        animation-play-state: running;
+      }
+
+      @keyframes fadeInUp {
+          from {
+              opacity: 0;
+              transform: translateY(30px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+
+      .persona-card svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .persona-image {
+        position: absolute;
+        top: -8px;
+        right: 0px;
+        width: 144px;
+        height: 144px;
+        border-radius: 50%;
+        object-fit: cover;
+        z-index: 2;
+      }
+
+      .persona-content {
+        position: relative;
+        z-index: 1;
+        padding: 120px 50px 30px 30px;
+        max-width: 480px;
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      .persona-card.visible .persona-content {
+        animation: slideContent 0.6s ease-out 0.3s forwards;
+      }
+
+      @keyframes slideContent {
+        from {
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      .persona-name {
+        font-family: 'Rhodium Libre', serif;
+        font-size: 40px;
+        color: #C7C7C7;
+        margin: 0 0 24px 0;
+      }
+
+      .persona-characteristics {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 40px;
+      }
+
+      .characteristic {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .characteristic img {
+        width: 48px;
+        height: 48px;
+        opacity: 0.7;
+      }
+
+      .characteristic span {
+        font-family: 'Lato', sans-serif;
+        font-size: 22px;
+        color: #C7C7C7;
+      }
+
+      .content-section {
+        margin-bottom: 32px;
+      }
+
+      .content-section:last-child {
+        margin-bottom: 0;
+      }
+
+      .content-section h3 {
+        font-family: 'Lato', serif;
+        font-weight: 500;
+        font-size: 28px;
+        color: #9E9E9F;
+        margin: 0 0 12px 0;
+      }
+
+      .content-section ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .content-section li {
+        font-family: 'Lato', sans-serif;
+        font-size: 24px;
+        color: #C7C7C7;
+        line-height: 1.6;
+        margin-bottom: 12px;
+        padding-left: 24px;
+        position: relative;
+      }
+
+      .content-section li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #C7C7C7;
+      }
+
+      .content-section li:last-child {
+        margin-bottom: 0;
+      }
+
+        .content-section p {
+        font-family: 'Lato', sans-serif;
+        font-size: 24px;
+        color: #C7C7C7;
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* Адаптивы */
+        @media (max-width: 1800px) {
+          .personas-container {
+            transform: scale(0.9);
+            transform-origin: top center;
+          }
+        }
+
+        @media (max-width: 1600px) {
+          .personas-container {
+            transform: scale(0.8);
+          }
+        }
+
+      /* Планшеты */
+      @media (max-width: 1024px) {
+        .user-research {
+          padding: 0 30px;
+        }
+
+        .user-research-title {
+          font-size: 32px;
+        }
+
+        .user-research-text {
+          font-size: 18px;
+          margin: 12px 0 60px 0;
+          max-width: 100%;
+        }
+
+        .personas-container {
+          transform: none;
+        }
+
+        .persona-card {
+          min-height: 900px; 
+        }
+
+        .persona-card svg {
+          transform: scaleX(1.1) scaleY(0.9); 
+        }
+      }
+
+      /* Мобильные устройства */
+      @media (max-width: 768px) {
+        .user-research {
+          padding: 0 20px;
+        }
+
+        .personas-container {
+          flex-direction: column;
+          align-items: center;
+          gap: 0; 
+        }
+
+        .persona-card {
+          width: 100%;
+          max-width: 480px; 
+          min-height: 800px; 
+          transform-origin: top center; 
+          transform: scale(0.9); 
+          margin-bottom: -80px;
+          margin-top: -100px; 
+        }
+        .persona-card:first-child {
+          margin-top: 0;
+        }
+
+        .persona-card svg {
+          transform: scaleX(1.2) scaleY(0.85); 
+        }
+
+        .persona-image {
+          width: 100px;
+          height: 100px;
+          top: 150px;
+          right: -6px;
+        }
+
+        .persona-content {
+          margin-top: 260px;
+          padding: 0 0px 40px;
+        }
+
+        .persona-name {
+          font-size: 32px;
+        }
+
+        .characteristic img {
+          width: 32px;
+          height: 32px;
+        }
+
+        .characteristic span {
+          font-size: 18px;
+        }
+
+        .content-section h3 {
+          font-size: 22px;
+        }
+
+        .content-section li,
+        .content-section p {
+          font-size: 18px;
+          padding-left: 20px;
+        }
+      }
+
+      /* Маленькие мобильные устройства */
+      @media (max-width: 375px) {
+        .user-research {
+          padding: 0 15px;
+        }
+
+        .persona-card {
+          min-height: 750px; 
+          transform: scale(0.85); 
+        }
+
+        .persona-card svg {
+          transform: scaleX(1.3) scaleY(0.8); 
+        }
+
+        .persona-content {
+          padding: 25px 30px;
+        }
+
+        .persona-name {
+          font-size: 28px;
+        }
+
+        .characteristic img {
+          width: 28px;
+          height: 28px;
+        }
+
+        .characteristic span {
+          font-size: 18px;
+        }
+
+        .content-section h3 {
+          font-size: 20px;
+        }
+
+        .content-section li,
+        .content-section p {
+          font-size: 18px;
+        }
+      }
+
+      /*--------------------------------------------------------------
+      # Home Page Description
+      --------------------------------------------------------------*/
+      .homepage-description {
+        padding: 0 55px;
+        margin-bottom: 200px;
+      }
+
+      .homepage-title {
+        font-family: 'Rhodium Libre', serif;
+        font-size: 40px;
+        color: #C7C7C7;
+        margin-bottom: 80px;
+      }
+
+      .description-content {
+        display: flex;
+        gap: 60px;
+        position: relative;
+      }
+
+      .image-column {
+        flex: 0 0 700px;
+      }
+
+      .main-image {
+        width: 700px;
+        height: 2730px;
+        object-fit: contain;
+      }
+
+      .description-points {
+        flex: 1;
+        position: relative;
+      }
+
+      .description-point {
+        position: relative;
+        margin-bottom: 80px;
+      }
+
+      .arrow {
+        position: absolute;
+        width: 250px;
+        height: auto;
+        z-index: 2;
+      }
+
+      .point-content {
+        position: absolute;
+        color: #C7C7C7;
+        margin-left: 0;
+      }
+
+      .point-text {
+        font-family: 'Lato', sans-serif;
+        font-size: 20px;
+        line-height: 1.6;
+        margin-bottom: 24px;
+        margin-top: 0;
+      }
+
+      .point-title {
+        font-family: 'Rhodium Libre', serif;
+        font-size: 28px;
+        margin: 0 0 0 0;
+      }
+
+      .description-point:nth-child(1) .arrow {
+        position: absolute;
+        width: 250px;
+        top: 0;
+        left: -147px;
+      }
+
+      .description-point:nth-child(1) .point-content {
+        position: absolute;
+        top: 60px;
+        left: 16px;
+      }
+
+      .description-point:nth-child(2) .arrow {
+        position: absolute;
+        width: 250px;
+        top: 550px;
+        left: -260px;
+        transform: rotate(-30deg) !important;
+      }
+
+      .description-point:nth-child(2) .point-content {
+        position: absolute;
+        top: 500px;
+        left: 16px;
+      }
+
+      .description-point:nth-child(3) .arrow {
+        position: absolute;
+        width: 250px;
+        top: 1120px;
+        left: -150px;
+      }
+
+      .description-point:nth-child(3) .point-content {
+        position: absolute;
+        top: 1200px;
+        left: 16px;
+      }
+
+      .description-point:nth-child(4) .arrow {
+        position: absolute;
+        width: 250px;
+        top: 1770px;
+        left: -150px;
+      }
+
+      .description-point:nth-child(4) .point-content {
+        position: absolute;
+        top: 1830px;
+        left: 16px;
+      }
+      .point-content ul {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+      }
+
+      .point-content li {
+        font-family: 'Lato', sans-serif;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #C7C7C7;
+        margin-bottom: 16px;
+        padding-left: 24px;
+        position: relative;
+      }
+
+      .point-content li::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        color: #C7C7C7;
+      }
+
+      .point-content li:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Animation */
+        .description-point.hidden {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      .description-point.show {
+        opacity: 1;
+        transform: translateX(0);
+        transition: all 0.8s ease-out;
+      }
+
+      /* Разные задержки для каждой точки описания */
+      .description-point:nth-child(1).show {
+        transition-delay: 0.2s;
+      }
+
+      .description-point:nth-child(2).show {
+        transition-delay: 0.6s;
+      }
+
+      .description-point:nth-child(3).show {
+        transition-delay: 0.10s;
+      }
+
+      .description-point:nth-child(4).show {
+        transition-delay: 0.12s;
+      }
+
+      .description-point.hidden .arrow {
+        opacity: 0;
+        transform: translateX(-100px);
+      }
+
+      .description-point.show .arrow {
+        opacity: 1;
+        transform: translateX(0);
+        transition: all 1s ease-out;
+      }
+
+      .description-point.hidden .point-content {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .description-point.show .point-content {
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.8s ease-out 0.3s;
+      }
+
+      /* Адаптивы для описания Домашней страницы */
+      @media screen and (max-width: 1024px) {
+        .homepage-description {
+          padding: 0 30px;
+          margin-bottom: 100px;
+        }
+
+        .homepage-title {
+          font-size: 32px;
+          margin-bottom: 80px;
+        }
+
+        .description-content {
+          gap: 40px;
+        }
+
+        .image-column {
+          flex: 0 0 500px;
+        }
+
+        .main-image {
+          width: 500px;
+          height: auto;
+        }
+
+        .point-text {
+          font-size: 18px;
+        }
+
+        .point-title {
+          font-size: 24px;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .homepage-description {
+          padding: 0 20px;
+          margin-bottom: 60px;
+        }
+
+        .homepage-title {
+          font-size: 28px;
+          margin-bottom: 40px;
+          text-align: center;
+        }
+
+        .description-content {
+          flex-direction: column;
+          gap: 30px;
+        }
+
+        .image-column {
+          flex: none;
+          width: 100%;
+        }
+
+        .main-image {
+          width: 100%;
+          height: auto;
+          max-width: 400px;
+          margin: 0 auto;
+          display: block;
+        }
+
+        .description-points {
+          width: 100%;
+        }
+
+        .description-point {
+          margin-bottom: 24px;
+          padding: 32px;
+          background-color: #1C1C1E;
+          border-radius: 86px;
+          position: relative;
+        }
+
+        /* Скрытие стрелок на мобильных */
+        .arrow {
+          display: none;
+        }
+
+        .point-content {
+          position: relative !important;
+          top: 0 !important;
+          left: 0 !important;
+          margin-left: 0;
+        }
+
+        .point-text {
+          font-size: 16px;
+          margin-bottom: 16px;
+        }
+
+        .point-title {
+          font-size: 20px;
+          margin-bottom: 12px;
+        }
+
+        .point-content ul {
+          margin: 12px 0;
+        }
+
+        .point-content li {
+          font-size: 16px;
+          margin-bottom: 12px;
+          padding-left: 20px;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .homepage-description {
+          padding: 0 15px;
+        }
+
+        .description-point {
+          padding: 24px;
+          border-radius: 46px;
+        }
+
+        .main-image {
+          max-width: 300px;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .description-point.hidden {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        .description-point.show {
+          opacity: 1;
+          transform: translateY(0);
+          transition: all 0.6s ease-out;
+        }
+      }
+
+      /*--------------------------------------------------------------
+      # Menu Section
+      --------------------------------------------------------------*/
+      .menu-arrow {
+        position: absolute;
+        width: 250px;
+        top: 150px;
+        left: -150px;
+      }
+
+      .menu-description-point {
+        position: relative;
+        margin-bottom: 80px;
+      }
+
+      .menu-description-point .point-content {
+        position: absolute;
+        color: #C7C7C7;
+        top: 200px;
+        left: 16px;
+      }
+
+      .menu-section-image {
+        width: 700px;
+        height: 935px;
+        object-fit: contain;
+      }
+
+      /* Адаптивные стили для планшетов */
+      @media screen and (max-width: 1024px) {
+        .menu-section-image {
+          width: 500px;
+          height: auto;
+        }
+      }
+
+      /* Адаптивные стили для мобильных */
+      @media screen and (max-width: 768px) {
+        .menu-arrow {
+          display: none;
+        }
+
+        .menu-description-point {
+          margin-bottom: 24px;
+          padding: 32px;
+          background-color: #1C1C1E;
+          border-radius: 86px;
+        }
+
+        .menu-description-point .point-content {
+          position: relative !important;
+          top: 0 !important;
+          left: 0 !important;
+          margin-left: 0;
+        }
+
+        .menu-section-image {
+          width: 100%;
+          height: auto;
+          max-width: 400px;
+          margin: 0 auto;
+          display: block;
+        }
+      }
+
+      /* Стили для маленьких экранов */
+      @media screen and (max-width: 480px) {
+        .menu-description-point {
+          padding: 24px;
+          border-radius: 46px;
+        }
+        
+        .menu-section-image {
+          max-width: 300px;
+        }
+      }
+
+      /* Контейнер для всех фреймов меню */
+      .menu-frames-container {
+        position: relative;
+        height: 746px;
+        margin-bottom: 400px;
+        overflow: visible;
+        padding: 0 55px;
+        z-index: 1;
+      }
+
+      /* Общие стили для всех фреймов */
+      .menu-frame {
+        position: absolute;
+        height: 746px;
+        width: auto;
+        max-width: 100%;
+        cursor: pointer;
+        transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+        will-change: transform;
+      }
+
+      /* Позиции с базовой анимацией плавания */
+      .menu-frame-appetizers {
+        left: 55px;
+        top: 0;
+        z-index: 4;
+        animation: float1 6s ease-in-out infinite;
+      }
+
+      .menu-frame-sashimi {
+        left: calc(55px + 20%);
+        top: 30px;
+        z-index: 3;
+        animation: float2 6.5s ease-in-out infinite;
+      }
+
+      .menu-frame-noodles {
+        left: calc(55px + 40%);
+        top: 60px;
+        z-index: 2;
+        animation: float3 6.8s ease-in-out infinite;
+      }
+
+      .menu-frame-drinks {
+        left: calc(55px + 60%);
+        top: 90px;
+        z-index: 1;
+        animation: float4 6.2s ease-in-out infinite;
+      }
+
+      /* Плавные анимации плавания */
+      @keyframes float1 {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(0, -10px); }
+      }
+
+      @keyframes float2 {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(0, 10px); }
+      }
+
+      @keyframes float3 {
+        0%, 100% { transform: translate(0, -7px); }
+        50% { transform: translate(0, 7px); }
+      }
+
+      @keyframes float4 {
+        0%, 100% { transform: translate(0, 7px); }
+        50% { transform: translate(0, -7px); }
+      }
+
+      /* bounce эффект при наведении */
+      .menu-frame:hover {
+        animation: smoothBounce 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+        z-index: 5;
+      }
+
+      @keyframes smoothBounce {
+        0% { 
+          transform: translateY(0) scale(1) rotate(0deg); 
+        }
+        30% { 
+          transform: translateY(-25px) scale(1.05) rotate(2deg); 
+        }
+        50% { 
+          transform: translateY(-15px) scale(1.03) rotate(-1deg); 
+        }
+        70% { 
+          transform: translateY(-7px) scale(1.02) rotate(1deg); 
+        }
+        85% { 
+          transform: translateY(-3px) scale(1.01) rotate(0deg); 
+        }
+        100% { 
+          transform: translateY(0) scale(1.02) rotate(0deg); 
+        }
+      }
+
+      /* Адаптивные стили */
+      @media screen and (max-width: 1024px) {
+        .menu-frame {
+          height: auto;
+          width: 80%;
+          max-width: 500px;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .menu-frames-container {
+          height: auto;
+          padding: 0 20px;
+        }
+
+        .menu-frame {
+          width: 90%;
+          max-width: 400px;
+        }
+      }
+      /* подсказка для интерактивности */
+      .menu-frames-wrapper {
+        position: relative;
+      }
+
+      .interaction-hint {
+        position: absolute;
+        top: -40px;
+        left: 55px;
+        font-size: 16px;
+        color: #C7C7C7;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        opacity: 0.8;
+      }
+
+      .interaction-hint-icon {
+        width: 24px;
+        height: 24px;
+        animation: pulseHint 2s ease-in-out infinite;
+      }
+
+      @keyframes pulseHint {
+        0% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.1); opacity: 1; }
+        100% { transform: scale(1); opacity: 0.8; }
+      }
+
+      /* Мобильная версия подсказки */
+      .mobile-swipe-hint {
+        display: none;
+        position: absolute;
+        top: -40px;
+        left: 20px;
+        font-size: 14px;
+        color: #C7C7C7;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .swipe-animation {
+        width: 40px;
+        height: 2px;
+        background: #C7C7C7;
+        position: relative;
+        animation: swipeHint 2s ease-in-out infinite;
+      }
+
+      @keyframes swipeHint {
+        0% { transform: translateX(0); opacity: 0.8; }
+        50% { transform: translateX(10px); opacity: 1; }
+        100% { transform: translateX(0); opacity: 0.8; }
+      }
+
+      /* Медиа запросы */
+      @media screen and (max-width: 768px) {
+        .interaction-hint {
+          display: none;
+        }
+
+        .mobile-swipe-hint {
+          display: flex;
+        }
+
+        .menu-frames-container {
+          touch-action: pan-x;
+        }
+      }
+
+      /* Thank you */
+      .thank-you-section {
+        padding: 0 55px;
+        margin-bottom: 150px;
+        margin-top: 200px;
+        position: relative; 
+        z-index: 1;  
+      }
+
+      .thank-you-frame {
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        margin: 0 auto;
+        position: relative;  
+      }
+
+      .thank-you-image {
+        width: auto;
+        height: 700px;
+        object-fit: contain;
+        max-width: 100%;
+      }
+
+      @media screen and (max-width: 768px) {
+        .menu-frames-container {
+          min-height: 700px; 
+          margin-bottom: 100px;
+        }
+
+        .thank-you-section {
+          padding: 0 20px;
+          margin-top: 0; 
+          clear: both; 
+        }
+
+        .thank-you-frame {
+          gap: 20px;
+          width: 40%;
+          margin-top: 50px; 
+        }
+
+        .thank-you-image {
+          height: 400px;
+          position: relative;
+        }
+      }
+      /*--------------------------------------------------------------
+      # Global Footer
+      --------------------------------------------------------------*/
+      .footer {
+        background: #e9e8e6;
+        padding: 30px 0;
+        color: #222222;
+        font-size: 14px;
+        text-align: center;
+      }
+
+      .footer .copyright p {
+        margin-bottom: 0;
+      }
+
+      .footer .social-links {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .footer .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 1px solid rgba(39, 67, 83, 0.7);
+        font-size: 16px;
+        color: #274353;
+        margin: 0 5px;
+        transition: all 0.3s ease;
+        background: transparent;
+        text-decoration: none;
+      }
+
+      .footer .social-links a i {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+      }
+
+      .footer .social-links a:hover {
+        color: #ffffff; 
+        border-color: #274353;
+        background-color: #274353;
+        transform: translateY(-3px); 
+        box-shadow: 0 4px 8px rgba(39, 67, 83, 0.2); 
+      }
+
+      .footer .social-links a:active {
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px rgba(39, 67, 83, 0.2);
+      }
+
+      /*--------------------------------------------------------------
+      # Scroll Top Button
+      --------------------------------------------------------------*/
+      .scroll-top {
+        position: fixed;
+        visibility: hidden;
+        opacity: 0;
+        right: 15px;
+        bottom: -15px;
+        z-index: 99999;
+        background-color: #34b7a7;
+        width: 44px;
+        height: 44px;
+        border-radius: 50px;
+        transition: all 0.4s;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-decoration: none;
+      }
+
+      .scroll-top i {
+        font-size: 24px;
+        color: #FFFFFF;
+        line-height: 0;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .scroll-top:hover {
+        background-color: rgba(52, 183, 167, 0.8);
+      }
+
+      .scroll-top.active {
+        visibility: visible;
+        opacity: 1;
+        bottom: 15px;
+      }
+    </style>
+</head>
+
+<body>
+  <main>
+    <section class="case-study-hero">
+      <img src="Regalia dining/img/Study case/hero photo.jpg"alt="Regalia Dining Case Study">
+    </section>      
+    <!-- Overview -->
+    <section class="project-overview">
+      <div class="container">
+        <!-- Left Column: Project Description -->
+        <div class="project-description" data-aos="fade-up">
+          <h2 class="project-title">Regalia Dining</h2>
+          <p class="project-text">
+            Welcome to "Regalia Dining", a modern Japanese restaurant nestled in the heart of Chiado, Lisbon. We bring you the finest flavors of Japan with a menu that blends traditional dishes and contemporary delights. 
+            
+            <p class="project-text">Whether you’re looking for a quick, healthy lunch or a relaxing dinner after a busy day, our exquisite sushi, comforting ramen, and refreshing cocktails are sure to satisfy.</p> 
+            
+            <p class="project-text">Step into "Regalia Dining" and experience the perfect harmony of taste, quality, and tranquility, all at a price that reflects our commitment to excellence and authenticity.</p>
+          </p>
+        </div>
+        
+        <!-- Right Column: Project Information -->
+        <div class="project-info" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="info-title">Project Information</h3>
+          <ul class="info-list">
+            <li><strong>Category:</strong> <br> UX / UI design <br> 
+              Web Design</li>
+            <li><strong>Project Year:</strong> 2024</li>
+            <div class="button-container">
+              <a href="Regalia Dining/regalia-dining-index.html" class="btn-visit">
+                Visit Site
+                <div class="sparkles">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+              </a>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem & Solution Section -->
+    <section class="problem-solution">
+      <div class="container">
+          <!-- Problem Column -->
+          <div class="column">
+              <div class="content-box">
+                  <h2 class="section-title">Problem</h2>
+                  <p class="section-text">
+                      Many websites for Japanese cuisine restaurants often appear overly simplistic, failing to capture the elegance and depth of Japan's rich cultural heritage. Basic designs and limited functionality leave customers underwhelmed, craving a more immersive experience.
+                  </p>
+                  <p class="section-text">
+                      I saw this as an opportunity to transform how Japanese dining is represented online. My mission was to craft a website that exudes visual sophistication while remaining user-friendly and engaging.
+                  </p>
+                  <p class="section-text">
+                      Every detail was designed to reflect the beauty and refinement of Japanese cuisine, delivering a seamless browsing experience that mirrors the quality and ambiance of a premium dining establishment.
+                  </p>
+              </div>
+          </div>
+
+          <!-- Solution Column -->
+          <div class="column">
+              <div class="content-box">
+                  <h2 class="section-title">Solution</h2>
+                  <p class="section-text">
+                      At Regalia Dining, I have reimagined the online experience for Japanese cuisine enthusiasts. My website blends aesthetic beauty with intuitive design, embodying the elegance and sophistication of my culinary vision.
+                  </p>
+                  <p class="section-text">
+                      Through high-quality visuals, seamless navigation, and detailed descriptions, every element reflects the care and artistry that defines the dining experience.
+                  </p>
+                  <p class="section-text">
+                      From effortless reservations to exploring a diverse menu, I've crafted a platform that invites you to immerse yourself in the world of Regalia Dining before you even arrive.
+                  </p>
+                  <p class="section-text">
+                      Discover an elevated dining journey that begins the moment you visit my site.
+                  </p>
+              </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- Brainstorm -->
+    <section class="brainstorm">
+      <h2 class="brainstorm-title" data-aos="fade" data-aos-duration="1000">Brainstorm & Ideation</h2>
+      <p class="brainstorm-text" data-aos="fade" data-aos-duration="1000" data-aos-delay="100">At the start of my project, I dedicated myself to brainstorming and ideation, setting the foundation for an extraordinary online experience for Regalia Dining. My aim was to craft a website that not only highlights the restaurant's culinary excellence but also captivates and delights every visitor. Here's a glimpse into the key steps I took to bring this vision to life.</p>
+      
+      <div class="timeline-wrapper">
+          <div class="timeline-container">
+              <div class="timeline-lines">
+                  <div class="timeline-line"></div>
+                  <div class="timeline-line"></div>
+                  <div class="timeline-line"></div>
+                  <div class="timeline-line"></div>
+                  <div class="timeline-line"></div>
+                  <div class="timeline-line"></div>
+                  <div class="timeline-line"></div>
+              </div>
+              <div class="timeline">
+                  <div class="timeline-item purple">Identify User Needs</div>
+                  <div class="timeline-item blue">Competitive Analysis</div>
+                  <div class="timeline-item dark">Define Key Features</div>
+                  <div class="timeline-item light-purple">Sketching and Wireframing</div>
+                  <div class="timeline-item light-blue">User Journey Mapping</div>
+                  <div class="timeline-item purple">Prototype Development</div>
+              </div>
+          </div>
+      </div>
+  
+      <script>
+          AOS.init({
+              once: true,
+              offset: 100,
+              duration: 1000,
+              easing: 'ease-out'
+          });
+      </script>
+    </section>
+
+    <!-- User Research -->
+    <section class="user-research">
+      <h2 class="user-research-title">User Research and Create Persona</h2>
+      <p class="user-research-text">Understanding my users is at the core of building a successful website for Regalia Dining. In the user research phase, I focused on uncovering meaningful insights into the needs, preferences, and behaviors of the target audience.</p>
+      
+      <div class="personas-container">
+        <!-- Clara -->
+        <div class="persona-card">
+            <svg width="564" height="1159" viewBox="0 0 564 1159" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M403.67 67.1162C403.67 40.0688 394.039 7.20056 367.049 5.43626C363.798 5.22371 360.456 5.0365 357.018 4.87161C350.226 4.54582 345.22 11.155 345.22 17.955C345.22 67.3209 267.122 107.34 170.783 107.34C119.747 107.34 73.8304 96.1088 41.9317 78.2069C34.6691 74.131 25.2014 75.6404 21.0482 82.8592C0 119.444 0 168.522 0 266.678V895.927C0 994.084 0 1043.16 21.0482 1079.75C34.9599 1103.93 55.0257 1123.99 79.2059 1137.9C115.79 1158.95 164.868 1158.95 263.025 1158.95C361.181 1158.95 410.259 1158.95 446.843 1137.9C471.023 1123.99 491.089 1103.93 505.001 1079.75C526.049 1043.16 526.049 994.084 526.049 895.927V266.678C526.049 230.673 526.049 201.272 525.01 176.668C524.233 158.253 504.296 147.563 485.865 147.563V147.563C440.47 147.563 403.67 111.546 403.67 67.1162V67.1162ZM290.38 73.8445C321 58.1542 337 37.9532 337 17.955C337 15.7051 336.798 13.4526 336.395 11.2042C335.61 6.82899 331.68 4.04363 327.235 3.96896C322.091 3.88253 317.561 7.49852 315.773 12.3224C306.263 37.9795 280.309 56.3896 249.782 56.3896C226.748 56.3896 203.282 45.6253 180.102 34.9923C149.132 20.786 118.673 6.81428 90.4417 19.0628C86.5512 20.7507 82.8176 22.6236 79.2059 24.7015C67.5897 31.3847 56.9231 39.4881 47.4321 48.7857C39.6949 56.3653 41.5471 68.9051 51.1865 73.8445C81.3705 89.3114 123.642 99.1203 170.783 99.1203C217.925 99.1203 260.196 89.3114 290.38 73.8445ZM281.923 39.762C272.614 45.0825 261.635 48.1701 249.782 48.1701C247.48 48.1701 245.211 48.0537 242.981 47.827C205.771 44.0458 225.623 3.65332 263.025 3.65332C286.858 3.65332 302.616 27.9354 281.923 39.762Z" fill="#1C1C1E"/>
+            </svg>
+            <img src="Regalia Dining/img/Study case/Clara.png" alt="Clara" class="persona-image">
+            <div class="persona-content">
+              <h2 class="persona-name">Clara</h2>
+              
+              <div class="persona-characteristics">
+                  <div class="characteristic">
+                      <img src="Regalia Dining/img/Study case/user.svg" alt="Personality">
+                      <span>Curious, adventurous</span>
+                  </div>
+                  <div class="characteristic">
+                      <img src="Regalia Dining/img/Study case/occupation.svg" alt="Occupation">
+                      <span>Marketing Specialist</span>
+                  </div>
+              </div>
+          
+              <div class="content-section">
+                  <h3>Frustrations:</h3>
+                  <ul>
+                    <li>Poorly designed websites with low-quality images.</li>
+                    <li>Frustration with websites that lack detailed descriptions and context for menu items.</li>
+                  </ul>
+              </div>
+          
+              <div class="content-section">
+                  <h3>Goals:</h3>
+                  <ul>
+                      <li>Seeks authentic Japanese dining experiences with high-quality ingredients.</li>
+                      <li>Desires detailed menu descriptions and information.</li>
+                  </ul>
+              </div>
+          
+              <div class="content-section">
+                  <h3>Lifestyle:</h3>
+                  <p>Lives in a bustling city, enjoys dining out with friends, attends food festivals, and follows several food blogs and Instagram accounts for inspiration.</p>
+              </div>
+            </div>
+        </div>
+
+        <!-- John -->
+        <div class="persona-card">
+            <svg width="564" height="1159" viewBox="0 0 564 1159" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M403.67 67.1162C403.67 40.0688 394.039 7.20056 367.049 5.43626C363.798 5.22371 360.456 5.0365 357.018 4.87161C350.226 4.54582 345.22 11.155 345.22 17.955C345.22 67.3209 267.122 107.34 170.783 107.34C119.747 107.34 73.8304 96.1088 41.9317 78.2069C34.6691 74.131 25.2014 75.6404 21.0482 82.8592C0 119.444 0 168.522 0 266.678V895.927C0 994.084 0 1043.16 21.0482 1079.75C34.9599 1103.93 55.0257 1123.99 79.2059 1137.9C115.79 1158.95 164.868 1158.95 263.025 1158.95C361.181 1158.95 410.259 1158.95 446.843 1137.9C471.023 1123.99 491.089 1103.93 505.001 1079.75C526.049 1043.16 526.049 994.084 526.049 895.927V266.678C526.049 230.673 526.049 201.272 525.01 176.668C524.233 158.253 504.296 147.563 485.865 147.563V147.563C440.47 147.563 403.67 111.546 403.67 67.1162V67.1162ZM290.38 73.8445C321 58.1542 337 37.9532 337 17.955C337 15.7051 336.798 13.4526 336.395 11.2042C335.61 6.82899 331.68 4.04363 327.235 3.96896C322.091 3.88253 317.561 7.49852 315.773 12.3224C306.263 37.9795 280.309 56.3896 249.782 56.3896C226.748 56.3896 203.282 45.6253 180.102 34.9923C149.132 20.786 118.673 6.81428 90.4417 19.0628C86.5512 20.7507 82.8176 22.6236 79.2059 24.7015C67.5897 31.3847 56.9231 39.4881 47.4321 48.7857C39.6949 56.3653 41.5471 68.9051 51.1865 73.8445C81.3705 89.3114 123.642 99.1203 170.783 99.1203C217.925 99.1203 260.196 89.3114 290.38 73.8445ZM281.923 39.762C272.614 45.0825 261.635 48.1701 249.782 48.1701C247.48 48.1701 245.211 48.0537 242.981 47.827C205.771 44.0458 225.623 3.65332 263.025 3.65332C286.858 3.65332 302.616 27.9354 281.923 39.762Z" fill="#1C1C1E"/>
+            </svg>
+            <img src="Regalia Dining/img/Study case/John.png" alt="John" class="persona-image">
+            <div class="persona-content">
+              <h2 class="persona-name">John</h2>
+              
+              <div class="persona-characteristics">
+                  <div class="characteristic">
+                      <img src="Regalia Dining/img/Study case/user.svg" alt="Personality">
+                      <span>Family-oriented, tech-savvy</span>
+                  </div>
+                  <div class="characteristic">
+                      <img src="Regalia Dining/img/Study case/occupation.svg" alt="Occupation">
+                      <span>Software Engineer</span>
+                  </div>
+              </div>
+          
+              <div class="content-section">
+                  <h3>Frustrations:</h3>
+                  <ul>
+                    <li>Difficulty navigating complex websites with confusing layouts.</li>
+                    <li>Lack of clear information on seating availability and restaurant policies.</li>
+                  </ul>
+              </div>
+          
+              <div class="content-section">
+                  <h3>Goals:</h3>
+                  <ul>
+                      <li>Looks for easy online reservations and a seamless booking experience.</li>
+                      <li>Desires family-friendly menu options with clear descriptions and photos.</li>
+                  </ul>
+              </div>
+          
+              <div class="content-section">
+                  <h3>Lifestyle:</h3>
+                  <p>Lives in a suburban area, spends weekends with family, values quality time, and prefers activities that everyone in the family can enjoy.</p>
+              </div>
+            </div>
+        </div>
+
+        <!-- Ana -->
+        <div class="persona-card">
+            <svg width="564" height="1159" viewBox="0 0 564 1159" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M403.67 67.1162C403.67 40.0688 394.039 7.20056 367.049 5.43626C363.798 5.22371 360.456 5.0365 357.018 4.87161C350.226 4.54582 345.22 11.155 345.22 17.955C345.22 67.3209 267.122 107.34 170.783 107.34C119.747 107.34 73.8304 96.1088 41.9317 78.2069C34.6691 74.131 25.2014 75.6404 21.0482 82.8592C0 119.444 0 168.522 0 266.678V895.927C0 994.084 0 1043.16 21.0482 1079.75C34.9599 1103.93 55.0257 1123.99 79.2059 1137.9C115.79 1158.95 164.868 1158.95 263.025 1158.95C361.181 1158.95 410.259 1158.95 446.843 1137.9C471.023 1123.99 491.089 1103.93 505.001 1079.75C526.049 1043.16 526.049 994.084 526.049 895.927V266.678C526.049 230.673 526.049 201.272 525.01 176.668C524.233 158.253 504.296 147.563 485.865 147.563V147.563C440.47 147.563 403.67 111.546 403.67 67.1162V67.1162ZM290.38 73.8445C321 58.1542 337 37.9532 337 17.955C337 15.7051 336.798 13.4526 336.395 11.2042C335.61 6.82899 331.68 4.04363 327.235 3.96896C322.091 3.88253 317.561 7.49852 315.773 12.3224C306.263 37.9795 280.309 56.3896 249.782 56.3896C226.748 56.3896 203.282 45.6253 180.102 34.9923C149.132 20.786 118.673 6.81428 90.4417 19.0628C86.5512 20.7507 82.8176 22.6236 79.2059 24.7015C67.5897 31.3847 56.9231 39.4881 47.4321 48.7857C39.6949 56.3653 41.5471 68.9051 51.1865 73.8445C81.3705 89.3114 123.642 99.1203 170.783 99.1203C217.925 99.1203 260.196 89.3114 290.38 73.8445ZM281.923 39.762C272.614 45.0825 261.635 48.1701 249.782 48.1701C247.48 48.1701 245.211 48.0537 242.981 47.827C205.771 44.0458 225.623 3.65332 263.025 3.65332C286.858 3.65332 302.616 27.9354 281.923 39.762Z" fill="#1C1C1E"/>
+            </svg>
+            <img src="Regalia Dining/img/Study case/Ana.png" alt="Ana" class="persona-image">
+            <div class="persona-content">
+              <h2 class="persona-name">Ana</h2>
+              
+              <div class="persona-characteristics">
+                  <div class="characteristic">
+                      <img src="Regalia Dining/img/Study case/user.svg" alt="Personality">
+                      <span>Creative and highly visual</span>
+                  </div>
+                  <div class="characteristic">
+                      <img src="Regalia Dining/img/Study case/occupation.svg" alt="Occupation">
+                      <span>Food Blogger</span>
+                  </div>
+              </div>
+          
+              <div class="content-section">
+                  <h3>Frustrations:</h3>
+                  <ul>
+                    <li>Bland, uninspired website designs that don't reflect the quality of the restaurant.</li>
+                    <li>Frustration with websites that are not visually stimulating or engaging.</li>
+                  </ul>
+              </div>
+          
+              <div class="content-section">
+                  <h3>Goals:</h3>
+                  <ul>
+                      <li>Seeks detailed descriptions about the dishes and ingredients.</li>
+                      <li>Aims to discover unique culinary experiences to share with her audience.</li>
+                  </ul>
+              </div>
+          
+              <div class="content-section">
+                  <h3>Lifestyle:</h3>
+                  <p>Lives in a vibrant city, often attends restaurant openings, spends significant time on social media, and enjoys networking with other industry professionals.</p>
+              </div>
+            </div>
+        </div>
+      </div>
+      <script>
+        const cards = document.querySelectorAll('.persona-card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+
+        cards.forEach(card => observer.observe(card));
+      </script>
+    </section>
+
+    <!-- Home Page Description -->
+    <section class="homepage-description">
+      <h2 class="homepage-title">Description of the Homepage Structure</h2>
+      <div class="description-content">
+          <!-- Левая колонка с изображением -->
+          <div class="image-column">
+              <img src="Regalia Dining/img/Study case/Home frame.png" alt="Homepage Structure" class="main-image">
+          </div>
+          
+          <!-- Правая колонка с описаниями -->
+          <div class="description-points">
+              <!-- First point  -->
+              <div class="description-point">
+                  <img src="Regalia Dining/img/Study case/Arrow.svg" alt="Arrow" class="arrow">
+                  <div class="point-content">
+                      <p class="point-text">The homepage opens with a clean, intuitive navigation bar and a striking hero section that immerses visitors in the sophisticated world of Japanese cuisine. A curved image of an exquisite dining environment sets the tone for the browsing experience. This section welcomes visitors with the flair of the brand essence. The scroll wheel functionality lets diners explore further with quick access to booking or browsing the menu.</p>
+                      <h3 class="point-title">Why It Works:</h3>
+                      <p class="point-text">This combination grabs attention instantly and provides easy access for first-time and returning visitors.</p>
+                  </div>
+              </div>
+  
+              <!-- Second point -->
+              <div class="description-point">
+                  <img src="Regalia Dining/img/Study case/Arrow.svg" alt="Arrow" class="arrow">
+                  <div class="point-content">
+                      <h3 class="point-title">Animated Section</h3>
+                      <p class="point-text"> 
+                        The animated cards serve two key purposes:
+                        <ul> 
+                          <li>
+                            <strong> Grab Attention: </strong> The cards automatically transition, showcasing the variety of dishes and drawing attention to their presentation. 
+                          </li>
+                          <li>
+                            <strong> Ease of Navigation: </strong> Users can click directly to access the corresponding menu section. 
+                          </li>
+                        </ul></p>
+                      <h3 class="point-title">Animation Features:</h3>
+                      <p class="point-text">The cards transition smoothly with a slider effect, highlighting the premium design and adding energy to the page. This not only gives the website a modern feel but also enhances the overall user experience.</p>
+                  </div>
+              </div>
+  
+              <!-- Third point -->
+              <div class="description-point">
+                  <img src="Regalia Dining/img/Study case/Arrow.svg" alt="Arrow" class="arrow">
+                  <div class="point-content">
+                      <h3 class="point-title">Delivery Focus</h3>
+                      <p class="point-text">infographic combine to highlight the ease and reliability of the delivery service. A relatable image of a delivery courier, paired with clear and simple steps illustrated through playful visuals, guides users on how to place an order.</p>
+                      <h3 class="point-title">Why It Works:</h3>
+                      <p class="point-text">Together, these sections build trust in the quality of the service and simplify the ordering process, encouraging users to take action..</p>
+                  </div>
+              </div>
+  
+              <!-- Fourth point -->
+              <div class="description-point">
+                  <img src="Regalia Dining/img/Study case/Arrow.svg" alt="Arrow" class="arrow">
+                  <div class="point-content">
+                      <h3 class="point-title">Crowd Favorites (Popular Menu)</h3>
+                      <p class="point-text">A curated list of best-selling dishes provides inspiration for both indecisive first-time visitors and regulars seeking familiar flavors. Each card displays high-quality images, detailed names, and prices, ensuring clarity and accessibility.</p>
+                      <h3 class="point-title">Why It Works:</h3>
+                      <p class="point-text">Featuring popular items adds credibility to the menu and helps users make quick, confident choices.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        const descriptionPoints = document.querySelectorAll('.description-point');
+        descriptionPoints.forEach(point => {
+            point.classList.add('hidden');
+            observer.observe(point);
+        });
+        });
+      </script>
+      <!-- script for mobile -->
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const isMobile = window.innerWidth <= 768;
+        
+        const options = {
+            root: null,
+            rootMargin: isMobile ? '-10px' : '0px',
+            threshold: isMobile ? 0.05 : 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        const descriptionPoints = document.querySelectorAll('.description-point');
+        descriptionPoints.forEach(point => {
+            point.classList.add('hidden');
+            observer.observe(point);
+        });
+
+        window.addEventListener('resize', () => {
+            const newIsMobile = window.innerWidth <= 768;
+            if (newIsMobile !== isMobile) {
+                location.reload();
+            }
+        });
+        });
+      </script>
+    </section>
+
+    <section class="homepage-description">
+      <h2 class="homepage-title">Our Menu</h2>
+      <div class="description-content">
+          <div class="image-column">
+              <img src="Regalia Dining/img/Study case/Our menu.png" alt="Menu Structure" class="menu-section-image">
+          </div>
+          <div class="description-points">
+              <div class="menu-description-point">
+                  <img src="Regalia Dining/img/Study case/Arrow.svg" alt="Arrow" class="menu-arrow">
+                  <div class="point-content">
+                      <p class="point-text"><strong>Discover the exquisite flavours of Japan, meticulously crafted for an unforgettable dining experience.</strong></p>
+                      <p class="point-text">At Regalia Dining, every dish is prepared with the finest ingredients, combining traditional techniques and innovative presentation.</p>
+                      <p class="point-text">Explore our diverse menu, from light and refreshing appetizers to authentic sushi, sashimi, and hearty noodles.</p>
+                      <p class="point-text">End your meal on a sweet note with our selection of desserts, perfectly paired with a curated drink list.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const options = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        const descriptionPoints = document.querySelectorAll('.description-point');
+        descriptionPoints.forEach(point => {
+            point.classList.add('hidden');
+            observer.observe(point);
+        });
+        });
+      </script>
+      <!-- script for mobile -->
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const isMobile = window.innerWidth <= 768;
+        
+        const options = {
+            root: null,
+            rootMargin: isMobile ? '-10px' : '0px',
+            threshold: isMobile ? 0.05 : 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, options);
+
+        const descriptionPoints = document.querySelectorAll('.description-point');
+        descriptionPoints.forEach(point => {
+            point.classList.add('hidden');
+            observer.observe(point);
+        });
+
+        window.addEventListener('resize', () => {
+            const newIsMobile = window.innerWidth <= 768;
+            if (newIsMobile !== isMobile) {
+                location.reload();
+            }
+        });
+        });
+      </script>
+    </section>
+
+    <section class="menu-frames-section">
+      <div class="menu-frames-wrapper">
+          <!-- Подсказка для десктопа -->
+          <div class="interaction-hint">
+              <svg class="interaction-hint-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <path d="M9 3C9 2.44772 9.44772 2 10 2H14C14.5523 2 15 2.44772 15 3V11H19L12 19L5 11H9V3Z" stroke-width="2"/>
+              </svg>
+              <span>Hover over images to interact</span>
+          </div>
+  
+          <!-- Подсказка для мобильных -->
+          <div class="mobile-swipe-hint">
+              <span>Swipe to explore</span>
+              <div class="swipe-animation"></div>
+          </div>
+  
+          <!-- Контейнер с фреймами -->
+          <div class="menu-frames-container">
+              <img src="Regalia dining/img/Study case/Menu - Appetizers frame.png" alt="Menu Structure" class="menu-frame menu-frame-appetizers">
+              <img src="Regalia dining/img/Study case/Menu - Sashimi frame.png" alt="Menu Structure" class="menu-frame menu-frame-sashimi">
+              <img src="Regalia dining/img/Study case/Menu - Noodles frame.png" alt="Menu Structure" class="menu-frame menu-frame-noodles">
+              <img src="Regalia dining/img/Study case/Menu - Drinks frame.png" alt="Menu Structure" class="menu-frame menu-frame-drinks">
+          </div>
+      </div>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.menu-frames-container');
+            let startX;
+            let scrollLeft;
+            let isDown = false;
+            let currentIndex = 0;
+            const frames = document.querySelectorAll('.menu-frame');
+            const frameCount = frames.length;
+        
+            if (window.innerWidth <= 768) {
+                container.addEventListener('touchstart', (e) => {
+                    isDown = true;
+                    startX = e.touches[0].pageX;
+                    scrollLeft = currentIndex;
+                });
+        
+                container.addEventListener('touchend', () => {
+                    isDown = false;
+                });
+        
+                container.addEventListener('touchmove', (e) => {
+                    if (!isDown) return;
+                    
+                    e.preventDefault();
+                    const x = e.touches[0].pageX;
+                    const walk = (startX - x) * 2;
+                    
+                    if (Math.abs(walk) > 50) {
+                        if (walk > 0 && currentIndex < frameCount - 1) {
+                            currentIndex++;
+                        } else if (walk < 0 && currentIndex > 0) {
+                            currentIndex--;
+                        }
+                        
+                        updateFramesPosition();
+                        isDown = false;
+                    }
+                });
+        
+                function updateFramesPosition() {
+                    frames.forEach((frame, index) => {
+                        const offset = index - currentIndex;
+                        frame.style.transform = `translateX(${offset * 100}%)`;
+                        frame.style.opacity = index === currentIndex ? '1' : '0.5';
+                        frame.style.zIndex = index === currentIndex ? '5' : '1';
+                    });
+                }
+        
+                updateFramesPosition();
+            }
+        });
+      </script>
+    </section>
+
+
+    <section class="thank-you-section">
+      <div class="thank-you-frame">
+          <img src="Regalia Dining/img/Study case/thanks2.png" alt="Thank You Image 1" class="thank-you-image">
+          <img src="Regalia Dining/img/Study case/thanks1.png" alt="Thank You Image 2" class="thank-you-image">
+      </div>
+    </section>
+  </main>
+  <footer id="footer" class="footer">
+    <div class="container">
+      <div class="copyright text-center ">
+        <p>© <span>Copyright</span> <strong class="px-1 sitename">Yana Harcourt</strong> <span>All Rights Reserved</span></p>
+      </div>
+      <div class="social-links d-flex justify-content-center">
+        <a href="https://www.linkedin.com/in/yana-h-16800a296/" class="linkedin"><i class="bi bi-linkedin"></i></i></a> <a href="https://www.behance.net/yana_harcourt" class="Behance"><i class="bi bi-behance"></i></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
+  
+  <script>
+      const scrollTop = document.querySelector('.scroll-top');
+      if (scrollTop) {
+          const togglescrollTop = function() {
+              window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+          }
+          window.addEventListener('load', togglescrollTop);
+          document.addEventListener('scroll', togglescrollTop);
+          scrollTop.addEventListener('click', function(e) {
+              e.preventDefault();
+              window.scrollTo({
+                  top: 0,
+                  behavior: 'smooth'
+              });
+          });
+      }
+  </script>
+</body>
+</html>
