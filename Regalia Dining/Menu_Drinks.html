@@ -1,15 +1,774 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MENU-Drinks</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rhodium+Libre&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="regalia-dining-menu.css">
-    </head>
-  <body>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Drinks</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rhodium+Libre&display=swap" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="regalia-dining-menu.css"> -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Rhodiu+Libredisplay=swap');
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Lato', sans-serif;
+      background-color: #0E0E10;
+      color: #C7C7C7;
+    }
+
+    header {
+      position: fixed;
+      background-color: transparent;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 100px 0px 100px;
+      z-index: 3;
+      transition: background-color 0.3s ease;
+    }
+
+    header.scrolled {
+      background-color: #0E0E10;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      width: 80px;
+      height: 80px;
+      margin-right: 14px;
+    }
+
+    .logo span {
+      font-family: 'Rhodium Libre', sans-serif;
+      font-size: 24px;
+      color: #C7C7C7;
+    }
+
+    nav {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    nav ul {
+      display: flex;
+      list-style-type: none;
+    }
+
+    nav ul li {
+      margin: 0 15px;
+    }
+
+    nav ul li a {
+      color: #C7C7C7;
+      text-decoration: none;
+      font-family: 'Rhodium Libre', sans-serif;
+      text-transform: uppercase;
+      font-size: 16px;
+      position: relative;
+    }
+
+    nav ul li a::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 2px;
+      background-color: #FB5681;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease-out;
+    }
+
+    nav ul li a:hover::before,
+    nav ul li a.active::before {
+      transform: scaleX(1);
+    }
+
+    .icons {
+      display: flex;
+    }
+
+    .icons a {
+      margin-left: 20px;
+      position: relative;
+    }
+
+    .icons img {
+      width: 32px;
+      height: 32px;
+    }
+
+    .icons a:hover img {
+      filter: brightness(0) saturate(100%) invert(41%) sepia(72%) saturate(1966%) hue-rotate(338deg) brightness(96%) contrast(95%);
+    }
+
+    .favorite-count,
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: #E63946;
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    /*--------------------------------------------------------------
+    # Menu Section
+    --------------------------------------------------------------*/  
+    .menu-container {
+      max-width: 1320px;
+      margin: 200px auto 40px auto;
+      padding: 20px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .menu-title {
+      font-family: 'Rhodium Libre', sans-serif;
+      font-size: 48px;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #f5f5f5;
+    }
+
+    .menu-nav {
+      margin-bottom: 40px;
+      width: 100%;
+    }
+
+    .menu-nav ul {
+      list-style-type: none;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .menu-nav a {
+      font-family: 'Rhodium Libre', sans-serif;
+      font-size: 18px;
+      color: #C7C7C7;
+      text-decoration: none;
+      padding: 5px 15px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .menu-nav a:hover,
+    .menu-nav a.active {
+      color: #FB5681;
+    }
+
+    .menu-nav a::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 100%;
+      height: 2px;
+      background-color: #FB5681;
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.3s ease;
+    }
+
+    .menu-nav a:hover::before,
+    .menu-nav a.active::before {
+      transform: scaleX(1);
+    }
+
+    .menu-nav a::after {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .menu-container {
+        margin: 150px auto 30px auto;
+        padding: 15px;
+      }
+
+      .menu-title {
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .menu-nav ul {
+        gap: 15px;
+      }
+
+      .menu-nav a {
+        font-size: 16px;
+        padding: 3px 10px;
+      }
+    }
+
+
+    /*--------------------------------------------------------------
+     # New Section
+    --------------------------------------------------------------*/      
+    .new-section {
+      padding-top: 0;
+      padding: 50px 50px 0 50px;  
+      margin-bottom: 120px;
+    }
+
+    .new-section h2 {
+      color: #C7C7C7;
+      font-family: 'Rhodium Libre';
+      text-align: center;
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 32px;
+    }
+
+    .product-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 391px); 
+      gap: 40px;  
+      justify-content: center;
+      margin: 0 auto;
+      max-width: 1800px; 
+      padding: 20px;
+      overflow: visible;
+    }
+
+    .card-wrapper {
+      position: relative;
+      width: 391px;
+      height: 440px;
+    }
+
+    .product-card {
+      width: 391px;
+      height: 440px;
+      position: relative;
+      background: #2E2E30;
+      overflow: visible;
+      clip-path: path('M313 37.3C313 16.7 296.3 0 275.7 0H135C71.3 0 39.5 0 19.7 19.7C0 39.5 0 71.3 0 135V305C0 368.7 0 400.5 19.7 420.3C39.5 440 71.3 440 135 440H256C319.7 440 351.5 440 371.3 420.3C391 400.5 391 368.7 391 305V110.6C391 90.7 374.3 74 354.4 74V74C334.5 74 313 57.3 313 37.3V37.3Z');
+      backface-visibility: hidden;
+      transform: translateZ(0);
+      -webkit-font-smoothing: antialiased;
+      transition: all 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px) translateZ(0);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-image {
+      width: 391px;
+      height: 233px;
+      position: relative;
+      overflow: visible;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .product-card h3 {
+      font-family: 'Rhodium Libre';
+      font-weight: 300;
+      font-size: 24px; 
+      margin-top: 16px;
+      margin-bottom: 4px;
+      padding: 0 30px;
+      color: #C7C7C7;
+    }
+
+    .product-card p {
+      height: 48px; 
+      padding: 0 30px;
+      color: #C7C7C7;
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      margin-bottom: 30px;
+      margin-top: 0px;
+      cursor: pointer;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 30px;
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Медиа-запросы для адаптивности */
+    @media (max-width: 1600px) {
+      .product-container {
+        grid-template-columns: repeat(3, 391px);
+      }
+    }
+
+    @media (max-width: 1280px) {
+      .product-container {
+        grid-template-columns: repeat(2, 391px);
+      }
+    }
+
+    @media (max-width: 880px) {
+      .product-container {
+        grid-template-columns: repeat(1, 391px);
+      }
+    }
+
+    .favorite-btn {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+      overflow: visible;
+      transition: transform 0.3s ease;
+    }
+
+    .favorite-btn:hover {
+      transform: scale(1.1);
+    }
+
+    .favorite-btn svg {
+      width: 50px;
+      height: 50px;
+      overflow: visible;
+    }
+
+    .favorite-btn .circle {
+      fill: #E63946;
+      transition: fill 0.3s ease;
+    }
+
+    .favorite-btn .heart {
+      fill: #FFFFFF;
+      transition: fill 0.3s ease;
+    }
+
+    .favorite-btn:hover .circle {
+      fill: #FFFFFF;
+    }
+
+    .favorite-btn:hover .heart,
+    .favorite-btn.active .heart {
+      fill: #E63946;
+    }
+
+    .favorite-btn.active .circle {
+      fill: #FFFFFF;
+    }
+
+    .favorite-btn.active .heart {
+      animation: heartPop 0.3s ease-out;
+    }
+
+    .add-to-cart {
+      border-radius: 20px;
+      height: 40px;
+      width: 140px;
+      font-family: "Rhodium Libre", Helvetica;
+      font-size: 16px;
+      font-weight: 400;
+      background-color: #e63946;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .add-to-cart:hover {
+      background-color: #F5F5F5;
+      color: #e63946;
+      transform: translateY(-2px);
+    }
+
+    .add-to-cart:active {
+      transform: translateY(0);
+    }
+
+    .add-to-cart:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .price {
+      font-family: 'Lato', sans-serif;
+      font-size: 20px;
+      color: #C7C7C7;
+      font-weight: 500;
+    }
+
+    .see-more-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .see-more {
+      display: inline-flex;
+      align-items: center;
+      font-family: 'Rhodium Libre', sans-serif;
+      font-size: 18px;
+      color: #C7C7C7;
+      text-decoration: none;
+      padding: 10px 20px;
+      border: 2px solid #E63946;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .see-more:hover {
+      background-color: #E63946;
+      color: white;
+    }
+
+    .text-wrapper {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Анимации */
+    @keyframes heartPop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    /* Стили для состояния загрузки */
+    .product-image.loading {
+      background: linear-gradient(90deg, #2E2E30 25%, #3E3E40 50%, #2E2E30 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Общие стили для всех кнопок */
+    button {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+    .favorite-btn:focus,
+    .add-to-cart:focus,
+    .see-more:focus {
+      outline: 2px solid #C7C7C7;
+      outline-offset: 2px;
+    }
+
+    /* Стили для оверлея */
+    .overlay-card {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(14, 14, 16, 0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .overlay-card.active {
+      display: flex;
+    }
+
+    .overlay-content {
+      position: relative;
+      width: 800px;
+      background: #2E2E30;
+      border-radius: 20px;
+      display: flex;
+      overflow: hidden;
+      transform: scale(0.9);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    .overlay-card.active .overlay-content {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    .overlay-image {
+      width: 50%;
+      height: 500px;
+      object-fit: cover;
+    }
+
+    .overlay-details {
+      width: 50%;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .overlay-title {
+      font-family: 'Rhodium Libre';
+      font-size: 28px;
+      color: #C7C7C7;
+      margin-bottom: 20px;
+    }
+
+    .overlay-description {
+      font-family: 'Lato', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #C7C7C7;
+      margin-bottom: 30px;
+    }
+
+    .overlay-price-quantity {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .quantity-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: none;
+      background-color: #E63946;
+      color: white;
+      cursor: pointer;
+      font-size: 18px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .quantity-btn:hover {
+      background-color: #F5F5F5;
+      color: #E63946;
+    }
+
+    .quantity {
+      font-family: 'Lato', sans-serif;
+      font-size: 18px;
+      color: #C7C7C7;
+    }
+
+    .overlay-price {
+      font-family: 'Lato', sans-serif;
+      font-size: 24px;
+      color: #C7C7C7;
+      font-weight: 500;
+    }
+
+    .add-to-cart-overlay {
+      width: 100%;
+      height: 50px;
+      border-radius: 25px;
+      background-color: #E63946;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-family: 'Rhodium Libre';
+      font-size: 18px;
+      transition: all 0.3s ease;
+      margin-top: auto;
+    }
+
+    .add-to-cart-overlay:hover {
+      background-color: #F5F5F5;
+      color: #E63946;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background-color: rgba(14, 14, 16, 0.8);
+      color: #C7C7C7;
+      font-size: 24px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .close-btn:hover {
+      background-color: #E63946;
+      color: white;
+    }
+
+    /* Медиа-запросы для оверлея */
+    @media (max-width: 900px) {
+      .overlay-content {
+        width: 90%;
+        flex-direction: column;
+      }
+
+      .overlay-image {
+        width: 100%;
+        height: 300px;
+      }
+
+      .overlay-details {
+        width: 100%;
+        padding: 30px;
+      }
+    }
+    /*--------------------------------------------------------------
+     # FOOTER
+    --------------------------------------------------------------*/
+    .footer-line {
+      width: 1350px; 
+      height: 1px; 
+      background-color: #1C1C1E; 
+      margin: 0 auto; 
+      margin-bottom: 20px; 
+    }
+    .site-footer {
+      background-color: #0E0E10;
+      color: #C7C7C7;
+      padding: 40px 0;
+      font-family: "Rhodium Libre";
+    }
+
+    .footer-container {
+      font-family: "Rhodium Libre";
+      max-width: 1320px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0px;
+    }
+
+    .footer-menu {
+      font-family: "Rhodium Libre";
+      display: flex;
+      flex: 1;
+      justify-content: space-between; 
+      padding: 0 20px; 
+    }
+
+    .menu-column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .quick-links {
+      text-align: center;
+      flex: 1; 
+    }
+
+    .quick-links ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .menu-item {
+      color: #C7C7C7;
+      font-family: "Rhodium Libre";
+      text-decoration: none;
+      font-size: 16px;
+      display: block;
+      margin-bottom: 8px;
+      transition: color 0.3s ease;
+    }
+
+    .menu-item:hover {
+      color: #FB5681;
+    }
+
+    .footer-logo {
+      text-align: center;
+      flex: 2; 
+    }
+
+    .footer-logo img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .copyright {
+      font-family: "Rhodium Libre";
+      font-size: 24px;
+      margin-top: 20px;
+    }
+
+    .footer-contact {
+      text-align: right;
+      font-family: "Rhodium Libre";
+      flex: 1; 
+    }
+
+    .footer-contact p {
+      font-size: 16px;
+      font-family: "Rhodium Libre";
+      margin-bottom: 8px;
+    }
+  </style>
+  </head>
+      <body>
         <header>
             <div class="logo">
                 <img src="img/logo.png" alt="Regalia Dining Logo">
@@ -36,183 +795,370 @@
                     <img src="img/profile.png" alt="Profile">
                 </a>
             </div>
+            <script>
+              window.addEventListener('scroll', function() {
+              const header = document.querySelector('header');
+              if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+              } else {
+                header.classList.remove('scrolled');
+              }
+            });
+            </script>
         </header>
-        <!-- Header -->
 
-        <main>
-            <div class="menu-container">
-                <h1 class="menu-title">Menu</h1>
-                <nav class="menu-nav">
-                    <ul>
-                        <li><a href="Menu_Appetizers.html" >APPETIZERS</a></li>
-                        <li><a href="Menu_Sushi.html">SUSHI</a></li>
-                        <li><a href="Menu_Sashimi.html">SASHIMI</a></li>
-                        <li><a href="Menu_Noodles.html">NOODLES</a></li>
-                        <li><a href="Menu_Dessert.html">DESSERTS</a></li>
-                        <li><a href="Menu_Drinks.html" class="active">DRINKS</a></li>
-                    </ul>
-                </nav>
-            </div>
+        <!-- --------------------------------------------------------------
+        # Menu Section
+        ---------------------------------------------------------------->
+        <div class="menu-container">
+          <!-- <h1 class="menu-title">Menu</h1> -->
+          <nav class="menu-nav">
+              <ul>
+                  <li><a href="Menu_Appetizers.html">APPETIZERS</a></li>
+                  <li><a href="Menu_Sushi.html">SUSHI</a></li>
+                  <li><a href="Menu_Sashimi.html">SASHIMI</a></li>
+                  <li><a href="Menu_Noodles.html">NOODLES</a></li>
+                  <li><a href="Menu_Dessert.html">DESSERTS</a></li>
+                  <li><a href="Menu_Drinks.html" class="active" >DRINKS</a></li>
+              </ul>
+          </nav>
+      </div>
 
-            <section class="new-section">
-                <div class="product-container">
+      <!-- --------------------------------------------------------------
+      # New Section
+      ---------------------------------------------------------------->
+        <section class="new-section">
+          <!-- <h2>Appetizers</h2> -->
+          <div class="product-container">
+              <div class="card-wrapper">
                   <div class="product-card">
-                    <div class="product-image">
-                      <img src="img/Drinks/Sakura Cocktail-overlaycard.png" alt="Sakura Cocktail">
-                      <button class="favorite-btn" aria-label="Add to favorites">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                        </svg>
-                      </button>
-                    </div>
-                    <h3>Sakura Cocktail</h3>
-                    <p>Description of the dish</p>
-                    <div class="product-footer">
-                      <span class="price">€12.00</span>
-                      <button class="add-to-cart">Add to cart</button>
-                    </div>
-                    <div class="hidden-description" style="display: none;">This light drink, combining sake, cherry blossom syrup, soda, and a cherry blossom garnish, is delightful and tasty, with a hint of spring in every sip.</div>
-                  </div>
-
-                  <div class="product-card">
-                    <div class="product-image">
-                      <img src="img/Drinks/Matcha Latte-overlaycard.png" alt="Matcha Latte">
-                      <button class="favorite-btn" aria-label="Add to favorites">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                        </svg>
-                      </button>
-                    </div>
-                    <h3>Matcha Latte</h3>
-                    <p>Description of the dish</p>
-                    <div class="product-footer">
-                      <span class="price">€7.00</span>
-                      <button class="add-to-cart">Add to cart</button>
-                    </div>
-                    <div class="hidden-description" style="display: none;">This latte is a comforting, warm beverage infused with steaming milk, featuring the distinct flavor of premium matcha, making it energizing and soothing.</div>
-                  </div>
-
-                  <div class="product-card">
-                    <div class="product-image">
-                      <img src="img/Drinks/Yuzu Lemonade-overlaycard.png" alt="Yuzu Lemonade">
-                      <button class="favorite-btn" aria-label="Add to favorites">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                        </svg>
-                      </button>
-                    </div>
-                    <h3>Yuzu Lemonade</h3>
-                    <p>Description of the dish</p>
-                    <div class="product-footer">
-                      <span class="price">€6.00</span>
-                      <button class="add-to-cart">Add to cart</button>
-                    </div>
-                    <div class="hidden-description" style="display: none;">Enjoy a refreshing yuzu lemonade, a delicious and revitalizing beverage that balances sweetness and tartness, making it an ideal complement to any meal.</div>
-                  </div> 
-                </div>
-              
-    
-                <div class="product-container">
-                    <div class="product-card">
                       <div class="product-image">
-                        <img src="img/Drinks/Plum Wine-overlaycard.png" alt="Plum Wine">
-                        <button class="favorite-btn" aria-label="Add to favorites">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                          </svg>
-                        </button>
+                          <img src="img/Drinks/Sakura Cocktail.jpg" alt="Sakura Coctail">
+                      </div>
+                      <h3>Sakura Coctail</h3>
+                      <p>This light drink, combining sake, cherry blossom syrup, soda, and a cherry blossom garnish, is delightful and tasty, with a hint of spring in every sip.</p>
+                      <div class="product-footer">
+                          <span class="price">€12.00</span>
+                          <button class="add-to-cart">Add to cart</button>
+                      </div>
+                  </div>
+                  <button class="favorite-btn" aria-label="Add to favorites">
+                      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="circle" cx="25" cy="25" r="25" fill="#E63946"/>
+                          <path class="heart" d="M16.867 14.5833C14.642 15.6198 13.012 18.0852 13.012 21.0251C13.012 24.0287 14.218 26.3438 15.947 28.3278C17.372 29.963 19.097 31.3183 20.779 32.64C21.178 32.954 21.576 33.266 21.966 33.5794C22.671 34.1462 23.301 34.6437 23.907 35.005C24.514 35.3664 25.003 35.5315 25.418 35.5315C25.833 35.5315 26.322 35.3664 26.929 35.005C27.535 34.6437 28.165 34.1462 28.87 33.5794C29.26 33.266 29.657 32.954 30.057 32.64C31.739 31.3183 33.464 29.963 34.889 28.3278C36.618 26.3438 37.824 24.0287 37.824 21.0251C37.824 18.0852 36.194 15.6198 33.969 14.5833C31.807 13.5763 28.903 13.8429 26.143 16.7655C25.953 16.9663 25.691 17.0797 25.418 17.0797C25.144 17.0797 24.883 16.9663 24.693 16.7655C21.933 13.8429 19.029 13.5763 16.867 14.5833Z" fill="white"/>
+                      </svg>
+                  </button>
+              </div>
+              
+              <div class="card-wrapper">
+                  <div class="product-card">
+                      <div class="product-image">
+                          <img src="img/Drinks/Matcha Latte.jpg" alt="Matcha Latte">
+                      </div>
+                      <h3>Matcha Latte</h3>
+                      <p>This latte is a comforting, warm beverage infused with steaming milk, featuring the distinct flavor of premium matcha, making it energizing and soothing.</p>
+                      <div class="product-footer">
+                          <span class="price">€7.00</span>
+                          <button class="add-to-cart">Add to cart</button>
+                      </div>
+                  </div>
+                  <button class="favorite-btn" aria-label="Add to favorites">
+                      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="circle" cx="25" cy="25" r="25" fill="#E63946"/>
+                          <path class="heart" d="M16.867 14.5833C14.642 15.6198 13.012 18.0852 13.012 21.0251C13.012 24.0287 14.218 26.3438 15.947 28.3278C17.372 29.963 19.097 31.3183 20.779 32.64C21.178 32.954 21.576 33.266 21.966 33.5794C22.671 34.1462 23.301 34.6437 23.907 35.005C24.514 35.3664 25.003 35.5315 25.418 35.5315C25.833 35.5315 26.322 35.3664 26.929 35.005C27.535 34.6437 28.165 34.1462 28.87 33.5794C29.26 33.266 29.657 32.954 30.057 32.64C31.739 31.3183 33.464 29.963 34.889 28.3278C36.618 26.3438 37.824 24.0287 37.824 21.0251C37.824 18.0852 36.194 15.6198 33.969 14.5833C31.807 13.5763 28.903 13.8429 26.143 16.7655C25.953 16.9663 25.691 17.0797 25.418 17.0797C25.144 17.0797 24.883 16.9663 24.693 16.7655C21.933 13.8429 19.029 13.5763 16.867 14.5833Z" fill="white"/>
+                      </svg>
+                  </button>
+              </div>
+       
+              <div class="card-wrapper">
+                  <div class="product-card">
+                      <div class="product-image">
+                          <img src="img/Drinks/Yuzu Lemonade.jpg" alt="Yuzu Lemonade">
+                      </div>
+                      <h3>Yuzu Lemonade</h3>
+                      <p>Enjoy a refreshing yuzu lemonade, a delicious and revitalizing beverage that balances sweetness and tartness, making it an ideal complement to any meal.</p>
+                      <div class="product-footer">
+                          <span class="price">€6.00</span>
+                          <button class="add-to-cart">Add to cart</button>
+                      </div>
+                  </div>
+                  <button class="favorite-btn" aria-label="Add to favorites">
+                      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="circle" cx="25" cy="25" r="25" fill="#E63946"/>
+                          <path class="heart" d="M16.867 14.5833C14.642 15.6198 13.012 18.0852 13.012 21.0251C13.012 24.0287 14.218 26.3438 15.947 28.3278C17.372 29.963 19.097 31.3183 20.779 32.64C21.178 32.954 21.576 33.266 21.966 33.5794C22.671 34.1462 23.301 34.6437 23.907 35.005C24.514 35.3664 25.003 35.5315 25.418 35.5315C25.833 35.5315 26.322 35.3664 26.929 35.005C27.535 34.6437 28.165 34.1462 28.87 33.5794C29.26 33.266 29.657 32.954 30.057 32.64C31.739 31.3183 33.464 29.963 34.889 28.3278C36.618 26.3438 37.824 24.0287 37.824 21.0251C37.824 18.0852 36.194 15.6198 33.969 14.5833C31.807 13.5763 28.903 13.8429 26.143 16.7655C25.953 16.9663 25.691 17.0797 25.418 17.0797C25.144 17.0797 24.883 16.9663 24.693 16.7655C21.933 13.8429 19.029 13.5763 16.867 14.5833Z" fill="white"/>
+                      </svg>
+                  </button>
+              </div>
+          </div>
+
+            <div class="product-container">
+              <div class="card-wrapper">
+                  <div class="product-card">
+                      <div class="product-image">
+                          <img src="img/Drinks/Plum Wine.jpg" alt="Plum Wine">
                       </div>
                       <h3>Plum Wine</h3>
-                      <p>Description of the dish</p>
+                      <p>Enjoy the sweet and tangy taste of chilled Japanese plum wine, a versatile beverage that complements any meal and enhances the flavors of our food.</p>
                       <div class="product-footer">
-                        <span class="price">€10.00</span>
-                        <button class="add-to-cart">Add to cart</button>
+                          <span class="price">€10.00</span>
+                          <button class="add-to-cart">Add to cart</button>
                       </div>
-                      <div class="hidden-description" style="display: none;">Enjoy the sweet and tangy taste of chilled Japanese plum wine, a versatile beverage that complements any meal and enhances the flavors of our food.</div>
-                    </div>
+                  </div>
+                  <button class="favorite-btn" aria-label="Add to favorites">
+                      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="circle" cx="25" cy="25" r="25" fill="#E63946"/>
+                          <path class="heart" d="M16.867 14.5833C14.642 15.6198 13.012 18.0852 13.012 21.0251C13.012 24.0287 14.218 26.3438 15.947 28.3278C17.372 29.963 19.097 31.3183 20.779 32.64C21.178 32.954 21.576 33.266 21.966 33.5794C22.671 34.1462 23.301 34.6437 23.907 35.005C24.514 35.3664 25.003 35.5315 25.418 35.5315C25.833 35.5315 26.322 35.3664 26.929 35.005C27.535 34.6437 28.165 34.1462 28.87 33.5794C29.26 33.266 29.657 32.954 30.057 32.64C31.739 31.3183 33.464 29.963 34.889 28.3278C36.618 26.3438 37.824 24.0287 37.824 21.0251C37.824 18.0852 36.194 15.6198 33.969 14.5833C31.807 13.5763 28.903 13.8429 26.143 16.7655C25.953 16.9663 25.691 17.0797 25.418 17.0797C25.144 17.0797 24.883 16.9663 24.693 16.7655C21.933 13.8429 19.029 13.5763 16.867 14.5833Z" fill="white"/>
+                      </svg>
+                  </button>
+              </div>
 
-                    <div class="product-card">
+              <div class="card-wrapper">
+                  <div class="product-card">
                       <div class="product-image">
-                        <img src="img/Drinks/Green Tea-overlaycard.png" alt="Green Tea">
-                        <button class="favorite-btn" aria-label="Add to favorites">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                          </svg>
-                        </button>
+                          <img src="img/Drinks/Green Tea.jpg" alt="Japanese Cheesecake">
                       </div>
                       <h3>Green Tea</h3>
-                      <p>Description of the dish</p>
+                      <p>Enjoy the earthy, classic taste of Japanese green tea, a comforting beverage that enhances the dining experience at Regalia Dining.</p>
                       <div class="product-footer">
-                        <span class="price">€5.00</span>
-                        <button class="add-to-cart">Add to cart</button>
+                          <span class="price">€5.00</span>
+                          <button class="add-to-cart">Add to cart</button>
                       </div>
-                      <div class="hidden-description" style="display: none;">Enjoy the earthy, classic taste of Japanese green tea, a comforting beverage that enhances the dining experience at Regalia Dining.</div>
-                    </div>
-                </div>
-                </div>
-            </section>
-        </main>
-        
-        
-  <!-- FOOTER -->
-  <div class="footer-line"></div>
+                  </div>
+                  <button class="favorite-btn" aria-label="Add to favorites">
+                      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <circle class="circle" cx="25" cy="25" r="25" fill="#E63946"/>
+                          <path class="heart" d="M16.867 14.5833C14.642 15.6198 13.012 18.0852 13.012 21.0251C13.012 24.0287 14.218 26.3438 15.947 28.3278C17.372 29.963 19.097 31.3183 20.779 32.64C21.178 32.954 21.576 33.266 21.966 33.5794C22.671 34.1462 23.301 34.6437 23.907 35.005C24.514 35.3664 25.003 35.5315 25.418 35.5315C25.833 35.5315 26.322 35.3664 26.929 35.005C27.535 34.6437 28.165 34.1462 28.87 33.5794C29.26 33.266 29.657 32.954 30.057 32.64C31.739 31.3183 33.464 29.963 34.889 28.3278C36.618 26.3438 37.824 24.0287 37.824 21.0251C37.824 18.0852 36.194 15.6198 33.969 14.5833C31.807 13.5763 28.903 13.8429 26.143 16.7655C25.953 16.9663 25.691 17.0797 25.418 17.0797C25.144 17.0797 24.883 16.9663 24.693 16.7655C21.933 13.8429 19.029 13.5763 16.867 14.5833Z" fill="white"/>
+                      </svg>
+                  </button>
+              </div>
+          </div>
+  
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                let favoriteCount = 0;
+                document.querySelectorAll('.favorite-btn').forEach(button => {
+                    button.addEventListener('click', function() {
+                        this.classList.toggle('active');
+                        favoriteCount += this.classList.contains('active') ? 1 : -1;
+                        const heart = this.querySelector('.heart');
+                        heart.style.animation = 'none';
+                        heart.offsetHeight;
+                        heart.style.animation = 'heartPop 0.3s ease-out';
+                    });
+                });
+            });
+        </script>
+        <script>
+          document.addEventListener('DOMContentLoaded', function() {
+              let favoriteCount = 0;
+              document.querySelectorAll('.favorite-btn').forEach(button => {
+                  button.addEventListener('click', function() {
+                      this.classList.toggle('active');
+                      favoriteCount += this.classList.contains('active') ? 1 : -1;
+                      const heart = this.querySelector('.heart');
+                      heart.style.animation = 'none';
+                      heart.offsetHeight;
+                      heart.style.animation = 'heartPop 0.3s ease-out';
+                  });
+              });
+          });
+        </script>
+        </section>
 
-  <footer class="site-footer">
-      <div class="box box-footer"></div>
-      <div class="footer-container">
-          <div class="footer-menu">
-              <div class="menu-column left-column">
-                  <a href="Book a table.html" class="menu-item">BOOK A TABLE</a>
-                  <a href="Menu_Appetizers.html" class="menu-item">MENU</a> 
-                  <a href="#" class="menu-item">ABOUT</a>
+    <!-- Карточка которая выскакиевает на поверх меню  -->
+    <div id="overlayCard" class="overlay-card">
+      <div class="overlay-content">
+          <button class="close-btn" aria-label="Close">&times;</button>
+          <img class="overlay-image" src="" alt="Product Image">
+          <div class="overlay-details">
+              <h2 class="overlay-title"></h2>
+              <p class="overlay-description"></p>
+              <div class="overlay-price-quantity">
+                  <div class="quantity-control">
+                      <button class="quantity-btn minus" aria-label="Decrease quantity">-</button>
+                      <span class="quantity">1</span>
+                      <button class="quantity-btn plus" aria-label="Increase quantity">+</button>
+                  </div>
+                  <span class="overlay-price"></span>
               </div>
-              <div class="menu-column right-column">
-                  <a href="#" class="menu-item">CONTACT</a>
-                  <a href="#" class="menu-item">FAVOURITE</a>
-                  <a href="#" class="menu-item">CART</a>
-              </div>
+              <button class="add-to-cart-overlay">Add to Cart</button>
           </div>
-          <div class="footer-logo">
-              <a href="index.html">
-                  <img src="img/logo.png" alt="Regalia Dining Logo">
-              </a>
-              <p class="copyright">2024 Regalia Dining</p>
-          </div>
-          <div class="footer-contact">
-              <p>Rua Garrett, Chiado, Lisbon, Portugal</p>
-              <p>regaliadining@gmail.com</p>
-              <p>+351 920 333 333</p>
-              <div class="social-icons">
-                  <a href="#" aria-label="Instagram"><img src="img/Instagram.svg" alt=""></a>
-                  <a href="#" aria-label="Telegram"><img src="img/Telegram.svg" alt=""></a>
-                  <a href="#" aria-label="Facebook"><img src="img/Facebook.svg" alt=""></a>
-                  <a href="#" aria-label="LinkedIn"><img src="img/Linked In.svg" alt=""></a>
-              </div>
-          </div>
-      </div>
-  </footer>
-  <!-- FOOTER -->
-
-  <!-- Карточка которая выскакиевает на поверх меню  -->
-  <div id="overlayCard" class="overlay-card">
-    <div class="overlay-content">
-      <button class="close-btn">&times;</button>
-      <img class="overlay-image" src="" alt="Product Image">
-      <div class="overlay-details">
-        <h2 class="overlay-title"></h2>
-        <p class="overlay-description"></p>
-        <div class="overlay-price-quantity">
-          <div class="quantity-control">
-            <button class="quantity-btn minus">-</button>
-            <span class="quantity">1</span>
-            <button class="quantity-btn plus">+</button>
-          </div>
-          <span class="overlay-price"></span>
-        </div>
-        <button class="add-to-cart-overlay">Add to Cart</button>
       </div>
     </div>
-    
-    <script src="regalia-dining-style.js"></script>
+
+    <!-- --------------------------------------------------------------
+    # Footer
+    ---------------------------------------------------------------->
+    <div class="footer-line"></div>
+
+    <footer class="site-footer">
+      <div class="box box-footer"></div>
+        <div class="footer-container">
+          <div class="footer-menu">
+            <div class="menu-column left-column">
+              <a href="Book a table.html" class="menu-item">BOOK A TABLE</a> 
+              <a href="Menu_Appetizers.html" class="menu-item">MENU</a> 
+              <a href="#" class="menu-item">ABOUT</a>
+            </div>
+            <div class="menu-column right-column">
+              <a href="" class="menu-item">CONTACT</a>
+              <a href="#" class="menu-item">FAVOURITE</a>
+              <a href="#" class="menu-item">CART</a>
+            </div>
+          </div>
+          <div class="footer-logo">
+            <a href="index.html">
+              <img src="img/logo.png" alt="Regalia Dining Logo">
+            </a>
+            <p class="copyright">2024 Regalia Dining</p>
+          </div>
+          <div class="footer-contact">
+            <p>Rua Garrett, Chiado, Lisbon, Portugal</p>
+            <p>regaliadining@gmail.com</p>
+            <p>+351 920 333 333</p>
+          </div>
+        </div>
+      </div>
+    </footer> 
+
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        let cartCount = 0;
+        let favoriteCount = 0;
+        
+        const overlayCard = document.getElementById('overlayCard');
+        const quantityDisplay = overlayCard.querySelector('.quantity');
+        const minusBtn = overlayCard.querySelector('.quantity-btn.minus');
+        const plusBtn = overlayCard.querySelector('.quantity-btn.plus');
+        const addToCartOverlay = overlayCard.querySelector('.add-to-cart-overlay');
+        const closeBtn = overlayCard.querySelector('.close-btn');
+        const overlayPriceElement = overlayCard.querySelector('.overlay-price');
+        const favoriteCountDisplay = document.querySelector('.favorite-icon .favorite-count');
+        
+        let basePrice = 0;
+        let currentQuantity = 1;
+
+        function updateFavoriteCount() {
+            if (favoriteCountDisplay) {
+                favoriteCountDisplay.textContent = favoriteCount;
+                favoriteCountDisplay.style.display = favoriteCount > 0 ? 'flex' : 'none';
+            }
+        }
+
+        document.querySelectorAll('.favorite-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                this.classList.toggle('active');
+                
+                favoriteCount += this.classList.contains('active') ? 1 : -1;
+                updateFavoriteCount();
+
+                const heart = this.querySelector('.heart');
+                const circle = this.querySelector('.circle');
+                
+                if (this.classList.contains('active')) {
+                    circle.style.fill = '#FFFFFF';
+                    heart.style.fill = '#E63946';
+                } else {
+                    circle.style.fill = '#E63946';
+                    heart.style.fill = '#FFFFFF';
+                }
+
+                heart.style.animation = 'none';
+                heart.offsetHeight;
+                heart.style.animation = 'heartPop 0.3s ease-out';
+            });
+        });
+
+        function updateCartCount(quantity = 1) {
+            cartCount += quantity;
+            const cartCountElement = document.querySelector('.cart-icon .cart-count');
+            if (cartCountElement) {
+                cartCountElement.textContent = cartCount;
+                cartCountElement.style.display = cartCount > 0 ? 'flex' : 'none';
+            }
+        }
+
+        function updateOverlayPrice() {
+            if (overlayPriceElement) {
+                const totalPrice = (basePrice * currentQuantity).toFixed(2);
+                overlayPriceElement.textContent = `€${totalPrice}`;
+            }
+        }
+
+        document.querySelectorAll('.product-card p').forEach(description => {
+            description.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const card = this.closest('.product-card');
+                
+                const image = card.querySelector('.product-image img').src;
+                const title = card.querySelector('h3').textContent;
+                const description = this.textContent;
+                const priceText = card.querySelector('.price').textContent;
+                
+                basePrice = parseFloat(priceText.replace('€', ''));
+                currentQuantity = 1;
+
+                overlayCard.querySelector('.overlay-image').src = image;
+                overlayCard.querySelector('.overlay-title').textContent = title;
+                overlayCard.querySelector('.overlay-description').textContent = description;
+                quantityDisplay.textContent = currentQuantity;
+                
+                updateOverlayPrice();
+                overlayCard.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        minusBtn.addEventListener('click', () => {
+            if (currentQuantity > 1) {
+                currentQuantity--;
+                quantityDisplay.textContent = currentQuantity;
+                updateOverlayPrice();
+            }
+        });
+
+        plusBtn.addEventListener('click', () => {
+            if (currentQuantity < 99) {
+                currentQuantity++;
+                quantityDisplay.textContent = currentQuantity;
+                updateOverlayPrice();
+            }
+        });
+
+        addToCartOverlay.addEventListener('click', () => {
+            updateCartCount(currentQuantity);
+            closeOverlay();
+        });
+
+        function closeOverlay() {
+            overlayCard.classList.remove('active');
+            document.body.style.overflow = '';
+            currentQuantity = 1;
+            quantityDisplay.textContent = currentQuantity;
+            updateOverlayPrice();
+        }
+
+        closeBtn.addEventListener('click', closeOverlay);
+        
+        overlayCard.addEventListener('click', (e) => {
+            if (e.target === overlayCard) {
+                closeOverlay();
+            }
+        });
+
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                updateCartCount(1);
+            });
+        });
+
+        updateFavoriteCount();
+        updateCartCount(0);
+    });
+      </script>
     </body>
 </html>
