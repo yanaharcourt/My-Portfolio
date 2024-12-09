@@ -288,7 +288,6 @@
         }
       }
 
-      /* Планшеты */
       @media (max-width: 1024px) {
         .project-overview {
           padding: 60px 30px;
@@ -311,7 +310,6 @@
         }
       }
 
-      /* Мобильные устройства */
       @media (max-width: 768px) {
         .project-overview {
           padding: 40px 20px;
@@ -361,7 +359,6 @@
         }
       }
 
-      /* Маленькие мобильные устройства */
       @media (max-width: 375px) {
         .project-overview {
           padding: 30px 15px;
@@ -907,7 +904,6 @@
           }
         }
 
-      /* Планшеты */
       @media (max-width: 1024px) {
         .user-research {
           padding: 0 30px;
@@ -936,7 +932,6 @@
         }
       }
 
-      /* Мобильные устройства */
       @media (max-width: 768px) {
         .user-research {
           padding: 0 20px;
@@ -1001,7 +996,6 @@
         }
       }
 
-      /* Маленькие мобильные устройства */
       @media (max-width: 375px) {
         .user-research {
           padding: 0 15px;
@@ -1160,7 +1154,7 @@
 
       .description-point:nth-child(4) .point-content {
         position: absolute;
-        top: 1850px;
+        top: 1830px;
         left: 16px;
       }
       .point-content ul {
@@ -1189,8 +1183,9 @@
       .point-content li:last-child {
         margin-bottom: 0;
       }
-
-      /* Animation */
+      /*--------------------------------------------------------------
+      # Animation
+      --------------------------------------------------------------*/
         .description-point.hidden {
         opacity: 0;
         transform: translateX(-50px);
@@ -1406,7 +1401,6 @@
         object-fit: contain;
       }
 
-      /* Адаптивные стили для планшетов */
       @media screen and (max-width: 1024px) {
         .menu-section-image {
           width: 500px;
@@ -1414,7 +1408,6 @@
         }
       }
 
-      /* Адаптивные стили для мобильных */
       @media screen and (max-width: 768px) {
         .menu-arrow {
           display: none;
@@ -1443,7 +1436,6 @@
         }
       }
 
-      /* Стили для маленьких экранов */
       @media screen and (max-width: 480px) {
         .menu-description-point {
           padding: 24px;
@@ -1455,196 +1447,141 @@
         }
       }
 
-      /* Контейнер для всех фреймов меню */
+      /*--------------------------------------------------------------
+      # Menu Frames
+      --------------------------------------------------------------*/
+    .menu-frames-section {
+      margin: 40px 0;
+      position: relative;
+      min-height: 600px;
+    }
+
+    .menu-frames-wrapper {
+      padding: 0 55px;
+      position: relative;
+      margin: 0 auto;
+    }
+
+    .menu-frames-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      perspective: 1000px;
+      padding: 20px 0;
+    }
+
+    .menu-frame {
+      position: relative;
+      width: calc((100% - 90px) / 4);
+      height: auto;
+      cursor: pointer;
+      transform-style: preserve-3d;
+      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+      border-radius: 10px;
+      box-shadow: rgba(0, 0, 0, 0.4) 0 15px 30px 0,
+        inset #333 0 0 0 2px,
+        inset rgba(255, 255, 255, 0.3) 0 0 0 3px;
+    }
+
+    .menu-frame:hover {
+      transform: scale(1.35) translateZ(40px);
+      box-shadow: rgba(255, 255, 255, 0.1) 0 0 20px 2px,
+        rgba(255, 255, 255, 0.4) 0 0 0 1px,
+        rgba(0, 0, 0, 0.3) 0 15px 30px 0,
+        inset #333 0 0 0 2px,
+        inset rgba(255, 255, 255, 0.3) 0 0 0 3px;
+      z-index: 10;
+    }
+
+    .menu-frame.active {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: auto;
+      height: 80vh;
+      transform: translate(-50%, -50%) scale(1) !important;
+      z-index: 1000;
+      transition: all 0.5s ease-in-out;
+    }
+
+    .interaction-hint {
+      position: absolute;
+      top: -40px;
+      left: 55px;
+      font-size: 16px;
+      color: #C7C7C7;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      opacity: 0.8;
+      transform-style: flat;
+      transform: none !important;
+      pointer-events: none;
+    }
+
+    .interaction-hint-icon {
+      width: 24px;
+      height: 24px;
+      animation: pulseHint 2s ease-in-out infinite;
+    }
+
+    @keyframes pulseHint {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+      backdrop-filter: blur(5px);
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Адаптивные стили */
+    @media screen and (max-width: 1200px) {
       .menu-frames-container {
-        position: relative;
-        height: 746px;
-        margin-bottom: 400px;
-        overflow: visible;
-        padding: 0 55px;
-        z-index: 1;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
       }
-
-      /* Общие стили для всех фреймов */
+      
       .menu-frame {
-        position: absolute;
-        height: 746px;
-        width: auto;
-        max-width: 100%;
-        cursor: pointer;
-        transition: all 0.5s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-        will-change: transform;
+        width: calc((100% - 30px) / 2);
       }
+    }
 
-      /* Позиции с базовой анимацией плавания */
-      .menu-frame-appetizers {
-        left: 55px;
-        top: 0;
-        z-index: 4;
-        animation: float1 6s ease-in-out infinite;
-      }
-
-      .menu-frame-sashimi {
-        left: calc(55px + 20%);
-        top: 30px;
-        z-index: 3;
-        animation: float2 6.5s ease-in-out infinite;
-      }
-
-      .menu-frame-noodles {
-        left: calc(55px + 40%);
-        top: 60px;
-        z-index: 2;
-        animation: float3 6.8s ease-in-out infinite;
-      }
-
-      .menu-frame-drinks {
-        left: calc(55px + 60%);
-        top: 90px;
-        z-index: 1;
-        animation: float4 6.2s ease-in-out infinite;
-      }
-
-      /* Плавные анимации плавания */
-      @keyframes float1 {
-        0%, 100% { transform: translate(0, 0); }
-        50% { transform: translate(0, -10px); }
-      }
-
-      @keyframes float2 {
-        0%, 100% { transform: translate(0, 0); }
-        50% { transform: translate(0, 10px); }
-      }
-
-      @keyframes float3 {
-        0%, 100% { transform: translate(0, -7px); }
-        50% { transform: translate(0, 7px); }
-      }
-
-      @keyframes float4 {
-        0%, 100% { transform: translate(0, 7px); }
-        50% { transform: translate(0, -7px); }
-      }
-
-      /* bounce эффект при наведении */
-      .menu-frame:hover {
-        animation: smoothBounce 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-        z-index: 5;
-      }
-
-      @keyframes smoothBounce {
-        0% { 
-          transform: translateY(0) scale(1) rotate(0deg); 
-        }
-        30% { 
-          transform: translateY(-25px) scale(1.05) rotate(2deg); 
-        }
-        50% { 
-          transform: translateY(-15px) scale(1.03) rotate(-1deg); 
-        }
-        70% { 
-          transform: translateY(-7px) scale(1.02) rotate(1deg); 
-        }
-        85% { 
-          transform: translateY(-3px) scale(1.01) rotate(0deg); 
-        }
-        100% { 
-          transform: translateY(0) scale(1.02) rotate(0deg); 
-        }
-      }
-
-      /* Адаптивные стили */
-      @media screen and (max-width: 1024px) {
-        .menu-frame {
-          height: auto;
-          width: 80%;
-          max-width: 500px;
-        }
-      }
-
-      @media screen and (max-width: 768px) {
-        .menu-frames-container {
-          height: auto;
-          padding: 0 20px;
-        }
-
-        .menu-frame {
-          width: 90%;
-          max-width: 400px;
-        }
-      }
-      /* подсказка для интерактивности */
+    @media screen and (max-width: 768px) {
       .menu-frames-wrapper {
-        position: relative;
+        padding: 0 20px;
       }
-
-      .interaction-hint {
-        position: absolute;
-        top: -40px;
-        left: 55px;
-        font-size: 16px;
-        color: #C7C7C7;
-        display: flex;
+      
+      .menu-frames-container {
+        flex-direction: column;
         align-items: center;
-        gap: 10px;
-        opacity: 0.8;
       }
-
-      .interaction-hint-icon {
-        width: 24px;
-        height: 24px;
-        animation: pulseHint 2s ease-in-out infinite;
+      
+      .menu-frame {
+        width: 100%;
+        max-width: 400px;
       }
+    }
 
-      @keyframes pulseHint {
-        0% { transform: scale(1); opacity: 0.8; }
-        50% { transform: scale(1.1); opacity: 1; }
-        100% { transform: scale(1); opacity: 0.8; }
-      }
-
-      /* Мобильная версия подсказки */
-      .mobile-swipe-hint {
-        display: none;
-        position: absolute;
-        top: -40px;
-        left: 20px;
-        font-size: 14px;
-        color: #C7C7C7;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .swipe-animation {
-        width: 40px;
-        height: 2px;
-        background: #C7C7C7;
-        position: relative;
-        animation: swipeHint 2s ease-in-out infinite;
-      }
-
-      @keyframes swipeHint {
-        0% { transform: translateX(0); opacity: 0.8; }
-        50% { transform: translateX(10px); opacity: 1; }
-        100% { transform: translateX(0); opacity: 0.8; }
-      }
-
-      /* Медиа запросы */
-      @media screen and (max-width: 768px) {
-        .interaction-hint {
-          display: none;
-        }
-
-        .mobile-swipe-hint {
-          display: flex;
-        }
-
-        .menu-frames-container {
-          touch-action: pan-x;
-        }
-      }
-
-      /* Thank you */
+      /*--------------------------------------------------------------
+      # Thank you
+      --------------------------------------------------------------*/
       .thank-you-section {
         padding: 0 55px;
         margin-bottom: 150px;
@@ -1797,10 +1734,15 @@
 
 <body>
   <main>
+    <!-- --------------------------------------------------------------
+    # Hero photo
+    ---------------------------------------------------------------->
     <section class="case-study-hero">
-      <img src="Regalia Dining/img/Study case/hero photo.jpg"alt="Regalia Dining Case Study">
+      <img src="Regalia dining/img/Study case/hero photo.jpg"alt="Regalia Dining Case Study">
     </section>      
-    <!-- Overview -->
+    <!-- --------------------------------------------------------------
+    # Overview
+    ---------------------------------------------------------------->
     <section class="project-overview">
       <div class="container">
         <!-- Left Column: Project Description -->
@@ -1837,7 +1779,9 @@
       </div>
     </section>
 
-    <!-- Problem & Solution Section -->
+    <!-- --------------------------------------------------------------
+    # Problem & Solution Section
+    ---------------------------------------------------------------->
     <section class="problem-solution">
       <div class="container">
           <!-- Problem Column -->
@@ -1877,7 +1821,9 @@
       </div>
     </section>
 
-    <!-- Brainstorm -->
+    <!-- --------------------------------------------------------------
+    # Brainstorm
+    ---------------------------------------------------------------->
     <section class="brainstorm">
       <h2 class="brainstorm-title" data-aos="fade" data-aos-duration="1000">Brainstorm & Ideation</h2>
       <p class="brainstorm-text" data-aos="fade" data-aos-duration="1000" data-aos-delay="100">At the start of my project, I dedicated myself to brainstorming and ideation, setting the foundation for an extraordinary online experience for Regalia Dining. My aim was to craft a website that not only highlights the restaurant's culinary excellence but also captivates and delights every visitor. Here's a glimpse into the key steps I took to bring this vision to life.</p>
@@ -1914,7 +1860,9 @@
       </script>
     </section>
 
-    <!-- User Research -->
+    <!-- --------------------------------------------------------------
+    # User Research
+    ---------------------------------------------------------------->
     <section class="user-research">
       <h2 class="user-research-title">User Research and Create Persona</h2>
       <p class="user-research-text">Understanding my users is at the core of building a successful website for Regalia Dining. In the user research phase, I focused on uncovering meaningful insights into the needs, preferences, and behaviors of the target audience.</p>
@@ -2065,7 +2013,9 @@
       </script>
     </section>
 
-    <!-- Home Page Description -->
+    <!-- --------------------------------------------------------------
+    # Home Page Description
+    ---------------------------------------------------------------->
     <section class="homepage-description">
       <h2 class="homepage-title">Description of the Homepage Structure</h2>
       <div class="description-content">
@@ -2267,85 +2217,129 @@
       </script>
     </section>
 
-    <section class="menu-frames-section">
+    <!-- --------------------------------------------------------------
+    # Menu Frames
+    ----------------------------------------------------------------> 
+    <div class="menu-frames-section">
       <div class="menu-frames-wrapper">
-          <!-- Подсказка для десктопа -->
-          <div class="interaction-hint">
-              <svg class="interaction-hint-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                  <path d="M9 3C9 2.44772 9.44772 2 10 2H14C14.5523 2 15 2.44772 15 3V11H19L12 19L5 11H9V3Z" stroke-width="2"/>
-              </svg>
-              <span>Hover over images to interact</span>
-          </div>
-  
-          <!-- Подсказка для мобильных -->
-          <div class="mobile-swipe-hint">
-              <span>Swipe to explore</span>
-              <div class="swipe-animation"></div>
-          </div>
-  
-          <!-- Контейнер с фреймами -->
-          <div class="menu-frames-container">
-              <img src="Regalia Dining/img/Study case/Menu - Appetizers frame.png" alt="Menu Structure" class="menu-frame menu-frame-appetizers">
-              <img src="Regalia Dining/img/Study case/Menu - Sashimi frame.png" alt="Menu Structure" class="menu-frame menu-frame-sashimi">
-              <img src="Regalia Dining/img/Study case/Menu - Noodles frame.png" alt="Menu Structure" class="menu-frame menu-frame-noodles">
-              <img src="Regalia Dining/img/Study case/Menu - Drinks frame.png" alt="Menu Structure" class="menu-frame menu-frame-drinks">
-          </div>
+        <div class="interaction-hint">
+          <svg class="interaction-hint-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M9 3C9 2.44772 9.44772 2 10 2H14C14.5523 2 15 2.44772 15 3V11H19L12 19L5 11H9V3Z" stroke-width="2"/>
+          </svg>
+          <span>Hover over images to interact</span>
+        </div>
+    
+        <div class="menu-frames-container">
+          <img src="Regalia dining/img/Study case/Menu - Appetizers frame.png" alt="Menu Structure" class="menu-frame menu-frame-appetizers">
+          <img src="Regalia dining/img/Study case/Menu - Sashimi frame.png" alt="Menu Structure" class="menu-frame menu-frame-sashimi">
+          <img src="Regalia dining/img/Study case/Menu - Noodles frame.png" alt="Menu Structure" class="menu-frame menu-frame-noodles">
+          <img src="Regalia dining/img/Study case/Menu - Drinks frame.png" alt="Menu Structure" class="menu-frame menu-frame-drinks">
+        </div>
       </div>
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const container = document.querySelector('.menu-frames-container');
-            let startX;
-            let scrollLeft;
-            let isDown = false;
-            let currentIndex = 0;
-            const frames = document.querySelectorAll('.menu-frame');
-            const frameCount = frames.length;
-        
-            if (window.innerWidth <= 768) {
-                container.addEventListener('touchstart', (e) => {
-                    isDown = true;
-                    startX = e.touches[0].pageX;
-                    scrollLeft = currentIndex;
-                });
-        
-                container.addEventListener('touchend', () => {
-                    isDown = false;
-                });
-        
-                container.addEventListener('touchmove', (e) => {
-                    if (!isDown) return;
-                    
-                    e.preventDefault();
-                    const x = e.touches[0].pageX;
-                    const walk = (startX - x) * 2;
-                    
-                    if (Math.abs(walk) > 50) {
-                        if (walk > 0 && currentIndex < frameCount - 1) {
-                            currentIndex++;
-                        } else if (walk < 0 && currentIndex > 0) {
-                            currentIndex--;
-                        }
-                        
-                        updateFramesPosition();
-                        isDown = false;
-                    }
-                });
-        
-                function updateFramesPosition() {
-                    frames.forEach((frame, index) => {
-                        const offset = index - currentIndex;
-                        frame.style.transform = `translateX(${offset * 100}%)`;
-                        frame.style.opacity = index === currentIndex ? '1' : '0.5';
-                        frame.style.zIndex = index === currentIndex ? '5' : '1';
-                    });
-                }
-        
-                updateFramesPosition();
-            }
-        });
-      </script>
-    </section>
+    </div>
+    <div class="overlay"></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+      const frames = document.querySelectorAll('.menu-frame');
+      const overlay = document.querySelector('.overlay');
+      let activeFrame = null;
 
+      frames.forEach(frame => {
+        frame.addEventListener('mousemove', handleMouseMove);
+        frame.addEventListener('mouseenter', handleMouseEnter);
+        frame.addEventListener('mouseleave', handleMouseLeave);
+        frame.addEventListener('click', handleClick);
+      });
+
+      overlay.addEventListener('click', closeZoom);
+
+      function handleMouseMove(e) {
+        if (activeFrame) return;
+        
+        const frame = e.currentTarget;
+        const rect = frame.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left - rect.width / 2;
+        const mouseY = e.clientY - rect.top - rect.height / 2;
+        const mousePX = mouseX / rect.width;
+        const mousePY = mouseY / rect.height;
+        const rX = mousePX * 15;
+        const rY = mousePY * -15;
+        const tX = mousePX * -10;
+        const tY = mousePY * -10;
+
+        frame.style.transform = `
+          perspective(1000px)
+          rotateY(${rX}deg)
+          rotateX(${rY}deg)
+          translateX(${tX}px)
+          translateY(${tY}px)
+          scale(1.35)
+          translateZ(40px)
+        `;
+      }
+
+      function handleMouseEnter(e) {
+        const frame = e.currentTarget;
+        frame.style.transition = 'transform 0.2s ease-out';
+        frame.style.zIndex = '10';
+      }
+
+      function handleMouseLeave(e) {
+        const frame = e.currentTarget;
+        frame.style.transition = 'all 0.5s ease-in-out';
+        frame.style.zIndex = '1';
+        resetFrameTransform(frame);
+      }
+
+      function handleClick(e) {
+        const frame = e.currentTarget;
+        if (frame === activeFrame) {
+          closeZoom();
+        } else {
+          zoomFrame(frame);
+        }
+      }
+
+      function zoomFrame(frame) {
+        activeFrame = frame;
+        frame.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeZoom() {
+        if (activeFrame) {
+          activeFrame.classList.remove('active');
+          resetFrameTransform(activeFrame);
+          overlay.classList.remove('active');
+          document.body.style.overflow = '';
+          activeFrame = null;
+        }
+      }
+
+      function resetFrameTransform(frame) {
+        frame.style.transform = `
+          perspective(1000px)
+          rotateY(0deg)
+          rotateX(0deg)
+          translateX(0)
+          translateY(0)
+          scale(1)
+          translateZ(0)
+        `;
+      }
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && activeFrame) {
+          closeZoom();
+        }
+      });
+    });
+    </script>
+    
+    <!-- --------------------------------------------------------------
+    # Thank you Section
+    ---------------------------------------------------------------->
 
     <section class="thank-you-section">
       <div class="thank-you-frame">
@@ -2354,6 +2348,10 @@
       </div>
     </section>
   </main>
+
+  <!-- --------------------------------------------------------------
+    # Footer
+  ---------------------------------------------------------------->
   <footer id="footer" class="footer">
     <div class="container">
       <div class="copyright text-center ">
@@ -2365,7 +2363,9 @@
     </div>
   </footer>
 
-  <!-- Scroll Top -->
+  <!-- --------------------------------------------------------------
+    # Scroll Top
+  ---------------------------------------------------------------->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
     <i class="bi bi-arrow-up-short"></i>
   </a>
