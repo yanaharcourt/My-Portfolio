@@ -7,39 +7,44 @@
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rhodium+Libre&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Croissant+One&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         <!-- <link rel="stylesheet" href="regalia-dining-menu.css"> -->
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Rhodiu+Libredisplay=swap');
-
+    /* Base Styles */
     body, html {
       margin: 0;
       padding: 0;
-      font-family: 'Lato', sans-serif;
-      background-color: #0E0E10;
-      color: #C7C7C7;
+      font-family: 'Hanken Grotesk';
+      background-color: #070B19;
+      color: #C7C2B7;
     }
 
+    /*--------------------------------------------------------------
+    # Header Styles
+    --------------------------------------------------------------*/
     header {
       position: fixed;
       background-color: transparent;
       top: 0;
       left: 0;
       right: 0;
-      display: flex;
-      justify-content: space-between;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      padding: 10px 100px 0px 100px;
+      padding: 10px 100px;
       z-index: 3;
       transition: background-color 0.3s ease;
     }
 
     header.scrolled {
-      background-color: #0E0E10;
+      background-color: #070B19;
     }
 
+    /* Logo styles */
     .logo {
       display: flex;
       align-items: center;
+      justify-self: start;
     }
 
     .logo img {
@@ -49,20 +54,22 @@
     }
 
     .logo span {
-      font-family: 'Rhodium Libre', sans-serif;
+      font-family: 'Croissant One';
       font-size: 24px;
-      color: #C7C7C7;
+      color: #C7C2B7;
     }
 
+    /* Navigation styles */
     nav {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
+      justify-self: center;
+      width: auto;
     }
 
     nav ul {
       display: flex;
       list-style-type: none;
+      margin: 0;
+      padding: 0;
     }
 
     nav ul li {
@@ -70,12 +77,17 @@
     }
 
     nav ul li a {
-      color: #C7C7C7;
+      color: #C7C2B7;
       text-decoration: none;
-      font-family: 'Rhodium Libre', sans-serif;
+      font-family: 'Croissant One';
       text-transform: uppercase;
       font-size: 16px;
       position: relative;
+      padding: 5px 0;
+    }
+
+    nav ul li a.active {
+      color: #B8995C;
     }
 
     nav ul li a::before {
@@ -85,7 +97,7 @@
       bottom: -2px;
       width: 100%;
       height: 2px;
-      background-color: #FB5681;
+      background-color: #B8995C;
       transform: scaleX(0);
       transform-origin: center;
       transition: transform 0.3s ease-out;
@@ -96,22 +108,27 @@
       transform: scaleX(1);
     }
 
+    /* Icons styles */
     .icons {
       display: flex;
+      gap: 20px;
+      justify-self: end;
     }
 
     .icons a {
-      margin-left: 20px;
       position: relative;
+      display: flex;
+      align-items: center;
     }
 
     .icons img {
       width: 32px;
       height: 32px;
+      transition: filter 0.3s ease;
     }
 
     .icons a:hover img {
-      filter: brightness(0) saturate(100%) invert(41%) sepia(72%) saturate(1966%) hue-rotate(338deg) brightness(96%) contrast(95%);
+      filter: brightness(0) saturate(100%) invert(65%) sepia(13%) saturate(753%) hue-rotate(358deg) brightness(100%) contrast(84%);
     }
 
     .favorite-count,
@@ -119,8 +136,8 @@
       position: absolute;
       top: -8px;
       right: -8px;
-      background-color: #E63946;
-      color: white;
+      background-color: #B8995C;
+      color: #070B19;
       border-radius: 50%;
       width: 20px;
       height: 20px;
@@ -129,6 +146,28 @@
       align-items: center;
       font-size: 12px;
       font-weight: bold;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 1024px) {
+      header {
+        padding: 10px 50px;
+      }
+      
+      nav ul li {
+        margin: 0 10px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        grid-template-columns: auto auto auto;
+        padding: 10px 30px;
+      }
+
+      .logo span {
+        display: none;
+      }
     }
 
     /*--------------------------------------------------------------
@@ -144,11 +183,11 @@
     }
 
     .menu-title {
-      font-family: 'Rhodium Libre', sans-serif;
+      font-family: 'Croissant One', sans-serif;
       font-size: 48px;
       text-align: center;
       margin-bottom: 30px;
-      color: #f5f5f5;
+      color: #C7C2B7;
     }
 
     .menu-nav {
@@ -166,9 +205,9 @@
     }
 
     .menu-nav a {
-      font-family: 'Rhodium Libre', sans-serif;
+      font-family: 'Croissant One', sans-serif;
       font-size: 18px;
-      color: #C7C7C7;
+      color: #C7C2B7;
       text-decoration: none;
       padding: 5px 15px;
       position: relative;
@@ -177,7 +216,7 @@
 
     .menu-nav a:hover,
     .menu-nav a.active {
-      color: #FB5681;
+      color: #B8995C;
     }
 
     .menu-nav a::before {
@@ -187,7 +226,7 @@
       bottom: -5px;
       width: 100%;
       height: 2px;
-      background-color: #FB5681;
+      background-color: #B8995C;
       transform: scaleX(0);
       transform-origin: center;
       transition: transform 0.3s ease;
@@ -222,33 +261,16 @@
         padding: 3px 10px;
       }
     }
-
-
     /*--------------------------------------------------------------
-     # New Section
-    --------------------------------------------------------------*/      
-    .new-section {
-      padding-top: 0;
-      padding: 50px 50px 0 50px;  
-      margin-bottom: 120px;
-    }
-
-    .new-section h2 {
-      color: #C7C7C7;
-      font-family: 'Rhodium Libre';
-      text-align: center;
-      font-size: 32px;
-      font-weight: 400;
-      margin-bottom: 32px;
-    }
-
+    # Product Cards
+    --------------------------------------------------------------*/
     .product-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, 391px); 
-      gap: 40px;  
+      grid-template-columns: repeat(auto-fit, 391px);
+      gap: 40px;
       justify-content: center;
       margin: 0 auto;
-      max-width: 1800px; 
+      max-width: 1800px;
       padding: 20px;
       overflow: visible;
     }
@@ -263,7 +285,7 @@
       width: 391px;
       height: 440px;
       position: relative;
-      background: #2E2E30;
+      background: rgba(16, 23, 40, 0.5);
       overflow: visible;
       clip-path: path('M313 37.3C313 16.7 296.3 0 275.7 0H135C71.3 0 39.5 0 19.7 19.7C0 39.5 0 71.3 0 135V305C0 368.7 0 400.5 19.7 420.3C39.5 440 71.3 440 135 440H256C319.7 440 351.5 440 371.3 420.3C391 400.5 391 368.7 391 305V110.6C391 90.7 374.3 74 354.4 74V74C334.5 74 313 57.3 313 37.3V37.3Z');
       backface-visibility: hidden;
@@ -274,7 +296,7 @@
 
     .product-card:hover {
       transform: translateY(-5px) translateZ(0);
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 20px rgba(7, 11, 25, 0.2);
     }
 
     .product-image {
@@ -292,20 +314,20 @@
     }
 
     .product-card h3 {
-      font-family: 'Rhodium Libre';
+      font-family: 'Croissant One';
       font-weight: 300;
-      font-size: 24px; 
+      font-size: 24px;
       margin-top: 16px;
       margin-bottom: 4px;
       padding: 0 30px;
-      color: #C7C7C7;
+      color: #C7C2B7;
     }
 
     .product-card p {
-      height: 48px; 
+      height: 48px;
       padding: 0 30px;
-      color: #C7C7C7;
-      font-family: 'Lato', sans-serif;
+      color: #999899;
+      font-family: 'Hanken Grotesk', sans-serif;
       font-size: 16px;
       line-height: 1.5;
       overflow: hidden;
@@ -329,7 +351,107 @@
       box-sizing: border-box;
     }
 
-    /* Медиа-запросы для адаптивности */
+    .favorite-btn {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      z-index: 10;
+      overflow: visible;
+    }
+
+    .favorite-btn svg {
+      width: 50px;
+      height: 50px;
+      overflow: visible;
+    }
+
+    .favorite-btn .circle {
+      fill: #101728;
+      transition: fill 0.3s ease;
+    }
+
+    .favorite-btn .heart {
+      fill: #B8995C;
+      transition: fill 0.3s ease;
+    }
+
+    .favorite-btn .circle {
+      fill: #101728;
+    }
+
+    .favorite-btn .heart {
+      fill: #B8995C;
+    }
+
+    .favorite-btn:hover .circle {
+      fill: #101728;
+      opacity: 90%;
+    }
+
+    .favorite-btn:hover .heart {
+      fill: #CBA866;
+    }
+
+    .favorite-btn.active .circle {
+      fill: #B8995C;
+    }
+
+    .favorite-btn.active .heart {
+      fill: #101728;
+      animation: heartPop 0.3s ease-out;
+    }
+
+    .favorite-btn.active:hover .circle {
+      fill: #CBA866;
+    }
+
+    .favorite-btn.active:hover .heart {
+      fill: #101728;
+    }
+
+    .add-to-cart {
+      border-radius: 20px;
+      height: 40px;
+      width: 140px;
+      font-family: "Croissant One";
+      font-size: 16px;
+      font-weight: 400;
+      background-color: transparent;
+      color: #B8995C;
+      border: 1px solid #B8995C;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .add-to-cart:hover {
+      background-color: #B8995C;
+      color: #070B19;
+      transform: translateY(-2px);
+    }
+
+    .add-to-cart:active {
+      transform: translateY(0);
+    }
+
+    .add-to-cart:disabled {
+      background-color: #999899;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .price {
+      font-family: 'Hanken Grotesk', sans-serif;
+      font-size: 20px;
+      color: #C7C2B7;
+      font-weight: 500;
+    }
+
     @media (max-width: 1600px) {
       .product-container {
         grid-template-columns: repeat(3, 391px);
@@ -347,172 +469,16 @@
         grid-template-columns: repeat(1, 391px);
       }
     }
-
-    .favorite-btn {
-      position: absolute;
-      top: 0px;
-      right: 0px;
-      width: 50px;
-      height: 50px;
-      padding: 0;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      z-index: 10;
-      overflow: visible;
-      transition: transform 0.3s ease;
-    }
-
-    .favorite-btn:hover {
-      transform: scale(1.1);
-    }
-
-    .favorite-btn svg {
-      width: 50px;
-      height: 50px;
-      overflow: visible;
-    }
-
-    .favorite-btn .circle {
-      fill: #E63946;
-      transition: fill 0.3s ease;
-    }
-
-    .favorite-btn .heart {
-      fill: #FFFFFF;
-      transition: fill 0.3s ease;
-    }
-
-    .favorite-btn:hover .circle {
-      fill: #FFFFFF;
-    }
-
-    .favorite-btn:hover .heart,
-    .favorite-btn.active .heart {
-      fill: #E63946;
-    }
-
-    .favorite-btn.active .circle {
-      fill: #FFFFFF;
-    }
-
-    .favorite-btn.active .heart {
-      animation: heartPop 0.3s ease-out;
-    }
-
-    .add-to-cart {
-      border-radius: 20px;
-      height: 40px;
-      width: 140px;
-      font-family: "Rhodium Libre", Helvetica;
-      font-size: 16px;
-      font-weight: 400;
-      background-color: #e63946;
-      color: white;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .add-to-cart:hover {
-      background-color: #F5F5F5;
-      color: #e63946;
-      transform: translateY(-2px);
-    }
-
-    .add-to-cart:active {
-      transform: translateY(0);
-    }
-
-    .add-to-cart:disabled {
-      background-color: #cccccc;
-      cursor: not-allowed;
-      transform: none;
-    }
-
-    .price {
-      font-family: 'Lato', sans-serif;
-      font-size: 20px;
-      color: #C7C7C7;
-      font-weight: 500;
-    }
-
-    .see-more-container {
-      display: flex;
-      justify-content: center;
-      margin-top: 40px;
-    }
-
-    .see-more {
-      display: inline-flex;
-      align-items: center;
-      font-family: 'Rhodium Libre', sans-serif;
-      font-size: 18px;
-      color: #C7C7C7;
-      text-decoration: none;
-      padding: 10px 20px;
-      border: 2px solid #E63946;
-      border-radius: 25px;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .see-more:hover {
-      background-color: #E63946;
-      color: white;
-    }
-
-    .text-wrapper {
-      position: relative;
-      z-index: 1;
-    }
-
-    /* Анимации */
-    @keyframes heartPop {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-    }
-
-    /* Стили для состояния загрузки */
-    .product-image.loading {
-      background: linear-gradient(90deg, #2E2E30 25%, #3E3E40 50%, #2E2E30 75%);
-      background-size: 200% 100%;
-      animation: loading 1.5s infinite;
-    }
-
-    @keyframes loading {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-
-    /* Общие стили для всех кнопок */
-    button {
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-    }
-
-    button:focus {
-      outline: none;
-    }
-
-    .favorite-btn:focus,
-    .add-to-cart:focus,
-    .see-more:focus {
-      outline: 2px solid #C7C7C7;
-      outline-offset: 2px;
-    }
-
-    /* Стили для оверлея */
+    /*--------------------------------------------------------------
+    # Overlay Styles
+    --------------------------------------------------------------*/
     .overlay-card {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(14, 14, 16, 0.9);
+      background-color: rgba(7, 11, 25, 0.9);
       display: none;
       justify-content: center;
       align-items: center;
@@ -526,13 +492,14 @@
     .overlay-content {
       position: relative;
       width: 800px;
-      background: #2E2E30;
+      background: rgba(16, 23, 40, 0.9);
       border-radius: 20px;
       display: flex;
       overflow: hidden;
       transform: scale(0.9);
       opacity: 0;
       transition: all 0.3s ease;
+      border: 1px solid rgba(184, 153, 92, 0.1);
     }
 
     .overlay-card.active .overlay-content {
@@ -554,17 +521,17 @@
     }
 
     .overlay-title {
-      font-family: 'Rhodium Libre';
+      font-family: 'Croissant One';
       font-size: 28px;
-      color: #C7C7C7;
+      color: #C7C2B7;
       margin-bottom: 20px;
     }
 
     .overlay-description {
-      font-family: 'Lato', sans-serif;
+      font-family: 'Hanken Grotesk', sans-serif;
       font-size: 16px;
       line-height: 1.6;
-      color: #C7C7C7;
+      color: #999899;
       margin-bottom: 30px;
     }
 
@@ -586,8 +553,8 @@
       height: 30px;
       border-radius: 50%;
       border: none;
-      background-color: #E63946;
-      color: white;
+      background-color: #B8995C;
+      color: #070B19;
       cursor: pointer;
       font-size: 18px;
       display: flex;
@@ -597,20 +564,20 @@
     }
 
     .quantity-btn:hover {
-      background-color: #F5F5F5;
-      color: #E63946;
+      background-color: #C7C2B7;
+      color: #B8995C;
     }
 
     .quantity {
-      font-family: 'Lato', sans-serif;
+      font-family: 'Hanken Grotesk', sans-serif;
       font-size: 18px;
-      color: #C7C7C7;
+      color: #C7C2B7;
     }
 
     .overlay-price {
-      font-family: 'Lato', sans-serif;
+      font-family: 'Hanken Grotesk', sans-serif;
       font-size: 24px;
-      color: #C7C7C7;
+      color: #C7C2B7;
       font-weight: 500;
     }
 
@@ -618,19 +585,19 @@
       width: 100%;
       height: 50px;
       border-radius: 25px;
-      background-color: #E63946;
-      color: white;
-      border: none;
+      background-color: transparent;
+      color: #B8995C;
+      border: 1px solid #B8995C;
       cursor: pointer;
-      font-family: 'Rhodium Libre';
+      font-family: 'Croissant One';
       font-size: 18px;
       transition: all 0.3s ease;
       margin-top: auto;
     }
 
     .add-to-cart-overlay:hover {
-      background-color: #F5F5F5;
-      color: #E63946;
+      background-color: #B8995C;
+      color: #070B19;
     }
 
     .close-btn {
@@ -641,8 +608,8 @@
       height: 40px;
       border-radius: 50%;
       border: none;
-      background-color: rgba(14, 14, 16, 0.8);
-      color: #C7C7C7;
+      background-color: rgba(184, 153, 92, 0.1);
+      color: #C7C2B7;
       font-size: 24px;
       cursor: pointer;
       display: flex;
@@ -653,11 +620,10 @@
     }
 
     .close-btn:hover {
-      background-color: #E63946;
-      color: white;
+      background-color: #B8995C;
+      color: #070B19;
     }
 
-    /* Медиа-запросы для оверлея */
     @media (max-width: 900px) {
       .overlay-content {
         width: 90%;
@@ -675,24 +641,153 @@
       }
     }
     /*--------------------------------------------------------------
-     # FOOTER
+    # Animations and Utilities
+    --------------------------------------------------------------*/
+    @keyframes heartPop {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    /* Loading Animation */
+    .product-image.loading {
+      background: linear-gradient(90deg, 
+        rgba(16, 23, 40, 0.5) 25%, 
+        rgba(16, 23, 40, 0.7) 50%, 
+        rgba(16, 23, 40, 0.5) 75%
+      );
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+    }
+
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Button Focus States */
+    button {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    button:focus {
+      outline: none;
+    }
+
+    .favorite-btn:focus,
+    .add-to-cart:focus,
+    .see-more:focus {
+      outline: 2px solid #B8995C;
+      outline-offset: 2px;
+    }
+
+    /* See More Button */
+    .see-more-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 40px;
+    }
+
+    .see-more {
+      display: inline-flex;
+      align-items: center;
+      font-family: 'Croissant One';
+      font-size: 18px;
+      color: #C7C2B7;
+      text-decoration: none;
+      padding: 10px 20px;
+      border: 2px solid #B8995C;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .see-more:hover {
+      background-color: #B8995C;
+      color: #070B19;
+    }
+
+    .see-more .text-wrapper {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Text Utilities */
+    .truncate {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Hover Effects */
+    .hover-scale {
+      transition: transform 0.3s ease;
+    }
+
+    .hover-scale:hover {
+      transform: scale(1.05);
+    }
+
+    .hover-lift {
+      transition: transform 0.3s ease;
+    }
+
+    .hover-lift:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Interactive States */
+    .interactive {
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .interactive:hover {
+      opacity: 0.8;
+    }
+
+    /* Shadow Effects */
+    .shadow-hover {
+      transition: box-shadow 0.3s ease;
+    }
+
+    .shadow-hover:hover {
+      box-shadow: 0 8px 16px rgba(184, 153, 92, 0.15);
+    }
+
+    /* General Transitions */
+    .transition-all {
+      transition: all 0.3s ease;
+    }
+
+    .transition-transform {
+      transition: transform 0.3s ease;
+    }
+
+    .transition-opacity {
+      transition: opacity 0.3s ease;
+    }
+    /*--------------------------------------------------------------
+    # Footer
     --------------------------------------------------------------*/
     .footer-line {
-      width: 1350px; 
-      height: 1px; 
-      background-color: #1C1C1E; 
-      margin: 0 auto; 
-      margin-bottom: 20px; 
+      width: 1350px;
+      height: 1px;
+      background-color: rgba(184, 153, 92, 0.1);
+      margin: 200px auto 20px auto;
     }
+
     .site-footer {
-      background-color: #0E0E10;
-      color: #C7C7C7;
+      background-color: #070B19;
+      color: #C7C2B7;
       padding: 40px 0;
-      font-family: "Rhodium Libre";
+      font-family: "Croissant One";
     }
 
     .footer-container {
-      font-family: "Rhodium Libre";
       max-width: 1320px;
       margin: 0 auto;
       display: flex;
@@ -702,11 +797,10 @@
     }
 
     .footer-menu {
-      font-family: "Rhodium Libre";
       display: flex;
       flex: 1;
-      justify-content: space-between; 
-      padding: 0 20px; 
+      justify-content: space-between;
+      padding: 0 20px;
     }
 
     .menu-column {
@@ -716,7 +810,7 @@
 
     .quick-links {
       text-align: center;
-      flex: 1; 
+      flex: 1;
     }
 
     .quick-links ul {
@@ -726,8 +820,8 @@
     }
 
     .menu-item {
-      color: #C7C7C7;
-      font-family: "Rhodium Libre";
+      color: #C7C2B7;
+      font-family: "Croissant One";
       text-decoration: none;
       font-size: 16px;
       display: block;
@@ -736,12 +830,12 @@
     }
 
     .menu-item:hover {
-      color: #FB5681;
+      color: #B8995C;
     }
 
     .footer-logo {
       text-align: center;
-      flex: 2; 
+      flex: 2;
     }
 
     .footer-logo img {
@@ -750,21 +844,49 @@
     }
 
     .copyright {
-      font-family: "Rhodium Libre";
+      font-family: "Croissant One";
       font-size: 24px;
       margin-top: 20px;
+      color: #C7C2B7;
     }
 
     .footer-contact {
       text-align: right;
-      font-family: "Rhodium Libre";
+      font-family: "Hanken Grotesk";
       flex: 1; 
     }
 
     .footer-contact p {
       font-size: 16px;
-      font-family: "Rhodium Libre";
+      font-family: "Hanken Grotesk";
       margin-bottom: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-menu {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .quick-links {
+        position: static;
+        left: 0;
+        text-align: center;
+      }
+
+      .footer-contact {
+        text-align: center;
+      }
+
+      .footer-line {
+        width: 90%;
+      }
     }
   </style>
   </head>
@@ -843,10 +965,10 @@
                       </div>
                   </div>
                   <button class="favorite-btn" aria-label="Add to favorites">
-                      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle class="circle" cx="25" cy="25" r="25" fill="#E63946"/>
-                          <path class="heart" d="M16.867 14.5833C14.642 15.6198 13.012 18.0852 13.012 21.0251C13.012 24.0287 14.218 26.3438 15.947 28.3278C17.372 29.963 19.097 31.3183 20.779 32.64C21.178 32.954 21.576 33.266 21.966 33.5794C22.671 34.1462 23.301 34.6437 23.907 35.005C24.514 35.3664 25.003 35.5315 25.418 35.5315C25.833 35.5315 26.322 35.3664 26.929 35.005C27.535 34.6437 28.165 34.1462 28.87 33.5794C29.26 33.266 29.657 32.954 30.057 32.64C31.739 31.3183 33.464 29.963 34.889 28.3278C36.618 26.3438 37.824 24.0287 37.824 21.0251C37.824 18.0852 36.194 15.6198 33.969 14.5833C31.807 13.5763 28.903 13.8429 26.143 16.7655C25.953 16.9663 25.691 17.0797 25.418 17.0797C25.144 17.0797 24.883 16.9663 24.693 16.7655C21.933 13.8429 19.029 13.5763 16.867 14.5833Z" fill="white"/>
-                      </svg>
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle class="circle" cx="25" cy="25" r="25" fill="#101728"/>
+                      <path class="heart" d="M16.867 14.5833C14.642 15.6198 13.012 18.0852 13.012 21.0251C13.012 24.0287 14.218 26.3438 15.947 28.3278C17.372 29.963 19.097 31.3183 20.779 32.64C21.178 32.954 21.576 33.266 21.966 33.5794C22.671 34.1462 23.301 34.6437 23.907 35.005C24.514 35.3664 25.003 35.5315 25.418 35.5315C25.833 35.5315 26.322 35.3664 26.929 35.005C27.535 34.6437 28.165 34.1462 28.87 33.5794C29.26 33.266 29.657 32.954 30.057 32.64C31.739 31.3183 33.464 29.963 34.889 28.3278C36.618 26.3438 37.824 24.0287 37.824 21.0251C37.824 18.0852 36.194 15.6198 33.969 14.5833C31.807 13.5763 28.903 13.8429 26.143 16.7655C25.953 16.9663 25.691 17.0797 25.418 17.0797C25.144 17.0797 24.883 16.9663 24.693 16.7655C21.933 13.8429 19.029 13.5763 16.867 14.5833Z" fill="#B8995C"/>
+                    </svg>
                   </button>
               </div>
               
@@ -863,10 +985,10 @@
                       </div>
                   </div>
                   <button class="favorite-btn" aria-label="Add to favorites">
-                      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle class="circle" cx="25" cy="25" r="25" fill="#E63946"/>
-                          <path class="heart" d="M16.867 14.5833C14.642 15.6198 13.012 18.0852 13.012 21.0251C13.012 24.0287 14.218 26.3438 15.947 28.3278C17.372 29.963 19.097 31.3183 20.779 32.64C21.178 32.954 21.576 33.266 21.966 33.5794C22.671 34.1462 23.301 34.6437 23.907 35.005C24.514 35.3664 25.003 35.5315 25.418 35.5315C25.833 35.5315 26.322 35.3664 26.929 35.005C27.535 34.6437 28.165 34.1462 28.87 33.5794C29.26 33.266 29.657 32.954 30.057 32.64C31.739 31.3183 33.464 29.963 34.889 28.3278C36.618 26.3438 37.824 24.0287 37.824 21.0251C37.824 18.0852 36.194 15.6198 33.969 14.5833C31.807 13.5763 28.903 13.8429 26.143 16.7655C25.953 16.9663 25.691 17.0797 25.418 17.0797C25.144 17.0797 24.883 16.9663 24.693 16.7655C21.933 13.8429 19.029 13.5763 16.867 14.5833Z" fill="white"/>
-                      </svg>
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle class="circle" cx="25" cy="25" r="25" fill="#101728"/>
+                      <path class="heart" d="M16.867 14.5833C14.642 15.6198 13.012 18.0852 13.012 21.0251C13.012 24.0287 14.218 26.3438 15.947 28.3278C17.372 29.963 19.097 31.3183 20.779 32.64C21.178 32.954 21.576 33.266 21.966 33.5794C22.671 34.1462 23.301 34.6437 23.907 35.005C24.514 35.3664 25.003 35.5315 25.418 35.5315C25.833 35.5315 26.322 35.3664 26.929 35.005C27.535 34.6437 28.165 34.1462 28.87 33.5794C29.26 33.266 29.657 32.954 30.057 32.64C31.739 31.3183 33.464 29.963 34.889 28.3278C36.618 26.3438 37.824 24.0287 37.824 21.0251C37.824 18.0852 36.194 15.6198 33.969 14.5833C31.807 13.5763 28.903 13.8429 26.143 16.7655C25.953 16.9663 25.691 17.0797 25.418 17.0797C25.144 17.0797 24.883 16.9663 24.693 16.7655C21.933 13.8429 19.029 13.5763 16.867 14.5833Z" fill="#B8995C"/>
+                    </svg>
                   </button>
               </div>
        
@@ -883,10 +1005,10 @@
                       </div>
                   </div>
                   <button class="favorite-btn" aria-label="Add to favorites">
-                      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle class="circle" cx="25" cy="25" r="25" fill="#E63946"/>
-                          <path class="heart" d="M16.867 14.5833C14.642 15.6198 13.012 18.0852 13.012 21.0251C13.012 24.0287 14.218 26.3438 15.947 28.3278C17.372 29.963 19.097 31.3183 20.779 32.64C21.178 32.954 21.576 33.266 21.966 33.5794C22.671 34.1462 23.301 34.6437 23.907 35.005C24.514 35.3664 25.003 35.5315 25.418 35.5315C25.833 35.5315 26.322 35.3664 26.929 35.005C27.535 34.6437 28.165 34.1462 28.87 33.5794C29.26 33.266 29.657 32.954 30.057 32.64C31.739 31.3183 33.464 29.963 34.889 28.3278C36.618 26.3438 37.824 24.0287 37.824 21.0251C37.824 18.0852 36.194 15.6198 33.969 14.5833C31.807 13.5763 28.903 13.8429 26.143 16.7655C25.953 16.9663 25.691 17.0797 25.418 17.0797C25.144 17.0797 24.883 16.9663 24.693 16.7655C21.933 13.8429 19.029 13.5763 16.867 14.5833Z" fill="white"/>
-                      </svg>
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle class="circle" cx="25" cy="25" r="25" fill="#101728"/>
+                      <path class="heart" d="M16.867 14.5833C14.642 15.6198 13.012 18.0852 13.012 21.0251C13.012 24.0287 14.218 26.3438 15.947 28.3278C17.372 29.963 19.097 31.3183 20.779 32.64C21.178 32.954 21.576 33.266 21.966 33.5794C22.671 34.1462 23.301 34.6437 23.907 35.005C24.514 35.3664 25.003 35.5315 25.418 35.5315C25.833 35.5315 26.322 35.3664 26.929 35.005C27.535 34.6437 28.165 34.1462 28.87 33.5794C29.26 33.266 29.657 32.954 30.057 32.64C31.739 31.3183 33.464 29.963 34.889 28.3278C36.618 26.3438 37.824 24.0287 37.824 21.0251C37.824 18.0852 36.194 15.6198 33.969 14.5833C31.807 13.5763 28.903 13.8429 26.143 16.7655C25.953 16.9663 25.691 17.0797 25.418 17.0797C25.144 17.0797 24.883 16.9663 24.693 16.7655C21.933 13.8429 19.029 13.5763 16.867 14.5833Z" fill="#B8995C"/>
+                    </svg>
                   </button>
               </div>
           </div>
@@ -905,11 +1027,12 @@
                       </div>
                   </div>
                   <button class="favorite-btn" aria-label="Add to favorites">
+                    <button class="favorite-btn" aria-label="Add to favorites">
                       <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle class="circle" cx="25" cy="25" r="25" fill="#E63946"/>
-                          <path class="heart" d="M16.867 14.5833C14.642 15.6198 13.012 18.0852 13.012 21.0251C13.012 24.0287 14.218 26.3438 15.947 28.3278C17.372 29.963 19.097 31.3183 20.779 32.64C21.178 32.954 21.576 33.266 21.966 33.5794C22.671 34.1462 23.301 34.6437 23.907 35.005C24.514 35.3664 25.003 35.5315 25.418 35.5315C25.833 35.5315 26.322 35.3664 26.929 35.005C27.535 34.6437 28.165 34.1462 28.87 33.5794C29.26 33.266 29.657 32.954 30.057 32.64C31.739 31.3183 33.464 29.963 34.889 28.3278C36.618 26.3438 37.824 24.0287 37.824 21.0251C37.824 18.0852 36.194 15.6198 33.969 14.5833C31.807 13.5763 28.903 13.8429 26.143 16.7655C25.953 16.9663 25.691 17.0797 25.418 17.0797C25.144 17.0797 24.883 16.9663 24.693 16.7655C21.933 13.8429 19.029 13.5763 16.867 14.5833Z" fill="white"/>
+                        <circle class="circle" cx="25" cy="25" r="25" fill="#101728"/>
+                        <path class="heart" d="M16.867 14.5833C14.642 15.6198 13.012 18.0852 13.012 21.0251C13.012 24.0287 14.218 26.3438 15.947 28.3278C17.372 29.963 19.097 31.3183 20.779 32.64C21.178 32.954 21.576 33.266 21.966 33.5794C22.671 34.1462 23.301 34.6437 23.907 35.005C24.514 35.3664 25.003 35.5315 25.418 35.5315C25.833 35.5315 26.322 35.3664 26.929 35.005C27.535 34.6437 28.165 34.1462 28.87 33.5794C29.26 33.266 29.657 32.954 30.057 32.64C31.739 31.3183 33.464 29.963 34.889 28.3278C36.618 26.3438 37.824 24.0287 37.824 21.0251C37.824 18.0852 36.194 15.6198 33.969 14.5833C31.807 13.5763 28.903 13.8429 26.143 16.7655C25.953 16.9663 25.691 17.0797 25.418 17.0797C25.144 17.0797 24.883 16.9663 24.693 16.7655C21.933 13.8429 19.029 13.5763 16.867 14.5833Z" fill="#B8995C"/>
                       </svg>
-                  </button>
+                    </button>
               </div>
 
               <div class="card-wrapper">
@@ -925,10 +1048,10 @@
                       </div>
                   </div>
                   <button class="favorite-btn" aria-label="Add to favorites">
-                      <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <circle class="circle" cx="25" cy="25" r="25" fill="#E63946"/>
-                          <path class="heart" d="M16.867 14.5833C14.642 15.6198 13.012 18.0852 13.012 21.0251C13.012 24.0287 14.218 26.3438 15.947 28.3278C17.372 29.963 19.097 31.3183 20.779 32.64C21.178 32.954 21.576 33.266 21.966 33.5794C22.671 34.1462 23.301 34.6437 23.907 35.005C24.514 35.3664 25.003 35.5315 25.418 35.5315C25.833 35.5315 26.322 35.3664 26.929 35.005C27.535 34.6437 28.165 34.1462 28.87 33.5794C29.26 33.266 29.657 32.954 30.057 32.64C31.739 31.3183 33.464 29.963 34.889 28.3278C36.618 26.3438 37.824 24.0287 37.824 21.0251C37.824 18.0852 36.194 15.6198 33.969 14.5833C31.807 13.5763 28.903 13.8429 26.143 16.7655C25.953 16.9663 25.691 17.0797 25.418 17.0797C25.144 17.0797 24.883 16.9663 24.693 16.7655C21.933 13.8429 19.029 13.5763 16.867 14.5833Z" fill="white"/>
-                      </svg>
+                    <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle class="circle" cx="25" cy="25" r="25" fill="#101728"/>
+                      <path class="heart" d="M16.867 14.5833C14.642 15.6198 13.012 18.0852 13.012 21.0251C13.012 24.0287 14.218 26.3438 15.947 28.3278C17.372 29.963 19.097 31.3183 20.779 32.64C21.178 32.954 21.576 33.266 21.966 33.5794C22.671 34.1462 23.301 34.6437 23.907 35.005C24.514 35.3664 25.003 35.5315 25.418 35.5315C25.833 35.5315 26.322 35.3664 26.929 35.005C27.535 34.6437 28.165 34.1462 28.87 33.5794C29.26 33.266 29.657 32.954 30.057 32.64C31.739 31.3183 33.464 29.963 34.889 28.3278C36.618 26.3438 37.824 24.0287 37.824 21.0251C37.824 18.0852 36.194 15.6198 33.969 14.5833C31.807 13.5763 28.903 13.8429 26.143 16.7655C25.953 16.9663 25.691 17.0797 25.418 17.0797C25.144 17.0797 24.883 16.9663 24.693 16.7655C21.933 13.8429 19.029 13.5763 16.867 14.5833Z" fill="#B8995C"/>
+                    </svg>
                   </button>
               </div>
           </div>
@@ -1059,11 +1182,11 @@
                 const circle = this.querySelector('.circle');
                 
                 if (this.classList.contains('active')) {
-                    circle.style.fill = '#FFFFFF';
-                    heart.style.fill = '#E63946';
+                    circle.style.fill = '#B8995C';
+                    heart.style.fill = '#101728';
                 } else {
-                    circle.style.fill = '#E63946';
-                    heart.style.fill = '#FFFFFF';
+                    circle.style.fill = '#101728';
+                    heart.style.fill = '#B8995C';
                 }
 
                 heart.style.animation = 'none';
