@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Rhodium+Libre&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Croissant+One&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <style>
@@ -16,85 +17,181 @@
       body, html {
         margin: 0;
         padding: 0;
-        font-family: 'Lato', sans-serif;
-        background-color: #0E0E10;
-        color: #C7C7C7;
+        font-family: 'Hanken Grotesk';
+        background-color: #070B19;
+        color: #C7C2B7;
         overflow-x: hidden;
       }
-
-      .case-study-hero {
-        width: 100%;
-        height: 1024px;
-        position: relative;
-        margin-bottom: 50px;
+      .guide-lines {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        z-index: 1000;
       }
 
-      .case-study-hero img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
+      .guide-line-left,
+      .guide-line-right {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: #7E7E7E;
       }
 
-      @media (max-width: 768px) {
-        .case-study-hero {
-            height: 50vh; 
-        }
+      .guide-line-left {
+        left: 100px;
       }
+
+      .guide-line-right {
+        right: 100px;
+      }
+
+    @media (max-width: 1440px) {
+      .guide-line-left {
+        left: 80px;
+      }
+      .guide-line-right {
+        right: 80px;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .guide-line-left {
+        left: 60px;
+      }
+      .guide-line-right {
+        right: 60px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .guide-line-left {
+        left: 40px;
+      }
+      .guide-line-right {
+        right: 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .guide-line-left {
+        left: 20px;
+      }
+      .guide-line-right {
+        right: 20px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .guide-line-left {
+        left: 10px;
+      }
+      .guide-line-right {
+        right: 10px;
+      }
+    }
+
+
+    .case-study-hero {
+      width: 100%;
+      height: 740px;
+      position: relative;
+      margin-bottom: 50px;
+      z-index: 1001; 
+    }
+
+    .case-study-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (min-width: 1920px) {
+    .case-study-hero {
+      height: 900px;
+    }
+    }
+
+    @media (max-width: 1440px) {
+    .case-study-hero {
+      height: 740px;
+    }
+    }
+
+    @media (max-width: 768px) {
+    .case-study-hero {
+      height: 50vh;
+    }
+    }
+
+    @media (max-width: 390px) {
+    .case-study-hero {
+      height: 40vh;
+    }
+    }
       
       /*--------------------------------------------------------------
       # Project Overview
       --------------------------------------------------------------*/
       .project-overview {
-        padding: 80px 55px;
-        background-color: #0E0E10;
-        margin-bottom: 150px;
+        padding: 80px 0;
+        background-color: #070B19;
+        margin-bottom: 80px;
+        width: 100%;
       }
 
       .project-overview .container {
         display: flex;
-        gap: 100px;
-        flex-wrap: wrap;
-        max-width: 1400px;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        width: calc(100% - 200px);
         margin: 0 auto;
       }
 
       /* Left Column Styles */
       .project-description {
-        flex: 1 1 60%;
+        flex: 1;
         color: #C7C7C7;
+        padding-right: 140px;
       }
 
       .project-description .project-title {
-        font-family: 'Rhodium Libre', serif;
+        font-family: 'Croissant One';
         font-weight: 400;
         font-size: 64px;
-        color: #C7C7C7;
+        color: #B8995C;
         margin-bottom: 18px;
       }
 
       .project-description .project-text {
-        font-family: 'Lato', sans-serif;
-        font-size: 24px;
+        font-family: 'Hanken Grotesk';
+        font-size: 20px;
         color: #C7C7C7;
-        line-height: 1.8;
+        line-height: 1.6;
         opacity: 0.8;
       }
 
       /* Right Column Styles */
       .project-info {
-        flex: 1 1 30%;
+        width: 380px;
+        flex-shrink: 0;
         padding: 0;
         box-sizing: border-box;
         margin-top: 162px;
       }
 
+
       .project-info .info-title {
-        font-family: 'Rhodium Libre', serif;
+        font-family: 'Croissant One';
         font-size: 24px;
         font-weight: 400;
         color: #C7C7C7;
-        margin-bottom: 18px;
+        margin-bottom: 20px;
+        margin-top: 0;
       }
 
       .project-info .info-list {
@@ -104,8 +201,8 @@
       }
 
       .project-info .info-list li {
-        font-family: 'Lato', sans-serif;
-        font-size: 18px;
+        font-family: 'Hanken Grotesk';
+        font-size: 20px;
         color: #C7C7C7;
         line-height: 1.6;
         margin-bottom: 10px;
@@ -119,20 +216,22 @@
 
       .button-container {
         margin-top: 30px;
-        font-family: 'Lato', sans-serif;
+        font-family: 'Hanken Grotesk';
       }
 
       .btn-visit {
         display: inline-block;
         padding: 12px 40px;
-        background-color: #E63946;
-        color: #C7C7C7;
-        border-radius: 50px;
+        width: 174px;
+        background-color: #B8995C;
+        color: #070B19;
+        border-radius: 15px;
         text-decoration: none;
+        text-align: center;
         font-size: 16px;
         font-weight: 500;
         position: relative;
-        border: 2px solid transparent;
+        border: 2px solid #B8995C;
         transition: all 0.3s ease;
         overflow: hidden;
       }
@@ -144,7 +243,7 @@
         position: absolute;
         width: 4px;
         height: 4px;
-        background: #E63946;
+        background: #B8995C;
         border-radius: 50%;
         transition: all 0.5s ease;
         opacity: 0;
@@ -163,8 +262,8 @@
 
       .btn-visit:hover {
         background-color: transparent;
-        border-color: #E63946;
-        color: #C7C7C7;
+        border-color: #B8995C;
+        color: #B8995C;
       }
 
       .btn-visit:hover::before {
@@ -223,7 +322,7 @@
         position: absolute;
         width: 3px;
         height: 3px;
-        background-color: #E63946;
+        background-color: #B8995C;
         border-radius: 50%;
         opacity: 0;
       }
@@ -288,102 +387,245 @@
         }
       }
 
-      @media (max-width: 1024px) {
+      /* 1920px и выше */
+      @media (min-width: 1920px) {
         .project-overview {
-          padding: 60px 30px;
+          padding: 100px 0;
+          margin-bottom: 100px;
         }
-
         .project-overview .container {
-          gap: 60px;
+          width: calc(100% - 240px);
         }
-
+        .project-description {
+          padding-right: 180px;
+        }
         .project-description .project-title {
-          font-size: 48px;
+          font-size: 72px;
+          margin-bottom: 24px;
         }
-
         .project-description .project-text {
-          font-size: 20px;
+          font-size: 32px;
         }
-
         .project-info {
-          margin-top: 80px;
+          width: 420px;
+          margin-top: 180px;
+        }
+        .project-info .info-title {
+          font-size: 32px;
+          margin-bottom: 24px;
+        }
+        .project-info .info-list li {
+          font-size: 32px;
+          margin-bottom: 12px;
+        }
+        .btn-visit {
+          padding: 14px 45px;
+          width: 200px;
+          font-size: 18px;
+          border-radius: 18px;
         }
       }
 
-      @media (max-width: 768px) {
+      /* 1440px - 1919px */
+      @media (min-width: 1441px) and (max-width: 1919px) {
         .project-overview {
-          padding: 40px 20px;
+          padding: 80px 0;
           margin-bottom: 80px;
         }
-
         .project-overview .container {
-          flex-direction: column;
-          gap: 40px;
+          width: calc(100% - 200px);
         }
-
         .project-description {
-          flex: 1 1 100%;
+          padding-right: 140px;
         }
+        .project-description .project-title {
+          font-size: 64px;
+          margin-bottom: 18px;
+        }
+        .project-info {
+          width: 380px;
+          margin-top: 162px;
+        }
+      }
 
+      /* 1200px - 1440px */
+      @media (min-width: 1201px) and (max-width: 1440px) {
+        .project-overview .container {
+          width: calc(100% - 160px);
+        }
+        .project-description {
+          padding-right: 100px;
+        }
+        .project-info {
+          width: 340px;
+          margin-top: 150px;
+        }
+        .project-description .project-title {
+          font-size: 58px;
+        }
+      }
+
+      /* 992px - 1200px */
+      @media (min-width: 993px) and (max-width: 1200px) {
+        .project-overview .container {
+          width: calc(100% - 120px);
+        }
+        .project-description {
+          padding-right: 80px;
+        }
+        .project-info {
+          width: 300px;
+          margin-top: 140px;
+        }
+        .project-description .project-title {
+          font-size: 52px;
+        }
+        .project-description .project-text {
+          font-size: 18px;
+        }
+        .project-info .info-list li {
+          font-size: 18px;
+        }
+      }
+
+      /* 768px - 992px */
+      @media (min-width: 769px) and (max-width: 992px) {
+        .project-overview {
+          padding: 70px 0;
+          margin-bottom: 70px;
+        }
+        .project-overview .container {
+          width: calc(100% - 80px);
+        }
+        .project-description {
+          padding-right: 60px;
+        }
+        .project-info {
+          width: 280px;
+          margin-top: 130px;
+        }
+        .project-description .project-title {
+          font-size: 48px;
+        }
+        .project-info .info-title {
+          font-size: 22px;
+        }
+        .project-description .project-text,
+        .project-info .info-list li {
+          font-size: 16px;
+        }
+      }
+
+      /* 576px - 768px */
+      @media (min-width: 577px) and (max-width: 768px) {
+        .project-overview {
+          padding: 60px 0;
+          margin-bottom: 60px;
+        }
+        .project-overview .container {
+          width: calc(100% - 40px);
+          flex-direction: column;
+        }
+        .project-description {
+          padding-right: 0;
+          order: 1;
+        }
+        .project-info {
+          width: 100%;
+          margin-top: 40px;
+          order: 2;
+        }
         .project-description .project-title {
           font-size: 36px;
           margin-bottom: 16px;
         }
-
-        .project-description .project-text {
-          font-size: 18px;
-          line-height: 1.6;
-        }
-
-        .project-info {
-          flex: 1 1 100%;
-          margin-top: 0;
-        }
-
-        .project-info .info-title {
-          font-size: 22px;
-          margin-bottom: 14px;
-        }
-
-        .project-info .info-list li {
-          font-size: 16px;
-        }
-
-        .button-container {
-          margin-top: 24px;
-        }
-
         .btn-visit {
-          padding: 10px 30px;
-          font-size: 14px;
+          padding: 10px 35px;
+          width: 160px;
+          font-size: 15px;
+          border-radius: 12px;
+        }
+        .project-info {
+          margin-top: 30px;
         }
       }
 
-      @media (max-width: 375px) {
+      /* 390px - 576px */
+      @media (min-width: 390px) and (max-width: 576px) {
         .project-overview {
-          padding: 30px 15px;
-          margin-bottom: 60px;
+          padding: 50px 0;
+          margin-bottom: 50px;
         }
-
+        .project-overview .container {
+          width: calc(100% - 30px);
+          flex-direction: column;
+        }
+        .project-description {
+          padding-right: 0;
+          order: 1;
+          margin-bottom: 30px;
+        }
+        .project-info {
+          width: 100%;
+          order: 2;
+          margin-top: 0;
+        }
         .project-description .project-title {
           font-size: 32px;
+          margin-bottom: 14px;
         }
-
-        .project-description .project-text {
-          font-size: 16px;
+        .project-description .project-text,
+        .project-info .info-list li {
+          font-size: 15px;
+          line-height: 1.5;
         }
-
         .project-info .info-title {
           font-size: 20px;
+          margin-bottom: 16px;
         }
+        .project-info .info-list li {
+          margin-bottom: 8px;
+        }
+      }
 
+      /* До 390px */
+      @media (max-width: 389px) {
+        .project-overview {
+          padding: 40px 0;
+          margin-bottom: 40px;
+        }
+        .project-overview .container {
+          width: calc(100% - 20px);
+          flex-direction: column;
+        }
+        .project-description {
+          padding-right: 0;
+          order: 1;
+          margin-bottom: 25px;
+        }
+        .project-info {
+          width: 100%;
+          order: 2;
+          margin-top: 0;
+        }
+        .project-description .project-title {
+          font-size: 28px;
+          margin-bottom: 12px;
+        }
+        .project-description .project-text,
         .project-info .info-list li {
           font-size: 14px;
+          line-height: 1.4;
         }
-
+        .project-info .info-title {
+          font-size: 18px;
+          margin-bottom: 14px;
+        }
         .btn-visit {
-          padding: 8px 25px;
-          font-size: 13px;
+          padding: 8px 30px;
+          width: 140px;
+          font-size: 14px;
+          border-radius: 10px;
         }
       }
 
@@ -391,40 +633,41 @@
       # Problem -Solution
       --------------------------------------------------------------*/
       .problem-solution {
-        padding: 0 55px;
         margin-bottom: 150px;
       }
 
       .problem-solution .container {
         display: flex;
-        gap: 50px;
-        max-width: 1800px;
+        gap: 24px;
+        width: calc(100% - 200px);
         margin: 0 auto;
       }
 
       .problem-solution .column {
         flex: 1;
         display: flex;
+        width: 100%;
       }
 
       .content-box {
-        background-color: #1C1C1E;
+        background-color: #101728;
         border-radius: 86px;
         padding: 55px;
-        width: 875px;
+        width: 100%;
         box-sizing: border-box;
         height: 100%;
         display: flex;
         flex-direction: column;
         transition: transform 0.3s ease-out, background-color 0.3s ease;
       }
+
       .content-box:hover {
-        background-color: #1F1F21;
+        background-color: #162137;
         transform: translateY(-5px);
       }
 
       .section-title {
-        font-family: 'Rhodium Libre', serif;
+        font-family: 'Croissant One';
         font-size: 40px;
         color: #C7C7C7;
         font-weight: 400;
@@ -432,115 +675,399 @@
       }
 
       .section-text {
-        font-family: 'Lato', sans-serif;
-        font-size: 24px;
+        font-family: 'Hanken Grotesk';
+        font-size: 20px;
         line-height: 1.6;
-        color: #C7C7C7;
-        margin: 0 0 12px 0; 
+        color: #999899;
+        margin: 0 0 12px 0;
       }
 
       .section-text:last-child {
         margin-bottom: 0;
       }
 
-      @media (max-width: 1800px) {
+      /* 1920px и выше */
+      @media (min-width: 1920px) {
+        .problem-solution {
+          margin-bottom: 180px;
+        }
+        .problem-solution .container {
+          width: calc(100% - 240px);
+          gap: 32px;
+        }
         .content-box {
-          width: 100%;
+          border-radius: 100px;
+          padding: 65px;
+        }
+        .section-title {
+          font-size: 48px;
+        }
+        .section-text {
+          font-size: 32px;
+          margin: 0 0 16px 0;
         }
       }
 
-      @media (max-width: 1200px) {
+      /* 1440px - 1919px */
+      @media (min-width: 1441px) and (max-width: 1919px) {
+        .problem-solution {
+          margin-bottom: 150px;
+        }
         .problem-solution .container {
-          flex-direction: column;
-          gap: 30px;
+          width: calc(100% - 200px);
+          gap: 24px;
         }
-
         .content-box {
-          border-radius: 40px;
-          padding: 30px;
-          height: auto;
+          border-radius: 86px;
+          padding: 55px;
         }
+        .section-title {
+          font-size: 40px;
+        }
+        .section-text {
+          font-size: 20px;
+          margin: 0 0 12px 0;
+        }
+      }
 
+      /* 1200px - 1440px */
+      @media (min-width: 1201px) and (max-width: 1440px) {
+        .problem-solution .container {
+          width: calc(100% - 160px);
+          gap: 24px;
+        }
+        .content-box {
+          padding: 45px;
+          border-radius: 70px;
+        }
+        .section-title {
+          font-size: 36px;
+        }
+        .section-text {
+          font-size: 20px;
+        }
+      }
+
+      /* 992px - 1200px */
+      @media (min-width: 993px) and (max-width: 1200px) {
+        .problem-solution {
+          margin-bottom: 120px;
+        }
+        .problem-solution .container {
+          width: calc(100% - 120px);
+          flex-direction: column;
+          gap: 20px;
+        }
+        .problem-solution .column {
+          width: 100%;
+        }
+        .content-box {
+          padding: 35px;
+          border-radius: 40px;
+        }
+        .section-title {
+          font-size: 32px;
+        }
+        .section-text {
+          font-size: 18px;
+        }
+      }
+
+      /* 768px - 992px */
+      @media (min-width: 769px) and (max-width: 992px) {
+        .problem-solution {
+          margin-bottom: 100px;
+        }
+        .problem-solution .container {
+          width: calc(100% - 80px);
+          flex-direction: column;
+          gap: 16px;
+        }
+        .problem-solution .column {
+          width: 100%;
+        }
+        .content-box {
+          padding: 30px;
+          border-radius: 35px;
+        }
         .section-title {
           font-size: 28px;
         }
-
         .section-text {
-          font-size: 18px;
+          font-size: 16px;
+          margin: 0 0 10px 0;
         }
       }
 
-      @media (max-width: 768px) {
+      /* 576px - 768px */
+      @media (min-width: 577px) and (max-width: 768px) {
         .problem-solution {
-          padding: 0 20px;
+          margin-bottom: 80px;
         }
-
+        .problem-solution .container {
+          width: calc(100% - 40px);
+          flex-direction: column;
+          gap: 20px;
+        }
+        .problem-solution .column {
+          width: 100%;
+        }
         .content-box {
-          border-radius: 30px;
           padding: 25px;
+          border-radius: 30px;
         }
-
         .section-title {
           font-size: 24px;
         }
-
         .section-text {
-          font-size: 18px;
+          font-size: 16px;
+          margin: 0 0 8px 0;
         }
       }
 
+      /* 390px - 576px */
+      @media (min-width: 390px) and (max-width: 576px) {
+        .problem-solution {
+          margin-bottom: 60px;
+        }
+        .problem-solution .container {
+          width: calc(100% - 30px);
+          flex-direction: column;
+          gap: 20px;
+        }
+        .problem-solution .column {
+          width: 100%;
+        }
+        .content-box {
+          padding: 20px;
+          border-radius: 25px;
+        }
+        .section-title {
+          font-size: 22px;
+        }
+        .section-text {
+          font-size: 15px;
+          line-height: 1.5;
+          margin: 0 0 8px 0;
+        }
+        .content-box:hover {
+          transform: translateY(-3px);
+        }
+      }
+
+      /* До 390px */
+      @media (max-width: 389px) {
+        .problem-solution {
+          margin-bottom: 50px;
+        }
+        .problem-solution .container {
+          width: calc(100% - 20px);
+          flex-direction: column;
+          gap: 16px;
+        }
+        .problem-solution .column {
+          width: 100%;
+        }
+        .content-box {
+          padding: 15px;
+          border-radius: 20px;
+        }
+        .section-title {
+          font-size: 20px;
+        }
+        .section-text {
+          font-size: 14px;
+          line-height: 1.4;
+          margin: 0 0 6px 0;
+        }
+        .content-box:hover {
+          transform: translateY(-2px);
+        }
+      }
+
+      /*--------------------------------------------------------------
+      # Brainstorm & Ideation
+      --------------------------------------------------------------*/
       .brainstorm {
-        padding: 0 55px;
-        margin-bottom: 150px;
-      }   
+        margin: 0 100px 150px 100px;
+        width: auto;
+      }
 
       .brainstorm-title {
-        font-family: 'Rhodium Libre', serif;
+        font-family: 'Croissant One';
         font-size: 40px;
         font-weight: 400;
-        color: #C7C7C7;
-        margin: 0;
-        max-width: 880px;
+        color: #B8995C;
+        margin: 0 0 12px 0;
+        max-width: 760px;
         opacity: 0;
         transform: translateY(20px);
         transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
       .brainstorm-text {
-        font-family: 'Lato', sans-serif;
-        font-size: 24px;
+        font-family: 'Hanken Grotesk';
+        font-size: 20px;
         line-height: 1.6;
-        color: #C7C7C7;
-        margin: 12px 0 0 0;
-        max-width: 880px;
+        color: #999899;
+        margin: 0 0 0 0;
+        max-width: 760px;
         opacity: 0;
         transform: translateY(20px);
         transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        transition-delay: 0.2s;
       }
 
-      /* Класс для анимированных элементов */
       .aos-animate.brainstorm-title,
       .aos-animate.brainstorm-text {
         opacity: 1;
         transform: translateY(0);
       }
 
+      /* 1920px и выше */
+      @media (min-width: 1920px) {
+        .brainstorm {
+          margin: 0 120px 180px 120px;
+        }
+        .brainstorm-title {
+          font-size: 48px;
+          max-width: 960px;
+        }
+        .brainstorm-text {
+          font-size: 32px;
+          max-width: 960px;
+          margin: 16px 0 0 0;
+        }
+      }
+
+      /* 1440px - 1919px */
+      @media (min-width: 1441px) and (max-width: 1919px) {
+        .brainstorm {
+          margin: 0 100px 150px 100px;
+        }
+        .brainstorm-title {
+          font-size: 40px;
+          max-width: 760px;
+        }
+        .brainstorm-text {
+          font-size: 20px;
+          max-width: 760px;
+          margin: 12px 0 0 0;
+        }
+      }
+
+      /* 1200px - 1440px */
+      @media (min-width: 1201px) and (max-width: 1440px) {
+        .brainstorm {
+          margin: 0 80px 150px 80px;
+        }
+        .brainstorm-title {
+          font-size: 36px;
+          max-width: 760px;
+        }
+        .brainstorm-text {
+          font-size: 20px;
+          max-width: 760px;
+        }
+      }
+
+      /* 992px - 1200px */
+      @media (min-width: 993px) and (max-width: 1200px) {
+        .brainstorm {
+          margin: 0 60px 150px 60px;
+        }
+        .brainstorm-title {
+          font-size: 32px;
+          max-width: 650px;
+        }
+        .brainstorm-text {
+          font-size: 18px;
+          max-width: 650px;
+        }
+      }
+
+      /* 768px - 992px */
+      @media (min-width: 769px) and (max-width: 992px) {
+        .brainstorm {
+          margin: 0 40px 120px 40px;
+        }
+        .brainstorm-title {
+          font-size: 28px;
+          max-width: 600px;
+        }
+        .brainstorm-text {
+          font-size: 16px;
+          max-width: 600px;
+          margin: 10px 0 0 0;
+        }
+      }
+
+      /* 576px - 768px */
+      @media (min-width: 577px) and (max-width: 768px) {
+        .brainstorm {
+          margin: 0 20px 100px 20px;
+        }
+        .brainstorm-title {
+          font-size: 24px;
+          max-width: 500px;
+        }
+        .brainstorm-text {
+          font-size: 16px;
+          max-width: 500px;
+          margin: 8px 0 0 0;
+        }
+      }
+
+      /* 390px - 576px */
+      @media (min-width: 390px) and (max-width: 576px) {
+        .brainstorm {
+          margin: 0 15px 80px 15px;
+        }
+        .brainstorm-title {
+          font-size: 22px;
+          max-width: 100%;
+        }
+        .brainstorm-text {
+          font-size: 15px;
+          max-width: 100%;
+          margin: 8px 0 0 0;
+          line-height: 1.5;
+        }
+      }
+
+      /* До 390px */
+      @media (max-width: 389px) {
+        .brainstorm {
+          margin: 0 10px 60px 10px;
+        }
+        .brainstorm-title {
+          font-size: 20px;
+          max-width: 100%;
+        }
+        .brainstorm-text {
+          font-size: 14px;
+          max-width: 100%;
+          margin: 6px 0 0 0;
+          line-height: 1.4;
+        }
+      }
+
+      /* Анимации сохраняются для всех разрешений */
+      .brainstorm-title,
+      .brainstorm-text {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
       .brainstorm-text {
         transition-delay: 0.2s;
       }
 
-      @media (max-width: 992px) {
-        .brainstorm {
-          padding: 0 20px;
-        }
-          
-        .brainstorm-title {
-          font-size: 28px;
-        }
-          
-        .brainstorm-text {
-          font-size: 18px;
-        }
+      .aos-animate.brainstorm-title,
+      .aos-animate.brainstorm-text {
+        opacity: 1;
+        transform: translateY(0);
       }
 
       /*--------------------------------------------------------------
@@ -596,7 +1123,7 @@
         border-radius: 10px;
         color: white;
         font-size: 20px;
-        font-family: 'Lato', sans-serif;
+        font-family: 'Hanken Grotesk';
         text-align: center;
         white-space: nowrap;
         overflow: hidden;
@@ -642,14 +1169,92 @@
       .timeline-item.light-blue { background-color: #79B9F2; }
       .timeline-item.blue { background-color: #2C6EDC; }
 
-      @media (max-width: 767px) {
+      /* 1920px и выше */
+      @media (min-width: 1920px) {
+        .timeline-container {
+          width: 1800px;
+          height: 600px;
+        }
+
+        .timeline-item {
+          font-size: 24px;
+          padding: 15px 20px;
+        }
+
+        .timeline-item:nth-child(1) { width: 420px; }
+        .timeline-item:nth-child(2) { width: 380px; }
+        .timeline-item:nth-child(3) { width: 260px; }
+        .timeline-item:nth-child(4) { width: 300px; }
+        .timeline-item:nth-child(5) { width: 360px; }
+        .timeline-item:nth-child(6) { width: 410px; }
+      }
+
+      /* 1440px - 1919px */
+      @media (min-width: 1440px) and (max-width: 1919px) {
+        .timeline-container {
+          width: 1330px;
+          height: 440px;
+        }
+
+        .timeline-item {
+          font-size: 20px;
+        }
+      }
+
+      /* 1024px - 1439px */
+      @media (min-width: 1024px) and (max-width: 1439px) {
+        .timeline-container {
+          width: 960px;
+          height: 400px;
+        }
+
+        .timeline-item {
+          font-size: 18px;
+          padding: 8px 12px;
+        }
+
+        .timeline-item:nth-child(1) { width: 280px; left: 0%; }
+        .timeline-item:nth-child(2) { width: 260px; left: 15%; }
+        .timeline-item:nth-child(3) { width: 180px; left: 30%; }
+        .timeline-item:nth-child(4) { width: 200px; left: 43%; }
+        .timeline-item:nth-child(5) { width: 240px; left: 58%; }
+        .timeline-item:nth-child(6) { width: 280px; left: 68%; }
+      }
+
+      /* 768px - 1023px */
+      @media (min-width: 768px) and (max-width: 1023px) {
         .timeline-wrapper {
-          margin-top: 40px;
+          padding: 0 20px;
         }
 
         .timeline-container {
           width: 100%;
+          height: 350px;
+        }
+
+        .timeline-item {
+          font-size: 16px;
+          padding: 8px 10px;
+        }
+
+        .timeline-item:nth-child(1) { width: 220px; left: 0%; }
+        .timeline-item:nth-child(2) { width: 200px; left: 15%; }
+        .timeline-item:nth-child(3) { width: 160px; left: 30%; }
+        .timeline-item:nth-child(4) { width: 180px; left: 43%; }
+        .timeline-item:nth-child(5) { width: 200px; left: 58%; }
+        .timeline-item:nth-child(6) { width: 220px; left: 68%; }
+      }
+
+      /* 390px - 767px */
+      @media (min-width: 390px) and (max-width: 767px) {
+        .timeline-wrapper {
+          margin-top: 30px;
+        }
+
+        .timeline-container {
           height: auto;
+          margin: 0;
+          padding: 0 20px;
         }
 
         .timeline-lines {
@@ -663,162 +1268,1151 @@
         .timeline-item {
           position: static;
           width: 100% !important;
-          max-width: none;
-          margin-bottom: 20px;
+          margin-bottom: 15px;
+          font-size: 16px;
+          padding: 12px;
           white-space: normal;
           box-sizing: border-box;
-          padding: 15px;
-          font-size: 18px;
-          line-height: 1.4;
-          text-align: left;
         }
 
-        .timeline-item:nth-child(1),
-        .timeline-item:nth-child(2),
-        .timeline-item:nth-child(3),
-        .timeline-item:nth-child(4),
-        .timeline-item:nth-child(5),
-        .timeline-item:nth-child(6)
-        {
-          left: 0;
-          top: 0;
+        .timeline-item:hover {
+          transform: none;
         }
       }
 
-      @media (min-width: 768px) and (max-width: 1023px) {
+      /* До 390px */
+      @media (max-width: 389px) {
         .timeline-wrapper {
-          padding: 0 30px;
+          margin-top: 20px;
         }
 
         .timeline-container {
-          width: 100%;
+          height: auto;
+          margin: 0;
+          padding: 0 10px;
         }
 
         .timeline-item {
+          position: static;
+          width: 100% !important;
+          margin-bottom: 12px;
           font-size: 14px;
+          padding: 10px;
+          white-space: normal;
+          box-sizing: border-box;
         }
       }
 
       /*--------------------------------------------------------------
-      # User Research and Personas
+      # Pages Description
       --------------------------------------------------------------*/
-      .user-research {
-        padding: 0 55px;
-        margin-bottom: 0;
+      .interaction-hint {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 100px 24px 100px;
+        color: #999899;
+        font-size: 16px;
       }
 
-      .user-research-title {
-        font-family: 'Rhodium Libre', serif;
+      .hint-marker {
+        width: 28px;
+        height: 28px;
+        background: rgba(184, 153, 92, 0.3);
+        border: 2px solid #B8995C;
+        border-radius: 50%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: pulse 2s infinite;
+      }
+
+      .hint-marker::before {
+        content: 'i';
+        color: #B8995C;
+        font-size: 16px;
+        font-family: serif;
+        font-style: italic;
+        font-weight: bold;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(184, 153, 92, 0.4);
+        }
+        70% {
+          box-shadow: 0 0 0 6px rgba(184, 153, 92, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(184, 153, 92, 0);
+        }
+      }
+
+      .homepage-description {
+        padding: 0;
+        margin: 0 100px 100px 100px;
+        position: relative;
+      }
+
+      .description-grid {
+        display: grid;
+        grid-template-columns: 375px 1fr;
+        gap: 100px;
+        position: relative;
+      }
+
+      /* Третья направляющая */
+      .description-grid::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: #7E7E7E;
+        left: 360px; 
+        height: 100%;
+      }
+
+      /* Мобильная версия */
+      .mobile-preview {
+        width: 375px;
+        position: relative;
+        flex-shrink: 0;
+        margin-left: 20px;
+      }
+
+      .mobile-preview img {
+        width: 375px;
+        max-width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+        object-fit: contain;
+      }
+
+      /* Десктопная версия */
+      .desktop-preview {
+        max-width: 100%;
+        position: relative;
+      }
+
+      .desktop-preview img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+        transform: translateX(-47px); 
+      }
+
+      /* Точки на десктопной версии */
+      .point-marker {
+        width: 28px;
+        height: 28px;
+        background: rgba(184, 153, 92, 0.3);
+        border: 2px solid #B8995C;
+        border-radius: 50%;
+        position: absolute;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .point-marker::before {
+        content: 'i';
+        color: #B8995C;
+        font-size: 16px;
+        font-family: serif;
+        font-style: italic;
+        font-weight: bold;
+      }
+
+      .point-marker:hover {
+        background: rgba(184, 153, 92, 0.5);
+        transform: scale(1.1);
+      }
+
+      .description-popup {
+        position: absolute;
+        background: rgba(16, 23, 40, 0.95);
+        border: 1px solid rgba(184, 153, 92, 0.3);
+        border-radius: 12px;
+        padding: 20px;
+        color: #999899;
+        font-size: 16px;
+        line-height: 1.6;
+        width: 300px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(4px);
+        z-index: 3;
+      }
+
+      .point-marker:hover .description-popup {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Индивидуальные позиции точек */
+      .point-1 { top: 15%; left: 84%; }
+      .point-1 .description-popup {
+        right: calc(100% + 15px);
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .point-2 { top: 30%; left: 84%; }
+      .point-2 .description-popup {
+        right: calc(100% + 15px);
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .point-3 { top: 60%; left: 84%; }
+      .point-3 .description-popup {
+        right: calc(100% + 15px);
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .point-4 { top: 45%; left: 84%; }
+      .point-4 .description-popup {
+        right: calc(100% + 15px);
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .point-5 { top: 10%; left: 84%; }
+      .point-5 .description-popup {
+        right: calc(100% + 15px);
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .point-6 { top: 73%; left: 84%; }
+      .point-6 .description-popup {
+        right: calc(100% + 15px);
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      .point-7 { bottom: 14%; left: 84%; }
+      .point-7 .description-popup {
+        right: calc(100% + 15px);
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      /* Стандартные адаптивы */
+      @media (max-width: 1440px) {
+        .homepage-description,
+        .interaction-hint {
+          margin-left: 80px;
+          margin-right: 80px;
+        }
+        
+        .description-grid {
+          gap: 80px;
+        }
+        
+        .third-guide {
+          left: calc(80px + 300px);
+        }
+        
+        .mobile-preview {
+          width: 320px;
+        }
+        
+        .mobile-preview img {
+          width: 320px;
+        }
+        
+        .description-popup {
+          width: 260px;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        .homepage-description,
+        .interaction-hint {
+          margin-left: 60px;
+          margin-right: 60px;
+        }
+        
+        .description-grid {
+          grid-template-columns: 1fr;
+          gap: 60px;
+        }
+        
+        .mobile-preview {
+          margin: 0 auto;
+        }
+        
+        .third-guide {
+          display: none;
+        }
+      }
+      /* Адаптивы для больших экранов */
+      @media (min-width: 1920px) {
+        .homepage-description {
+          margin: 0 120px 200px 120px;
+        }
+        
+        .interaction-hint {
+          margin: 0 120px 24px 120px;
+          font-size: 18px;
+        }
+        
+        .description-grid {
+          grid-template-columns: 420px 1fr;
+          gap: 120px;
+        }
+
+        /* Третья направляющая - полная запись для гарантии работы */
+        .description-grid {
+        position: relative;
+        display: grid;
+        grid-template-columns: 375px 1fr;
+        gap: 100px;
+        overflow: visible; /* Добавляем это */
+      }
+
+        .description-grid::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 1px;
+        background-color: #7E7E7E;
+        left: calc(375px + 20px); /* Ширина .mobile-preview img + 20px отступ */
+        height: 100%;
+      }
+
+        .mobile-preview {
+          width: 420px;
+          margin-left: 20px;
+        }
+        
+        .mobile-preview img {
+          width: 420px;
+        }
+        
+        .description-popup {
+          width: 360px;
+          font-size: 18px;
+          padding: 24px;
+        }
+      }
+
+      @media (min-width: 2560px) {
+        .homepage-description {
+          max-width: 2200px;
+        }
+        
+        .interaction-hint {
+          max-width: 2200px;
+        }
+        
+        .description-grid {
+          gap: 160px;
+        }
+        
+        .point-marker {
+          width: 32px;
+          height: 32px;
+        }
+        
+        .point-marker::before {
+          font-size: 18px;
+        }
+        
+        .description-popup {
+          width: 400px;
+          font-size: 20px;
+          padding: 30px;
+        }
+      }
+
+      @media (max-width: 1440px) {
+        .description-grid::before {
+          left: calc(320px + 20px);
+        }
+        
+        .homepage-description {
+          overflow: visible;
+          position: relative;
+        }
+        
+        .description-grid {
+          gap: 80px;
+        }
+        
+        .description-grid::before {
+          z-index: 1;
+          opacity: 1;
+          left: calc(80px + 282px);
+        }
+        
+        .mobile-preview {
+          width: 320px;
+        }
+        
+        .mobile-preview img {
+          width: 320px;
+        }
+        
+        .description-popup {
+          width: 260px;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        .homepage-description,
+        .interaction-hint {
+          margin-left: 60px;
+          margin-right: 60px;
+        }
+        
+        .description-grid {
+          grid-template-columns: 1fr;
+          gap: 60px;
+        }
+        
+        .mobile-preview {
+          margin: 0 auto;
+        }
+        
+        .description-grid::before {
+          display: none;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .homepage-description,
+        .interaction-hint {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+        
+        .mobile-preview {
+          width: 100%;
+          max-width: 375px;
+        }
+        
+        .mobile-preview img {
+          width: 100%;
+        }
+        
+        .point-marker {
+          width: 24px;
+          height: 24px;
+        }
+        
+        .point-marker::before {
+          font-size: 14px;
+        }
+        
+        .description-popup {
+          width: 220px;
+          font-size: 14px;
+          padding: 15px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .homepage-description,
+        .interaction-hint {
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+        
+        .description-popup {
+          width: 200px;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .description-grid {
+          gap: 40px;
+        }
+        
+        .mobile-preview {
+          margin: 0;
+        }
+
+        /* Исправление позиционирования большого фото */
+        .desktop-preview {
+          width: 100%;
+          overflow: hidden;
+        }
+
+        .desktop-preview img {
+          width: 100%;
+          transform: none;
+          margin-left: 0;
+          border-radius: 12px;
+        }
+      }
+
+
+      /*--------------------------------------------------------------
+      # Mockup 
+      --------------------------------------------------------------*/
+      .mockup {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+      }
+
+      .case-study-mockup {
+        position: absolute;
+        width: 1240px;
+        height: auto;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        object-fit: contain;
+      }
+
+      @media (min-width: 1920px) {
+        .case-study-mockup {
+            width: 1680px;
+        }
+      }
+
+      @media (max-width: 1440px) {
+        .case-study-mockup {
+            width: 1240px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .case-study-mockup {
+            width: 90%;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .case-study-mockup {
+            width: 95%;
+            margin-top: -100px;
+        }
+      }
+
+      /*--------------------------------------------------------------
+      # Booking Section
+      --------------------------------------------------------------*/
+      .booking-section {
+        margin: 0 100px;
+        position: relative;
+      }
+
+      .booking-preview {
+        position: relative;
+        width: 100%;
+      }
+
+      .booking-preview img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+      }
+
+      /*--------------------------------------------------------------
+      # Booking Section
+      --------------------------------------------------------------*/
+      .booking-section {
+        margin: 0 100px;
+        position: relative;
+      }
+
+      .booking-preview {
+        position: relative;
+        width: 100%;
+      }
+
+      .booking-preview img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+      }
+
+      .booking-point-marker {
+        width: 28px;
+        height: 28px;
+        background: rgba(184, 153, 92, 0.3);
+        border: 2px solid #B8995C;
+        border-radius: 50%;
+        position: absolute;
+        top: 10%;
+        left: 84%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .booking-point-marker::before {
+        content: 'i';
+        color: #B8995C;
+        font-size: 16px;
+        font-family: serif;
+        font-style: italic;
+        font-weight: bold;
+      }
+
+      .booking-point-marker:hover {
+        background: rgba(184, 153, 92, 0.5);
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .booking-description-popup {
+        position: absolute;
+        right: calc(100% + 15px);
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(16, 23, 40, 0.95);
+        border: 1px solid rgba(184, 153, 92, 0.3);
+        border-radius: 12px;
+        padding: 20px;
+        color: #999899;
+        font-size: 16px;
+        line-height: 1.6;
+        width: 300px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(4px);
+        z-index: 3;
+      }
+
+      .booking-point-marker:hover .booking-description-popup {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /*--------------------------------------------------------------
+      # Custom Divider
+      --------------------------------------------------------------*/
+      .custom-divider {
+        margin: 100px auto;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, 
+          #070B19 0%, 
+          #C7C2B7 50%, 
+          #070B19 100%
+        );
+      }
+
+      /*--------------------------------------------------------------
+      # Menu Section
+      --------------------------------------------------------------*/
+      .menu-section {
+        margin: 0 100px;
+        position: relative;
+      }
+
+      .menu-preview {
+        position: relative;
+        width: 100%;
+      }
+
+      .menu-preview img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+      }
+
+      .menu-point-marker {
+        width: 28px;
+        height: 28px;
+        background: rgba(184, 153, 92, 0.3);
+        border: 2px solid #B8995C;
+        border-radius: 50%;
+        position: absolute;
+        top: 10%;
+        left: 84%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .menu-point-marker::before {
+        content: 'i';
+        color: #B8995C;
+        font-size: 16px;
+        font-family: serif;
+        font-style: italic;
+        font-weight: bold;
+      }
+
+      .menu-point-marker:hover {
+        background: rgba(184, 153, 92, 0.5);
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .menu-description-popup {
+        position: absolute;
+        right: calc(100% + 15px);
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(16, 23, 40, 0.95);
+        border: 1px solid rgba(184, 153, 92, 0.3);
+        border-radius: 12px;
+        padding: 20px;
+        color: #999899;
+        font-size: 16px;
+        line-height: 1.6;
+        width: 300px;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(4px);
+        z-index: 3;
+      }
+
+      .menu-point-marker:hover .menu-description-popup {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /*--------------------------------------------------------------
+      # Big Mockup Section
+      --------------------------------------------------------------*/
+      .big-mockup-section {
+        margin: 100px 0;
+        position: relative;
+        width: 100%;
+        z-index: 10;
+      }
+
+      .big-mockup-container {
+        position: relative;
+        width: 100%;
+        max-width: 1240px;
+        margin: 0 auto;
+      }
+
+      .big-mockup-image {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+      /* Standard Responsive Styles */
+      @media (max-width: 1440px) {
+        .booking-section,
+        .menu-section {
+          margin-left: 80px;
+          margin-right: 80px;
+        }
+
+        .booking-description-popup,
+        .menu-description-popup {
+          width: 260px;
+        }
+
+        .big-mockup-container {
+          width: 1240px;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        .booking-section,
+        .menu-section {
+          margin-left: 60px;
+          margin-right: 60px;
+        }
+
+        .big-mockup-container {
+          width: 90%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .booking-section,
+        .menu-section {
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+
+        .booking-point-marker,
+        .menu-point-marker {
+          width: 24px;
+          height: 24px;
+        }
+
+        .booking-point-marker::before,
+        .menu-point-marker::before {
+          font-size: 14px;
+        }
+
+        .booking-description-popup,
+        .menu-description-popup {
+          width: 220px;
+          font-size: 14px;
+          padding: 15px;
+        }
+
+        .custom-divider {
+          margin: 60px auto;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .booking-section,
+        .menu-section {
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+
+        .booking-description-popup,
+        .menu-description-popup {
+          width: 200px;
+        }
+
+        .custom-divider {
+          margin: 40px auto;
+        }
+      }
+
+      /* Large Screen Adaptations */
+      @media (min-width: 1920px) {
+        .booking-section,
+        .menu-section {
+          margin: 0 120px;
+        }
+
+        .booking-description-popup,
+        .menu-description-popup {
+          width: 360px;
+          font-size: 18px;
+          padding: 24px;
+        }
+
+        .booking-point-marker,
+        .menu-point-marker {
+          width: 32px;
+          height: 32px;
+        }
+
+        .booking-point-marker::before,
+        .menu-point-marker::before {
+          font-size: 18px;
+        }
+
+        .big-mockup-container {
+          width: 1680px;
+        }
+      }
+
+      @media (min-width: 2560px) {
+        .booking-section,
+        .menu-section {
+          max-width: 2200px;
+          margin: 0 auto;
+        }
+
+        .booking-point-marker,
+        .menu-point-marker {
+          width: 32px;
+          height: 32px;
+        }
+
+        .booking-point-marker::before,
+        .menu-point-marker::before {
+          font-size: 18px;
+        }
+
+        .booking-description-popup,
+        .menu-description-popup {
+          width: 400px;
+          font-size: 20px;
+          padding: 30px;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .booking-section,
+        .menu-section {
+          margin: 0;
+        }
+
+        .booking-preview,
+        .menu-preview {
+          width: 100%;
+          overflow: hidden;
+        }
+
+        .booking-preview img,
+        .menu-preview img {
+          width: 100%;
+          border-radius: 12px;
+        }
+
+        .big-mockup-container {
+          width: 95%;
+        }
+      }
+      /*--------------------------------------------------------------
+      # User research 
+      --------------------------------------------------------------*/
+      .research-section {
+        position: relative;
+        overflow: visible;
+        padding-top: 0px;
+        padding-bottom: 100px;
+      }
+
+      .research-content {
+        margin: 0 100px 150px 0px;
+        width: auto;
+        position: relative;
+      }
+
+      .research-title {
+        font-family: 'Croissant One';
         font-size: 40px;
         font-weight: 400;
-        color: #C7C7C7;
-        margin: 0;
+        color: #B8995C;
+        margin: 0 0 0 0;
+        max-width: 760px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
       }
 
-      .user-research-text {
-        font-family: 'Lato', sans-serif;
-        font-size: 24px;
+      .research-text {
+        font-family: 'Hanken Grotesk';
+        font-size: 20px;
         line-height: 1.6;
-        color: #C7C7C7;
-        margin: 12px 0 150px 0;
-        max-width: 924px;
+        color: #999899;
+        margin: 12px 0 0 0;
+        max-width: 760px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        transition-delay: 0.2s;
       }
 
-      .personas-container {
+      /* Animation states */
+      [data-aos="fade-up"].aos-animate .research-title,
+      [data-aos="fade-up"].aos-animate .research-text {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Persona Container Styles */
+      .persona-container {
         display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        gap: 24px;
-        width: 100%;
-        margin: 0 auto;
-        max-width: 1740px;
+        justify-content: space-between;
+        gap: 40px;
+        margin: 60px 0 0 0;
+        position: relative;
+        overflow: visible;
+        padding: 0 100px;
       }
 
       .persona-card {
         position: relative;
-        width: 564px;
-        height: 1159px;
-        flex-shrink: 0;
-        opacity: 0;
-        transform: translateY(30px);
-        animation: fadeInUp 0.8s ease-out forwards;
-        animation-play-state: paused;
-        transition: all 0.3s ease;
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        max-width: 830px;
+        overflow: visible;
+        margin-left: -110px;
       }
-      .persona-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      }
-
-      .persona-card.visible {
-        animation-play-state: running;
+      .persona-card:last-child {
+        justify-content: flex-end;
+        margin-left: 0;
+        margin-right: -100px;
       }
 
-      @keyframes fadeInUp {
-          from {
-              opacity: 0;
-              transform: translateY(30px);
-          }
-          to {
-              opacity: 1;
-              transform: translateY(0);
-          }
-      }
-
-      .persona-card svg {
-        position: absolute;
-        top: 0;
-        left: 0;
+      .persona-svg {
         width: 100%;
-        height: 100%;
+        height: auto;
+        max-width: 830px;
+        transition: transform 0.3s ease-out, filter 0.3s ease;
+        position: relative;
+        z-index: 1;
+      }
+
+      .persona-card:hover .persona-svg {
+        transform: translateY(-5px);
+        filter: brightness(1.1);
       }
 
       .persona-image {
         position: absolute;
-        top: -8px;
-        right: 0px;
-        width: 144px;
-        height: 144px;
-        border-radius: 50%;
+        top: calc(50% + var(--top-position));
+        left: calc(50% + var(--left-position));
+        transform: translate(-50%, -50%);
+        width: 117px;
+        height: 113px;
         object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.3s ease-out;
         z-index: 2;
       }
 
-      .persona-content {
-        position: relative;
-        z-index: 1;
-        padding: 120px 50px 30px 30px;
-        max-width: 480px;
-        opacity: 0;
-        transform: translateX(-20px);
-      }
-      .persona-card.visible .persona-content {
-        animation: slideContent 0.6s ease-out 0.3s forwards;
+      .persona-card:hover .persona-image {
+        transform: translate(-50%, -50%) translateY(-5px);
       }
 
-      @keyframes slideContent {
-        from {
-            opacity: 0;
-            transform: translateX(-20px);
+      .clara-image {
+        --top-position: -290px;
+        --left-position: 254px;
+      }
+
+      .ana-image {
+        --top-position: -290px;
+        --left-position: 254px;
+      }
+
+      /* Responsive Styles */
+      @media (min-width: 1920px) {
+        .research-section {
+          margin: 0 120px;
         }
-        to {
-          opacity: 1;
-          transform: translateX(0);
+        .research-title {
+          font-size: 48px;
+          max-width: 960px;
         }
+        .research-text {
+          font-size: 32px;
+          max-width: 960px;
+        }
+        .persona-container {
+          gap: 60px;
+          margin-top: 80px;
+        }
+      }
+
+      @media (max-width: 1440px) {
+        .research-section {
+          margin: 0 80px;
+        }
+        
+        .persona-container {
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        .research-section {
+          margin: 0 60px;
+        }
+        
+        .persona-container {
+          gap: 20px;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .research-section {
+          margin: 0 40px;
+        }
+        
+        .persona-container {
+          flex-direction: column;
+          gap: 40px;
+        }
+        
+        .persona-card {
+          max-width: 600px;
+          margin: 0 auto;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .research-section {
+          margin: 0 20px;
+        }
+        
+        .persona-container {
+          gap: 30px;
+        }
+        
+        .persona-card {
+          max-width: 500px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .research-section {
+          margin: -160px 15px;
+        }
+        
+        .persona-container {
+          gap: 20px;
+        }
+        
+        .persona-card {
+          max-width: 100%;
+        }
+
+        .research-title {
+          font-size: 22px;
+          max-width: 960px;
+        }
+        .research-text {
+          font-size: 15px;
+          max-width: 960px;
+        }
+      }
+
+      @media (max-width: 389px) {
+        .research-section {
+          margin: 0 10px;
+        }
+        
+        .persona-container {
+          gap: 15px;
+        }
+        .research-title {
+          font-size: 20px;
+        }
+        .research-text {
+          font-size: 15px;
+        }
+      }
+      .persona-content {
+        position: absolute;
+        top: 80px;
+        left: 40px;
+        width: calc(100% - 80px); /* Чтобы контент не выходил за границы */
+        height: calc(100% - 120px);
+        z-index: 2;
       }
 
       .persona-name {
-        font-family: 'Rhodium Libre', serif;
-        font-size: 40px;
-        color: #C7C7C7;
-        margin: 0 0 24px 0;
+        font-family: 'Croissant One';
+        font-size: 48px;
+        color: #B8995C;
+        margin: 0 0 20px;
+        font-weight: 400;
       }
 
       .persona-characteristics {
         display: flex;
-        flex-direction: column;
-        gap: 12px;
-        margin-bottom: 40px;
+        gap: 48px;
+        margin-bottom: 20px;
       }
 
       .characteristic {
@@ -828,31 +2422,34 @@
       }
 
       .characteristic img {
-        width: 48px;
-        height: 48px;
-        opacity: 0.7;
+        width: 24px;
+        height: 24px;
+        opacity: 0.6;
       }
 
       .characteristic span {
-        font-family: 'Lato', sans-serif;
-        font-size: 22px;
-        color: #C7C7C7;
+        font-family: 'Hanken Grotesk';
+        font-size: 18px;
+        color: rgba(153, 152, 153, 0.8);
+      }
+
+      .sections-wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 40px; 
+        row-gap: 0px;    
       }
 
       .content-section {
-        margin-bottom: 32px;
-      }
-
-      .content-section:last-child {
-        margin-bottom: 0;
+        margin-bottom: 0px;
       }
 
       .content-section h3 {
-        font-family: 'Lato', serif;
-        font-weight: 500;
-        font-size: 28px;
-        color: #9E9E9F;
-        margin: 0 0 12px 0;
+        font-family: 'Croissant One';
+        font-size: 24px;
+        color: #C7C2B7;
+        margin: 0 0 16px;
+        font-weight: 400;
       }
 
       .content-section ul {
@@ -862,12 +2459,12 @@
       }
 
       .content-section li {
-        font-family: 'Lato', sans-serif;
-        font-size: 24px;
-        color: #C7C7C7;
+        font-family: 'Hanken Grotesk';
+        font-size: 18px;
+        color: rgba(153, 152, 153, 0.8);
+        margin-bottom: 6px;
         line-height: 1.6;
-        margin-bottom: 12px;
-        padding-left: 24px;
+        padding-left: 20px;
         position: relative;
       }
 
@@ -875,709 +2472,329 @@
         content: "•";
         position: absolute;
         left: 0;
-        color: #C7C7C7;
+        color: #B8995C;
       }
 
-      .content-section li:last-child {
-        margin-bottom: 0;
-      }
-
-        .content-section p {
-        font-family: 'Lato', sans-serif;
-        font-size: 24px;
-        color: #C7C7C7;
+      .content-section p {
+        font-family: 'Hanken Grotesk';
+        font-size: 18px;
+        color: rgba(153, 152, 153, 0.8);
         line-height: 1.6;
         margin: 0;
       }
 
-      /* Адаптивы */
-        @media (max-width: 1800px) {
-          .personas-container {
-            transform: scale(0.9);
-            transform-origin: top center;
-          }
-        }
+      /* Goals секция занимает всю ширину */
+      .content-section.goals {
+        grid-column: 1 / -1;
+        margin-top: 20px; 
+      }
 
-        @media (max-width: 1600px) {
-          .personas-container {
-            transform: scale(0.8);
-          }
+      /* 1920px и выше */
+      @media (min-width: 1920px) {
+        .persona-content {
+          top: 100px;
+          left: 60px;
+          width: calc(100% - 120px);
         }
-
-      @media (max-width: 1024px) {
-        .user-research {
-          padding: 0 30px;
+      .persona-characteristics { 
+        font-size: 24px;
+      }
+        
+        .persona-name {
+          font-size: 56px;
+          margin: 0 0 24px;
         }
-
-        .user-research-title {
-          font-size: 32px;
+        
+        .characteristic span {
+          font-size: 20px;
         }
-
-        .user-research-text {
-          font-size: 18px;
-          margin: 12px 0 60px 0;
-          max-width: 100%;
+        
+        .content-section h3 {
+          font-size: 30px;
+          margin: 0 0 20px;
         }
-
-        .personas-container {
-          transform: none;
-        }
-
-        .persona-card {
-          min-height: 900px; 
-        }
-
-        .persona-card svg {
-          transform: scaleX(1.1) scaleY(0.9); 
+        
+        .content-section li,
+        .content-section p {
+          font-size: 26px;
         }
       }
 
-      @media (max-width: 768px) {
-        .user-research {
-          padding: 0 20px;
+      /* 1440px - 1919px */
+      @media (max-width: 1440px) {
+        .persona-content {
+          top: 70px;
+          left: 35px;
+          width: calc(100% - 70px);
         }
+        
+        .persona-name {
+          font-size: 42px;
+        }
+        
+        .characteristic span,
+        .content-section li,
+        .content-section p {
+          font-size: 19px;
+        }
+        
+        .sections-wrapper {
+          column-gap: 35px;
+        }
+      }
 
-        .personas-container {
+      /* 1200px - 1439px */
+      @media (max-width: 1200px) {
+        .persona-content {
+          top: 60px;
+          left: 30px;
+          width: calc(100% - 60px);
+        }
+        
+        .persona-name {
+          font-size: 38px;
+        }
+        
+        .characteristic span,
+        .content-section li,
+        .content-section p {
+          font-size: 16px;
+        }
+        
+        .sections-wrapper {
+          column-gap: 30px;
+        }
+        
+        .content-section h3 {
+          font-size: 22px;
+          margin: 0 0 14px;
+        }
+      }
+
+      /* 992px - 1199px */
+      @media (max-width: 992px) {
+        .persona-content {
+          top: 50px;
+          left: 25px;
+          width: calc(100% - 50px);
+        }
+        
+        .persona-name {
+          font-size: 34px;
+          margin: 0 0 18px;
+        }
+        
+        .persona-characteristics {
+          gap: 35px;
+          margin-bottom: 18px;
+        }
+        
+        .sections-wrapper {
+          column-gap: 25px;
+        }
+        
+        .content-section h3 {
+          font-size: 20px;
+          margin: 0 0 12px;
+        }
+      }
+
+      /* 768px - 991px */
+      @media (max-width: 768px) {
+        .persona-content {
+          top: 40px;
+          left: 20px;
+          width: calc(100% - 40px);
+        }
+        
+        .persona-name {
+          font-size: 30px;
+          margin: 0 0 16px;
+        }
+        
+        .persona-characteristics {
           flex-direction: column;
-          align-items: center;
-          gap: 0; 
+          gap: 12px;
+          margin-bottom: 20px;
+        }
+        
+        .sections-wrapper {
+          grid-template-columns: 1fr;
+          row-gap: 20px;
+        }
+        
+        .content-section.goals {
+          margin-top: 16px;
+        }
+      }
+
+      /* 576px - 767px */
+      @media (max-width: 576px) {
+        .persona-content {
+          top: 30px;
+          left: 15px;
+          width: calc(100% - 30px);
+        }
+        
+        .persona-name {
+          font-size: 28px;
+          margin: 0 0 14px;
+        }
+        
+        .content-section h3 {
+          font-size: 18px;
+          margin: 0 0 10px;
+        }
+        
+        .characteristic span,
+        .content-section li,
+        .content-section p {
+          font-size: 15px;
+        }
+      }
+
+    
+      @media (max-width: 576px) {
+        .persona-container {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+          padding: 0 20px;
+          margin-top: 50px;
         }
 
         .persona-card {
+          position: relative;
           width: 100%;
-          max-width: 480px; 
-          min-height: 800px; 
-          transform-origin: top center; 
-          transform: scale(0.9); 
-          margin-bottom: -80px;
-          margin-top: -100px; 
-        }
-        .persona-card:first-child {
-          margin-top: 0;
+          min-height: 1200px;
+          margin: 0;
+          display: flex;
+          justify-content: center;
         }
 
-        .persona-card svg {
-          transform: scaleX(1.2) scaleY(0.85); 
+        .persona-svg {
+          width: 100%; 
+          height: auto;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 1;
+          transform: scaleY(var(--svg-scale, 1.3)); 
+          transform-origin: top; 
+        }
+
+        .persona-content {
+          position: relative;
+          z-index: 2;
+          padding: 40px 20px;
+          width: 100%;
+          height: auto;
+        }
+
+        .clara-image {
+          --top-position: 32px; 
+          --left-position: 320px; 
+          position: absolute;
+          top: var(--top-position);
+          left: var(--left-position);
+        }
+
+        .ana-image {
+          --top-position: 20px;
+          --left-position: 320px; 
+          position: absolute;
+          top: var(--top-position);
+          left: var(--left-position);
+        }
+
+        .persona-name {
+          font-size: 24px;
+          margin-bottom: 12px;
+        }
+
+        .persona-characteristics {
+          flex-direction: row;
+          flex-wrap: nowrap;
+          gap: 12px;
+          margin-bottom: 15px;
+          font-size: 12px;
+        }
+
+        .characteristic span {
+          font-size: 12px;
+          white-space: nowrap;
+        }
+
+        .characteristic img {
+          width: 20px;
+          height: 20px;
+        }
+
+        .sections-wrapper {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+
+        .content-section h3 {
+          font-size: 16px;
+          margin-bottom: 8px;
+        }
+
+        .content-section li,
+        .content-section p {
+          font-size: 13px;
+          line-height: 1.4;
         }
 
         .persona-image {
-          width: 100px;
-          height: 100px;
-          top: 150px;
-          right: -6px;
-        }
-
-        .persona-content {
-          margin-top: 260px;
-          padding: 0 0px 40px;
-        }
-
-        .persona-name {
-          font-size: 32px;
-        }
-
-        .characteristic img {
-          width: 32px;
-          height: 32px;
-        }
-
-        .characteristic span {
-          font-size: 18px;
-        }
-
-        .content-section h3 {
-          font-size: 22px;
-        }
-
-        .content-section li,
-        .content-section p {
-          font-size: 18px;
-          padding-left: 20px;
+          width: 80px;
+          height: 77px;
         }
       }
 
-      @media (max-width: 375px) {
-        .user-research {
-          padding: 0 15px;
+      @media (max-width: 390px) {
+        .persona-container {
+          gap: 30px;
+          padding: 0 10px;
         }
 
         .persona-card {
-          min-height: 750px; 
-          transform: scale(0.85); 
+          min-height: 210px;
+          margin-bottom: 100px;
         }
 
-        .persona-card svg {
-          transform: scaleX(1.3) scaleY(0.8); 
+        .persona-svg {
+          transform: scaleY(var(--svg-scale-mobile, 1.3)) scaleX(var(--svg-scale-mobile, 1.1)); 
+          transform-origin: top; 
         }
 
         .persona-content {
-          padding: 25px 30px;
+          top: 50px;
+          left: 0px;
+          width: calc(100% - 20px);
+          padding: 10px;
         }
 
         .persona-name {
-          font-size: 28px;
-        }
-
-        .characteristic img {
-          width: 28px;
-          height: 28px;
-        }
-
-        .characteristic span {
-          font-size: 18px;
+          font-size: 22px;
+          margin-bottom: 10px;
         }
 
         .content-section h3 {
-          font-size: 20px;
+          font-size: 15px;
         }
 
         .content-section li,
         .content-section p {
-          font-size: 18px;
-        }
-      }
-
-      /*--------------------------------------------------------------
-      # Home Page Description
-      --------------------------------------------------------------*/
-      .homepage-description {
-        padding: 0 55px;
-        margin-bottom: 200px;
-      }
-
-      .homepage-title {
-        font-family: 'Rhodium Libre', serif;
-        font-size: 40px;
-        color: #C7C7C7;
-        margin-bottom: 80px;
-      }
-
-      .description-content {
-        display: flex;
-        gap: 60px;
-        position: relative;
-      }
-
-      .image-column {
-        flex: 0 0 700px;
-      }
-
-      .main-image {
-        width: 700px;
-        height: 2605px;
-        object-fit: contain;
-      }
-
-      .description-points {
-        flex: 1;
-        position: relative;
-      }
-
-      .description-point {
-        position: relative;
-        margin-bottom: 80px;
-      }
-
-      .arrow {
-        position: absolute;
-        width: 250px;
-        height: auto;
-        z-index: 2;
-      }
-
-      .point-content {
-        position: absolute;
-        color: #C7C7C7;
-        margin-left: 0;
-      }
-
-      .point-text {
-        font-family: 'Lato', sans-serif;
-        font-size: 20px;
-        line-height: 1.6;
-        margin-bottom: 24px;
-        margin-top: 0;
-      }
-
-      .point-title {
-        font-family: 'Rhodium Libre', serif;
-        font-size: 28px;
-        margin: 0 0 0 0;
-      }
-
-      .description-point:nth-child(1) .arrow {
-        position: absolute;
-        width: 250px;
-        top: 0;
-        left: -147px;
-      }
-
-      .description-point:nth-child(1) .point-content {
-        position: absolute;
-        top: 60px;
-        left: 16px;
-      }
-
-      .description-point:nth-child(2) .arrow {
-        position: absolute;
-        width: 250px;
-        top: 572px;
-        left: -260px;
-        transform: rotate(-30deg) !important;
-      }
-
-      .description-point:nth-child(2) .point-content {
-        position: absolute;
-        top: 524px;
-        left: 16px;
-      }
-
-      .description-point:nth-child(3) .arrow {
-        position: absolute;
-        width: 250px;
-        top: 1120px;
-        left: -150px;
-      }
-
-      .description-point:nth-child(3) .point-content {
-        position: absolute;
-        top: 1168px;
-        left: 16px;
-      }
-
-      .description-point:nth-child(4) .arrow {
-        position: absolute;
-        width: 250px;
-        top: 1788px;
-        left: -150px;
-      }
-
-      .description-point:nth-child(4) .point-content {
-        position: absolute;
-        top: 1830px;
-        left: 16px;
-      }
-      .point-content ul {
-        list-style: none;
-        padding: 0;
-        margin: 20px 0;
-      }
-
-      .point-content li {
-        font-family: 'Lato', sans-serif;
-        font-size: 20px;
-        line-height: 1.6;
-        color: #C7C7C7;
-        margin-bottom: 16px;
-        padding-left: 24px;
-        position: relative;
-      }
-
-      .point-content li::before {
-        content: "•";
-        position: absolute;
-        left: 0;
-        color: #C7C7C7;
-      }
-
-      .point-content li:last-child {
-        margin-bottom: 0;
-      }
-      /*--------------------------------------------------------------
-      # Animation
-      --------------------------------------------------------------*/
-        .description-point.hidden {
-        opacity: 0;
-        transform: translateX(-50px);
-      }
-
-      .description-point.show {
-        opacity: 1;
-        transform: translateX(0);
-        transition: all 0.8s ease-out;
-      }
-
-      /* Разные задержки для каждой точки описания */
-      .description-point:nth-child(1).show {
-        transition-delay: 0.2s;
-      }
-
-      .description-point:nth-child(2).show {
-        transition-delay: 0.6s;
-      }
-
-      .description-point:nth-child(3).show {
-        transition-delay: 0.10s;
-      }
-
-      .description-point:nth-child(4).show {
-        transition-delay: 0.12s;
-      }
-
-      .description-point.hidden .arrow {
-        opacity: 0;
-        transform: translateX(-100px);
-      }
-
-      .description-point.show .arrow {
-        opacity: 1;
-        transform: translateX(0);
-        transition: all 1s ease-out;
-      }
-
-      .description-point.hidden .point-content {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      .description-point.show .point-content {
-        opacity: 1;
-        transform: translateY(0);
-        transition: all 0.8s ease-out 0.3s;
-      }
-
-      /* Адаптивы для описания Домашней страницы */
-      @media screen and (max-width: 1024px) {
-        .homepage-description {
-          padding: 0 30px;
-          margin-bottom: 100px;
+          font-size: 12px;
+          line-height: 1.3;
         }
 
-        .homepage-title {
-          font-size: 32px;
-          margin-bottom: 80px;
-        }
-
-        .description-content {
-          gap: 40px;
-        }
-
-        .image-column {
-          flex: 0 0 500px;
-        }
-
-        .main-image {
-          width: 500px;
-          height: auto;
-        }
-
-        .point-text {
-          font-size: 18px;
-        }
-
-        .point-title {
-          font-size: 24px;
+        .persona-image {
+          width: 70px;
+          height: 68px;
         }
       }
-
-      @media screen and (max-width: 768px) {
-        .homepage-description {
-          padding: 0 20px;
-          margin-bottom: 60px;
-        }
-
-        .homepage-title {
-          font-size: 28px;
-          margin-bottom: 40px;
-          text-align: center;
-        }
-
-        .description-content {
-          flex-direction: column;
-          gap: 30px;
-        }
-
-        .image-column {
-          flex: none;
-          width: 100%;
-        }
-
-        .main-image {
-          width: 100%;
-          height: auto;
-          max-width: 400px;
-          margin: 0 auto;
-          display: block;
-        }
-
-        .description-points {
-          width: 100%;
-        }
-
-        .description-point {
-          margin-bottom: 24px;
-          padding: 32px;
-          background-color: #1C1C1E;
-          border-radius: 86px;
-          position: relative;
-        }
-
-        /* Скрытие стрелок на мобильных */
-        .arrow {
-          display: none;
-        }
-
-        .point-content {
-          position: relative !important;
-          top: 0 !important;
-          left: 0 !important;
-          margin-left: 0;
-        }
-
-        .point-text {
-          font-size: 16px;
-          margin-bottom: 16px;
-        }
-
-        .point-title {
-          font-size: 20px;
-          margin-bottom: 12px;
-        }
-
-        .point-content ul {
-          margin: 12px 0;
-        }
-
-        .point-content li {
-          font-size: 16px;
-          margin-bottom: 12px;
-          padding-left: 20px;
-        }
-      }
-
-      @media screen and (max-width: 480px) {
-        .homepage-description {
-          padding: 0 15px;
-        }
-
-        .description-point {
-          padding: 24px;
-          border-radius: 46px;
-        }
-
-        .main-image {
-          max-width: 300px;
-        }
-      }
-
-      @media screen and (max-width: 768px) {
-        .description-point.hidden {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-
-        .description-point.show {
-          opacity: 1;
-          transform: translateY(0);
-          transition: all 0.6s ease-out;
-        }
-      }
-
-      /*--------------------------------------------------------------
-      # Menu Section
-      --------------------------------------------------------------*/
-      .menu-arrow {
-        position: absolute;
-        width: 250px;
-        top: 150px;
-        left: -150px;
-      }
-
-      .menu-description-point {
-        position: relative;
-        margin-bottom: 80px;
-      }
-
-      .menu-description-point .point-content {
-        position: absolute;
-        color: #C7C7C7;
-        top: 200px;
-        left: 16px;
-      }
-
-      .menu-section-image {
-        width: 700px;
-        height: 935px;
-        object-fit: contain;
-      }
-
-      @media screen and (max-width: 1024px) {
-        .menu-section-image {
-          width: 500px;
-          height: auto;
-        }
-      }
-
-      @media screen and (max-width: 768px) {
-        .menu-arrow {
-          display: none;
-        }
-
-        .menu-description-point {
-          margin-bottom: 24px;
-          padding: 32px;
-          background-color: #1C1C1E;
-          border-radius: 86px;
-        }
-
-        .menu-description-point .point-content {
-          position: relative !important;
-          top: 0 !important;
-          left: 0 !important;
-          margin-left: 0;
-        }
-
-        .menu-section-image {
-          width: 100%;
-          height: auto;
-          max-width: 400px;
-          margin: 0 auto;
-          display: block;
-        }
-      }
-
-      @media screen and (max-width: 480px) {
-        .menu-description-point {
-          padding: 24px;
-          border-radius: 46px;
-        }
-        
-        .menu-section-image {
-          max-width: 300px;
-        }
-      }
-
-      /*--------------------------------------------------------------
-      # Menu Frames
-      --------------------------------------------------------------*/
-    .menu-frames-section {
-      margin: 40px 0;
-      position: relative;
-      min-height: 600px;
-    }
-
-    .menu-frames-wrapper {
-      padding: 0 55px;
-      position: relative;
-      margin: 0 auto;
-    }
-
-    .menu-frames-container {
-      display: flex;
-      justify-content: space-between;
-      gap: 30px;
-      perspective: 1000px;
-      padding: 20px 0;
-    }
-
-    .menu-frame {
-      position: relative;
-      width: calc((100% - 90px) / 4);
-      height: auto;
-      cursor: pointer;
-      transform-style: preserve-3d;
-      transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-      border-radius: 10px;
-      box-shadow: rgba(0, 0, 0, 0.4) 0 15px 30px 0,
-        inset #333 0 0 0 2px,
-        inset rgba(255, 255, 255, 0.3) 0 0 0 3px;
-    }
-
-    .menu-frame:hover {
-      transform: scale(1.35) translateZ(40px);
-      box-shadow: rgba(255, 255, 255, 0.1) 0 0 20px 2px,
-        rgba(255, 255, 255, 0.4) 0 0 0 1px,
-        rgba(0, 0, 0, 0.3) 0 15px 30px 0,
-        inset #333 0 0 0 2px,
-        inset rgba(255, 255, 255, 0.3) 0 0 0 3px;
-      z-index: 10;
-    }
-
-    .menu-frame.active {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      width: auto;
-      height: 80vh;
-      transform: translate(-50%, -50%) scale(1) !important;
-      z-index: 1000;
-      transition: all 0.5s ease-in-out;
-    }
-
-    .interaction-hint {
-      position: absolute;
-      top: -40px;
-      left: 55px;
-      font-size: 16px;
-      color: #C7C7C7;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      opacity: 0.8;
-      transform-style: flat;
-      transform: none !important;
-      pointer-events: none;
-    }
-
-    .interaction-hint-icon {
-      width: 24px;
-      height: 24px;
-      animation: pulseHint 2s ease-in-out infinite;
-    }
-
-    @keyframes pulseHint {
-      0% { transform: scale(1); opacity: 0.8; }
-      50% { transform: scale(1.1); opacity: 1; }
-      100% { transform: scale(1); opacity: 0.8; }
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.85);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s ease;
-      z-index: 999;
-      backdrop-filter: blur(5px);
-    }
-
-    .overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* Адаптивные стили */
-    @media screen and (max-width: 1200px) {
-      .menu-frames-container {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-      }
-      
-      .menu-frame {
-        width: calc((100% - 30px) / 2);
-      }
-    }
-
-    @media screen and (max-width: 768px) {
-      .menu-frames-wrapper {
-        padding: 0 20px;
-      }
-      
-      .menu-frames-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .menu-frame {
-        width: 100%;
-        max-width: 400px;
-      }
-    }
 
       /*--------------------------------------------------------------
       # Thank you
@@ -1631,6 +2848,561 @@
         }
       }
       /*--------------------------------------------------------------
+      # Business Card
+      --------------------------------------------------------------*/
+      .visual-identity {
+        padding: 100px 0;
+        background-color: #070B19;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .visual-content {
+        width: calc(100% - 200px);
+        margin: 0 auto;
+        max-width: 1920px;
+      }
+
+      .visual-title {
+        font-family: 'Croissant One';
+        font-size: 40px;
+        font-weight: 400;
+        color: #B8995C;
+        margin: 0 0 0 0;
+      }
+
+      .text-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        margin-bottom: 80px;
+      }
+
+      .text-columns .column {
+        color: #999899;
+        font-family: 'Hanken Grotesk';
+        font-size: 20px;
+        line-height: 1.6;
+      }
+
+      .business-card-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-top: 80px;
+      }
+
+      .business-card-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+      }
+
+      /* Responsive Styles */
+      @media (min-width: 1920px) {
+        .visual-content {
+          width: calc(100% - 240px);
+        }
+
+        .visual-title {
+          font-size: 48px;
+          margin: 0 0 0 0;
+        }
+
+        .text-columns {
+          gap: 100px;
+          margin-bottom: 100px;
+        }
+
+        .text-columns .column {
+          font-size: 24px;
+        }
+      }
+
+      @media (max-width: 1440px) {
+        .visual-content {
+          width: calc(100% - 160px);
+        }
+
+        .text-columns {
+          gap: 60px;
+          margin-bottom: 60px;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        .visual-content {
+          width: calc(100% - 120px);
+        }
+
+        .visual-title {
+          font-size: 36px;
+          margin: 0 0 40px 0;
+        }
+
+        .text-columns {
+          gap: 40px;
+        }
+
+        .text-columns .column {
+          font-size: 18px;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .visual-content {
+          width: calc(100% - 80px);
+        }
+
+        .text-columns {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .visual-identity {
+          padding: 60px 0;
+        }
+
+        .visual-content {
+          width: calc(100% - 40px);
+        }
+
+        .visual-title {
+          font-size: 32px;
+          margin: 0 0 30px 0;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .visual-identity {
+          padding: 40px 0;
+        }
+
+        .visual-content {
+          width: calc(100% - 30px);
+        }
+
+        .visual-title {
+          font-size: 28px;
+          margin: 0 0 25px 0;
+        }
+
+        .text-columns .column {
+          font-size: 16px;
+        }
+
+        .business-card-image {
+          margin-top: 40px;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .visual-content {
+          width: calc(100% - 20px);
+        }
+
+        .visual-title {
+          font-size: 24px;
+          margin: 0 0 20px 0;
+        }
+
+        .text-columns .column {
+          font-size: 15px;
+        }
+
+        .business-card-image {
+          margin-top: 30px;
+        }
+      }
+      /*--------------------------------------------------------------
+      # Delivery Box
+      --------------------------------------------------------------*/
+      .delivery-box {
+        padding: 100px 0;
+        background-color: #070B19;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .box-content {
+        display: flex;
+        flex-direction: column;
+        align-items: left;
+        width: calc(100% - 200px);
+        margin: 0 auto;
+        max-width: 1920px;
+      }
+
+      .box-title {
+        font-family: 'Croissant One';
+        font-size: 40px;
+        font-weight: 400;
+        color: #B8995C;
+        margin: 0 0 12px 0;
+        text-align: left;
+      }
+
+      .box-text {
+        width: 860px;
+        max-width: 100%;
+        color: #999899;
+        font-family: 'Hanken Grotesk';
+        font-size: 20px;
+        line-height: 1.6;
+        text-align: left;
+        margin: 0 0 80px 0;
+      }
+
+      .box-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .box-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+      }
+
+      /* Responsive Styles */
+      @media (min-width: 1920px) {
+        .box-content {
+          width: calc(100% - 240px);
+        }
+
+        .box-title {
+          font-size: 48px;
+          margin: 0 0 60px 0;
+        }
+
+        .box-text {
+          font-size: 24px;
+          margin: 0 0 100px 0;
+        }
+      }
+
+      @media (max-width: 1440px) {
+        .box-content {
+          width: calc(100% - 160px);
+        }
+      }
+
+      @media (max-width: 1200px) {
+        .box-content {
+          width: calc(100% - 120px);
+        }
+
+        .box-title {
+          font-size: 36px;
+          margin: 0 0 40px 0;
+        }
+
+        .box-text {
+          width: 760px;
+          font-size: 18px;
+          margin: 0 0 60px 0;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .box-content {
+          width: calc(100% - 80px);
+        }
+
+        .box-text {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .delivery-box {
+          padding: 60px 0;
+        }
+
+        .box-content {
+          width: calc(100% - 40px);
+        }
+
+        .box-title {
+          font-size: 32px;
+          margin: 0 0 30px 0;
+        }
+
+        .box-text {
+          font-size: 16px;
+          margin: 0 0 40px 0;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .delivery-box {
+          padding: 40px 0;
+        }
+
+        .box-content {
+          width: calc(100% - 30px);
+        }
+
+        .box-title {
+          font-size: 28px;
+          margin: 0 0 25px 0;
+        }
+
+        .box-text {
+          font-size: 15px;
+          line-height: 1.5;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .box-content {
+          width: calc(100% - 20px);
+        }
+
+        .box-title {
+          font-size: 24px;
+          margin: 0 0 20px 0;
+        }
+
+        .box-text {
+          font-size: 14px;
+          line-height: 1.4;
+        }
+      }
+      /*--------------------------------------------------------------
+      # Harmony Section
+      --------------------------------------------------------------*/
+      .harmony-section {
+        padding-top: 100px;
+        background-color: #070B19;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .harmony-content {
+        width: calc(100% - 200px);
+        margin: 0 auto;
+        max-width: 1920px;
+      }
+
+      .harmony-title {
+        font-family: 'Croissant One';
+        font-size: 40px;
+        font-weight: 400;
+        color: #B8995C;
+        margin: 0 0 0 0;
+      }
+
+      .text-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        margin-bottom: 80px;
+      }
+
+      .text-columns .column {
+        color: #999899;
+        font-family: 'Hanken Grotesk';
+        font-size: 20px;
+        line-height: 1.6;
+      }
+
+      /* Responsive Styles */
+      @media (min-width: 1920px) {
+        .harmony-content {
+          width: calc(100% - 240px);
+        }
+
+        .harmony-title {
+          font-size: 48px;
+          margin: 0 0 0 0;
+        }
+
+        .text-columns {
+          gap: 100px;
+        }
+
+        .text-columns .column {
+          font-size: 24px;
+        }
+      }
+
+      @media (max-width: 1440px) {
+        .harmony-content {
+          width: calc(100% - 160px);
+        }
+
+        .text-columns {
+          gap: 60px;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        .harmony-content {
+          width: calc(100% - 120px);
+        }
+
+        .harmony-title {
+          font-size: 36px;
+          margin: 0 0 40px 0;
+        }
+
+        .text-columns {
+          gap: 40px;
+        }
+
+        .text-columns .column {
+          font-size: 18px;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .harmony-content {
+          width: calc(100% - 80px);
+        }
+
+        .text-columns {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .harmony-section {
+          padding: 60px 0;
+        }
+
+        .harmony-content {
+          width: calc(100% - 40px);
+        }
+
+        .harmony-title {
+          font-size: 32px;
+          margin: 0 0 30px 0;
+        }
+
+        .text-columns .column {
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .harmony-section {
+          padding: 40px 0;
+        }
+
+        .harmony-content {
+          width: calc(100% - 30px);
+        }
+
+        .harmony-title {
+          font-size: 28px;
+          margin: 0 0 25px 0;
+        }
+
+        .text-columns .column {
+          font-size: 15px;
+          line-height: 1.5;
+        }
+      }
+
+      @media (max-width: 390px) {
+        .harmony-content {
+          width: calc(100% - 20px);
+        }
+
+        .harmony-title {
+          font-size: 24px;
+          margin: 0 0 20px 0;
+        }
+
+        .text-columns .column {
+          font-size: 14px;
+          line-height: 1.4;
+        }
+      }
+      /*--------------------------------------------------------------
+      # UI Kit
+      --------------------------------------------------------------*/
+      .ui-kit-section {
+        padding: 50px 0;
+        background-color: #070B19;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .ui-kit-content {
+        width: calc(100% - 200px);
+        margin: 0 auto;
+        max-width: 1920px;
+      }
+
+      .ui-kit-image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .ui-kit-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+      }
+
+      /* Responsive Styles */
+      @media (min-width: 1920px) {
+        .ui-kit-content {
+          width: calc(100% - 240px);
+        }
+      }
+
+      @media (max-width: 1440px) {
+        .ui-kit-content {
+          width: calc(100% - 160px);
+        }
+      }
+
+      @media (max-width: 1200px) {
+        .ui-kit-content {
+          width: calc(100% - 120px);
+        }
+      }
+
+      @media (max-width: 992px) {
+        .ui-kit-content {
+          width: calc(100% - 80px);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .ui-kit-section {
+          padding: 60px 0;
+        }
+
+        .ui-kit-content {
+          width: calc(100% - 40px);
+        }
+      }
+
+      @media (max-width: 576px) {
+        .ui-kit-section {
+          padding: 40px 0;
+        }
+
+        .ui-kit-content {
+          width: calc(100% - 30px);
+        }
+      }
+
+      @media (max-width: 390px) {
+        .ui-kit-content {
+          width: calc(100% - 20px);
+        }
+      }
+      /*--------------------------------------------------------------
       # Global Footer
       --------------------------------------------------------------*/
       .footer {
@@ -1639,6 +3411,8 @@
         color: #222222;
         font-size: 14px;
         text-align: center;
+        position: relative; 
+        z-index: 1001;
       }
 
       .footer .copyright p {
@@ -1729,16 +3503,21 @@
         opacity: 1;
         bottom: 15px;
       }
+      
     </style>
 </head>
 
 <body>
+  <div class="guide-lines">
+    <div class="guide-line-left"></div>
+    <div class="guide-line-right"></div>
+  </div>
   <main>
     <!-- --------------------------------------------------------------
     # Hero photo
     ---------------------------------------------------------------->
     <section class="case-study-hero">
-      <img src="Regalia Dining/img/Study case/hero photo.jpg"alt="Regalia Dining Case Study">
+      <img src="Regalia dining/img/Study case/hero photo.png"alt="Regalia Dining Case Study">
     </section>      
     <!-- --------------------------------------------------------------
     # Overview
@@ -1789,13 +3568,10 @@
               <div class="content-box">
                   <h2 class="section-title">Problem</h2>
                   <p class="section-text">
-                      Many websites for Japanese cuisine restaurants often appear overly simplistic, failing to capture the elegance and depth of Japan's rich cultural heritage. Basic designs and limited functionality leave customers underwhelmed, craving a more immersive experience.
+                    I faced a serious challenge. Most Japanese restaurant websites look lifeless and generic - basic design, dull menus, and primitive functionality. 
                   </p>
                   <p class="section-text">
-                      I saw this as an opportunity to transform how Japanese dining is represented online. My mission was to craft a website that exudes visual sophistication while remaining user-friendly and engaging.
-                  </p>
-                  <p class="section-text">
-                      Every detail was designed to reflect the beauty and refinement of Japanese cuisine, delivering a seamless browsing experience that mirrors the quality and ambiance of a premium dining establishment.
+                    They completely fail to convey the sophistication and depth that Japanese cuisine is famous for. Customers don't get the impression that a premium restaurant should make, which means an important part of the gastronomic experience is lost before the first visit.
                   </p>
               </div>
           </div>
@@ -1805,16 +3581,10 @@
               <div class="content-box">
                   <h2 class="section-title">Solution</h2>
                   <p class="section-text">
-                      At Regalia Dining, I have reimagined the online experience for Japanese cuisine enthusiasts. My website blends aesthetic beauty with intuitive design, embodying the elegance and sophistication of my culinary vision.
+                    At Regalia Dining, I created a website that fully reflects the premium nature of Japanese cuisine. User-friendly navigation and table booking system, stunning food photography, and elegant minimalist design create a unique user experience. 
                   </p>
                   <p class="section-text">
-                      Through high-quality visuals, seamless navigation, and detailed descriptions, every element reflects the care and artistry that defines the dining experience.
-                  </p>
-                  <p class="section-text">
-                      From effortless reservations to exploring a diverse menu, I've crafted a platform that invites you to immerse yourself in the world of Regalia Dining before you even arrive.
-                  </p>
-                  <p class="section-text">
-                      Discover an elevated dining journey that begins the moment you visit my site.
+                    Every detail, from smooth animations to carefully selected typography, is crafted to immerse visitors in the atmosphere of refined Japanese cuisine even before their first restaurant visit.
                   </p>
               </div>
           </div>
@@ -1826,7 +3596,7 @@
     ---------------------------------------------------------------->
     <section class="brainstorm">
       <h2 class="brainstorm-title" data-aos="fade" data-aos-duration="1000">Brainstorm & Ideation</h2>
-      <p class="brainstorm-text" data-aos="fade" data-aos-duration="1000" data-aos-delay="100">At the start of my project, I dedicated myself to brainstorming and ideation, setting the foundation for an extraordinary online experience for Regalia Dining. My aim was to craft a website that not only highlights the restaurant's culinary excellence but also captivates and delights every visitor. Here's a glimpse into the key steps I took to bring this vision to life.</p>
+      <p class="brainstorm-text" data-aos="fade" data-aos-duration="1000" data-aos-delay="100">Before diving into design, I immersed myself in creative exploration to envision the perfect digital presence for Regalia Dining. My goal was simple yet ambitious: create a website that makes people fall in love with Japanese cuisine before they even taste it. Here's how I transformed this vision into reality.</p>
       
       <div class="timeline-wrapper">
           <div class="timeline-container">
@@ -1861,494 +3631,295 @@
     </section>
 
     <!-- --------------------------------------------------------------
-    # User Research
+    # homepage-description
     ---------------------------------------------------------------->
-    <section class="user-research">
-      <h2 class="user-research-title">User Research and Create Persona</h2>
-      <p class="user-research-text">Understanding my users is at the core of building a successful website for Regalia Dining. In the user research phase, I focused on uncovering meaningful insights into the needs, preferences, and behaviors of the target audience.</p>
+    <div class="interaction-hint">
+      <div class="hint-marker"></div>
+      <span>Hover over these markers to see detailed descriptions</span>
+    </div>
+    <section class="homepage-description">
+      <!-- Третья направляющая -->
+      <div class="third-guide"></div>
       
-      <div class="personas-container">
-        <!-- Clara -->
-        <div class="persona-card">
-            <svg width="564" height="1159" viewBox="0 0 564 1159" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M403.67 67.1162C403.67 40.0688 394.039 7.20056 367.049 5.43626C363.798 5.22371 360.456 5.0365 357.018 4.87161C350.226 4.54582 345.22 11.155 345.22 17.955C345.22 67.3209 267.122 107.34 170.783 107.34C119.747 107.34 73.8304 96.1088 41.9317 78.2069C34.6691 74.131 25.2014 75.6404 21.0482 82.8592C0 119.444 0 168.522 0 266.678V895.927C0 994.084 0 1043.16 21.0482 1079.75C34.9599 1103.93 55.0257 1123.99 79.2059 1137.9C115.79 1158.95 164.868 1158.95 263.025 1158.95C361.181 1158.95 410.259 1158.95 446.843 1137.9C471.023 1123.99 491.089 1103.93 505.001 1079.75C526.049 1043.16 526.049 994.084 526.049 895.927V266.678C526.049 230.673 526.049 201.272 525.01 176.668C524.233 158.253 504.296 147.563 485.865 147.563V147.563C440.47 147.563 403.67 111.546 403.67 67.1162V67.1162ZM290.38 73.8445C321 58.1542 337 37.9532 337 17.955C337 15.7051 336.798 13.4526 336.395 11.2042C335.61 6.82899 331.68 4.04363 327.235 3.96896C322.091 3.88253 317.561 7.49852 315.773 12.3224C306.263 37.9795 280.309 56.3896 249.782 56.3896C226.748 56.3896 203.282 45.6253 180.102 34.9923C149.132 20.786 118.673 6.81428 90.4417 19.0628C86.5512 20.7507 82.8176 22.6236 79.2059 24.7015C67.5897 31.3847 56.9231 39.4881 47.4321 48.7857C39.6949 56.3653 41.5471 68.9051 51.1865 73.8445C81.3705 89.3114 123.642 99.1203 170.783 99.1203C217.925 99.1203 260.196 89.3114 290.38 73.8445ZM281.923 39.762C272.614 45.0825 261.635 48.1701 249.782 48.1701C247.48 48.1701 245.211 48.0537 242.981 47.827C205.771 44.0458 225.623 3.65332 263.025 3.65332C286.858 3.65332 302.616 27.9354 281.923 39.762Z" fill="#1C1C1E"/>
-            </svg>
-            <img src="Regalia Dining/img/Study case/Clara.png" alt="Clara" class="persona-image">
-            <div class="persona-content">
-              <h2 class="persona-name">Clara</h2>
-              
-              <div class="persona-characteristics">
-                  <div class="characteristic">
-                      <img src="Regalia Dining/img/Study case/user.svg" alt="Personality">
-                      <span>Curious, adventurous</span>
-                  </div>
-                  <div class="characteristic">
-                      <img src="Regalia Dining/img/Study case/occupation.svg" alt="Occupation">
-                      <span>Marketing Specialist</span>
-                  </div>
-              </div>
-          
-              <div class="content-section">
-                  <h3>Frustrations:</h3>
-                  <ul>
-                    <li>Poorly designed websites with low-quality images.</li>
-                    <li>Frustration with websites that lack detailed descriptions and context for menu items.</li>
-                  </ul>
-              </div>
-          
-              <div class="content-section">
-                  <h3>Goals:</h3>
-                  <ul>
-                      <li>Seeks authentic Japanese dining experiences with high-quality ingredients.</li>
-                      <li>Desires detailed menu descriptions and information.</li>
-                  </ul>
-              </div>
-          
-              <div class="content-section">
-                  <h3>Lifestyle:</h3>
-                  <p>Lives in a bustling city, enjoys dining out with friends, attends food festivals, and follows several food blogs and Instagram accounts for inspiration.</p>
-              </div>
-            </div>
+      <div class="description-grid">
+        <!-- Мобильная версия -->
+        <div class="mobile-preview">
+          <img src="Regalia dining/img/Study case/Mobile frame.png" alt="Mobile Version">
         </div>
-
-        <!-- John -->
-        <div class="persona-card">
-            <svg width="564" height="1159" viewBox="0 0 564 1159" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M403.67 67.1162C403.67 40.0688 394.039 7.20056 367.049 5.43626C363.798 5.22371 360.456 5.0365 357.018 4.87161C350.226 4.54582 345.22 11.155 345.22 17.955C345.22 67.3209 267.122 107.34 170.783 107.34C119.747 107.34 73.8304 96.1088 41.9317 78.2069C34.6691 74.131 25.2014 75.6404 21.0482 82.8592C0 119.444 0 168.522 0 266.678V895.927C0 994.084 0 1043.16 21.0482 1079.75C34.9599 1103.93 55.0257 1123.99 79.2059 1137.9C115.79 1158.95 164.868 1158.95 263.025 1158.95C361.181 1158.95 410.259 1158.95 446.843 1137.9C471.023 1123.99 491.089 1103.93 505.001 1079.75C526.049 1043.16 526.049 994.084 526.049 895.927V266.678C526.049 230.673 526.049 201.272 525.01 176.668C524.233 158.253 504.296 147.563 485.865 147.563V147.563C440.47 147.563 403.67 111.546 403.67 67.1162V67.1162ZM290.38 73.8445C321 58.1542 337 37.9532 337 17.955C337 15.7051 336.798 13.4526 336.395 11.2042C335.61 6.82899 331.68 4.04363 327.235 3.96896C322.091 3.88253 317.561 7.49852 315.773 12.3224C306.263 37.9795 280.309 56.3896 249.782 56.3896C226.748 56.3896 203.282 45.6253 180.102 34.9923C149.132 20.786 118.673 6.81428 90.4417 19.0628C86.5512 20.7507 82.8176 22.6236 79.2059 24.7015C67.5897 31.3847 56.9231 39.4881 47.4321 48.7857C39.6949 56.3653 41.5471 68.9051 51.1865 73.8445C81.3705 89.3114 123.642 99.1203 170.783 99.1203C217.925 99.1203 260.196 89.3114 290.38 73.8445ZM281.923 39.762C272.614 45.0825 261.635 48.1701 249.782 48.1701C247.48 48.1701 245.211 48.0537 242.981 47.827C205.771 44.0458 225.623 3.65332 263.025 3.65332C286.858 3.65332 302.616 27.9354 281.923 39.762Z" fill="#1C1C1E"/>
-            </svg>
-            <img src="Regalia Dining/img/Study case/John.png" alt="John" class="persona-image">
-            <div class="persona-content">
-              <h2 class="persona-name">John</h2>
-              
-              <div class="persona-characteristics">
-                  <div class="characteristic">
-                      <img src="Regalia Dining/img/Study case/user.svg" alt="Personality">
-                      <span>Family-oriented, tech-savvy</span>
-                  </div>
-                  <div class="characteristic">
-                      <img src="Regalia Dining/img/Study case/occupation.svg" alt="Occupation">
-                      <span>Software Engineer</span>
-                  </div>
-              </div>
-          
-              <div class="content-section">
-                  <h3>Frustrations:</h3>
-                  <ul>
-                    <li>Difficulty navigating complex websites with confusing layouts.</li>
-                    <li>Lack of clear information on seating availability and restaurant policies.</li>
-                  </ul>
-              </div>
-          
-              <div class="content-section">
-                  <h3>Goals:</h3>
-                  <ul>
-                      <li>Looks for easy online reservations and a seamless booking experience.</li>
-                      <li>Desires family-friendly menu options with clear descriptions and photos.</li>
-                  </ul>
-              </div>
-          
-              <div class="content-section">
-                  <h3>Lifestyle:</h3>
-                  <p>Lives in a suburban area, spends weekends with family, values quality time, and prefers activities that everyone in the family can enjoy.</p>
-              </div>
-            </div>
-        </div>
-
-        <!-- Ana -->
-        <div class="persona-card">
-            <svg width="564" height="1159" viewBox="0 0 564 1159" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M403.67 67.1162C403.67 40.0688 394.039 7.20056 367.049 5.43626C363.798 5.22371 360.456 5.0365 357.018 4.87161C350.226 4.54582 345.22 11.155 345.22 17.955C345.22 67.3209 267.122 107.34 170.783 107.34C119.747 107.34 73.8304 96.1088 41.9317 78.2069C34.6691 74.131 25.2014 75.6404 21.0482 82.8592C0 119.444 0 168.522 0 266.678V895.927C0 994.084 0 1043.16 21.0482 1079.75C34.9599 1103.93 55.0257 1123.99 79.2059 1137.9C115.79 1158.95 164.868 1158.95 263.025 1158.95C361.181 1158.95 410.259 1158.95 446.843 1137.9C471.023 1123.99 491.089 1103.93 505.001 1079.75C526.049 1043.16 526.049 994.084 526.049 895.927V266.678C526.049 230.673 526.049 201.272 525.01 176.668C524.233 158.253 504.296 147.563 485.865 147.563V147.563C440.47 147.563 403.67 111.546 403.67 67.1162V67.1162ZM290.38 73.8445C321 58.1542 337 37.9532 337 17.955C337 15.7051 336.798 13.4526 336.395 11.2042C335.61 6.82899 331.68 4.04363 327.235 3.96896C322.091 3.88253 317.561 7.49852 315.773 12.3224C306.263 37.9795 280.309 56.3896 249.782 56.3896C226.748 56.3896 203.282 45.6253 180.102 34.9923C149.132 20.786 118.673 6.81428 90.4417 19.0628C86.5512 20.7507 82.8176 22.6236 79.2059 24.7015C67.5897 31.3847 56.9231 39.4881 47.4321 48.7857C39.6949 56.3653 41.5471 68.9051 51.1865 73.8445C81.3705 89.3114 123.642 99.1203 170.783 99.1203C217.925 99.1203 260.196 89.3114 290.38 73.8445ZM281.923 39.762C272.614 45.0825 261.635 48.1701 249.782 48.1701C247.48 48.1701 245.211 48.0537 242.981 47.827C205.771 44.0458 225.623 3.65332 263.025 3.65332C286.858 3.65332 302.616 27.9354 281.923 39.762Z" fill="#1C1C1E"/>
-            </svg>
-            <img src="Regalia Dining/img/Study case/Ana.png" alt="Ana" class="persona-image">
-            <div class="persona-content">
-              <h2 class="persona-name">Ana</h2>
-              
-              <div class="persona-characteristics">
-                  <div class="characteristic">
-                      <img src="Regalia Dining/img/Study case/user.svg" alt="Personality">
-                      <span>Creative and highly visual</span>
-                  </div>
-                  <div class="characteristic">
-                      <img src="Regalia Dining/img/Study case/occupation.svg" alt="Occupation">
-                      <span>Food Blogger</span>
-                  </div>
-              </div>
-          
-              <div class="content-section">
-                  <h3>Frustrations:</h3>
-                  <ul>
-                    <li>Bland, uninspired website designs that don't reflect the quality of the restaurant.</li>
-                    <li>Frustration with websites that are not visually stimulating or engaging.</li>
-                  </ul>
-              </div>
-          
-              <div class="content-section">
-                  <h3>Goals:</h3>
-                  <ul>
-                      <li>Seeks detailed descriptions about the dishes and ingredients.</li>
-                      <li>Aims to discover unique culinary experiences to share with her audience.</li>
-                  </ul>
-              </div>
-          
-              <div class="content-section">
-                  <h3>Lifestyle:</h3>
-                  <p>Lives in a vibrant city, often attends restaurant openings, spends significant time on social media, and enjoys networking with other industry professionals.</p>
-              </div>
-            </div>
-        </div>
-      </div>
-      <script>
-        const cards = document.querySelectorAll('.persona-card');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.3
-        });
-
-        cards.forEach(card => observer.observe(card));
-      </script>
-    </section>
-
-    <!-- --------------------------------------------------------------
-    # Home Page Description
-    ---------------------------------------------------------------->
-    <section class="homepage-description">
-      <h2 class="homepage-title">Description of the Homepage Structure</h2>
-      <div class="description-content">
-          <!-- Левая колонка с изображением -->
-          <div class="image-column">
-              <img src="Regalia Dining/img/Study case/Home frame.png" alt="Homepage Structure" class="main-image">
-          </div>
-          
-          <!-- Правая колонка с описаниями -->
-          <div class="description-points">
-              <!-- First point  -->
-              <div class="description-point">
-                  <img src="Regalia Dining/img/Study case/Arrow.svg" alt="Arrow" class="arrow">
-                  <div class="point-content">
-                      <p class="point-text">The homepage opens with a clean, intuitive navigation bar and a striking hero section that immerses visitors in the sophisticated world of Japanese cuisine. A curved image of an exquisite dining environment sets the tone for the browsing experience. This section welcomes visitors with the flair of the brand essence. The scroll wheel functionality lets diners explore further with quick access to booking or browsing the menu.</p>
-                      <h3 class="point-title">Why It Works:</h3>
-                      <p class="point-text">This combination grabs attention instantly and provides easy access for first-time and returning visitors.</p>
-                  </div>
-              </div>
-  
-              <!-- Second point -->
-              <div class="description-point">
-                  <img src="Regalia Dining/img/Study case/Arrow.svg" alt="Arrow" class="arrow">
-                  <div class="point-content">
-                      <h3 class="point-title">Animated Section</h3>
-                      <p class="point-text"> 
-                        The animated cards serve two key purposes:
-                        <ul> 
-                          <li>
-                            <strong> Grab Attention: </strong> The cards automatically transition, showcasing the variety of dishes and drawing attention to their presentation. 
-                          </li>
-                          <li>
-                            <strong> Ease of Navigation: </strong> Users can click directly to access the corresponding menu section. 
-                          </li>
-                        </ul></p>
-                      <h3 class="point-title">Animation Features:</h3>
-                      <p class="point-text">The cards transition smoothly with a slider effect, highlighting the premium design and adding energy to the page. This not only gives the website a modern feel but also enhances the overall user experience.</p>
-                  </div>
-              </div>
-  
-              <!-- Third point -->
-              <div class="description-point">
-                  <img src="Regalia Dining/img/Study case/Arrow.svg" alt="Arrow" class="arrow">
-                  <div class="point-content">
-                      <h3 class="point-title">Delivery Focus</h3>
-                      <p class="point-text">infographic combine to highlight the ease and reliability of the delivery service. A relatable image of a delivery courier, paired with clear and simple steps illustrated through playful visuals, guides users on how to place an order.</p>
-                      <h3 class="point-title">Why It Works:</h3>
-                      <p class="point-text">Together, these sections build trust in the quality of the service and simplify the ordering process, encouraging users to take action..</p>
-                  </div>
-              </div>
-  
-              <!-- Fourth point -->
-              <div class="description-point">
-                  <img src="Regalia Dining/img/Study case/Arrow.svg" alt="Arrow" class="arrow">
-                  <div class="point-content">
-                      <h3 class="point-title">Crowd Favorites (Popular Menu)</h3>
-                      <p class="point-text">A curated list of best-selling dishes provides inspiration for both indecisive first-time visitors and regulars seeking familiar flavors. Each card displays high-quality images, detailed names, and prices, ensuring clarity and accessibility.</p>
-                      <h3 class="point-title">Why It Works:</h3>
-                      <p class="point-text">Featuring popular items adds credibility to the menu and helps users make quick, confident choices.</p>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-        const options = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, options);
-
-        const descriptionPoints = document.querySelectorAll('.description-point');
-        descriptionPoints.forEach(point => {
-            point.classList.add('hidden');
-            observer.observe(point);
-        });
-        });
-      </script>
-      <!-- script for mobile -->
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-        const isMobile = window.innerWidth <= 768;
         
-        const options = {
-            root: null,
-            rootMargin: isMobile ? '-10px' : '0px',
-            threshold: isMobile ? 0.05 : 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, options);
-
-        const descriptionPoints = document.querySelectorAll('.description-point');
-        descriptionPoints.forEach(point => {
-            point.classList.add('hidden');
-            observer.observe(point);
-        });
-
-        window.addEventListener('resize', () => {
-            const newIsMobile = window.innerWidth <= 768;
-            if (newIsMobile !== isMobile) {
-                location.reload();
-            }
-        });
-        });
-      </script>
-    </section>
-
-    <section class="homepage-description">
-      <h2 class="homepage-title">Our Menu</h2>
-      <div class="description-content">
-          <div class="image-column">
-              <img src="Regalia Dining/img/Study case/Our menu.png" alt="Menu Structure" class="menu-section-image">
+        <!-- Десктопная версия с точками -->
+        <div class="desktop-preview">
+          <img src="Regalia dining/img/Study case/Home frame V3.jpg" alt="Desktop Version">
+          
+          <!-- Точка 1 -->
+          <div class="point-marker point-1">
+            <div class="description-popup">
+              In the new items section, I arranged the composition of four dishes as a metaphor for Japanese seasons. Each card is a separate gastronomic story, framed in dark with golden accents. The uniform price of €20.00 creates visual harmony, while concise descriptions intrigue and invite exploration of each dish.
+            </div>
           </div>
-          <div class="description-points">
-              <div class="menu-description-point">
-                  <img src="Regalia Dining/img/Study case/Arrow.svg" alt="Arrow" class="menu-arrow">
-                  <div class="point-content">
-                      <p class="point-text"><strong>Discover the exquisite flavours of Japan, meticulously crafted for an unforgettable dining experience.</strong></p>
-                      <p class="point-text">At Regalia Dining, every dish is prepared with the finest ingredients, combining traditional techniques and innovative presentation.</p>
-                      <p class="point-text">Explore our diverse menu, from light and refreshing appetizers to authentic sushi, sashimi, and hearty noodles.</p>
-                      <p class="point-text">End your meal on a sweet note with our selection of desserts, perfectly paired with a curated drink list.</p>
-                  </div>
-              </div>
+          
+          <!-- Точка 2 -->
+          <div class="point-marker point-2">
+            <div class="description-popup">
+              Next section comes alive through flip animation, reminiscent of a fan's movement or a deck of cards. I created this interactive element as a bridge between contemplation and action - each flip reveals a new dish, inviting visitors to dive deeper into the restaurant's menu.
+            </div>
           </div>
-      </div>
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-        const options = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, options);
-
-        const descriptionPoints = document.querySelectorAll('.description-point');
-        descriptionPoints.forEach(point => {
-            point.classList.add('hidden');
-            observer.observe(point);
-        });
-        });
-      </script>
-      <!-- script for mobile -->
-      <script>
-        document.addEventListener('DOMContentLoaded', () => {
-        const isMobile = window.innerWidth <= 768;
-        
-        const options = {
-            root: null,
-            rootMargin: isMobile ? '-10px' : '0px',
-            threshold: isMobile ? 0.05 : 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, options);
-
-        const descriptionPoints = document.querySelectorAll('.description-point');
-        descriptionPoints.forEach(point => {
-            point.classList.add('hidden');
-            observer.observe(point);
-        });
-
-        window.addEventListener('resize', () => {
-            const newIsMobile = window.innerWidth <= 768;
-            if (newIsMobile !== isMobile) {
-                location.reload();
-            }
-        });
-        });
-      </script>
-    </section>
-
-    <!-- --------------------------------------------------------------
-    # Menu Frames
-    ----------------------------------------------------------------> 
-    <div class="menu-frames-section">
-      <div class="menu-frames-wrapper">
-        <div class="interaction-hint">
-          <svg class="interaction-hint-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <path d="M9 3C9 2.44772 9.44772 2 10 2H14C14.5523 2 15 2.44772 15 3V11H19L12 19L5 11H9V3Z" stroke-width="2"/>
-          </svg>
-          <span>Hover over images to interact</span>
+          
+          <!-- Точка 3 -->
+          <div class="point-marker point-3">
+            <div class="description-popup">
+              I chose organic shapes and flowing lines for this section, contrasting with the geometry of previous blocks, symbolizing the transition from the restaurant hall's formality to cozy home settings. The three-step delivery process story unfolds like a Japanese screen, where each panel reveals a new stage in the dish's journey from kitchen to customer's table.
+            </div>
+          </div>
+          
+          <!-- Точка 4 -->
+          <div class="point-marker point-4">
+            <div class="description-popup">
+              After the dynamic animated menu section, I intentionally placed the delivery section as a logical continuation of the gastronomic journey. It's like an invitation to transfer a piece of the restaurant's atmosphere into home comfort. The upper part of the section greets visitors with a warm human presence, creating a trusting connection between the restaurant and guest.
+            </div>
+          </div>
+          
+          <!-- Точка 5 -->
+          <div class="point-marker point-5">
+            <div class="description-popup">
+              I created the hero section as a theatrical curtain, opening a gastronomic performance. The large, eye-catching nigiri shot creates a powerful visual accent, while the golden "Japanese Cuisine" typography floats above the composition like a moon in the night sky. The concise restaurant text delicately complements the picture without overwhelming the space.
+            </div>
+          </div>
+          
+          <!-- Точка 6 -->
+          <div class="point-marker point-6">
+            <div class="description-popup">
+              After the dynamic delivery narrative, I created the "Popular" section as a kind of culmination of the gastronomic journey. It features the most popular dishes arranged in the same four-part composition as the novelties section, creating a visual rhyme with the website's beginning. It's like returning to the basics, but with a new understanding.
+            </div>
+          </div>
+          
+          <!-- Точка 7 -->
+          <div class="point-marker point-7">
+            <div class="description-popup">
+              As a final touch, I placed the contact section, dividing it into two parts: text information on the left and an interactive map on the right. This section is intentionally minimalistic, following the Japanese philosophy of "wabi-sabi" – beauty in simplicity. The footer completes the composition, bringing together all navigation threads like the final stroke in calligraphy.
+            </div>
+          </div>
         </div>
-    
-        <div class="menu-frames-container">
-          <img src="Regalia Dining/img/Study case/Menu - Appetizers frame.png" alt="Menu Structure" class="menu-frame menu-frame-appetizers">
-          <img src="Regalia Dining/img/Study case/Menu - Sashimi frame.png" alt="Menu Structure" class="menu-frame menu-frame-sashimi">
-          <img src="Regalia Dining/img/Study case/Menu - Noodles frame.png" alt="Menu Structure" class="menu-frame menu-frame-noodles">
-          <img src="Regalia Dining/img/Study case/Menu - Drinks frame.png" alt="Menu Structure" class="menu-frame menu-frame-drinks">
+      </div>
+    </section>
+    <div class="case-study">
+      <div class="mockup">
+          <img src="Regalia dining/img/Study case/Mockups.png" alt="Case Study Mockup" class="case-study-mockup">
+      </div>
+   </div>
+  </main>
+
+  <!-- --------------------------------------------------------------
+    # Booking a Table 
+  ---------------------------------------------------------------->
+  <section class="booking-section">
+    <div class="interaction-hint">
+      <div class="hint-marker"></div>
+      <span>Hover over these markers to see detailed descriptions</span>
+    </div>
+    <div class="booking-preview">
+      <img src="Regalia dining/img/Study case/Book a tabe frame V3.png" alt="Booking Page Preview">
+      <div class="booking-point-marker">
+        <div class="booking-description-popup">
+          In designing the booking page, I created an atmosphere of tranquility and elegance. The form is placed on a deep dark background, like a pearl in a jewelry box, framed by soft gradients. I styled each input field with minimal visual elements, following the principle of Japanese minimalism, where every detail matters but nothing is superfluous.
         </div>
       </div>
     </div>
-    <div class="overlay"></div>
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-      const frames = document.querySelectorAll('.menu-frame');
-      const overlay = document.querySelector('.overlay');
-      let activeFrame = null;
+  </section>
 
-      frames.forEach(frame => {
-        frame.addEventListener('mousemove', handleMouseMove);
-        frame.addEventListener('mouseenter', handleMouseEnter);
-        frame.addEventListener('mouseleave', handleMouseLeave);
-        frame.addEventListener('click', handleClick);
-      });
+  <!-- Custom Divider -->
+  <div class="custom-divider"></div>
 
-      overlay.addEventListener('click', closeZoom);
-
-      function handleMouseMove(e) {
-        if (activeFrame) return;
-        
-        const frame = e.currentTarget;
-        const rect = frame.getBoundingClientRect();
-        const mouseX = e.clientX - rect.left - rect.width / 2;
-        const mouseY = e.clientY - rect.top - rect.height / 2;
-        const mousePX = mouseX / rect.width;
-        const mousePY = mouseY / rect.height;
-        const rX = mousePX * 15;
-        const rY = mousePY * -15;
-        const tX = mousePX * -10;
-        const tY = mousePY * -10;
-
-        frame.style.transform = `
-          perspective(1000px)
-          rotateY(${rX}deg)
-          rotateX(${rY}deg)
-          translateX(${tX}px)
-          translateY(${tY}px)
-          scale(1.35)
-          translateZ(40px)
-        `;
-      }
-
-      function handleMouseEnter(e) {
-        const frame = e.currentTarget;
-        frame.style.transition = 'transform 0.2s ease-out';
-        frame.style.zIndex = '10';
-      }
-
-      function handleMouseLeave(e) {
-        const frame = e.currentTarget;
-        frame.style.transition = 'all 0.5s ease-in-out';
-        frame.style.zIndex = '1';
-        resetFrameTransform(frame);
-      }
-
-      function handleClick(e) {
-        const frame = e.currentTarget;
-        if (frame === activeFrame) {
-          closeZoom();
-        } else {
-          zoomFrame(frame);
-        }
-      }
-
-      function zoomFrame(frame) {
-        activeFrame = frame;
-        frame.classList.add('active');
-        overlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeZoom() {
-        if (activeFrame) {
-          activeFrame.classList.remove('active');
-          resetFrameTransform(activeFrame);
-          overlay.classList.remove('active');
-          document.body.style.overflow = '';
-          activeFrame = null;
-        }
-      }
-
-      function resetFrameTransform(frame) {
-        frame.style.transform = `
-          perspective(1000px)
-          rotateY(0deg)
-          rotateX(0deg)
-          translateX(0)
-          translateY(0)
-          scale(1)
-          translateZ(0)
-        `;
-      }
-
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && activeFrame) {
-          closeZoom();
-        }
-      });
-    });
-    </script>
-    
-    <!-- --------------------------------------------------------------
-    # Thank you Section
-    ---------------------------------------------------------------->
-
-    <section class="thank-you-section">
-      <div class="thank-you-frame">
-          <img src="Regalia Dining/img/Study case/thanks2.png" alt="Thank You Image 1" class="thank-you-image">
-          <img src="Regalia Dining/img/Study case/thanks1.png" alt="Thank You Image 2" class="thank-you-image">
+  <!-- Menu Section -->
+  <section class="menu-section">
+    <div class="interaction-hint">
+      <div class="hint-marker"></div>
+      <span>Hover over these markers to see detailed descriptions</span>
+    </div>
+    <div class="menu-preview">
+      <img src="Regalia dining/img/Study case/Menu Desserts V3.png" alt="Menu Page Preview">
+      <div class="menu-point-marker">
+        <div class="menu-description-popup">
+          In designing the menu page, I created a harmonious composition where each dish becomes its own work of art. The navigation through dish categories – APPETIZERS, SUSHI, SASHIMI, NOODLES, DESSERTS, DRINKS – floats above the main content like elegant calligraphic strokes, helping guests easily navigate the gastronomic space.
+        </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
+  <!-- Big Mockup Section -->
+  <section class="big-mockup-section">
+    <div class="big-mockup-container">
+      <img src="Regalia dining/img/Study case/bigMockup.png" alt="Big Mockup Preview" class="big-mockup-image">
+    </div>
+  </section>
+  
+  <!-- --------------------------------------------------------------
+    # User research
+  ---------------------------------------------------------------->
+  <section class="research-section">
+    <div class="research-content" data-aos="fade-up">
+      <h2 class="research-title">User Research and Create Persona</h2>
+      <p class="research-text">Understanding my users is at the core of building a successful website for Regalia Dining. In the user research phase, I focused on uncovering meaningful insights into the needs, preferences, and behaviors of the target audience.</p>
+    </div>
+
+    <div class="persona-container">
+      <!-- Clara Persona -->
+      <div class="persona-card">
+        <svg width="830" height="864" viewBox="0 0 830 864" fill="none" xmlns="http://www.w3.org/2000/svg" class="persona-svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M644 67.1182C644 41.7983 629.937 5.06 604.622 4.54428C596.303 4.3748 587.663 4.25809 578.686 4.17772C578.249 4.17381 577.827 4.38006 577.566 4.73058C540.825 54.0003 462.807 88 372.5 88C366.956 88 361.458 87.8719 356.013 87.6199C324.038 86.1403 308.051 85.4005 305.223 85.3864C302.395 85.3724 289.984 85.8234 265.163 86.7253C260.148 86.9075 255.092 87 250 87C185.528 87 126.849 72.1794 82.9829 47.9286C74.2733 43.1136 63.3134 43.2393 56.2764 50.2764C10 96.5527 10 171.033 10 319.995V545.005C10 693.967 10 768.447 56.2764 814.724C102.553 861 177.033 861 325.995 861H514.005C662.967 861 737.447 861 783.724 814.724C830 768.447 830 693.967 830 545.005V319.995C830 271.412 830 230.751 828.395 196.408C826.691 159.969 767.673 147.565 731.195 147.565V147.565C683.039 147.565 644 111.547 644 67.1182V67.1182ZM528.906 38.041C543.807 28.4123 556.375 17.5433 566.263 5.77406C566.826 5.10372 566.349 4.08966 565.474 4.08503C549.378 4 532.25 4 514.005 4H482.955C475.724 4 468.962 7.33846 463.977 12.576C442.002 35.6607 409.867 54.842 371.208 67.9474C364.717 70.1478 365.646 79.7805 372.5 79.7805C433.977 79.7805 489.252 63.6638 528.906 38.041ZM315.103 73.4663C312.235 73.946 309.303 73.903 306.452 73.3298C271.764 66.3561 240.878 54.0552 216.094 38.041C199.384 27.244 207.775 5.21928 227.663 4.71936C232.774 4.59089 238.01 4.48536 243.375 4.39868C250.823 4.27834 257.993 6.90746 264.195 11.0338C287.634 26.6288 317.707 36 350.5 36C387.195 36 420.483 24.2662 444.883 5.20844C445.875 4.4333 447.092 4 448.352 4C453.125 4 455.546 9.56592 452.066 12.8332C442.882 21.456 432.054 29.526 419.732 36.8889C391.278 53.8917 355.416 66.7225 315.103 73.4663ZM187.067 26.1819C211.375 48.236 244.872 65.7688 283.947 76.448C284.453 76.5864 284.389 77.3269 283.866 77.3708C272.812 78.2993 261.506 78.7805 250 78.7805C183.297 78.7805 123.307 62.6073 80.268 36.8889C78.3092 35.7184 78.2981 32.9165 80.2675 31.7639C97.8442 21.4765 118.883 15.001 144.797 10.9248C160.329 8.48152 175.422 15.6169 187.067 26.1819ZM345.876 4C371.979 4 376.603 27.7805 350.5 27.7805C340.495 27.7805 330.815 26.8802 321.562 25.1848C304.458 22.0509 308.605 4 325.995 4H345.876Z" fill="#101728"/>
+        </svg>
+        <img src="Regalia dining/img/Study case/Clara.png" alt="Clara Persona" class="persona-image clara-image">
+        <div class="persona-content">
+          <h2 class="persona-name">Clara</h2>
+          <div class="persona-characteristics">
+            <div class="characteristic">
+              <img src="Regalia Dining/img/Study case/user.svg" alt="Personality">
+              <span>Curious, adventurous</span>
+            </div>
+            <div class="characteristic">
+              <img src="Regalia Dining/img/Study case/occupation.svg" alt="Occupation">
+              <span>Marketing Specialist</span>
+            </div>
+          </div>
+          
+          <div class="sections-wrapper">
+            <div class="content-section">
+              <h3>Frustrations:</h3>
+              <ul>
+                <li>Poorly designed websites with low-quality images.</li>
+                <li>Frustration with websites that lack detailed descriptions and context for menu items.</li>
+              </ul>
+            </div>
+        
+            <div class="content-section">
+              <h3>Lifestyle:</h3>
+              <p>Lives in a bustling city, enjoys dining out with friends, attends food festivals, and follows several food blogs and Instagram accounts for inspiration.</p>
+            </div>
+        
+            <div class="content-section goals">
+              <h3>Goals:</h3>
+              <ul>
+                <li>Seeks authentic Japanese dining experiences with high-quality ingredients.</li>
+                <li>Desires detailed menu descriptions and information.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ana Persona -->
+      <div class="persona-card">
+        <svg width="830" height="864" viewBox="0 0 830 864" fill="none" xmlns="http://www.w3.org/2000/svg" class="persona-svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M644 67.1182C644 41.7983 629.937 5.06 604.622 4.54428C596.303 4.3748 587.663 4.25809 578.686 4.17772C578.249 4.17381 577.827 4.38006 577.566 4.73058C540.825 54.0003 462.807 88 372.5 88C366.956 88 361.458 87.8719 356.013 87.6199C324.038 86.1403 308.051 85.4005 305.223 85.3864C302.395 85.3724 289.984 85.8234 265.163 86.7253C260.148 86.9075 255.092 87 250 87C185.528 87 126.849 72.1794 82.9829 47.9286C74.2733 43.1136 63.3134 43.2393 56.2764 50.2764C10 96.5527 10 171.033 10 319.995V545.005C10 693.967 10 768.447 56.2764 814.724C102.553 861 177.033 861 325.995 861H514.005C662.967 861 737.447 861 783.724 814.724C830 768.447 830 693.967 830 545.005V319.995C830 271.412 830 230.751 828.395 196.408C826.691 159.969 767.673 147.565 731.195 147.565V147.565C683.039 147.565 644 111.547 644 67.1182V67.1182ZM528.906 38.041C543.807 28.4123 556.375 17.5433 566.263 5.77406C566.826 5.10372 566.349 4.08966 565.474 4.08503C549.378 4 532.25 4 514.005 4H482.955C475.724 4 468.962 7.33846 463.977 12.576C442.002 35.6607 409.867 54.842 371.208 67.9474C364.717 70.1478 365.646 79.7805 372.5 79.7805C433.977 79.7805 489.252 63.6638 528.906 38.041ZM315.103 73.4663C312.235 73.946 309.303 73.903 306.452 73.3298C271.764 66.3561 240.878 54.0552 216.094 38.041C199.384 27.244 207.775 5.21928 227.663 4.71936C232.774 4.59089 238.01 4.48536 243.375 4.39868C250.823 4.27834 257.993 6.90746 264.195 11.0338C287.634 26.6288 317.707 36 350.5 36C387.195 36 420.483 24.2662 444.883 5.20844C445.875 4.4333 447.092 4 448.352 4C453.125 4 455.546 9.56592 452.066 12.8332C442.882 21.456 432.054 29.526 419.732 36.8889C391.278 53.8917 355.416 66.7225 315.103 73.4663ZM187.067 26.1819C211.375 48.236 244.872 65.7688 283.947 76.448C284.453 76.5864 284.389 77.3269 283.866 77.3708C272.812 78.2993 261.506 78.7805 250 78.7805C183.297 78.7805 123.307 62.6073 80.268 36.8889C78.3092 35.7184 78.2981 32.9165 80.2675 31.7639C97.8442 21.4765 118.883 15.001 144.797 10.9248C160.329 8.48152 175.422 15.6169 187.067 26.1819ZM345.876 4C371.979 4 376.603 27.7805 350.5 27.7805C340.495 27.7805 330.815 26.8802 321.562 25.1848C304.458 22.0509 308.605 4 325.995 4H345.876Z" fill="#101728"/>
+        </svg>
+        <img src="Regalia dining/img/Study case/Ana.png" alt="Ana Persona" class="persona-image ana-image">
+        <div class="persona-content">
+          <h2 class="persona-name">Ana</h2>
+          <div class="persona-characteristics">
+            <div class="characteristic">
+              <img src="Regalia Dining/img/Study case/user.svg" alt="Personality">
+              <span>Creative and highly visual</span>
+            </div>
+            <div class="characteristic">
+              <img src="Regalia Dining/img/Study case/occupation.svg" alt="Occupation">
+              <span>Food Blogger</span>
+            </div>
+          </div>
+          
+          <div class="sections-wrapper">
+            <div class="content-section">
+              <h3>Frustrations:</h3>
+              <ul>
+                <li>Bland, uninspired website designs that don't reflect the quality of the restaurant.</li>
+                <li>Frustration with websites that are not visually stimulating or engaging.</li>
+              </ul>
+            </div>
+        
+            <div class="content-section">
+              <h3>Lifestyle:</h3>
+              <p>Lives in a vibrant city, often attends restaurant openings, spends significant time on social media, and enjoys networking with other industry professionals.</p>
+            </div>
+        
+            <div class="content-section goals">
+              <h3>Goals:</h3>
+              <ul>
+                <li>Seeks detailed descriptions about the dishes and ingredients.</li>
+                <li>Aims to discover unique culinary experiences to share with her audience.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- --------------------------------------------------------------
+    # Business card 
+  ---------------------------------------------------------------->
+  <section class="visual-identity">
+    <div class="visual-content">
+      <h2 class="visual-title">Visual Identity in Details</h2>
+      <div class="text-columns">
+        <div class="column">
+          <p>As part of creating a holistic brand identity, I developed business cards that continue the restaurant's premium aesthetics. The double-sided card design embodies the duality of Japanese culture: tradition and modernity. The front side features an expressive photograph of the signature dish with golden "Japanese Cuisine" typography, creating an immediate association with the restaurant's gastronomic masterpieces.</p>
+        </div>
+        <div class="column">
+          <p>The reverse side combines business information with an artistic element – a flowing golden line reminiscent of a calligraphic stroke. This line not only divides the space but creates a dynamic composition with the sushi photograph, where chopsticks hold a delicate piece of salmon. The dark background and golden accents maintain the brand's premium character, making the business card not just an information carrier, but a miniature work of art.</p>
+        </div>
+      </div>
+      <div class="business-card-image">
+        <img src="Regalia Dining/img/Study case/Business Card.png" alt="Regalia Dining Business Card Design">
+      </div>
+    </div>
+  </section>
+  <!-- --------------------------------------------------------------
+    # Delivery Box
+  ---------------------------------------------------------------->
+  <section class="delivery-box">
+    <div class="box-content">
+      <h2 class="box-title" data-aos="fade-up">Box as an Artwork</h2>
+      <p class="box-text" data-aos="fade-up" data-aos-delay="100">
+        For delivery, I created a minimalist black box with a volumetric 3D composition centered on the signature roll photograph. Golden edges create a precious box effect, emphasizing the brand's premium quality. The "Regalia Dining" name appears in the same golden palette, while the dynamic composition with chopsticks holding a piece of salmon adds an interactive and movement element to the static design.
+      </p>
+      <div class="box-image" data-aos="fade-up" data-aos-delay="200">
+        <img src="Regalia Dining/img/Study case/Box.png" alt="Regalia Dining Delivery Box">
+      </div>
+    </div>
+  </section>
+  <!-- --------------------------------------------------------------
+    # Harmony Section
+  ---------------------------------------------------------------->
+  <section class="harmony-section">
+    <div class="harmony-content">
+      <h2 class="harmony-title" data-aos="fade-up">Harmony of Tradition and Modernity</h2>
+      <div class="text-columns" data-aos="fade-up" data-aos-delay="100">
+        <div class="column">
+          <p>In the Regalia Dining project, I created a digital experience that conveys the essence of Japanese cuisine through modern design. From the first glance at the hero section to the final touch in delivery design – each element works to create a holistic premium image, where I paid special attention to food photography, presenting each dish as an artwork on a dark background.</p>
+        </div>
+        <div class="column">
+          <p>Golden accents, flowing lines, and organic shapes create a unified visual language that can be traced through all brand touchpoints – from website to packaging. Interactive elements and animations add dynamism to the site without disturbing the overall harmony, while the thoughtful structure simplifies the user's journey from first acquaintance to placing an order or booking a table.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- --------------------------------------------------------------
+    # UI KIT
+  ---------------------------------------------------------------->
+  <section class="ui-kit-section">
+    <div class="ui-kit-content">
+      <div class="ui-kit-image" data-aos="fade-up">
+        <img src="Regalia Dining/img/Study case/UI Kit.png" alt="Regalia Dining UI Kit">
+      </div>
+    </div>
+  </section>
+  <!-- --------------------------------------------------------------
+    # Thank You 
+  ---------------------------------------------------------------->
+  <section class="thank-you-section">
+    <div class="thank-you-frame">
+        <img src="Regalia Dining/img/Study case/thanks2.png" alt="Thank You Image 1" class="thank-you-image">
+        <img src="Regalia Dining/img/Study case/thanks1.png" alt="Thank You Image 2" class="thank-you-image">
+    </div>
+  </section>
   <!-- --------------------------------------------------------------
     # Footer
   ---------------------------------------------------------------->
@@ -2358,7 +3929,10 @@
         <p>© <span>Copyright</span> <strong class="px-1 sitename">Yana Harcourt</strong> <span>All Rights Reserved</span></p>
       </div>
       <div class="social-links d-flex justify-content-center">
-        <a href="https://www.linkedin.com/in/yana-h-16800a296/" class="linkedin"><i class="bi bi-linkedin"></i></i></a> <a href="https://www.behance.net/yana_harcourt" class="Behance"><i class="bi bi-behance"></i></i></a>
+        <a href="https://www.linkedin.com/in/yana-h-16800a296/" class="linkedin"><i class="bi bi-linkedin"></i></i></a> 
+        <a href="https://www.behance.net/yana_harcourt" class="Behance"><i class="bi bi-behance"></i></i></a>
+        <a href="https://www.instagram.com/yana.uxui.lab/" class="Instagram"><i class="bi bi-instagram"></i></i></a>
+        <a href="https://t.me/H_Yana_A" class="Telegram"><i class="bi bi-telegram"></i></i></a>
       </div>
     </div>
   </footer>
