@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunar Exploration App</title>
+
+    <!-- Подключение Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #F8FAFC;
+            --heading-color1: #0F172A;
+            --heading-color2: #12172B;
+            --body: #334155;
+          
+            /* Иконки */
+            --icon-color1: #2E66E3;
+            --icon-color2: #6E56CF;
+            --icon-color3: #0D9488;
+            --icon-color4: #2E90FA;
+
+            /* Карточки */
+            --card-bg1: #F0F9FF;
+            --card-bg2: #F0F6FE;
+            --card-bg3: #F5F3FF;
+            --card-bg4: #F0FDF9;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--body);
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Inter', serif;
+            color: var(--heading-color);
+            margin: 0;
+        }
+
+        .h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 140px;
+            color: var(--heading-color);
+            font-weight: 300;
+            line-height: 140%;
+        }
+        .h2 {
+            font-family: 'Instrument Serif', serif;
+            font-size: 56px;
+            color: var(--heading-color);
+            font-weight: 300;
+            line-height: 150%;
+        }
+        .h3 {
+            font-family: 'Inter', serif;
+            font-size: 48px;
+            color: var(--heading-color);
+            font-weight: 300;
+            line-height: 150%;
+        }
+        .h4 {
+            font-family: 'Inter', serif;
+            font-size: 32px;
+            color: var(--heading-color);
+            font-weight: 300;
+            line-height: 150%;
+        }
+        .h5 {
+            font-family: 'Inter', serif;
+            font-size: 24px;
+            color: var(--heading-color);
+            font-weight: 300;
+            line-height: 150%;
+        }
+        .h5 {
+            font-family: 'Inter', serif;
+            font-size: 20px;
+            color: var(--heading-color);
+            font-weight: 300;
+            line-height: 150%;
+        }
+
+        .body-text {
+            font-family: 'Inter', serif;
+            font-size: 20px;
+            color: var(--body);
+            font-weight: 300;
+            line-height: 150%;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+    
+        .hero-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 80px;
+        height: 100vh;
+        margin-top: 100px;
+        box-sizing: border-box;
+        }
+        
+        .hero-content {
+        max-width: 50%;
+        }
+        
+        .hero-title {
+        font-family: 'Instrument Serif', serif;
+        font-size: 140px;
+        color: var(--heading-color1);
+        letter-spacing: 6%;
+        line-height: 0.9;
+        }
+        
+        .hero-title .italic {
+        font-style: italic;
+        }
+        
+        .subtitle {
+        font-family: 'Inter', sans-serif;
+        font-size: 56px;
+        color: var(--heading-color1);
+        opacity: 70%;
+        margin-bottom: 32px;
+        font-weight: 300;
+        }
+        
+        .description {
+        font-family: 'Inter', sans-serif;
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 1.6;
+        color: var(--body);
+        opacity: 90%;
+        max-width: 600px;
+        margin-bottom: 16px;
+        margin-top: 30px;
+        }
+        
+        .hero-image {
+        max-width: 45%;
+        position: relative;
+        }
+        
+        .hero-image img {
+        width: 100%;
+        height: auto;
+        filter: drop-shadow(0px 10px 20px rgba(0, 0, 0, 0.1));
+        }
+
+        /* Challenge Section */
+        .challenge-section {
+            margin-bottom: 100px;
+            margin-top: 60px;
+        }
+
+        .section-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 48px;
+            font-weight: 300;
+            line-height: 150%;
+            letter-spacing: 6%;
+            color: var(--heading-color1);
+        }
+
+        .section-title .italic {
+            font-style: italic;
+        }
+
+        .section-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 20px;
+            line-height: 150%;
+            font-weight: 300;
+            color: var(--body);
+            max-width: 574px;
+            opacity: 90%;
+        }
+
+        /* User Research Section */
+        .research-section {
+            margin-bottom: 70px;
+        }
+
+        .user-groups-title {
+            font-family: 'Inter', serif;
+            font-size: 32px;
+            color: var(--heading-color1);
+            line-height: 150%;
+            font-weight: 300;
+            letter-spacing: 6%;
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg1);
+            padding: 32px;
+            border-radius: 50px;
+            width: 630px;
+            box-sizing: border-box;
+        }
+
+        .card-title {
+            font-family: 'Inter', serif;
+            font-size: 24px;
+            color: var(--heading-color2);
+            margin-bottom: 16px;
+            line-height: 150%;
+            font-weight: 300;
+            letter-spacing: 6%;
+            opacity: 90%;
+        }
+
+        .card-item {
+            display: flex;
+            align-items: center;
+            opacity: 80%;
+            max-height: 38px;
+        }
+
+        .card-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .card-icon {
+            margin-right: 12px;
+            width: 24px;
+            height: 24px;
+            fill: var(--icon-color4);
+        }
+
+        .card-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 150%;
+            color: var(--heading-color2);
+        }
+
+        .photo1 {
+            width: 100%;
+            max-width: 100vw;
+            margin: 0 auto;
+            padding: 0;
+            overflow: hidden;
+            margin-bottom: 70px;
+            position: relative;
+        }
+
+        .photo1 img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .brainstorm {
+            background-color: var(--bg-color);
+            border-radius: 50px;
+        }
+
+        .brainstorm h3 {
+            font-size: 48px;
+            font-weight: 300;
+            line-height: 150%;
+            letter-spacing: 6%;
+            color: var(--heading-color1);
+        }
+
+        .challenges-container {
+            background-color: var(--card-bg1);
+            padding: 30px;
+            border-radius: 50px;
+            margin-top: 30px;
+        }
+
+        .challenges-container h4 {
+            font-size: 32px;
+            font-weight: 300;
+            line-height: 150%;
+            letter-spacing: 6%;
+            color: var(--heading-color2);
+            opacity: 90%;
+        }
+
+        .challenges {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .challenge-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center; 
+            gap: 20px; 
+        }
+        .challenge-card img {
+            width: 40px; 
+            height: 40px;
+        }
+        .challenge-card div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .challenge-card h5 {
+            font-size: 24px;
+            font-weight: 300;
+            line-height: 150%;
+            opacity: 80%;
+            color: var(--heading-color2);
+            margin: 0;
+        }
+
+        .challenge-card p {
+            font-size: 20px;
+            font-weight: 300;
+            line-height: 150%;
+            opacity: 80%;
+            color: var(--body);
+            margin: 0;
+        }
+        .juxtapose-section {
+            margin: 0;
+            padding: 0;
+        }
+        .juxtapose {
+            display: block; 
+            border: none; 
+        }
+       
+    @media (max-width: 768px) {
+    body {
+        font-size: 16px; 
+    }
+
+    /* Заголовки */
+    .h1 {
+        font-size: 72px;
+    }
+    .h2 {
+        font-size: 36px;
+    }
+    .h3 {
+        font-size: 28px;
+    }
+    .h4 {
+        font-size: 24px;
+    }
+    .h5 {
+        font-size: 18px;
+    }
+    
+    .body-text {
+        font-size: 16px; 
+    }
+
+    /* Контейнер */
+    .container {
+        padding: 40px 10px; 
+    }
+
+    /* Hero Section */
+    .hero-section {
+        flex-direction: column;
+        padding: 40px;
+        height: auto;
+    }
+
+    .hero-title {
+        font-size: 72px;
+    }
+
+    .hero-image {
+        max-width: 100%; 
+        margin-top: 20px;
+    }
+
+    /* Challenge Section */
+    .challenge-section {
+        margin-top: 40px;
+    }
+
+    .section-title {
+        font-size: 32px; 
+    }
+
+    /* User Research Section */
+    .research-section {
+        margin-top: 30px;
+    }
+
+    .user-groups-title {
+        font-size: 28px;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .card {
+        width: 100%; 
+        padding: 20px; 
+    }
+
+    .photo1 {
+        width: 100%;
+        padding: 0;
+    }
+
+    .brainstorm h3 {
+        font-size: 36px;
+    }
+
+    .challenges-container {
+        padding: 20px;
+    }
+
+    .challenges-container h4 {
+        font-size: 24px;
+    }
+
+    .challenges {
+        grid-template-columns: 1fr; 
+    }
+
+    .challenge-card {
+        display: flex;
+        flex-direction: row; 
+        justify-content: left; 
+        align-items: left; 
+        gap: 10px; 
+    }
+
+    .challenge-card img {
+        width: 40px;  
+        height: 40px; 
+    }
+
+    .challenge-card div {
+        display: flex;
+        flex-direction: column; 
+        justify-content: left; 
+        align-items: left;
+        text-align: left; 
+    }
+
+    .challenge-card h5,
+    .challenge-card p {
+        text-align: left; 
+    }
+
+    /* Juxtapose Section */
+    .juxtapose-section {
+        padding: 0;
+        margin: 0;
+    }
+
+    .juxtapose {
+        width: 100%; 
+        height: auto; 
+    }
+}
+@media (max-width: 768px) {
+    .juxtapose-section {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        overflow-x: hidden; 
+        overflow-y: auto;  
+    }
+
+    .juxtapose {
+        width: 100%;
+        height: auto; 
+        min-height: 100vh; 
+        border: none; 
+        max-width: 100%;
+}
+
+    </style> 
+</head>
+    <body>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">HEXAB<span class="italic">O</span>T</h1>
+                <h2 class="subtitle">Mobile App</h2>
+                <p class="description">The Hexabot mobile interface revolutionises remote robotic management for teams working
+                    in extreme planetary environments. As humanity expands beyond Earth, these autonomous units have become
+                    essential for scientific exploration and resource gathering. <br> <br>The application bridges advanced robotics with intuitive human controls, serving both
+                    scientific specialists and general personnel whilst ensuring reliable performance in the challenging
+                    conditions of extraterrestrial settlements.</p>
+            </div>
+            <div class="hero-image">
+                <img src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/main/Lunar%20Exploration%20App/hero%20photo.png"
+                    alt="Hexabot Mobile App Interface">
+            </div>
+        </section>
+
+        <div class="container">
+            <!-- Challenge Section -->
+            <section class="challenge-section">
+                <h3 class="section-title">THE CH<span class="italic">A</span>LLENGE</h3>
+                <p class="section-text">
+                    The existing rudimentary interface for Hexabot management presented significant usability challenges. Lunar
+                    colonists needed a more sophisticated yet accessible system to control these vital machines whilst working
+                    in the demanding conditions of space exploration.
+                </p>
+            </section>
+        
+            <!-- User Research Section -->
+            <section class="research-section">
+                <h3 class="section-title">USER RESE<span class="italic">A</span>RCH INSIGHTS</h3>
+                <h4 class="user-groups-title">Primary user groups</h4>
+            
+                <div class="cards-container">
+                    <!-- Card 1 -->
+                    <div class="card">
+                        <h5 class="card-title">Explorers & Researchers</h5>
+                        <div class="card-item">
+                            <img class="card-icon"
+                                src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/Stars%20Minimalistic.svg" alt="Stars Minimalistic"
+                                alt="Star icon">
+                            <p class="card-text">Need efficient multitasking capabilities</p>
+                        </div>
+
+                        <div class="card-item">
+                        <img class="card-icon"
+                            src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/Stars%20Minimalistic.svg"
+                            alt="Stars Minimalistic" alt="Star icon">
+                        <p class="card-text">Focus on mission-critical tasks</p>
+                        </div>
+
+                        <div class="card-item">
+                            <img class="card-icon"
+                                src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/Stars%20Minimalistic.svg"
+                                alt="Stars Minimalistic" alt="Star icon">
+                            <p class="card-text">Require precise control and detailed monitoring</p>
+                        </div>
+                    </div>
+            
+                    <!-- Card 2 -->
+                    <div class="card">
+                        <h5 class="card-title">Families</h5>
+                        <div class="card-item">
+                            <img class="card-icon"
+                                src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/Stars%20Minimalistic.svg"
+                                alt="Stars Minimalistic" alt="Star icon">
+                            <p class="card-text">Non-technical users</p>
+                        </div>
+
+                        <div class="card-item">
+                            <img class="card-icon"
+                                src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/Stars%20Minimalistic.svg"
+                                alt="Stars Minimalistic" alt="Star icon">
+                            <p class="card-text">Need simple, intuitive interfaces</p>
+                        </div>
+
+                        <div class="card-item">
+                            <img class="card-icon"
+                                src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/Stars%20Minimalistic.svg"
+                                alt="Stars Minimalistic" alt="Star icon">
+                            <p class="card-text">Focus on everyday tasks and basic monitoring</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <section class="photo1">
+            <img src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/img1.png"
+                alt="Lunar Exploration Image">
+        </section>
+
+        <div class="container">
+            <section class="brainstorm">
+                <h3>BRAINSTORM & IDEATION</h3>
+                <div class="challenges-container">
+                    <h4>Key Challenges</h4>
+                    <div class="challenges">
+                        <div class="challenge-card">
+                            <img src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/Rocket.svg"
+                                alt="Rocket Icon">
+                            <div>
+                                <h5>Complex operations in space</h5>
+                                <p>Managing intricate tasks in zero gravity</p>
+                            </div>
+                        </div>
+                        <div class="challenge-card">
+                            <img src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/Users%20Group%20Rounded.svg"
+                                alt="Users Icon">
+                            <div>
+                                <h5>Diverse user expertise</h5>
+                                <p>Various technical knowledge levels</p>
+                            </div>
+                        </div>
+                        <div class="challenge-card">
+                            <img src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/History%202.svg"
+                                alt="Clock Icon">
+                            <div>
+                                <h5>Time-critical task management</h5>
+                                <p>Efficient scheduling and execution</p>
+                            </div>
+                        </div>
+                        <div class="challenge-card">
+                            <img src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/Temperature.svg"
+                                alt="Temperature Icon">
+                            <div>
+                                <h5>Environmental constraints</h5>
+                                <p>Adapting to space conditions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="brainstorm">
+                <div class="challenges-container" style="background-color: var(--card-bg3);">
+                    <h4>Solutions Explored</h4>
+                    <div class="challenges" >
+                        <div class="challenge-card">
+                            <img src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/Microphone%203.svg"
+                                alt="Microphone Icon">
+                            <div>
+                                <h5>Voice-activated controls</h5>
+                                <p>Hands-free operation</p>
+                            </div>
+                        </div>
+                        <div class="challenge-card">
+                            <img src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/Checklist%20Minimalistic.svg"
+                                alt="Checklist Icon">
+                            <div>
+                                <h5>Simplified task flow</h5>
+                                <p>Visual status indicators</p>
+                            </div>
+                        </div>
+                        <div class="challenge-card">
+                            <img src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/Traffic.svg"
+                                alt="Traffic Icon">
+                            <div>
+                                <h5>Real-time monitoring</h5>
+                                <p>Visual status indicators</p>
+                            </div>
+                        </div>
+                        <div class="challenge-card">
+                            <img src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/Widget%204.svg"
+                                alt="Widget Icon">
+                            <div>
+                                <h5>Clear visual hierarchy</h5>
+                                <p>Critical information priority</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="brainstorm">
+                <div class="challenges-container" style="background-color: var(--card-bg4);">
+                    <h4>Design Priorities</h4>
+                    <div class="challenges" >
+                        <div class="challenge-card">
+                            <img src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/Map%20Arrow%20Right.svg"
+                                alt="Map Arrow Right Icon">
+                            <div>
+                                <h5>Intuitive navigation</h5>
+                                <p>Easy-to-use interface</p>
+                            </div>
+                        </div>
+                        <div class="challenge-card">
+                            <img src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/List.svg"
+                                alt="List Icon">
+                            <div>
+                                <h5>Task management</h5>
+                                <p>Optimized workflows</p>
+                            </div>
+                        </div>
+                        <div class="challenge-card">
+                            <img src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/Eye.svg"
+                                alt="Eye Icon">
+                            <div>
+                                <h5>Status visualization</h5>
+                                <p>Quick system overview</p>
+                            </div>
+                        </div>
+                        <div class="challenge-card">
+                            <img src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/UFO.svg"
+                                alt="UFO Icon">
+                            <div>
+                                <h5>Space accessibility</h5>
+                                <p>Suit-friendly operation</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="photo1" style="margin-top: 150px; margin-bottom: 150px;">
+                <img src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/img2.png"
+                    alt="Lunar Exploration Image">
+            </section>
+
+            <section class="challenge-section">
+                <h3 class="section-title">USER FL<span class="italic">O</span>W ARCHIT<span class="italic">E</span>CTURE</h3>
+                <p class="section-text">
+                    The Hexabot mobile application is structured with intuitive navigation pathways, designed to optimise the user
+                    experience whilst accounting for both technical and non-technical users. The architecture prioritises quick access to
+                    critical functions during lunar missions.
+                </p>
+            </section>
+            <section class="photo1" style="width: 50%; margin-bottom: 100px;">
+                <img src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/User%20flow.png"
+                    alt="USER FLOW ARCHITECTURE">
+            </section>
+        </div>
+        <section class="photo1" style="margin-top: 80px; margin-bottom: 80px;">
+            <img src="https://raw.githubusercontent.com/yanaharcourt/My-Portfolio/2d2c9f0d344a6cc47d893cdab4c8c4b07b05106b/Lunar%20Exploration%20App/img3.png"
+                alt="Lunar Exploration Image">
+        </section>
+
+        <div class="container">
+            <section class="challenge-section">
+                <h3 class="section-title">ADAPTIVE INTERF<span class="italic">A</span>CE</h3>
+                <p class="section-text">
+                    The dual-theme system addresses the challenging lighting extremes experienced by lunar colonists. During the lunar day,
+                    with harsh direct sunlight, the light theme provides optimal contrast and readability. Conversely, during the lunar
+                    night, which can last up to 14 Earth days, the dark theme reduces eye strain and preserves night vision for astronauts.
+                </p>
+            </section>
+        </div>
+        <section class="juxtapose-section">
+            <iframe frameborder="0" class="juxtapose" width="100%" height="2210"
+                src="https://cdn.knightlab.com/libs/juxtapose/latest/embed/index.html?uid=706a4d06-08b4-11f0-9397-d93975fe8866"></iframe>
+        </section>
+    </body>
+</html>
