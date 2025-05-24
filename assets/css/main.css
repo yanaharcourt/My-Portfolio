@@ -931,36 +931,56 @@ section,
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .skills-section {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 20px;
   }
-
+  
   .skill-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important; /* Принудительно одна колонка */
+    gap: 15px;
   }
-
-  .badges-container {
-    gap: 20px;
+  
+  .skills-card {
+    padding: 25px 20px;
+    margin-bottom: 20px;
   }
-
-  .badge-item {
-    width: 120px;
-    height: 120px;
+  
+  .skill-item {
+    height: 50px;
+    padding-left: 15px;
+    font-size: 14px;
+    margin-bottom: 10px;
   }
-
-  .portfolio-header {
-    padding: 20px;
-    gap: 20px;
-  }
-
-  .name {
-    font-size: 24px;
-  }
-
-  .contact-details {
-    flex-direction: column;
+  
+  .figma-skills-container {
+    flex-direction: column !important;
     gap: 10px;
+    align-items: stretch;
+  }
+  
+  .figma-skill {
+    width: 100% !important;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .profile-image-container {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
   }
 }
 
